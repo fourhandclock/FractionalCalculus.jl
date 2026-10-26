@@ -1,0 +1,2 @@
+case,beta,T,input,rule,expected_observed_order,paper_claimed_order
+constant-input counterexample,0.5,1.0,1.0,literal Eq. 6,0.5,1.5
