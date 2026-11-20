@@ -1,0 +1,6 @@
+info: legendreAudit: no previous manifest, creating one from scratch
+trace: legendreAudit: updating 'mathlib' with {}
+trace: ././.lake/packages/mathlib> git fetch --tags --force origin
+trace: stderr:
+fatal: fetch-pack: invalid index-pack output
+error: external command 'git' exited with code 128

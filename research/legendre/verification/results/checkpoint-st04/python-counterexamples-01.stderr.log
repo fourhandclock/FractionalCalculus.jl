@@ -1,0 +1,15 @@
+test_d0_substitution_changes_the_reduced_recurrence (__main__.CoefficientAudit.test_d0_substitution_changes_the_reduced_recurrence) ... ok
+test_exact_leading_identity_and_negative_coefficient_argument (__main__.CoefficientAudit.test_exact_leading_identity_and_negative_coefficient_argument) ... ok
+test_printed_index_reversal_is_a_separate_formula (__main__.CoefficientAudit.test_printed_index_reversal_is_a_separate_formula) ... ok
+test_signed_history_refutes_norm_bound_inference_only (__main__.CoefficientAudit.test_signed_history_refutes_norm_bound_inference_only) ... ok
+test_step_dependent_collection_and_panel_moments (__main__.CoefficientAudit.test_step_dependent_collection_and_panel_moments) ... ok
+test_supplied_scalar_representations_on_named_reductions (__main__.CoefficientAudit.test_supplied_scalar_representations_on_named_reductions) ... ok
+test_lgl_variable_coefficient_example_exact_rationals (__main__.SpatialAudit.test_lgl_variable_coefficient_example_exact_rationals) ... ok
+test_existing_beta_half_counterexample (__main__.VolterraAudit.test_existing_beta_half_counterexample) ... ok
+test_positive_near_panel_and_finite_sum_identity (__main__.VolterraAudit.test_positive_near_panel_and_finite_sum_identity) ... ok
+test_reported_table_rounding_and_order (__main__.VolterraAudit.test_reported_table_rounding_and_order) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+OK

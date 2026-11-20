@@ -1,0 +1,320 @@
+{
+  "created_at_utc": "2026-11-20T19:54:32.670590+00:00",
+  "kind": "static_checkpoint_integrity",
+  "python_version": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "payloads_executed_by_this_check": false,
+  "checks": [
+    {
+      "check": "production_and_historical_files",
+      "passed": true,
+      "details": {
+        "files_checked": 48,
+        "changed_or_missing": [],
+        "comparison": "LF-normalized SHA-256"
+      }
+    },
+    {
+      "check": "input:legendre_spectral_verification_notes_st03.pdf",
+      "passed": true,
+      "details": {
+        "bytes": 368348,
+        "sha256": "d538f82d3767ccff406f307694784a24b753028266bbea533c747903e7258459"
+      }
+    },
+    {
+      "check": "input:verify_l12_stability.py",
+      "passed": true,
+      "details": {
+        "bytes": 3837,
+        "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+      }
+    },
+    {
+      "check": "input:st03_verification_results.txt",
+      "passed": true,
+      "details": {
+        "bytes": 675,
+        "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+      }
+    },
+    {
+      "check": "input:YS_SS_PD_NM_25_Calcolo.pdf",
+      "passed": true,
+      "details": {
+        "bytes": 6446084,
+        "sha256": "ddcb0a5ad061e81036233ecf6b8dc58039ad07323badd09395f5f960d9a13ced"
+      }
+    },
+    {
+      "check": "input:legendre_spectral_verification_notes_st04.pdf",
+      "passed": true,
+      "details": {
+        "bytes": 451194,
+        "sha256": "0ed95c524efa022749a33a27ea6e252026fa720b2ff2dd583e301e43c5648bc1"
+      }
+    },
+    {
+      "check": "input:legendre_spectral_verification_notes_st04.tex",
+      "passed": true,
+      "details": {
+        "bytes": 46181,
+        "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+      }
+    },
+    {
+      "check": "input:st04_recheck_2026-11-20.txt",
+      "passed": true,
+      "details": {
+        "bytes": 2964,
+        "sha256": "08571a21137b1a7bbe224a915c28916cb1369aec2129a1ea1963302c2f782f77"
+      }
+    },
+    {
+      "check": "input:verify_time_variable_kernel_st04.py",
+      "passed": true,
+      "details": {
+        "bytes": 4782,
+        "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+      }
+    },
+    {
+      "check": "original_author_latex",
+      "passed": true,
+      "details": "Byte-identical; not reconstructed ST-04 LaTeX."
+    },
+    {
+      "check": "python_syntax:check_counterexamples.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:check_integration.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:fetch_lean_sources.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:prepare_evidence.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:run_bounded.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:verify_l12_stability.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "python_syntax:verify_time_variable_kernel_st04.py",
+      "passed": true,
+      "details": "Parsed/compiled in memory; not evaluated."
+    },
+    {
+      "check": "public_local_links",
+      "passed": true,
+      "details": {
+        "checked": 71,
+        "broken": [],
+        "external_links_fetched": false
+      }
+    },
+    {
+      "check": "tex_literal_braces",
+      "passed": true,
+      "details": {
+        "unclosed": [],
+        "unmatched": []
+      }
+    },
+    {
+      "check": "tex_environment_nesting",
+      "passed": true,
+      "details": {
+        "unclosed": [],
+        "mismatches": []
+      }
+    },
+    {
+      "check": "tex_references",
+      "passed": true,
+      "details": {
+        "labels": 41,
+        "references": 36,
+        "missing": []
+      }
+    },
+    {
+      "check": "source_mathematical_structure",
+      "passed": true,
+      "details": {
+        "sections": 8,
+        "equations_by_section": [
+          2,
+          0,
+          0,
+          6,
+          7,
+          7,
+          7,
+          0
+        ],
+        "propositions_by_section": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "check": "math_delimiters:\\[",
+      "passed": true,
+      "details": {
+        "opens": 28,
+        "closes": 28
+      }
+    },
+    {
+      "check": "math_delimiters:\\(",
+      "passed": true,
+      "details": {
+        "opens": 1,
+        "closes": 1
+      }
+    },
+    {
+      "check": "lean_source_integrity",
+      "passed": true,
+      "details": {
+        "theorems": 23,
+        "forbidden_declarations": []
+      }
+    },
+    {
+      "check": "axiom_audit",
+      "passed": true,
+      "details": {
+        "audited_theorems": 23,
+        "unexpected_axioms": []
+      }
+    },
+    {
+      "check": "required_run_inventory",
+      "passed": true,
+      "details": [
+        "julia-legendre-01",
+        "latex-checkpoint-01",
+        "lean-coefficient-axioms-01",
+        "lean-coefficients-06",
+        "lean-quadrature-02",
+        "lean-quadrature-axioms-01",
+        "python-counterexamples-01",
+        "python-st03-01",
+        "python-st04-01"
+      ]
+    },
+    {
+      "check": "retained_run:julia-legendre-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:latex-checkpoint-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:lean-coefficient-axioms-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:lean-coefficients-06",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:lean-quadrature-02",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:lean-quadrature-axioms-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:python-counterexamples-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:python-st03-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    },
+    {
+      "check": "retained_run:python-st04-01",
+      "passed": true,
+      "details": {
+        "stale_sources": [],
+        "changed_outputs": [],
+        "outcome": "completed",
+        "returncode": 0
+      }
+    }
+  ],
+  "passed": true
+}

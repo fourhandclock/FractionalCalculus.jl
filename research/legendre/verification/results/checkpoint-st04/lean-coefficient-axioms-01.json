@@ -1,0 +1,57 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/lean-4.19.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-j1",
+    "CoefficientsAxioms.lean"
+  ],
+  "cwd": "$WORKSPACE/research/legendre/verification/lean",
+  "started_at_utc": "2026-11-20T19:46:03.220337+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 2304,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/lean/CoefficientsAxioms.lean": "d41e33d8b73bc800d8653e7c93de1ac98811facd68fbad0c9c898a6178d313b5",
+    "$WORKSPACE/research/legendre/verification/lean/Coefficients.lean": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+    "$WORKSPACE/research/legendre/verification/lean/lake-manifest.json": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "LEAN_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 9.284782340000675,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T19:46:12.506605+00:00",
+  "child_usage": {
+    "user_seconds": 4.640118,
+    "system_seconds": 1.574532,
+    "peak_rss_kib": 1821928,
+    "peak_sampled_descendant_rss_bytes": 2085208064
+  },
+  "output": {
+    "lean-coefficient-axioms-01.stdout.log": {
+      "bytes": 1688,
+      "sha256": "aeb1a2965025dce91c07615640746f9c653688b2c974a48dd6e1d114b5e3ce50"
+    },
+    "lean-coefficient-axioms-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

@@ -26,7 +26,9 @@ studies/
 test/runtests.jl            Runs each study's test entry point
 ```
 
-The README is the public study guide. Detailed working notes remain local in the excluded `research/` directory; generated prose reports are also excluded from uploads. The numerical CSVs and figures remain with their study.
+The README is the public study guide. Detailed working notes remain local in `research/`, except for the tracked Legendre verification checkpoint linked below; generated prose reports are excluded from uploads. The numerical CSVs and figures remain with their study.
+
+The [mathematical verification checkpoint through ST-04](research/legendre/verification/README.md) preserves the original LaTeX notes, observation statuses, independent numerical checks, and 23 small Lean certificates. Its [validation report](research/legendre/verification/results/VALIDATION.md) records 669 passing Legendre assertions, Python checks, and a successful LaTeX build. The verified coefficient/quadrature discrepancies and stability-proof gap remain distinct from ST-04's finite-grid counterexample candidate and the unresolved PDE theorems.
 
 ## Setup
 

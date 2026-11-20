@@ -1,0 +1,1035 @@
+{
+  "scope": "Complete intended commit list. Preserved ST-03 evidence is newly tracked. Root README/.gitignore use scoped HEAD-based candidates, excluding unrelated working changes.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "newly_tracked": false,
+      "this_session": "modified"
+    },
+    {
+      "path": "README.md",
+      "newly_tracked": false,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/CHECKPOINT_REPORT.md",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/CHECKPOINT_SCOPE.md",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/INTEGRATION_SUMMARY.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/PROVENANCE.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/README.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/REPRODUCE.md",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/ST04_PROVENANCE.md",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/Coefficients.lean",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/CoefficientsAxioms.lean",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/Quadrature.lean",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/QuadratureAxioms.lean",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/README.md",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/lake-manifest.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/lakefile.toml",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/lean-toolchain",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/literature/README.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/mathematical-verification.tex",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/observations/README.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/requirements.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/TEST_PLAN.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/results/VALIDATION.md",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/checkpoint-files.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/environment.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.FractionalCalculus.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.Legendre.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.Solver.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.TimeDiscretization.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.cases.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.proof_audit.jl.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-01.Manifest.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-01.Project.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-02.Manifest.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-02.Project.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-03.Manifest.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-03.Project.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-03.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-03.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/julia-setup-03.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-artifact.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.mathematical-verification.tex.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/latex-final.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-02.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-cache-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.CoefficientsAxioms.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.LeanCoefficientCheck.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.Coefficients.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.LeanImportCheck.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.LegendreAudit.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-02-recovery.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.LegendreAudit.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.LegendreAudit.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.LegendreAudit.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.Quadrature.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.Quadrature.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.Quadrature.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.QuadratureAxioms.lean.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-01.lakefile.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-01.lean-toolchain.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-02.lakefile.toml.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-02.lean-toolchain.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-setup-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-01.fetch_lean_sources.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-01.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-02.fetch_lean_sources.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-02.lake-manifest.json.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-02.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-sources-02.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/path-normalization.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/protected-files.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.check_counterexamples.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.verify_l12_stability.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st03-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st03-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st03-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st03-01.verify_l12_stability.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st04-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st04-01.stderr.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st04-01.stdout.log",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/python-st04-01.verify_time_variable_kernel_st04.py.source.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/release-preflight.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/st04-observations.csv",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/st04-parameters.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/static-validation-01.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/static-validation-02.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/validation-index.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/results/checkpoint-st04/workspace-preservation.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/scripts/check_counterexamples.py",
+      "newly_tracked": true,
+      "this_session": "preserved"
+    },
+    {
+      "path": "research/legendre/verification/scripts/check_integration.py",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "research/legendre/verification/scripts/fetch_lean_sources.py",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/scripts/prepare_evidence.py",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/scripts/run_bounded.py",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/scripts/verify_l12_stability.py",
+      "newly_tracked": true,
+      "this_session": "preserved"
+    },
+    {
+      "path": "research/legendre/verification/scripts/verify_time_variable_kernel_st04.py",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/inputs.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/legendre_spectral_verification_notes_st03.pdf",
+      "newly_tracked": true,
+      "this_session": "preserved"
+    },
+    {
+      "path": "research/legendre/verification/sources/legendre_spectral_verification_notes_st04.pdf",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/legendre_spectral_verification_notes_st04.tex",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/mathematical-verification-st03-transcription.tex",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/st03_verification_results.txt",
+      "newly_tracked": true,
+      "this_session": "preserved"
+    },
+    {
+      "path": "research/legendre/verification/sources/st04-input-manifest.json",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/st04_recheck_2026-11-20.txt",
+      "newly_tracked": true,
+      "this_session": "created"
+    },
+    {
+      "path": "research/legendre/verification/sources/verification-notes-extracted.txt",
+      "newly_tracked": true,
+      "this_session": "preserved"
+    },
+    {
+      "path": "studies/legendre/test/proof_audit.jl",
+      "newly_tracked": true,
+      "this_session": "modified"
+    },
+    {
+      "path": "studies/legendre/test/runtests.jl",
+      "newly_tracked": false,
+      "this_session": "preserved"
+    }
+  ]
+}

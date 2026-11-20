@@ -1,0 +1,21 @@
+{
+  "required_runs": [
+    "julia-legendre-01",
+    "python-counterexamples-01",
+    "python-st03-01",
+    "python-st04-01",
+    "latex-checkpoint-01",
+    "lean-coefficients-06",
+    "lean-quadrature-02",
+    "lean-coefficient-axioms-01",
+    "lean-quadrature-axioms-01"
+  ],
+  "numerical_assertions": {
+    "Julia": 669,
+    "Python_regressions": 10,
+    "ST03_cases": 432,
+    "ST04_configurations": 24
+  },
+  "lean_theorems": 23,
+  "release_gate": "All required records completed with exit zero, hashes match intended sources, axiom audit has no sorryAx; static integrity must also pass. Failed attempts remain separate."
+}

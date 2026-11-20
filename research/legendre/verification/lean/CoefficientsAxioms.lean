@@ -1,0 +1,19 @@
+import Coefficients
+
+#print axioms LegendreAudit.bStarZero_identity
+#print axioms LegendreAudit.leading_identity
+#print axioms LegendreAudit.leading_gt_one
+#print axioms LegendreAudit.leading_three_quarters
+#print axioms LegendreAudit.fourthRootTwo_fourth
+#print axioms LegendreAudit.fourthRootTwo_lt_thirteen_tenths
+#print axioms LegendreAudit.oldestSecond_three_quarters
+#print axioms LegendreAudit.oldestSecond_three_quarters_neg
+#print axioms LegendreAudit.history_abs_budget
+#print axioms LegendreAudit.signedHistory_triangle
+#print axioms LegendreAudit.signed_sum_bound_false
+#print axioms LegendreAudit.l12_assigned_state_counterexample
+#print axioms LegendreAudit.telescoping_history
+#print axioms LegendreAudit.telescoping_not_one
+#print axioms LegendreAudit.normalized_history
+#print axioms LegendreAudit.no_uniform_weighted_energy_bound
+#print axioms LegendreAudit.volterra_half_near_panel_positive

@@ -1,0 +1,35 @@
+{
+  "alpha": "0.95",
+  "beta": "0.05",
+  "lambda": "1",
+  "T": "0.8",
+  "sigma_expression": "(pi/2)^2",
+  "kernel_expression": "0.05+500/(1+exp(-45*(t-0.3)))",
+  "N": [
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "schemes": [
+    "L1",
+    "L12"
+  ],
+  "quadratures": [
+    "published",
+    "product_integration"
+  ],
+  "residual_sample_k": [
+    "0",
+    "1",
+    "2",
+    "N//4",
+    "N//2",
+    "N-1"
+  ],
+  "asserted_residual_tolerance": 5e-10,
+  "asserted_weighted_peak_lower_bound_on_N_ge_1024": 2,
+  "csv_provenance": "Exact text fields extracted from fresh stdout; printed precision only, not certified intervals."
+}

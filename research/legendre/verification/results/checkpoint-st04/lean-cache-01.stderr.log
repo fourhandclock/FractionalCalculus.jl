@@ -1,0 +1,18 @@
+✔ [3/13] Built Cache.Lean
+✔ [4/13] Built Cache.Lean:c.o
+✔ [5/13] Built Cache.IO
+✔ [6/13] Built Cache.IO:c.o
+✔ [7/13] Built Cache.Hashing
+✔ [8/13] Built Cache.Hashing:c.o
+✔ [9/13] Built Cache.Requests
+✔ [10/13] Built Cache.Requests:c.o
+✔ [11/13] Built Cache.Main
+✔ [12/13] Built Cache.Main:c.o
+✔ [13/13] Built cache
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0 62  1.04M  62 670.1k   0      0 449.3k      0   00:02   00:01   00:01 666.4k100  1.04M 100  1.04M   0      0 696.7k      0   00:01   00:01         666.4k100  1.04M 100  1.04M   0      0 696.6k      0   00:01   00:01         666.4k100  1.04M 100  1.04M   0      0 696.6k      0   00:01   00:01         666.4k
+
+error: build failed
+uncaught exception: Failed to fetch ProofWidgets cloud release: lake failed with error code 1

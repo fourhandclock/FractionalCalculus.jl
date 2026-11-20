@@ -12,3 +12,24 @@ research/
 
 # Local generated prose reports; published results live in CSVs and README.md.
 studies/*/results/REPORT.md
+
+# Workspace-local validation tools and acquisition caches.
+/.checkpoint-tools/
+
+# Publish only the Legendre verification checkpoint from local research.
+!/research/
+/research/*
+!/research/legendre/
+/research/legendre/*
+!/research/legendre/verification/
+
+# Retain older private integration evidence locally, outside the checkpoint.
+/research/legendre/verification/results/integration-2026-11-20/
+/research/legendre/verification/sources/input-manifest.json
+/research/legendre/verification/page39.png
+/research/legendre/verification/page42.png
+
+# Rebuildable Lean, TeX, Python, and numerical scratch artifacts.
+/research/legendre/verification/lean/.lake/
+/research/legendre/verification/results/latex-build/
+/research/legendre/verification/**/__pycache__/

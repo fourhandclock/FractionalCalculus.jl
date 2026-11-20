@@ -1,0 +1,30 @@
+{
+  "kind": "ST-04 supplied inputs",
+  "original_latex_supplied": true,
+  "inputs": [
+    {
+      "basename": "legendre_spectral_verification_notes_st04.pdf",
+      "retained_path": "sources/legendre_spectral_verification_notes_st04.pdf",
+      "bytes": 451194,
+      "sha256": "0ed95c524efa022749a33a27ea6e252026fa720b2ff2dd583e301e43c5648bc1"
+    },
+    {
+      "basename": "legendre_spectral_verification_notes_st04.tex",
+      "retained_path": "sources/legendre_spectral_verification_notes_st04.tex",
+      "bytes": 46181,
+      "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+    },
+    {
+      "basename": "st04_recheck_2026-11-20.txt",
+      "retained_path": "sources/st04_recheck_2026-11-20.txt",
+      "bytes": 2964,
+      "sha256": "08571a21137b1a7bbe224a915c28916cb1369aec2129a1ea1963302c2f782f77"
+    },
+    {
+      "basename": "verify_time_variable_kernel_st04.py",
+      "retained_path": "scripts/verify_time_variable_kernel_st04.py",
+      "bytes": 4782,
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    }
+  ]
+}

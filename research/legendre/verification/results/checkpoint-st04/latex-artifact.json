@@ -1,0 +1,25 @@
+{
+  "engine": "Tectonic 0.15.0",
+  "run": "latex-checkpoint-01",
+  "pdf_bytes": 139079,
+  "pdf_sha256": "72437bf4c2f5112c7928a27413fc5793650f5bcb43ef00add66666c20a386206",
+  "pages": 13,
+  "rendered_pages_inspected": [
+    4,
+    7,
+    9,
+    11,
+    12,
+    13
+  ],
+  "generated_pdf_committed": false,
+  "source_sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8",
+  "warnings": [
+    "inputenc ignored under UTF-8 engine",
+    "PDF bookmark math tokens removed",
+    "one underfull paragraph, badness 3302, source lines 508-512",
+    "host Fontconfig configuration warnings"
+  ],
+  "undefined_references": false,
+  "overfull_boxes": false
+}

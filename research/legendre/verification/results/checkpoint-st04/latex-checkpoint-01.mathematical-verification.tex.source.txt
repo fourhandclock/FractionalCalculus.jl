@@ -1,0 +1,663 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[a4paper,margin=29mm,top=28mm,bottom=29mm]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=researchblue,urlcolor=researchblue,citecolor=researchblue]{hyperref}
+\definecolor{researchblue}{HTML}{1753A6}
+\theoremstyle{remark}
+\newtheorem{observation}{Observation}
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{remark}
+\newcommand{\auditstatus}[1]{\par\noindent\emph{#1.}\enspace}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+\title[Verification notes on a Legendre spectral method]{Verification Notes on the L1/L1-2\\Legendre Spectral Method}
+\author{Hardik Bisht}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\section{Purpose and reference problem}
+
+This is a separate working document for the mathematical observations raised during a study and numerical reproduction of the following article:
+\begin{quote}
+Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+\emph{Calcolo} \textbf{62}, article 42 (2025). 
+\href{https://doi.org/10.1007/s10092-025-00671-y}{doi:10.1007/s10092-025-00671-y}.
+\end{quote}
+
+The main model is a time-fractional initial--boundary value problem with a weakly singular Volterra memory term. In one space dimension, its structure is
+\begin{equation}
+ {}_0^CD_t^\alpha u(x,t)-u_{xx}(x,t)+\lambda\mathcal J[u](x,t)=f(x,t),
+ \qquad 0<\alpha,\beta<1,
+\end{equation}
+where
+\begin{equation}
+ \mathcal J[u](x,t)=K(x,t)\int_0^t(t-s)^{-\beta}u(x,s)\,ds.
+\end{equation}
+The article uses L1 and L1-2 time discretizations, a combined trapezoidal/singular-panel quadrature for the Volterra operator, and Legendre--Gauss--Lobatto spectral discretization in space. Its analysis discusses time-step well-posedness, stability, and temporal and spatial convergence.
+
+The purpose of this document is \emph{not} to declare the reported theorems false. It collects individual mathematical questions, the evidence currently available, and the points that remain to be independently derived or tested. An invalid step in a proof does not, by itself, imply that the theorem is false. The original seven observations were initially provisional. Observation~2 has a verified algebraic discrepancy (Section~\ref{sec:verified-l12}), while Observation~8 has a verified quadrature counterexample and sharp consistency estimate (Section~\ref{sec:verified-vq}). Section~\ref{sec:stability-audit} audits the L1--2 induction. Section~\ref{sec:st04-time-kernel} adds a separate, numerically robust challenge to the theorem's contractivity conclusion for an admissible time-dependent positive kernel; a rigorous semidiscrete counterexample is not yet claimed. The other observations retain provisional status.
+
+\section{Observations transferred from the original writeup}
+\label{sec:original-observations}
+
+The following seven observations are reproduced from the appendix to the main study notes. The entries record the initial reading; subsequent verification is documented in the dedicated sections below.
+
+\begin{observation}[Signed Volterra history terms in Theorem 3.1]
+\auditstatus{Status: proof gap established at the coefficient-based induction step; see Section~\ref{sec:stability-audit}}
+
+The energy estimate obtained by testing the weak equation with the current numerical solution is a valid starting point. The subsequent step on page 16 bounds the norm of a signed sum of previous solutions by the absolute value of the \emph{sum of the coefficients}. In general,
+\[
+\left\|\sum_j c_j U^j\right\|
+\leq \sum_j |c_j|\,\|U^j\|,
+\qquad\text{but not necessarily}\qquad
+\left\|\sum_j c_j U^j\right\|
+\leq\left|\sum_jc_j\right|\max_j\|U^j\|.
+\]
+This becomes consequential when the Volterra terms contribute negative coefficients. The source's contraction proof therefore needs an additional argument, stronger hypotheses, or a different stability estimate. Cauchy--Schwarz itself is not the invalid step; the issue is how the signed historical contributions are combined.
+\end{observation}
+
+\begin{observation}[L1-2 coefficients inferred from interpolation]
+\auditstatus{Status: verified algebraic inconsistency in the published coefficient representation; see Section~\ref{sec:verified-l12}}
+
+From the L1-2 quadratic correction of equations (23)--(24),
+\[
+ b_0^*=\frac{1}{2-\alpha}-\frac12=\frac{\alpha}{2(2-\alpha)}.
+\]
+Thus for steps after startup, direct collection of the forward differences gives
+\[
+ d_0=b_0+b_0^*=1+\frac{\alpha}{2(2-\alpha)},
+\]
+which is not equal to one for $0<\alpha<1$. Equation (29), however, asserts $d_0=1$ and bases later algebra on that identity. The index range for the middle coefficient case also requires clarification. Preserve the two-sum interpolatory L1-2 formula as an independent reference when implementing the scheme.
+\end{observation}
+
+\begin{observation}[L1-2 startup and temporal consistency]
+\auditstatus{Status: explicit test case available}
+
+The first panel still uses linear interpolation. For the smooth test function $u(t)=t^2$, the quadratic interpolant is exact on the second panel but the first-panel contribution to the Caputo error at $t_2=2\tau$ is
+\[
+ \Phi_{L12}^{2}
+ =\frac{\tau^{2-\alpha}}{\Gamma(1-\alpha)}
+  \int_0^1(2z-1)(2-z)^{-\alpha}\,dz.
+\]
+The integral is nonzero for $0<\alpha<1$. Hence this step has a contribution of order $\tau^{2-\alpha}$, which is incompatible with a uniform $O(\tau^{3-\alpha})$ Caputo truncation estimate for \emph{every} step $n\geq2$ without a startup qualification. This should be checked separately from convergence at fixed positive physical time.
+\end{observation}
+
+\begin{observation}[Quadrature consistency for variable coefficients]
+\auditstatus{Status: exactness claim requires qualification}
+
+Theorem 4.1 invokes the equality $B(R_M,\rho_M)=B_M(R_M,\rho_M)$ when $R_M$ has a suitably restricted polynomial degree. Legendre--Gauss--Lobatto quadrature with $M+1$ nodes is exact through degree $2M-1$, but the mass form contains the spatially varying coefficient $\widehat R(x)$ and need not be a polynomial of admissible degree. For $M=3$, take
+\[
+ R_M=1-x^2,\qquad \rho_M=x(1-x^2),\qquad \widehat R(x)=1+cx,
+ \quad 0<c<1.
+\]
+The exact integral and four-point Lobatto quadrature for the mass integrand differ in absolute value by $32c/525$. A variable-coefficient quadrature consistency term, or stronger hypotheses, appears necessary.
+\end{observation}
+
+\begin{observation}[Time-step-dependent $H^1$-type norm]
+\auditstatus{Status: interpretation caveat}
+
+The norm used throughout the paper is
+\[
+\|v\|_1^2=\|v\|_{L^2}^2+\alpha_0\|v_x\|_{L^2}^2,
+\qquad\alpha_0=\Gamma(2-\alpha)\tau^\alpha.
+\]
+For a fixed $\tau>0$ it is equivalent to the standard $H^1$ norm, but the equivalence constants are not uniform as $\tau\downarrow0$. Contractivity or convergence in this weighted norm should not be silently restated as a uniform estimate in the standard $H^1$ norm.
+\end{observation}
+
+\begin{observation}[Reported discrete error normalization]
+\auditstatus{Status: numerical reproduction check}
+
+The numerical section defines discrete errors with spatial Lobatto weights and an additional averaging factor involving $(M+1)^{-1}$. The factor is not part of the standard Lobatto quadrature approximation of an $L^2$ norm, because the quadrature weights already account for the spatial integration. During reproduction, report the article's metric \emph{and} the conventional quadrature norm separately; otherwise apparent spatial rates may be affected by the normalization.
+\end{observation}
+
+\begin{observation}[Kernel-sign assumption versus numerical examples]
+\auditstatus{Status: assumptions check}
+
+The stability proof assumes a strictly positive spatial coefficient $K(x,t)$. The paper's numerical Example 6.2 uses a factor $K=x$ on a domain containing negative $x$, so that hypothesis is not satisfied throughout the domain. Distinguish which results apply under positivity and which experiments probe more general coefficients.
+\end{observation}
+
+\section{Additional observation identified subsequently}
+\label{sec:volterra-candidate}
+
+\begin{observation}[Order of the weakly singular Volterra quadrature]
+\label{obs:volterra-order}
+\auditstatus{Status: verified for equation (6) as printed; see Section~\ref{sec:verified-vq}}
+
+Equation (6) applies ordinary composite trapezoidal quadrature on all but the final time panel, using a special singular-panel rule on the final interval. The paper's equation (8) reports a Volterra quadrature remainder of order $O(\tau^{2-\beta})$ under its stated smoothness regime. The ordinary trapezoidal contributions near the weak singularity require closer scrutiny.
+
+A simple test is $K=1$, $u(s)\equiv1$, $T=1$, and $\beta=1/2$. The exact integral is
+\[
+\int_0^1(1-s)^{-1/2}\,ds=2.
+\]
+For the ordinary trapezoidal panel immediately preceding the final special panel, $[1-2\tau,1-\tau]$, the difference between the trapezoidal approximation and the exact integral is
+\[
+\left[\frac{1+2^{-1/2}}{2}-2(\sqrt 2-1)\right]\tau^{1/2}.
+\]
+The bracket is strictly positive. Since the kernel is convex on earlier panels and the special final-panel contribution is exact for constant $u$, the combined error cannot have a uniform $O(\tau^{3/2})$ bound in this test. This contradicts the stated uniform bound. Section~\ref{sec:verified-vq} supplies a rigorous proof of the sharp general $O(\tau^{1-\beta})$ order and independently evaluated numerical data. The effect on the full PDE solution error remains an open task.
+\end{observation}
+
+
+\section{Verification VQ-01: the printed Volterra quadrature}
+\label{sec:verified-vq}
+
+\subsection{Claim and assumptions}
+The article's equation (6), on PDF page 7 (journal section 2.1), treats every time panel except the last with the ordinary composite trapezoidal rule; the final, singular panel uses an endpoint average multiplied by the analytically integrated kernel weight. Equation (8) states that the quadrature error is $O(\bigl(\Delta t\bigr)^{2-\beta})$. We check exactly this printed construction, \emph{not} a product-integration method or a differently weighted trapezoidal rule.
+
+Fix a spatial point, set $t_n=n\tau$, $\tau=T/N$, and suppress the $x$-argument. For the separable kernel $\mathbb K(t,s)=K(t)(t-s)^{-\beta}$, define
+\begin{equation}\label{eq:vq-exact}
+ I^n[u]=K(t_n)\int_0^{t_n}(t_n-s)^{-\beta}u(s)\,ds.
+\end{equation}
+The numerical formula in equation (6) is
+\begin{equation}\label{eq:vq-published}
+\begin{aligned}
+ Q_\tau^n[u]=K(t_n)\Bigg\{&\frac\tau2\sum_{j=0}^{n-2}
+ \bigl[(t_n-t_j)^{-\beta}u(t_j)
+       +(t_n-t_{j+1})^{-\beta}u(t_{j+1})\bigr]\\
+ &+\frac{\tau^{1-\beta}}{2(1-\beta)}
+ \bigl[u(t_{n-1})+u(t_n)\bigr]\Bigg\}.
+\end{aligned}
+\end{equation}
+We denote the quadrature error by $\Phi_T^n=I^n[u]-Q_\tau^n[u]$. This sign convention agrees with the article's definition, though the absolute-error conclusions below are independent of that sign.
+
+\subsection{A counterexample for every $0<\beta<1$}
+\begin{proposition}[Failure of the claimed quadrature order]\label{prop:vq-counter}
+Let $T=1$, $K\equiv1$, $u\equiv1$, $0<\beta<1$, and $n=N\ge2$. Then
+\begin{equation}\label{eq:vq-lower}
+ |\Phi_T^N|\ge c_\beta\tau^{1-\beta},\qquad
+ c_\beta:=\frac{1+2^{-\beta}}2
+ -\frac{2^{1-\beta}-1}{1-\beta}>0.
+\end{equation}
+In particular, there exists no $\tau$-independent constant $C$ such that
+$|\Phi_T^N|\le C\tau^{2-\beta}$ for all sufficiently small $\tau$.
+\end{proposition}
+\begin{proof}
+The exact value is
+\[
+ I^N[1]=\int_0^1(1-s)^{-\beta}\,ds=\frac1{1-\beta}.
+\]
+The special last-panel term in \eqref{eq:vq-published} equals
+$\tau^{1-\beta}/(1-\beta)$ and therefore integrates its panel exactly when $u=1$.
+On the immediately preceding panel $[1-2\tau,1-\tau]$, the ordinary trapezoidal approximation equals
+\[
+ Q_{\rm near}=\frac{\tau^{1-\beta}}2(1+2^{-\beta}),
+\]
+whereas the exact panel integral is
+\[
+ I_{\rm near}=\tau^{1-\beta}
+ \frac{2^{1-\beta}-1}{1-\beta}.
+\]
+Their difference is exactly $c_\beta\tau^{1-\beta}$. The function
+$s\mapsto(1-s)^{-\beta}$ has strictly positive second derivative wherever $s<1$:
+\[
+ \frac{d^2}{ds^2}(1-s)^{-\beta}
+ =\beta(\beta+1)(1-s)^{-\beta-2}>0.
+\]
+Therefore every ordinary trapezoidal panel has a strictly positive overestimate; none can cancel the near-panel error. This proves \eqref{eq:vq-lower}.
+Dividing by $\tau^{2-\beta}$ gives
+$|\Phi_T^N|/\tau^{2-\beta}\ge c_\beta/\tau\to\infty$, contradicting any uniform bound of the reported order.
+\end{proof}
+
+In fact, on this constant-function test, we have the \emph{exact} identity
+\begin{equation}\label{eq:vq-error-sum}
+\begin{aligned}
+ Q_\tau^N[1]-I^N[1]=\tau^{1-\beta}\sum_{r=2}^N\bigg[
+ &\frac{(r-1)^{-\beta}+r^{-\beta}}2\\
+ &-\frac{r^{1-\beta}-(r-1)^{1-\beta}}{1-\beta}
+ \bigg].
+\end{aligned}
+\end{equation}
+Each bracket is positive. As $r\to\infty$ it is asymptotic to
+$\beta(\beta+1)r^{-\beta-2}/12$, so the series converges to a finite \emph{positive} number $C_\beta$. Consequently,
+\begin{equation}\label{eq:vq-sharp-constant}
+ |\Phi_T^N|\sim C_\beta\tau^{1-\beta}
+ \qquad(N\to\infty,\;T=1).
+\end{equation}
+Thus the loss of one power is not merely an artifact of a lower bound.
+
+\subsection{General upper estimate}
+\begin{proposition}[Sharp general-order estimate]\label{prop:vq-upper}
+Assume $u\in C^2([0,T])$, $0<\beta<1$, and $K$ is bounded on $[0,T]$. Then the printed formula satisfies
+\[
+ \max_{1\le n\le N}|I^n[u]-Q_\tau^n[u]|
+ \le C\,\tau^{1-\beta},
+\]
+where $C$ depends on $T,\beta,\|K\|_\infty$ and the indicated bounds on $u$, but not on $N$. The power $1-\beta$ cannot be improved uniformly for all such functions.
+\end{proposition}
+\begin{proof}
+Fix $t_n$ and put $g_n(s)=(t_n-s)^{-\beta}u(s)$. Direct differentiation gives
+\begin{equation}\label{eq:vq-curvature}
+\begin{aligned}
+ g_n''(s)={}&\beta(\beta+1)(t_n-s)^{-\beta-2}u(s)\\
+ &+2\beta(t_n-s)^{-\beta-1}u'(s)
+ +(t_n-s)^{-\beta}u''(s).
+\end{aligned}
+\end{equation}
+Index the ordinary panels backwards from $t_n$, so panel $r$ is
+$[t_n-r\tau,t_n-(r-1)\tau]$, $r=2,\ldots,n$.
+On this panel, $t_n-s\ge(r-1)\tau$. The standard local trapezoidal-error estimate yields
+\begin{equation*}
+\begin{aligned}
+ |E_r|\le C\bigl[&\|u\|_\infty\tau^{1-\beta}(r-1)^{-\beta-2}
+ +\|u'\|_\infty\tau^{2-\beta}(r-1)^{-\beta-1}\\
+ &+\|u''\|_\infty\tau^{3-\beta}(r-1)^{-\beta}\bigr].
+\end{aligned}
+\end{equation*}
+Both $\sum_{r=1}^\infty r^{-\beta-2}$ and
+$\sum_{r=1}^\infty r^{-\beta-1}$ are finite, while
+$\sum_{r=1}^{n-1}r^{-\beta}\le C_\beta n^{1-\beta}$.
+Since $n\tau\le T$, summing the ordinary-panel errors gives
+\[
+ \sum_{r=2}^n|E_r|
+ \le C(\tau^{1-\beta}+\tau^{2-\beta}+\tau^2).
+\]
+For the final panel, the difference between $u(s)$ and the average of its endpoint values is at most $\tau\|u'\|_\infty/2$. Integrating the positive weight gives an error bounded by
+$C\tau^{2-\beta}$. Multiply by $\|K\|_\infty$ and combine the panels. For fixed $T$ and sufficiently small $\tau$, the bound is $C\tau^{1-\beta}$. Sharpness follows from Proposition~\ref{prop:vq-counter}.
+\end{proof}
+
+\subsection{Independent numerical check}
+For the exact test $u=K=1$, $T=1$, we evaluated the finite sum in
+\eqref{eq:vq-published} and compared it with $I^N=1/(1-\beta)$.
+The empirical order uses $p_N=\log_2(E_N/E_{2N})$.
+\begin{center}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\hline
+$\beta$ & $E_{256}$ & $E_{512}$ & $E_{1024}$ & $p_{512}$\\
+\hline
+$0.2$ & $1.90147\cdot10^{-4}$ & $1.09293\cdot10^{-4}$ & $6.27930\cdot10^{-5}$ & $0.7995$\\
+$0.5$ & $2.47721\cdot10^{-3}$ & $1.75194\cdot10^{-3}$ & $1.23888\cdot10^{-3}$ & $0.4999$\\
+$0.8$ & $2.06036\cdot10^{-2}$ & $1.79371\cdot10^{-2}$ & $1.56153\cdot10^{-2}$ & $0.2000$\\
+\hline
+\end{tabular}
+\end{center}
+In each case $p_{512}$ approaches $1-\beta$, rather than the paper's $2-\beta$.
+Two equivalent finite-sum implementations, one using the original time nodes and one using \eqref{eq:vq-error-sum}, agree to floating-point precision. A companion Python checker reproduces the table and its estimated orders; no PDE solver is required.
+
+\subsection{Scope and consequences}
+The constant-in-time test is admissible at the level of the quadrature estimate. It can also be embedded in a homogeneous Dirichlet IBVP: set $\Omega_x=(-1,1)$,
+\[
+ u(x,t)=1-x^2,\qquad K(x,t)=1,\qquad
+ f(x,t)=2+\frac{\lambda(1-x^2)t^{1-\beta}}{1-\beta},
+\]
+with initial datum $1-x^2$ and zero boundary values. The Caputo derivative vanishes, and at every interior point with $u(x,t)\ne0$, the same Volterra error persists after multiplication by $1-x^2$.
+
+With the conventional definition of the operator discrepancy,
+\[
+ r_\tau^n=\Phi_{L1}^n+\lambda\Phi_T^n,
+\]
+the general operator consistency estimate from the printed rules is at most
+\[
+ |r_\tau^n|\le C\bigl(\tau^{2-\alpha}+\tau^{1-\beta}\bigr)
+ =O(\tau^{1-\beta})
+\]
+under standard smoothness assumptions. On the constant-in-time example, $\Phi_{L1}^n=0$, so the lower order occurs in the complete operator discrepancy whenever $\lambda\ne0$. The article's scaled residual convention and signs should be checked independently; multiplying this Volterra discrepancy by
+$\alpha_0=\Gamma(2-\alpha)\tau^\alpha$ yields a term of order
+$\tau^{1+\alpha-\beta}$.
+
+\emph{What is established:} equation (6), as printed, cannot have the reported general $O(\tau^{2-\beta})$ Volterra quadrature remainder in equation (8). Its sharp general consistency order for smooth $u$ is $1-\beta$.
+
+\emph{What is not established:} this does not by itself disprove the paper's global PDE solution-error estimates, nor determine which corrected stability and convergence bounds hold. Those require a separate analysis of the discrete evolution and, where appropriate, experiments with the full scheme.
+
+\subsection{A candidate higher-order replacement}
+One possible alternative is product integration: interpolate $u$ piecewise linearly, but integrate the singular weight exactly on each time panel. For the interpolant $I_\tau u$,
+\[
+ Q_{\rm PI}^n[u]=K(t_n)\sum_{j=0}^{n-1}
+ \int_{t_j}^{t_{j+1}}(t_n-s)^{-\beta}(I_\tau u)(s)\,ds.
+\]
+Since $\|u-I_\tau u\|_\infty\le\tau^2\|u''\|_\infty/8$, this construction satisfies
+\[
+ |I^n[u]-Q_{\rm PI}^n[u]|
+ \le\frac{\|K\|_\infty\,T^{1-\beta}}{8(1-\beta)}
+ \|u''\|_\infty\tau^2.
+\]
+This is \emph{not} the method printed in equation (6). Its discrete weights, stability, and full-scheme convergence must be investigated separately before it can be recommended as a replacement.
+
+
+\section{Verification CF-02: L1--2 coefficient identities}
+\label{sec:verified-l12}
+
+\subsection{Source statement and what is being checked}
+In Section 2.2 of the reference article, equations (20)--(22) define the L1--2 approximation by linearly interpolating on the first time panel and using a backward three-point quadratic interpolant thereafter. Equation (23), on PDF page 11, first gives a two-sum formula, then claims that it equals a single sum of backward increments weighted by $d_j$. Equation (24) defines the correction weights; equation (29), on PDF page 13, states that $d_0=1$ and that the $d_j$ are positive and decreasing. The recurrence in equations (28)--(32) uses these assertions.
+
+We test the \emph{algebraic equivalence} of the formulas as printed, independently of the spatial problem, the Volterra quadrature, and the PDE stability theorem. A discrepancy in an identity is not, on its own, evidence that the interpolation-based scheme is unstable.
+
+Write $\tau=\Delta t$, $u^j=u(x,t_j)$ at a fixed spatial point, and $\Delta u_j=u^{j+1}-u^j$. The first nontrivial L1--2 step occurs at $t_2$ ($k=1$). The two-sum formula directly following from the defining interpolants is
+\begin{equation}\label{eq:cf-two-sum}
+\mathcal D_{L12}^\alpha u^{k+1}
+=\frac{\tau^{-\alpha}}{\Gamma(2-\alpha)}
+\left[\sum_{j=0}^k b_{k-j}\Delta u_j
++\sum_{j=1}^k b^*_{k-j}(\Delta u_j-\Delta u_{j-1})\right],
+\end{equation}
+where $b_r=(r+1)^{1-\alpha}-r^{1-\alpha}$ and
+\begin{equation}\label{eq:cf-bstar}
+ b_r^*=\frac{(r+1)^{2-\alpha}-r^{2-\alpha}}{2-\alpha}
+ -\frac{(r+1)^{1-\alpha}+r^{1-\alpha}}2.
+\end{equation}
+In fact, using the local coordinate $z=(s-t_j)/\tau$, the quadratic correction comes from the moment
+\[
+ b_r^*=(1-\alpha)\int_0^1(z-\tfrac12)(r+1-z)^{-\alpha}\,dz.
+\]
+Evaluating this integral yields \eqref{eq:cf-bstar}, independently of the single-sum representation in the article.
+
+\subsection{Exact collection of the forward differences}
+\begin{proposition}[Correct coefficients for the printed interpolatory rule]
+\label{prop:cf-collection}
+For the L1--2 discretization \eqref{eq:cf-two-sum}, the correct collected representation is
+\begin{equation}\label{eq:cf-collected}
+\mathcal D_{L12}^\alpha u^{k+1}
+=\frac{\tau^{-\alpha}}{\Gamma(2-\alpha)}
+\sum_{r=0}^k d_r^{[k]}\Delta u_{k-r},
+\end{equation}
+with startup $d_0^{[0]}=1$ and, when $k\ge1$,
+\begin{equation}\label{eq:cf-d}
+ d_r^{[k]}=\begin{cases}
+ b_0+b_0^*,&r=0,\\
+ b_r+b_r^*-b_{r-1}^*,&1\le r\le k-1,\\
+ b_k-b_{k-1}^*,&r=k.
+ \end{cases}
+\end{equation}
+The middle case is empty when $k=1$.
+\end{proposition}
+\begin{proof}
+In the second sum of \eqref{eq:cf-two-sum}, each term equals
+$b_{k-j}^*\Delta u_j-b_{k-j}^*\Delta u_{j-1}$.
+The newest increment $\Delta u_k$ receives $b_0$ from the first sum and $b_0^*$ from the second. Each interior increment $\Delta u_{k-r}$, $1\le r\le k-1$, receives $b_r+b_r^*-b_{r-1}^*$. The oldest increment $\Delta u_0$ receives $b_k-b_{k-1}^*$. For $k=0$, the second sum is empty and $b_0=1$. These are exactly the coefficients in \eqref{eq:cf-d}.
+\end{proof}
+
+The superscript $[k]$ is intentional: the oldest-panel coefficient depends on which step is being computed. A single infinite sequence $d_0,d_1,\ldots$ does not encode that endpoint modification without specifying the time level.
+
+\subsection{Two exact counterexamples to the printed identities}
+\begin{proposition}[The leading coefficient and positivity claim]
+\label{prop:cf-counter}
+For every $0<\alpha<1$ and every $k\ge1$, the coefficient of $\Delta u_k$ in \eqref{eq:cf-two-sum} satisfies
+\begin{equation}\label{eq:cf-d0}
+ d_0^{[k]}=1+b_0^*=1+\frac{\alpha}{2(2-\alpha)}>1.
+\end{equation}
+Moreover, for the admissible value $\alpha=3/4$ at $k=1$,
+\begin{equation}\label{eq:cf-neg}
+ d_0^{[1]}=\frac{13}{10},\qquad
+ d_1^{[1]}=2^{1/4}-\frac{13}{10}<0.
+\end{equation}
+Thus neither $d_0=1$ for all steps nor $d_j>0$ for all $0<\alpha<1$ follows from equation (23).
+\end{proposition}
+\begin{proof}
+Putting $r=0$ in \eqref{eq:cf-bstar} gives
+$b_0^*=1/(2-\alpha)-1/2=\alpha/[2(2-\alpha)]$, which is strictly positive.
+For $k=1$, the oldest-increment coefficient is $d_1^{[1]}=b_1-b_0^*$.
+At $\alpha=3/4$, this is $2^{1/4}-13/10$; it is negative since
+$2<(13/10)^4=28561/10000$, and both quantities are positive.
+\end{proof}
+
+There is an additional, independent index reversal in the final line of the article's equation (23). It displays a sum of the form
+\[
+ \sum_{j=0}^k \Delta u_{k-j}\,d_{k-j},
+\]
+whereas the two-sum interpolation gives $\sum_{j=0}^k\Delta u_{k-j}\,d_j^{[k]}$, equivalently $\sum_{j=0}^k\Delta u_j\,d_{k-j}^{[k]}$.
+For example, at $k=1$ choose nodal data $(u^0,u^1,u^2)=(0,0,1)$. The two-sum formula is proportional to $d_0^{[1]}=13/10$ for $\alpha=3/4$, while the final single sum \emph{as printed} is proportional to $d_1^{[1]}=2^{1/4}-13/10<0$. The two expressions are plainly not equal.
+
+Finally, equation (24) prints the index range $j=0,2,\ldots,N-1$ for $b_j^*$, apparently omitting $j=1$; the middle case of the displayed definition of $d_j$ also begins at $j=2$ instead of $j=1$. Both indices are needed for a correct representation when $k\ge2$.
+
+\subsection{Consequences for the recurrence and stability arguments}
+For any fixed step $k\ge1$, the basic telescoping identity is
+\begin{equation}\label{eq:cf-telescope}
+(d_0^{[k]}-d_1^{[k]})
++\sum_{r=1}^{k-1}(d_r^{[k]}-d_{r+1}^{[k]})+d_k^{[k]}
+=d_0^{[k]},
+\end{equation}
+not $1$. This conflicts with the normalization asserted in equation (29). More strongly, the corrected $d_1^{[1]}<0$ at $\alpha=3/4$, so positivity and monotonicity-based inductions cannot be justified using (29) without additional analysis.
+
+In the elliptic rearrangement of the \emph{interpolatory} L1--2 scheme, the current-state coefficient should accordingly be
+\[
+ \widehat R_{(2)}^{k+1}(x)
+ =d_0^{[k]}+\frac{\lambda\alpha_0\tau^{1-\beta}}{2(1-\beta)}K(x,t_{k+1}),
+ \qquad \alpha_0=\Gamma(2-\alpha)\tau^\alpha,
+\]
+for $k\ge1$, rather than replacing $d_0^{[k]}$ by $1$ as in equation (31). It is possible to normalize the entire equation by $d_0^{[k]}$, but that would also change the diffusion coefficient to $\alpha_0/d_0^{[k]}$ and rescale all historical coefficients; merely writing $d_0=1$ is not such a normalization. The startup step $k=0$ is unaffected.
+
+This is an \emph{algebraic verification of the coefficient identities}, not a stability counterexample. The implications for the numerical scheme and Theorem 3.1 remain open. In particular, a negative historical coefficient does not by itself imply numerical instability.
+
+\subsection{Independent reproducibility and formalization status}
+We separately evaluated the defining piecewise-interpolatory Caputo integrals numerically, the two-sum formula \eqref{eq:cf-two-sum}, and the corrected single sum \eqref{eq:cf-collected}, for $\alpha\in\{0.25,0.5,0.75\}$, $k\in\{0,1,2,4\}$, and polynomial nodal data of degrees $0$ through $3$. The two algebraic representations agree to high precision; direct panel integration also agrees within numerical integration tolerance for the tested steps. The last line of equation (23), used literally, fails the simple $k=1$ test above.
+
+\begin{center}
+\small
+\begin{tabular}{@{}cccc@{}}
+\hline
+$\alpha$ & $d_0^{[1]}$ & $d_1^{[1]}$ & $d_1^{[1]}>0$?\\
+\hline
+$0.25$ & $1.07142857$ & $0.61036426$ & yes\\
+$0.50$ & $1.16666667$ & $0.24754690$ & yes\\
+$0.75$ & $1.30000000$ & $-0.11079288$ & no\\
+\hline
+\end{tabular}
+\end{center}
+
+The accompanying Python script has been executed and passes the checks. A standard-library Julia counterpart and a small mathlib Lean draft are also provided. \emph{Neither the Julia file nor the Lean proof draft was executed in this environment}; hence this document does not claim machine-certified formal verification. The exact algebraic proofs above do not depend on those programs.
+
+\noindent\textit{Status.} The published single-sum coefficient representation and equation (29) are algebraically inconsistent with the defining two-sum interpolation for the stated parameter range. The correct interpolation-based scheme has been reconstructed. Whether the paper's implemented code follows the two-sum rule or the misindexed recurrence, and whether its reported stability conclusions can be recovered, remain open.
+
+
+\section{Verification ST-03: L1--2 history coefficients and Theorem 3.1}
+\label{sec:stability-audit}
+
+\subsection{Scope, source claim, and reduced problem}
+Theorem 3.1 (Section 3 of Sabawi et al.) claims, subject to a sufficiently fine temporal mesh, the bound
+\begin{equation}\label{eq:st-claim}
+ \|U_{(q)}^{k+1}\|_1\leq\|U_{(q)}^0\|_{L^2},\qquad q=1,2,
+\end{equation}
+where $\|v\|_1^2=\|v\|_{L^2}^2+\alpha_0\|v_x\|_{L^2}^2$ and $\alpha_0=\Gamma(2-\alpha)\tau^\alpha$. Its written proof establishes a first-step energy estimate and then performs induction for $q=1$, asserting that the $q=2$ case follows similarly from equation (29). Our objective here is \emph{not} to prove or disprove \eqref{eq:st-claim}, but to determine whether that induction applies to the interpolatory L1--2 scheme actually defined in equation (23).
+
+For the stability test set the forcing to zero and work at a fixed time level $t_{k+1}$; write $U^j=U_{(2)}^j$ and $\tau=\Delta t$. The following derivation first isolates the fractional derivative and then reincorporates the Volterra history term. We assume real-valued solutions, as in the article's energy formulation.
+
+\subsection{The correct state-value recurrence}
+Let $d_r^{[k]}$ denote the interpolatory coefficients independently derived in Proposition~\ref{prop:cf-collection}, and define the historical coefficients
+\begin{equation}\label{eq:st-history}
+ h_r^{[k]}=d_r^{[k]}-d_{r+1}^{[k]},\quad 0\le r<k,
+ \qquad h_k^{[k]}=d_k^{[k]}.
+\end{equation}
+The backward-increment representation of the fractional operator gives the exact algebraic identity
+\begin{equation}\label{eq:st-state}
+ \sum_{r=0}^k d_r^{[k]}(U^{k+1-r}-U^{k-r})
+ =d_0^{[k]}U^{k+1}-\sum_{r=0}^k h_r^{[k]}U^{k-r}.
+\end{equation}
+The history coefficients telescope to
+\begin{equation}\label{eq:st-hsum}
+ \sum_{r=0}^k h_r^{[k]}=d_0^{[k]},
+\end{equation}
+which equals $1$ only at startup. Identity \eqref{eq:st-hsum} \emph{does not} imply that the coefficients $h_r^{[k]}$ are nonnegative, nor that their absolute values sum to $d_0^{[k]}$.
+
+For a spatially constant positive coefficient $K=1$, define
+\[
+ \theta=\frac{\lambda\alpha_0\tau^{1-\beta}}{2(1-\beta)},\qquad
+ Q_{\rm past}^{k+1}=\frac{\tau}{2}\sum_{j=0}^{k-1}
+ \bigl[((k+1-j)\tau)^{-\beta}U^j+((k-j)\tau)^{-\beta}U^{j+1}\bigr].
+\]
+Multiplying the homogeneous time-discrete equation by $\alpha_0$, the corrected recurrence becomes
+\begin{equation}\label{eq:st-corrected}
+ (d_0^{[k]}+\theta)U^{k+1}-\alpha_0 U_{xx}^{k+1}
+ =\sum_{r=0}^k h_r^{[k]}U^{k-r}
+ -\theta U^k-\lambda\alpha_0 Q_{\rm past}^{k+1}
+ \qquad (k\ge1).
+\end{equation}
+If $K=K(x,t)$ varies spatially, the $\theta$ terms are multiplied by $K(x,t_{k+1})$ and the past-panel terms by the corresponding kernel factors; the key signed-history issue remains. The current-state coefficient in \eqref{eq:st-corrected} is $d_0^{[k]}+\theta$, not $1+\theta$, as printed in equations (30)--(31). At $k=0$, $d_0^{[0]}=1$ and the paper's startup coefficient is consistent.
+
+\subsection{A certified failure of the required induction inequality}
+\begin{proposition}[The elementary contraction induction cannot be justified from the stated hypotheses]
+\label{prop:st-history-counter}
+For the interpolatory L1--2 scheme with $\alpha=3/4$ and $k=1$, the historical coefficients satisfy
+\[
+ d_0^{[1]}=\frac{13}{10},\quad
+ d_1^{[1]}=2^{1/4}-\frac{13}{10}<0,
+ \qquad h_0^{[1]}=d_0^{[1]}-d_1^{[1]},\quad h_1^{[1]}=d_1^{[1]}.
+\]
+In particular,
+\begin{equation}\label{eq:st-absolute}
+ |h_0^{[1]}|+|h_1^{[1]}|
+ =d_0^{[1]}-2d_1^{[1]}>d_0^{[1]}.
+\end{equation}
+Hence an induction hypothesis consisting only of $\|U^j\|\leq\|U^0\|$ cannot imply
+\(\|\sum_{r=0}^k h_r^{[k]}U^{k-r}\|
+\leq d_0^{[k]}\|U^0\|\) for all possible preceding states.
+\end{proposition}
+\begin{proof}
+The coefficient calculation is exact by Proposition~\ref{prop:cf-counter}. For arbitrary real scalar states with $U^1=1$ and $U^0=-1$ (both having norm one), the history combination is $h_0^{[1]}-h_1^{[1]}=d_0^{[1]}-2d_1^{[1]}>d_0^{[1]}$. This refutes the inference from \emph{norm bounds alone}. These two arbitrarily assigned states are \emph{not} asserted to satisfy the fractional evolution recurrence, so this is a proof-step counterexample, not a theorem counterexample.
+\end{proof}
+
+Numerically, $d_0^{[1]}=1.300000$, $d_1^{[1]}=-0.110792885$, and the absolute historical coefficient budget is $1.521585770$, approximately $1.170451$ times the current coefficient. Moreover, a negative historical coefficient can arise even without $d_1<0$: at $\alpha=1/2$ and $k=2$, $d_2^{[2]}>d_1^{[2]}$, so $h_1^{[2]}=d_1^{[2]}-d_2^{[2]}<0$. Thus the naive nonnegative-coefficient induction is not generally available even for moderate $\alpha$.
+
+The Volterra contributions do not repair this inference automatically. For a sum of signed history terms one must bound
+\[
+ \left\|\sum_j c_j U^j\right\|\leq\sum_j|c_j|\,\|U^j\|,
+\]
+not replace $\sum_j|c_j|$ with $|\sum_j c_j|$. Positivity of the kernel $K$ alone does not supply the missing sign information on the \emph{combined} coefficients. The problematic replacement occurs explicitly in the published $q=1$ argument as well; the $q=2$ proof is asserted by analogy rather than worked out.
+
+\subsection{Independent literature: the exceptional coefficients are known}
+A directly comparable analysis is M. Ramezani, R. Mokhtari, and G. Haase, \emph{Analysis of stability and convergence for L-type formulas combined with a spatial finite element method for solving subdiffusion problems}, \emph{Electronic Transactions on Numerical Analysis} \textbf{55} (2022), 568--584,
+\href{https://doi.org/10.1553/etna_vol55s568}{doi:10.1553/etna\_vol55s568}.
+
+Section 3.2 (Theorems 3.4--3.6) treats L1--2 stability and convergence using energy estimates and a discrete Gronwall argument. The authors expressly note that strict coefficient monotonicity can fail for higher-order L-type schemes, making elementary induction inappropriate.
+
+This is \emph{independent corroboration} that the exceptional coefficient structure must be handled. But their model is a subdiffusion equation without Sabawi et al.'s additional weakly singular Volterra memory term, and their $L^2$/$H^1$ results cannot be imported as a proof of \eqref{eq:st-claim}. In particular, we must first derive a discrete estimate for the combined fractional and Volterra histories before invoking any Gronwall inequality.
+
+\subsection{A reduced evolution test: why signed coefficients do not prove instability}
+Consider a single diffusion eigenmode, with $\lambda=0$ solely to isolate the L1--2 derivative and $-U_{xx}=\sigma U$, $\sigma\ge0$. Put $\mu=\sigma\alpha_0\ge0$ and normalize the initial amplitude to $u^0=1$. The first step gives $u^1=(1+\mu)^{-1}$. The second step, with the \emph{correct} L1--2 coefficients, satisfies
+\begin{equation}\label{eq:st-scalar}
+ (d_0+\mu)u^2=(d_0-d_1)u^1+d_1u^0,
+ \quad\Longrightarrow\quad
+ u^2=\frac{d_0+d_1\mu}{(d_0+\mu)(1+\mu)}.
+\end{equation}
+For $0<\alpha<1$ we have $|d_1|<1$ and $d_0>0$, hence
+\[
+ |u^2|\le\frac{d_0+|d_1|\mu}{(d_0+\mu)(1+\mu)}
+ \le\frac{1}{1+\mu}.
+\]
+It follows in this particular scalar eigenmode that the modified norm factor $\sqrt{1+\mu}\,|u^2|$ is at most $(1+\mu)^{-1/2}\le1$. Thus the invalid induction step is compatible with genuine contractivity of a reduced, exactly solved trajectory. This is only a two-step calculation and does not extend to the full space-dependent Volterra scheme without further proof.
+
+The printed equation (30), with $d_0$ replaced by $1$ but historical terms left unscaled, defines a different recurrence. For example, at $\alpha=3/4$, $\mu=0.3$, and zero memory coupling, the correct rule gives $u^2\approx0.609020257$, whereas the unrescaled $d_0=1$ form gives $u^2\approx0.572048600$. This diagnostic uses $\lambda=0$ to expose the algebraic difference, not to assert a counterexample under the article's $\lambda>0$ assumptions.
+
+\subsection{Reproducible numerical diagnostic and present verdict}
+The accompanying \texttt{verify\_l12\_stability.py} independently evaluates the collected state-value recurrence and the direct backward-increment recurrence for the scalar equation
+\[
+ {}_0^CD_t^\alpha u+\sigma u+\lambda\int_0^t(t-s)^{-\beta}u(s)\,ds=0,
+ \qquad u(0)=1,\quad K=1.
+\]
+Across 432 parameter combinations, the two independently programmed recurrence forms agree to within $4\times10^{-15}$ (ordinary double precision). This checks our algebraic implementation, not the full PDE. Some coarse-step tests exhibit weighted amplification above one; for example $\alpha=0.25$, $\beta=0.8$, $\sigma=10$, $\lambda=10$, $N=16$ gives $\sqrt{1+\sigma\alpha_0}\,|u^1|\approx1.086$. This \emph{does not contradict} the article's sufficiently-small-step formulation, and here $\beta>\alpha$. For fixed parameters, refinement in that test reduces the amplification below one. No counterexample to the stated fine-grid theorem is claimed.
+
+\noindent\emph{Verdict (ST-03).} The L1--2 extension of the published Theorem 3.1 induction is \emph{not justified by the stated coefficient properties}: the normalization $d_0=1$ after startup is incorrect, and signed history coefficients violate the required absolute-sum bound. The independent 2022 L1--2 analysis explicitly recognizes this sign difficulty and develops a different route to stability. The stability theorem for Sabawi et al.'s \emph{full} Volterra--diffusion scheme remains \textbf{unresolved}; a corrected energy estimate with a suitable discrete memory/Gronwall argument, or a parameter-valid counterexample, is still needed.
+
+
+\section{Verification ST-04: a time-dependent positive-kernel challenge to Theorem 3.1}
+\label{sec:st04-time-kernel}
+
+\subsection{Question and status}
+Section~\ref{sec:stability-audit} established that the published contraction induction is invalid, but it did not test the theorem's conclusion for an admissible trajectory. We now examine whether the \emph{nonamplification claim itself} is plausible when the allowed positive kernel coefficient depends on time. The source paper's equation~(1), page~5 assumption $K(x,t)>0$, equation~(6), and Theorem~3.1 do not impose temporal monotonicity or a fixed coefficient $K$.
+
+\auditstatus{Status: reproducible numerical counterexample candidate, plus an exact limiting-model calculation; no formal counterexample for all sufficiently fine meshes is claimed}
+
+\subsection{Reduction to an exact spatial eigenmode}
+Use $\Omega_x=(-1,1)$, homogeneous Dirichlet boundary conditions, zero forcing, and the initial value $u(x,0)=\varphi(x)=\cos(\pi x/2)$. Put
+\begin{equation}\label{eq:st04-eigen}
+ \sigma=\frac{\pi^2}{4},\qquad
+ -\varphi''=\sigma\varphi,\qquad \|\varphi\|_{L^2(-1,1)}=1.
+\end{equation}
+Choose $\lambda=1$, $T=0.8$, $\alpha=0.95$, $\beta=0.05$, and
+\begin{equation}\label{eq:st04-K}
+ K(x,t)=K(t)=0.05+\frac{500}{1+\exp[-45(t-0.3)]}.
+\end{equation}
+The kernel coefficient is strictly positive, $C^\infty$, and bounded on the closed time interval; the article's restrictions $0<\beta\le\alpha<1$ also hold. With $u(x,t)=a(t)\varphi(x)$, the homogeneous equation and its time-semidiscretizations reduce \emph{exactly} to
+\begin{equation}\label{eq:st04-scalar}
+ {}_0^CD_t^\alpha a(t)+\sigma a(t)
+ +K(t)\int_0^t(t-s)^{-\beta}a(s)\,ds=0,
+ \qquad a(0)=1.
+\end{equation}
+Thus no spatial spectral error or spatial approximation is involved in the test.
+For the paper's timestep-dependent norm $\|v\|_1^2=\|v\|_2^2+\alpha_0\|v_x\|_2^2$, where $\alpha_0=\Gamma(2-\alpha)\tau^\alpha$, the claimed stability bound is simply
+\begin{equation}\label{eq:st04-claimed}
+ \sqrt{1+\sigma\alpha_0}\,|a_n|\le 1,
+ \qquad n=1,\ldots,N.
+\end{equation}
+
+\subsection{Literal discrete problem and independent checks}
+The experiment uses the original interpolatory L1--2 two-sum formula, \emph{not} the printed inconsistent post-startup $d_0=1$ recurrence. For L1 we use the standard $b_r$ weights. Writing $d_r^{[k]}$ for either choice, and $Q_n^{\mathrm{past}}$ for all known-state contributions to the paper's equation~(6), the exact scalar system at $n=k+1$ is
+\begin{equation}\label{eq:st04-rec}
+ \left(d_0^{[k]}+\sigma\alpha_0+K(t_n)\alpha_0 w_n\right)a_n
+ =\sum_{r=0}^{k}h_r^{[k]}a_{k-r}
+   -K(t_n)\alpha_0Q_n^{\mathrm{past}},
+ \quad w_n=\frac{\tau^{1-\beta}}{2(1-\beta)}.
+\end{equation}
+The historical coefficients $h_r^{[k]}$ are defined in~\eqref{eq:st-history}. At startup the two derivative schemes coincide. In the present setting $Q_n^{\mathrm{past}}$ includes the $w_na_{n-1}$ contribution of the final panel, but not $w_na_n$. This is a direct specialization of the source's printed quadrature, rather than a repaired version of it.
+
+The independent test also runs \emph{piecewise-linear product integration}, which exactly integrates the singular power against linear interpolants on each panel. That comparison modifies only the Volterra quadrature, not the underlying fractional discretization. Each trajectory is checked by substituting it into the independently evaluated original L1 or two-sum L1--2 operator and the corresponding memory quadrature; sampled maximum residuals are below $5\times10^{-16}$ in double precision.
+
+\subsection{Observed amplification under time refinement}
+\begin{table}[ht]
+\centering
+\caption{Peak amplitude for the kernel~\eqref{eq:st04-K}; the bound~\eqref{eq:st04-claimed} requires the corresponding weighted peak to be at most $1$. Values are from executed Python regressions, not certified rounding enclosures.}
+\label{tab:st04-peaks}
+\small
+\begin{tabular}{@{}rcccc@{}}
+\hline
+$N$ & L1, printed (6) & L1--2, printed (6) & L1, product int. & L1--2, product int.\\
+\hline
+128 & 2.83648 & 2.95544 & 2.83778 & 2.95664\\
+256 & 2.91038 & 2.97782 & 2.91107 & 2.97855\\
+512 & 2.94814 & 2.98214 & 2.94851 & 2.98252\\
+1024 & 2.96643 & 2.98356 & 2.96662 & 2.98375\\
+2048 & 2.97546 & 2.98377 & 2.97556 & 2.98387\\
+4096 & 2.97980 & 2.98381 & 2.97985 & 2.98386\\
+\hline
+\end{tabular}
+\end{table}
+At $N=4096$ the peak for interpolatory L1--2 with equation~(6) occurs near $t=0.35234$, and its modified-norm amplification is approximately $2.98488$. For L1 it is approximately $2.98087$. These are well separated from one, and the values persist under six successive refinements, including the product-integration control.
+
+The results are \emph{not} an $N\to\infty$ proof: a numerically observed plateau does not imply a rigorous discrete limiting statement. Likewise, a single finite mesh does not logically contradict a theorem that claims the bound only for sufficiently small $\tau$.
+
+\subsection{An exact calculation explaining the mechanism}
+There is a related \emph{limiting} continuous problem obtained by setting $\alpha=1$ and $\beta=0$. These endpoint values lie \emph{outside} the paper's open parameter range, so the following calculation is used only to identify a mechanism, not as the claimed counterexample.
+Write $y(t)=\int_0^t a(s)\,ds$. Then
+\begin{equation}\label{eq:st04-osc}
+ y''(t)+\sigma y'(t)+K(t)y(t)=0,
+ \qquad y(0)=0,\quad y'(0)=1.
+\end{equation}
+If $K(t)=\kappa_1=0.05$ until $t_*=0.3$ and $K(t)=\kappa_2=500$ thereafter, this damped oscillator can be solved in elementary functions. With
+\[
+ r_\pm=\frac{-\sigma\pm\sqrt{\sigma^2-4\kappa_1}}{2},
+ \qquad y_* =\frac{e^{r_+t_*}-e^{r_-t_*}}{r_+-r_-},
+ \qquad a_* =\frac{r_+e^{r_+t_*}-r_-e^{r_-t_*}}{r_+-r_-},
+\]
+and $\gamma=\sigma/2$, $\omega=\sqrt{\kappa_2-\gamma^2}$, differentiation of the post-switch solution yields, at $s=\pi/(2\omega)$,
+\begin{equation}\label{eq:st04-limit}
+ a(t_*+s)=-e^{-\gamma s}
+ \left[\omega y_*+\frac{\gamma}{\omega}(a_*+\gamma y_*)\right]
+ \approx-4.37303.
+\end{equation}
+This is a \emph{mathematically explicit} failure of amplitude contractivity in the limiting variable-coefficient model. The change in $K$ can transfer previously accumulated memory into a large transient response even though $K(t)$ stays positive. A discontinuous switch may be approximated by a smooth positive transition; continuity of the finite-dimensional ODE solution under $L^1$ coefficient perturbations preserves a strict amplification margin. Moreover, the continuous fractional Volterra solution depends continuously on the fractional convolution kernels as $(\alpha,\beta)\to(1,0)$ on fixed finite time intervals. These observations suggest that amplification also occurs for some admissible fractional orders and smooth positive coefficients. A fully quantitative parameter-continuity certificate and a \emph{uniformly justified convergence proof for the printed time-discrete rule} are still outstanding.
+
+\subsection{Interpretation and next proof obligations}
+\begin{enumerate}
+ \item The test is consistent with the precise model hypotheses quoted above: $f=0$, homogeneous boundary conditions, $\lambda>0$, smooth $K>0$, and $0<\beta\le\alpha<1$. A time-\emph{constant} $K$ is a separate, more restrictive case.
+ \item Since amplification persists with exact singular-kernel product integration, the phenomenon cannot be attributed solely to the incorrect quadrature-error order established in Verification~VQ-01.
+ \item The correct next theorem is not immediately ``L1--2 is unstable'': establish convergence of the two time-semidiscrete recurrences to~\eqref{eq:st04-scalar}, or certify a parameter-valid discrete inequality violation for all sufficiently large $N$. Separately investigate whether a finite-time bound $\|U^n\|\le C(T,K)\|U^0\|$ can replace the paper's contractivity claim.
+ \item In any future comparison with the authors, distinguish the theorem as \emph{stated} from any version restricted to time-constant kernels or supplemented by additional structural assumptions.
+\end{enumerate}
+The executed standalone regression is \texttt{verify\_time\_variable\_kernel\_st04.py}; its numerical output is saved separately as \texttt{st04\_numerical\_results.txt}. Neither requires modifying the paper-reproduction baseline.
+
+\section{Verification protocol}
+\label{sec:protocol}
+
+Each observation will be considered individually. For each one, the verification record should identify: (i) the exact statement and assumptions in the article; (ii) an independent derivation or counterexample; (iii) a numerical experiment when relevant; and (iv) whether the issue is a notation error, an unjustified proof step, a counterexample to a stated estimate, or an unresolved question. Mathematical conclusions should be updated only when the evidence is sufficient.
+
+\noindent\textit{Proposed starting point.} Observations~2 and~8 have verified formula-level discrepancies, recorded in Sections~\ref{sec:verified-l12} and~\ref{sec:verified-vq}. The L1--2 induction audit ST-03 (Section~\ref{sec:stability-audit}) verifies a proof-level gap, but not a counterexample to Theorem~3.1. The positive, time-dependent kernel experiment ST-04 (Section~\ref{sec:st04-time-kernel}) now suggests a failure of the \emph{claimed nonamplification}, not merely a proof gap. The immediate task is to certify a parameter-valid limiting/discrete counterexample, including a convergence justification for the printed quadrature scheme, and to identify additional assumptions or a weaker finite-time stability bound that might be valid. Only then reassess the claimed global convergence rates.
+
+\end{document}

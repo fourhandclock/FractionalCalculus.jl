@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "path_base": "research/legendre/verification",
+  "original_st04_latex_supplied": true,
+  "inputs": [
+    {
+      "path": "sources/legendre_spectral_verification_notes_st03.pdf",
+      "basename": "legendre_spectral_verification_notes_st03.pdf",
+      "bytes": 368348,
+      "sha256": "d538f82d3767ccff406f307694784a24b753028266bbea533c747903e7258459",
+      "role": "Historical ST-03 input or existing paper"
+    },
+    {
+      "path": "scripts/verify_l12_stability.py",
+      "basename": "verify_l12_stability.py",
+      "bytes": 3837,
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13",
+      "role": "Historical ST-03 input or existing paper"
+    },
+    {
+      "path": "sources/st03_verification_results.txt",
+      "basename": "st03_verification_results.txt",
+      "bytes": 675,
+      "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6",
+      "role": "Historical ST-03 input or existing paper"
+    },
+    {
+      "path": "../../../YS_SS_PD_NM_25_Calcolo.pdf",
+      "basename": "YS_SS_PD_NM_25_Calcolo.pdf",
+      "bytes": 6446084,
+      "sha256": "ddcb0a5ad061e81036233ecf6b8dc58039ad07323badd09395f5f960d9a13ced",
+      "role": "Historical ST-03 input or existing paper"
+    },
+    {
+      "basename": "legendre_spectral_verification_notes_st04.pdf",
+      "bytes": 451194,
+      "sha256": "0ed95c524efa022749a33a27ea6e252026fa720b2ff2dd583e301e43c5648bc1",
+      "path": "sources/legendre_spectral_verification_notes_st04.pdf"
+    },
+    {
+      "basename": "legendre_spectral_verification_notes_st04.tex",
+      "bytes": 46181,
+      "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8",
+      "path": "sources/legendre_spectral_verification_notes_st04.tex"
+    },
+    {
+      "basename": "st04_recheck_2026-11-20.txt",
+      "bytes": 2964,
+      "sha256": "08571a21137b1a7bbe224a915c28916cb1369aec2129a1ea1963302c2f782f77",
+      "path": "sources/st04_recheck_2026-11-20.txt"
+    },
+    {
+      "basename": "verify_time_variable_kernel_st04.py",
+      "bytes": 4782,
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86",
+      "path": "scripts/verify_time_variable_kernel_st04.py"
+    }
+  ]
+}

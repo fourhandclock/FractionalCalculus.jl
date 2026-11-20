@@ -1,0 +1,65 @@
+{
+  "python": "3.13.16",
+  "platform": "Linux-7.3.4-1-default-x86_64-with-glibc2.44",
+  "architecture": "x86_64",
+  "versions": {
+    "julia": {
+      "returncode": 0,
+      "stdout": "julia version 1.12.6",
+      "stderr": ""
+    },
+    "lean": {
+      "returncode": 0,
+      "stdout": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+      "stderr": ""
+    },
+    "lake": {
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-6caaee8 (Lean version 4.19.0)",
+      "stderr": ""
+    },
+    "tectonic": {
+      "returncode": 0,
+      "stdout": "tectonic 0.15.0Tectonic 0.15.0",
+      "stderr": ""
+    }
+  },
+  "download_hashes": [
+    {
+      "archive": "julia-1.12.6.tar.gz",
+      "bytes": 289794236,
+      "sha256": "bbabf3bef19421a9dbd24a767d807606ab85e444323b5a1c73ffe293fa3d079a",
+      "upstream_release": "https://julialang-s3.julialang.org/bin/versions.json",
+      "independent_metadata_digest_checked": true
+    },
+    {
+      "archive": "lean-4.19.0.tar.zst",
+      "bytes": 343842845,
+      "sha256": "6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe",
+      "upstream_release": "https://github.com/leanprover/lean4/releases/tag/v4.19.0",
+      "independent_metadata_digest_checked": false
+    },
+    {
+      "archive": "tectonic-0.15.0.tar.gz",
+      "bytes": 14175003,
+      "sha256": "dfb82876f2986862996e564fa507a9e576e0c1e3bee63c2c1bd677c2543e6407",
+      "upstream_release": "https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.15.0",
+      "independent_metadata_digest_checked": false
+    },
+    {
+      "archive": "numpy-2.2.6-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 16526072,
+      "sha256": "1bc23a79bfabc5d056d106f9befb8d50c31ced2fbc70eedb8155aec74a45798f",
+      "upstream_release": "https://pypi.org/pypi/numpy/2.2.6/json",
+      "independent_metadata_digest_checked": true
+    }
+  ],
+  "global_environments_modified": false,
+  "numpy": "2.2.6 (loaded from workspace-local wheel target in recorded ST-04 run)",
+  "mathlib": {
+    "tag": "v4.19.0",
+    "revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+    "precompiled_cache_files": 2347,
+    "lock": "../../lean/lake-manifest.json"
+  }
+}

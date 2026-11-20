@@ -1,0 +1,246 @@
+{
+  "baseline_commit": "a01b208d13e25800da623dcf053b32bcc2eeb0b6",
+  "scope": "Production source, dependency files, original tests, cases, numerical tables and figures from the intended HEAD tree. CRLF-only differences may be normalized for portability.",
+  "files": {
+    "Manifest.toml": {
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d",
+      "lf_sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d",
+      "bytes": 3339
+    },
+    "Project.toml": {
+      "sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+      "lf_sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+      "bytes": 407
+    },
+    "src/FractionalCalculus.jl": {
+      "sha256": "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98",
+      "lf_sha256": "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98",
+      "bytes": 521
+    },
+    "src/Legendre.jl": {
+      "sha256": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399",
+      "lf_sha256": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399",
+      "bytes": 3565
+    },
+    "src/Solver.jl": {
+      "sha256": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3",
+      "lf_sha256": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3",
+      "bytes": 3286
+    },
+    "src/TimeDiscretization.jl": {
+      "sha256": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6",
+      "lf_sha256": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6",
+      "bytes": 5613
+    },
+    "studies/legendre/cases.jl": {
+      "sha256": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a",
+      "lf_sha256": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a",
+      "bytes": 3829
+    },
+    "studies/legendre/export_figures.jl": {
+      "sha256": "64857e37b8feea102c7d63d4c0148a981c3834969bd3a70e21e38c9e6951ceeb",
+      "lf_sha256": "64857e37b8feea102c7d63d4c0148a981c3834969bd3a70e21e38c9e6951ceeb",
+      "bytes": 4862
+    },
+    "studies/legendre/figures/figure1.png": {
+      "sha256": "0c9722e6e7db97928fd67f3f665eb1acf211cb03946e90ea8b1905a3a4fb312b",
+      "lf_sha256": "88bfb526692fd264d2bea7f9996bde124d9df0d0d8d2db336de891f838553846",
+      "bytes": 444435
+    },
+    "studies/legendre/figures/figure1.svg": {
+      "sha256": "778edfad4e02232aa4c5445fc2d5925b4a9477f94b289f2a272d85ad238b58f7",
+      "lf_sha256": "778edfad4e02232aa4c5445fc2d5925b4a9477f94b289f2a272d85ad238b58f7",
+      "bytes": 175799
+    },
+    "studies/legendre/figures/figure1_parameters.csv": {
+      "sha256": "b6f5461f56068d52f10242d408da110310b84aac54c4751371c8ff001443779d",
+      "lf_sha256": "b6f5461f56068d52f10242d408da110310b84aac54c4751371c8ff001443779d",
+      "bytes": 230
+    },
+    "studies/legendre/figures/figure1_solution.csv": {
+      "sha256": "6054eb5a34fe0cb835f1d943dc11d9e94b025137a86339a86e952be815279c17",
+      "lf_sha256": "6054eb5a34fe0cb835f1d943dc11d9e94b025137a86339a86e952be815279c17",
+      "bytes": 44302
+    },
+    "studies/legendre/figures/figure2.png": {
+      "sha256": "b0e9e2c83b743d2b5d40ae5fb907fd44527e602df1d2ab7aae4a409d910fe894",
+      "lf_sha256": "30ad66a6f19e3d19af3bd16eff864acd0163817b0c9371f568c68d1c2757c0b6",
+      "bytes": 471254
+    },
+    "studies/legendre/figures/figure2.svg": {
+      "sha256": "06e18f45033b40b8a3642f8d2b2f40bc63666faf00f432ff13e7051c79459737",
+      "lf_sha256": "06e18f45033b40b8a3642f8d2b2f40bc63666faf00f432ff13e7051c79459737",
+      "bytes": 263794
+    },
+    "studies/legendre/figures/figure2_parameters.csv": {
+      "sha256": "6e21891ca7e6d1232539a1f3f777f1837de552cf9066636c641dfc08bcc83e4f",
+      "lf_sha256": "6e21891ca7e6d1232539a1f3f777f1837de552cf9066636c641dfc08bcc83e4f",
+      "bytes": 231
+    },
+    "studies/legendre/figures/figure2_solution.csv": {
+      "sha256": "a3ae006d35a1bc624ae0c68f223fac91ab6a39525dbdad897dfeef2b9eb23b1c",
+      "lf_sha256": "a3ae006d35a1bc624ae0c68f223fac91ab6a39525dbdad897dfeef2b9eb23b1c",
+      "bytes": 70634
+    },
+    "studies/legendre/figures/figure3.png": {
+      "sha256": "d19dfef176c5dd89d57de7e157158817272c9983545ffb9ac10bc7fb37521b33",
+      "lf_sha256": "c97be9b8c15af6092cce7386c477e3b643d71af3db88446bc1fe6bbcd69961b0",
+      "bytes": 200504
+    },
+    "studies/legendre/figures/figure3.svg": {
+      "sha256": "2f55dc73552ad366e04ca47f46077535832f9340aac6dd292f2223d443ab50fa",
+      "lf_sha256": "2f55dc73552ad366e04ca47f46077535832f9340aac6dd292f2223d443ab50fa",
+      "bytes": 33387
+    },
+    "studies/legendre/figures/figure3_convergence.csv": {
+      "sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be",
+      "lf_sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be",
+      "bytes": 938
+    },
+    "studies/legendre/figures/figure3_parameters.csv": {
+      "sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be",
+      "lf_sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be",
+      "bytes": 938
+    },
+    "studies/legendre/figures/figure4.png": {
+      "sha256": "59e77ba79a5eefa2407f86560bf7bee39ca4f1a9ffc15643872f758e258e1973",
+      "lf_sha256": "fa1dc2ccc7856ab490b584eb2161ea4c137d60b98d2fc2b35fbb52f1a3e7c744",
+      "bytes": 303745
+    },
+    "studies/legendre/figures/figure4.svg": {
+      "sha256": "36395b845173e896193cbd18dcea56e74fcd324fe9ec9959bf81ed759abd5131",
+      "lf_sha256": "36395b845173e896193cbd18dcea56e74fcd324fe9ec9959bf81ed759abd5131",
+      "bytes": 105583
+    },
+    "studies/legendre/figures/figure4_parameters.csv": {
+      "sha256": "6e089a0f83076e1461370a1256e768ab5cc667652f0c9a1f514b581ef0a77ce5",
+      "lf_sha256": "6e089a0f83076e1461370a1256e768ab5cc667652f0c9a1f514b581ef0a77ce5",
+      "bytes": 229
+    },
+    "studies/legendre/figures/figure4_solution.csv": {
+      "sha256": "375a2e746cafb0f9bf129a366de038d7358e687ed15a693062cbcedbe3646b62",
+      "lf_sha256": "375a2e746cafb0f9bf129a366de038d7358e687ed15a693062cbcedbe3646b62",
+      "bytes": 43911
+    },
+    "studies/legendre/figures/figure5.png": {
+      "sha256": "6af96d44088f49defeb5d6fc9240d64c24a99f0e9e22fa2700f860bd6c0b929c",
+      "lf_sha256": "57dca379509ba3bd42debc8a723cc42a8f2c079e0429a1cea807ee62ff57945c",
+      "bytes": 328895
+    },
+    "studies/legendre/figures/figure5.svg": {
+      "sha256": "d6e7fe7e83c428a931f2aa2fb0b38aeb7d9cd404a01498a7ccc027c65598ffb6",
+      "lf_sha256": "d6e7fe7e83c428a931f2aa2fb0b38aeb7d9cd404a01498a7ccc027c65598ffb6",
+      "bytes": 108750
+    },
+    "studies/legendre/figures/figure5_parameters.csv": {
+      "sha256": "646f602eaa3b8d74515dfe9a1f419187538807078537a19f9adc5c9ad001d519",
+      "lf_sha256": "646f602eaa3b8d74515dfe9a1f419187538807078537a19f9adc5c9ad001d519",
+      "bytes": 564
+    },
+    "studies/legendre/figures/figure5_solution.csv": {
+      "sha256": "5de0278f2940926bdc5b7a60554110ef0554f0e836914fb87c94e0f0780b416e",
+      "lf_sha256": "5de0278f2940926bdc5b7a60554110ef0554f0e836914fb87c94e0f0780b416e",
+      "bytes": 159252
+    },
+    "studies/legendre/figures/figure6.png": {
+      "sha256": "d576d35d72c262ff2d6bd3bfab3781005692a9787860c096b247c8556910732e",
+      "lf_sha256": "d114cab64569ef34f734a1fa5eb4158e40679ea144349729e3bddf795329e1e8",
+      "bytes": 326513
+    },
+    "studies/legendre/figures/figure6.svg": {
+      "sha256": "3e4b68b0f5d18bfb2987334b251cda722239542e38a0f072fe55985a90ff059d",
+      "lf_sha256": "3e4b68b0f5d18bfb2987334b251cda722239542e38a0f072fe55985a90ff059d",
+      "bytes": 67656
+    },
+    "studies/legendre/figures/figure6_parameters.csv": {
+      "sha256": "aeebac7d5beabfb1e1c93e8d59adc68045816037422542d0220daefb789ea854",
+      "lf_sha256": "aeebac7d5beabfb1e1c93e8d59adc68045816037422542d0220daefb789ea854",
+      "bytes": 243
+    },
+    "studies/legendre/figures/figure6_solution.csv": {
+      "sha256": "e0833da4f5b500c3589be07562ce597742eda0c6a950dc0bf783dc5bcb3df995",
+      "lf_sha256": "e0833da4f5b500c3589be07562ce597742eda0c6a950dc0bf783dc5bcb3df995",
+      "bytes": 131548
+    },
+    "studies/legendre/figures/memory_diagnostic.csv": {
+      "sha256": "96c7fb3b9e3c76af311e95afc3005f91eaf6d3c0ffef42e87f8fe2b637063b96",
+      "lf_sha256": "96c7fb3b9e3c76af311e95afc3005f91eaf6d3c0ffef42e87f8fe2b637063b96",
+      "bytes": 477
+    },
+    "studies/legendre/figures/memory_diagnostic.png": {
+      "sha256": "3babe99730d0b5e6ffb39538155c5753c966066ae734bd45b8c398a513ebb7b9",
+      "lf_sha256": "1a8c99ed13196a74db623b46e5b71eaad108fd17e14ae7681b97e4b79dd15d19",
+      "bytes": 149360
+    },
+    "studies/legendre/figures/memory_diagnostic.svg": {
+      "sha256": "178e5390b78071cb86a9220dd88192038a47f84d7dba1a3f6698fe508e1589c9",
+      "lf_sha256": "178e5390b78071cb86a9220dd88192038a47f84d7dba1a3f6698fe508e1589c9",
+      "bytes": 32961
+    },
+    "studies/legendre/figures/memory_diagnostic_parameters.csv": {
+      "sha256": "23fb2e5151a7cfcfb114b2370137571b6640a3e5ba11debdadecb1fe5012f406",
+      "lf_sha256": "23fb2e5151a7cfcfb114b2370137571b6640a3e5ba11debdadecb1fe5012f406",
+      "bytes": 131
+    },
+    "studies/legendre/figures/table_convergence_diagnostic.png": {
+      "sha256": "759858c11973f004423fcd9534f05f48709a38da6418d9a98c9456c3a12aea4f",
+      "lf_sha256": "2ff8151c0f305200dff8ed62806c4d6361c1db39a4bc67be7db8fa3eb4ba5d94",
+      "bytes": 223456
+    },
+    "studies/legendre/figures/table_convergence_diagnostic.svg": {
+      "sha256": "9e79a8ebffde2870cf6954d76e759ea7880941f97306eaa770667745a6bea362",
+      "lf_sha256": "9e79a8ebffde2870cf6954d76e759ea7880941f97306eaa770667745a6bea362",
+      "bytes": 46988
+    },
+    "studies/legendre/figures/table_convergence_diagnostic_parameters.csv": {
+      "sha256": "b57172f10ccf46498722c0a8d06c2715fb9177afaab965029f4d32a8c7f77cbc",
+      "lf_sha256": "b57172f10ccf46498722c0a8d06c2715fb9177afaab965029f4d32a8c7f77cbc",
+      "bytes": 1962
+    },
+    "studies/legendre/plot_results.py": {
+      "sha256": "ef54cdb7f5cf5622e9f6422eba1a81b4a6ef2247f70ba4b237e7acc044f9fb04",
+      "lf_sha256": "ef54cdb7f5cf5622e9f6422eba1a81b4a6ef2247f70ba4b237e7acc044f9fb04",
+      "bytes": 13951
+    },
+    "studies/legendre/reference_tables.csv": {
+      "sha256": "619bb8784d0a5162c9efb9f3026fa2afd071c30b843d20a0b5f703600727aab8",
+      "lf_sha256": "619bb8784d0a5162c9efb9f3026fa2afd071c30b843d20a0b5f703600727aab8",
+      "bytes": 13146
+    },
+    "studies/legendre/results/comparison.csv": {
+      "sha256": "d1f473000a2a8239d76dedd3cfa380d97233834d8ba664aea19748468a915135",
+      "lf_sha256": "d1f473000a2a8239d76dedd3cfa380d97233834d8ba664aea19748468a915135",
+      "bytes": 59446
+    },
+    "studies/legendre/results/rates.csv": {
+      "sha256": "907e7f438c99712b1c72580303b600f9a73ef67025ad551a633460089e4ec5c9",
+      "lf_sha256": "907e7f438c99712b1c72580303b600f9a73ef67025ad551a633460089e4ec5c9",
+      "bytes": 27312
+    },
+    "studies/legendre/run.jl": {
+      "sha256": "f342ee49457b169d39db39a30a43353ed95130e33ec1c8749f6764aeb19e6359",
+      "lf_sha256": "f342ee49457b169d39db39a30a43353ed95130e33ec1c8749f6764aeb19e6359",
+      "bytes": 14940
+    },
+    "studies/legendre/test/legendre.jl": {
+      "sha256": "4d5da9cda17c079b1a506541837915ac616d8c174c94c2aa2c06a4625b5ff94f",
+      "lf_sha256": "4d5da9cda17c079b1a506541837915ac616d8c174c94c2aa2c06a4625b5ff94f",
+      "bytes": 3738
+    },
+    "studies/legendre/test/time_and_solver.jl": {
+      "sha256": "a1bf945bab214f0af8dd812c4ef4a60239ea35f3ce69cca5e0c6cfd2fdcbccbc",
+      "lf_sha256": "a1bf945bab214f0af8dd812c4ef4a60239ea35f3ce69cca5e0c6cfd2fdcbccbc",
+      "bytes": 10707
+    },
+    "studies/legendre/transcribe_reference.py": {
+      "sha256": "604d3692cf10049b10d0335a9b1f377a71c3865ce0f4e164eb6e4a1c7fd0266b",
+      "lf_sha256": "604d3692cf10049b10d0335a9b1f377a71c3865ce0f4e164eb6e4a1c7fd0266b",
+      "bytes": 10484
+    },
+    "test/runtests.jl": {
+      "sha256": "392eb501b464c4768d752aa22b41f9a324df4f653a33557444ff977f9b09a7ea",
+      "lf_sha256": "392eb501b464c4768d752aa22b41f9a324df4f653a33557444ff977f9b09a7ea",
+      "bytes": 433
+    }
+  }
+}

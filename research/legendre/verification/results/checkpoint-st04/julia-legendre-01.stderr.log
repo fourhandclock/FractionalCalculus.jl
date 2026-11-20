@@ -1,0 +1,16 @@
+Precompiling packages...
+   8680.8 ms  ✓ Test (serial)
+  1 dependency successfully precompiled in 9 seconds
+Precompiling packages...
+   1955.2 ms  ✓ IrrationalConstants
+    319.6 ms  ✓ OpenLibm_jll
+    502.4 ms  ✓ Unicode
+    377.1 ms  ✓ CompilerSupportLibraries_jll
+    429.2 ms  ✓ DocStringExtensions
+    506.4 ms  ✓ Preferences
+    465.1 ms  ✓ LogExpFunctions
+    401.0 ms  ✓ JLLWrappers
+    474.0 ms  ✓ OpenSpecFun_jll
+   1984.5 ms  ✓ SpecialFunctions
+   1184.2 ms  ✓ FractionalCalculus
+  11 dependencies successfully precompiled in 9 seconds. 3 already precompiled.

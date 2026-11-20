@@ -1,0 +1,17 @@
+{
+  "initial_files_checked": 105,
+  "modified_paths": [
+    ".gitignore",
+    "research/legendre/verification/INTEGRATION_SUMMARY.md",
+    "research/legendre/verification/PROVENANCE.md",
+    "research/legendre/verification/README.md",
+    "research/legendre/verification/mathematical-verification.tex",
+    "research/legendre/verification/observations/README.md",
+    "research/legendre/verification/results/TEST_PLAN.md",
+    "studies/legendre/test/proof_audit.jl"
+  ],
+  "missing_paths": [],
+  "unexpected_changes": [],
+  "production_and_historical_results_preserved": true,
+  "scope": "Compared with the initial working tree, including pre-existing unrelated changes; no Git reset or result rewrite."
+}

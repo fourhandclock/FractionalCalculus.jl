@@ -1,0 +1,5 @@
+import took 12s
+cumulative profiling times:
+	import 12s
+	initialization 42ms
+	interpretation 242ms

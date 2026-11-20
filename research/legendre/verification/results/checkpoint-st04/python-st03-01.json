@@ -1,0 +1,44 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "research/legendre/verification/scripts/verify_l12_stability.py"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-20T18:10:01.314301+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 256,
+    "file_size_mib_per_file": 8,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/scripts/verify_l12_stability.py": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONNOUSERSITE": "1",
+    "XDG_CACHE_HOME": "$USER_HOME/.cache"
+  },
+  "runner_sha256": "234bd1ebcc9be3aebb005e96cecae69c3ba35069b3e3368d2b0b3255f238a6c4",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 1.017276626000239,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T18:10:02.331644+00:00",
+  "output": {
+    "python-st03-01.stdout.log": {
+      "bytes": 675,
+      "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+    },
+    "python-st03-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

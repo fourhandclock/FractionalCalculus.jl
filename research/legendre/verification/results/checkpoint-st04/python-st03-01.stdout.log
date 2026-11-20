@@ -1,0 +1,9 @@
+Exact structural checks (alpha=3/4, k=1)
+d0 = 1.300000000000; d1 = -0.110792884997; sum abs history / d0 = 1.170450592304
+Why induction fails: admissible bounds |U0|,|U1|<=1 allow (U0,U1)=(-1,+1)
+history magnitude = 1.521585769995 > d0 = 1.300000000000
+This is NOT a numerical-scheme trajectory.
+Reduced diffusion step: u1 0.7692307692, u2 corrected 0.6090202570, u2 using d0=1 in eq. (30) 0.5720486003
+Independent recurrence representations: 432 parameter cases; maximum discrepancy 3.77e-15
+Largest weighted amplification across tested trajectories = 1.08601376; parameters=(0.25, 0.8, 10.0, 10.0, 16)
+Finite tests are diagnostic only, not a general PDE stability theorem.

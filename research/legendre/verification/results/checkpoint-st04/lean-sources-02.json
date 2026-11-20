@@ -1,0 +1,47 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "research/legendre/verification/scripts/fetch_lean_sources.py"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-20T19:06:29.124772+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 60,
+    "address_space_mib_per_process": 1024,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/scripts/fetch_lean_sources.py": "482d19d274a06e02c2a73f25ea41901236901283771e8c123548e1d208ca6e4b",
+    "$WORKSPACE/research/legendre/verification/lean/lake-manifest.json": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "LEAN_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "a997d2c555d311043876ead933cd0e849d9ab1ecb99fcbe8698d1d79db9f4177",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 1.3168268719964544,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T19:06:30.441662+00:00",
+  "output": {
+    "lean-sources-02.stdout.log": {
+      "bytes": 695,
+      "sha256": "8281bba5a3f70882b69f9fb2d3e2b38959cb6043acddd0c96ce5e67448339836"
+    },
+    "lean-sources-02.stderr.log": {
+      "bytes": 102,
+      "sha256": "930171a82d23d83f63a87fde39127c7d46d7cae4a895ed7d4c6c736c7640ed41"
+    }
+  }
+}

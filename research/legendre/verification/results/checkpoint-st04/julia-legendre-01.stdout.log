@@ -1,0 +1,24 @@
+Test Summary:                                         | Pass  Total  Time
+Legendre–Gauss–Lobatto quadrature and differentiation |  190    190  1.6s
+Test Summary:                  | Pass  Total  Time
+One-dimensional Legendre space |    7      7  0.1s
+Test Summary:                                | Pass  Total  Time
+Tensor Legendre space and x-fastest indexing |   36     36  0.1s
+Test Summary:                           | Pass  Total  Time
+Time meshes and causal Caputo operators |  100    100  0.7s
+Test Summary:                                      | Pass  Total  Time
+Independent uniform L1 and L1-2 increment formulas |  110    110  0.3s
+Test Summary:                                           | Pass  Total  Time
+L1-2 quadratic exactness with its linear startup defect |   12     12  0.2s
+Test Summary:                                                | Pass  Total  Time
+Volterra quadrature and the literal singular-rule limitation |   33     33  0.5s
+Test Summary:                                              | Pass  Total  Time
+Galerkin solver time convergence in one and two dimensions |  120    120  3.9s
+Test Summary:                                                | Pass  Total  Time
+Initial data, boundaries, memory history, and reported norms |   37     37  2.3s
+Test Summary:                                                | Pass  Total  Time
+CF-02 and ST-03: corrected coefficients and signed histories |   13     13  0.1s
+Test Summary:                                                     | Pass  Total  Time
+ST-04: supplied eigenmode diagnostic using actual library weights |    8      8  0.2s
+Test Summary:                                                  | Pass  Total  Time
+Observation 4: variable-coefficient LGL mass exactness example |    3      3  0.2s
