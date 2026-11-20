@@ -1,0 +1,9 @@
+Precompiling packages...
+              ✗ Pkg (serial)
+  0 dependencies successfully precompiled in 95 seconds
+
+ERROR: The following 1 direct dependency failed to precompile:
+
+Pkg 
+
+Failed to precompile Pkg [44cfe95a-1eb2-52ea-b672-e2afdf69b78f] to "$WORKSPACE/.checkpoint-tools/julia-depot/compiled/v1.12/Pkg/jl_w1oIZZ".

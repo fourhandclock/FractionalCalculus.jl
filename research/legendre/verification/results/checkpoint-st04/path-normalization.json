@@ -1,0 +1,54 @@
+{
+  "scope": "Only workspace/user-home path prefix substitution and explicit output-hash bookkeeping; no lines or numbers removed.",
+  "prefix_categories": [
+    "workspace directory -> $WORKSPACE",
+    "user home -> $USER_HOME"
+  ],
+  "files": {
+    "julia-setup-01.json": {
+      "raw_sha256": "b783c0a9442a94dd8fab8cdc6cb9d42aa3d9121718d66031a1225289e44124d1",
+      "public_sha256": "c3ae5fdf11c67871cccadd98a635a1c60a7d1c65d1c0760965127245b3a627c1",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/julia-setup-01.json"
+    },
+    "julia-setup-01.stderr.log": {
+      "raw_sha256": "575fa095319cc7cf4041907e1db621fc98ec415ba16edc16a0bdf43b13ac08e4",
+      "public_sha256": "504e9d2b3c071e5283d2b7514a6c14204983c6a1ab38861524ec7f6ef1303439",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/julia-setup-01.stderr.log"
+    },
+    "julia-setup-03.stderr.log": {
+      "raw_sha256": "a35706060f9e7016e3c688eefa94c9abe25977d98e5a619382ae06163ff6d92d",
+      "public_sha256": "09bafcc9336c07db78336eda6459bd4a3b0492b872a9b003ad31de6c8191049e",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/julia-setup-03.stderr.log"
+    },
+    "latex-checkpoint-01.stdout.log": {
+      "raw_sha256": "567b8367ad6cb73fdc05589a127957c63b49a3ca20f6dee725bf7370cfdb0869",
+      "public_sha256": "54ce1716a58379fe356a41ee456d939aed39e96664702a3b795c57f48e588454",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/latex-checkpoint-01.stdout.log"
+    },
+    "python-counterexamples-01.json": {
+      "raw_sha256": "332e0b0f9cb5cc7a53085991d97bba60bbfc195849d68a7dd66b4d97eea232a6",
+      "public_sha256": "532296ba70e85287aa46314eaf2faa88ca6c91b8b2438bab779eef66979f9223",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/python-counterexamples-01.json"
+    },
+    "python-st03-01.json": {
+      "raw_sha256": "b622663b042c99027008e517c75d9351d57a9296806db222ea25fcc3258e4d9d",
+      "public_sha256": "6ea933357cb10042b12edc953e183a6c33220475c68e1b5306635628f25c62af",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/python-st03-01.json"
+    },
+    "python-st04-01.json": {
+      "raw_sha256": "de4645c99a6c56543274f2dfc402ecf3ec45c32fb4a1896e4b6db1de47468b7a",
+      "public_sha256": "27b81d5b991ea25cf7f1a478c62dbada21aab939ac7060a4b3b7625ab91b5f98",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/python-st04-01.json"
+    },
+    "julia-setup-03.json": {
+      "raw_sha256": "82ba396d46bf631470d59de834774544b1b57bc301838b9f2960b15b6c51a89d",
+      "public_sha256": "fe1abf175d733f81e31520fcc555b6bc6b4b9bace03991c072e881a108c0259e",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/julia-setup-03.json"
+    },
+    "latex-checkpoint-01.json": {
+      "raw_sha256": "40a947629f3328eb2b124634d858861a858c4f49041a93c865d9acfff9f57a0f",
+      "public_sha256": "b90753782c3f35253f71ebd9d46252ee7e619ab456a202e2153a73baaf589b3e",
+      "raw_copy": "$WORKSPACE/.checkpoint-tools/raw-evidence/latex-checkpoint-01.json"
+    }
+  }
+}

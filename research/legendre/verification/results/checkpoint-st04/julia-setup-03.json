@@ -1,0 +1,60 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/julia-1.12.6/bin/julia",
+    "--startup-file=no",
+    "--heap-size-hint=384M",
+    "--gcthreads=1",
+    "--project=.",
+    "-e",
+    "using Pkg; Pkg.instantiate(;allow_autoprecomp=false)"
+  ],
+  "cwd": "$WORKSPACE/.checkpoint-tools/checkpoint-tree",
+  "started_at_utc": "2026-11-20T18:47:30.420615+00:00",
+  "limits": {
+    "wall_seconds": 300,
+    "cpu_seconds_per_process": 240,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/Project.toml": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/Manifest.toml": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "$WORKSPACE/.checkpoint-tools/julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "a997d2c555d311043876ead933cd0e849d9ab1ecb99fcbe8698d1d79db9f4177",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 154.60593876799976,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T18:50:05.027526+00:00",
+  "output": {
+    "julia-setup-03.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "julia-setup-03.stderr.log": {
+      "bytes": 1099,
+      "sha256": "09bafcc9336c07db78336eda6459bd4a3b0492b872a9b003ad31de6c8191049e"
+    }
+  },
+  "raw_output_before_path_normalization": {
+    "julia-setup-03.stderr.log": {
+      "bytes": 1156,
+      "sha256": "a35706060f9e7016e3c688eefa94c9abe25977d98e5a619382ae06163ff6d92d"
+    }
+  },
+  "path_normalization_manifest": "path-normalization.json"
+}

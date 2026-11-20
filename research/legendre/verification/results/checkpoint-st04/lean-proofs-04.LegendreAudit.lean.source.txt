@@ -1,0 +1,187 @@
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Integrals
+import Mathlib.Analysis.Normed.Group.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
+
+/-!
+Small algebraic certificates for the Legendre verification record.
+No numerical trajectory, fractional PDE theorem, or ST-04 limiting claim is
+certified by this file. Compilation and trusted-axiom output are recorded
+separately in the checkpoint evidence. All real powers below are exact.
+-/
+
+namespace LegendreAudit
+
+open scoped BigOperators Interval
+
+def bStarZero (α : ℝ) : ℝ := 1 / (2 - α) - 1 / 2
+def leading (α : ℝ) : ℝ := 1 + bStarZero α
+def oldestSecond (α : ℝ) : ℝ := (2 : ℝ) ^ (1 - α) - leading α
+
+theorem bStarZero_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :
+    bStarZero α = α / (2 * (2 - α)) := by
+  have hd : 2 - α ≠ 0 := by linarith
+  unfold bStarZero
+  field_simp [hd]
+  <;> ring
+
+theorem leading_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :
+    leading α = 1 + α / (2 * (2 - α)) := by
+  unfold leading
+  rw [bStarZero_identity α hα0 hα1]
+
+theorem leading_gt_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :
+    1 < leading α := by
+  rw [leading_identity α hα0 hα1]
+  have hp : 0 < α / (2 * (2 - α)) := div_pos hα0 (by linarith)
+  linarith
+
+theorem leading_three_quarters : leading (3 / 4 : ℝ) = 13 / 10 := by
+  norm_num [leading, bStarZero]
+
+theorem fourthRootTwo_fourth : ((2 : ℝ) ^ (1 / 4 : ℝ)) ^ (4 : ℕ) = 2 := by
+  rw [← Real.rpow_natCast, ← Real.rpow_mul (by norm_num : (0 : ℝ) ≤ 2)]
+  norm_num
+
+theorem fourthRootTwo_lt_thirteen_tenths : (2 : ℝ) ^ (1 / 4 : ℝ) < 13 / 10 := by
+  have hx0 : 0 ≤ (2 : ℝ) ^ (1 / 4 : ℝ) := Real.rpow_nonneg (by norm_num) _
+  have hx4 := fourthRootTwo_fourth
+  by_contra hn
+  have hx : 13 / 10 ≤ (2 : ℝ) ^ (1 / 4 : ℝ) := le_of_not_gt hn
+  have hx2 : (169 / 100 : ℝ) ≤ ((2 : ℝ) ^ (1 / 4 : ℝ)) ^ 2 := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr hx)
+      (show 0 ≤ (2 : ℝ) ^ (1 / 4 : ℝ) + 13 / 10 by linarith)]
+  nlinarith [mul_nonneg (sub_nonneg.mpr hx2)
+    (show 0 ≤ ((2 : ℝ) ^ (1 / 4 : ℝ)) ^ 2 + 169 / 100 by positivity)]
+
+theorem oldestSecond_three_quarters :
+    oldestSecond (3 / 4 : ℝ) = (2 : ℝ) ^ (1 / 4 : ℝ) - 13 / 10 := by
+  norm_num [oldestSecond, leading_three_quarters]
+
+theorem oldestSecond_three_quarters_neg : oldestSecond (3 / 4 : ℝ) < 0 := by
+  rw [oldestSecond_three_quarters]
+  linarith [fourthRootTwo_lt_thirteen_tenths]
+
+theorem history_abs_budget (d₀ d₁ : ℝ) (h₀ : 0 < d₀) (h₁ : d₁ < 0) :
+    |d₀ - d₁| + |d₁| = d₀ - 2 * d₁ ∧ d₀ < |d₀ - d₁| + |d₁| := by
+  rw [abs_of_pos (by linarith : 0 < d₀ - d₁), abs_of_neg h₁]
+  constructor <;> linarith
+
+theorem signedHistory_triangle {ι : Type*} (s : Finset ι) (c u : ι → ℝ) :
+    ‖∑ j ∈ s, c j * u j‖ ≤ ∑ j ∈ s, |c j| * |u j| := by
+  calc
+    ‖∑ j ∈ s, c j * u j‖ ≤ ∑ j ∈ s, ‖c j * u j‖ := norm_sum_le _ _
+    _ = ∑ j ∈ s, |c j| * |u j| := by simp only [Real.norm_eq_abs, abs_mul]
+
+-- Freely assigned scalar states; there is no evolution equation in this claim.
+theorem signed_sum_bound_false :
+    ¬ ∀ (c₀ c₁ u₀ u₁ : ℝ), |u₀| ≤ 1 → |u₁| ≤ 1 →
+      |c₀ * u₀ + c₁ * u₁| ≤ |c₀ + c₁| := by
+  intro h
+  have hh := h 2 (-1) 1 (-1) (by norm_num) (by norm_num)
+  norm_num at hh
+
+theorem l12_assigned_state_counterexample :
+    let d₀ := leading (3 / 4 : ℝ)
+    let d₁ := oldestSecond (3 / 4 : ℝ)
+    d₀ < |(d₀ - d₁) * 1 + d₁ * (-1)| := by
+  dsimp
+  have h₀ : 0 < leading (3 / 4 : ℝ) := by rw [leading_three_quarters]; norm_num
+  have h₁ := oldestSecond_three_quarters_neg
+  rw [abs_of_pos (by nlinarith : 0 <
+    (leading (3 / 4 : ℝ) - oldestSecond (3 / 4 : ℝ)) * 1 +
+      oldestSecond (3 / 4 : ℝ) * (-1))]
+  nlinarith
+
+theorem telescoping_history (d : ℕ → ℝ) (k : ℕ) :
+    (∑ r ∈ Finset.range k, (d r - d (r + 1))) + d k = d 0 := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [Finset.sum_range_succ]
+    linarith
+
+theorem telescoping_not_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1)
+    (d : ℕ → ℝ) (k : ℕ) (hd : d 0 = leading α) :
+    (∑ r ∈ Finset.range k, (d r - d (r + 1))) + d k ≠ 1 := by
+  rw [telescoping_history, hd]
+  exact ne_of_gt (leading_gt_one α hα0 hα1)
+
+def massIntegrand (c x : ℝ) : ℝ := (1 + c * x) * (1 - x ^ 2) * (x * (1 - x ^ 2))
+def gll3 (f : ℝ → ℝ) : ℝ :=
+  f (-1) / 6 + (5 / 6) * f (-Real.sqrt (1 / 5)) +
+    (5 / 6) * f (Real.sqrt (1 / 5)) + f 1 / 6
+
+theorem mass_polynomial (c x : ℝ) :
+    massIntegrand c x = x - 2 * x ^ 3 + x ^ 5 + c * x ^ 2 - 2 * c * x ^ 4 + c * x ^ 6 := by
+  unfold massIntegrand
+  ring
+
+theorem gll3_mass (c : ℝ) : gll3 (massIntegrand c) = 16 * c / 75 := by
+  have h₂ : (Real.sqrt (1 / 5 : ℝ)) ^ 2 = 1 / 5 := Real.sq_sqrt (by norm_num)
+  have h₄ : (Real.sqrt (1 / 5 : ℝ)) ^ 4 = 1 / 25 := by
+    calc
+      _ = ((Real.sqrt (1 / 5 : ℝ)) ^ 2) ^ 2 := by ring
+      _ = _ := by rw [h₂]; norm_num
+  have h₆ : (Real.sqrt (1 / 5 : ℝ)) ^ 6 = 1 / 125 := by
+    calc
+      _ = ((Real.sqrt (1 / 5 : ℝ)) ^ 2) ^ 3 := by ring
+      _ = _ := by rw [h₂]; norm_num
+  unfold gll3 massIntegrand
+  ring_nf
+  rw [h₂, h₄, h₆]
+  ring
+
+-- This certificate is the exact real integral, not only an assigned moment sum.
+theorem mass_integral (c : ℝ) :
+    (∫ x in (-1 : ℝ)..1, massIntegrand c x) = 16 * c / 105 := by
+  simp_rw [mass_polynomial]
+  simp [intervalIntegral.integral_add, intervalIntegral.integral_sub,
+    intervalIntegral.integral_const_mul, intervalIntegral.integral_pow]
+  <;> ring
+
+theorem positive_mass_coefficient (c x : ℝ) (hc0 : 0 < c) (hc1 : c < 1)
+    (hx0 : -1 ≤ x) (hx1 : x ≤ 1) : 0 < 1 + c * x := by
+  nlinarith [mul_nonneg (le_of_lt hc0) (show 0 ≤ x + 1 by linarith)]
+
+theorem gll3_variable_coefficient_counterexample (c : ℝ) (hc0 : 0 < c) (hc1 : c < 1) :
+    |gll3 (massIntegrand c) - (∫ x in (-1 : ℝ)..1, massIntegrand c x)| = 32 * c / 525 ∧
+      gll3 (massIntegrand c) ≠ (∫ x in (-1 : ℝ)..1, massIntegrand c x) := by
+  rw [gll3_mass, mass_integral]
+  constructor
+  · rw [abs_of_pos (by linarith : 0 < 16 * c / 75 - 16 * c / 105)]
+    ring
+  · intro h
+    linarith
+
+-- Abstract two-component energies; this is not a Sobolev-space theorem.
+theorem no_uniform_weighted_energy_bound :
+    ¬ ∃ C : ℝ, 0 < C ∧ ∀ (w : ℝ), 0 < w → w ≤ 1 →
+      ∀ (x y : ℝ), x ^ 2 + y ^ 2 ≤ C * (x ^ 2 + w * y ^ 2) := by
+  rintro ⟨C, hC, h⟩
+  have hp : 0 < 2 * (C + 1) := by linarith
+  have hw : 0 < (1 / (2 * (C + 1)) : ℝ) := div_pos (by norm_num) hp
+  have hw1 : (1 / (2 * (C + 1)) : ℝ) ≤ 1 := (div_le_one hp).mpr (by linarith)
+  have hh := h (1 / (2 * (C + 1))) hw hw1 0 1
+  have hlt : C / (2 * (C + 1)) < 1 := (div_lt_one hp).mpr (by linarith)
+  norm_num at hh
+  linarith
+
+-- Exact near-panel coefficient for beta=1/2, written with sqrt(2).
+theorem volterra_half_near_panel_positive :
+    0 < (1 + 1 / Real.sqrt 2) / 2 - 2 * (Real.sqrt 2 - 1) := by
+  have hp : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hs : (Real.sqrt 2) ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  have hi : 1 / Real.sqrt 2 = Real.sqrt 2 / 2 := by
+    field_simp [ne_of_gt hp]
+    nlinarith
+  rw [hi]
+  have hbound : Real.sqrt 2 < 10 / 7 := by nlinarith [sq_nonneg (Real.sqrt 2 - 10 / 7)]
+  linarith
+
+
+end LegendreAudit

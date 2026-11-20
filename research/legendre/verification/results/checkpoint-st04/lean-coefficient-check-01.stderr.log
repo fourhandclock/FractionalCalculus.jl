@@ -1,0 +1,2 @@
+interpretation of Mathlib.Linter.Style.header.initFn._@.Mathlib.Tactic.Linter.Header._hyg.3271 took 152ms
+libc++abi: terminating due to uncaught exception of type lean::memory_exception: excessive memory consumption detected at 'interpreter' (potential solution: increase memory consumption threshold)

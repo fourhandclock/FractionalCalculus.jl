@@ -1,0 +1,56 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/julia-1.12.6/bin/julia",
+    "--startup-file=no",
+    "--heap-size-hint=384M",
+    "--gcthreads=1",
+    "--project=.",
+    "studies/legendre/test/runtests.jl"
+  ],
+  "cwd": "$WORKSPACE/.checkpoint-tools/checkpoint-tree",
+  "started_at_utc": "2026-11-20T18:52:00.601831+00:00",
+  "limits": {
+    "wall_seconds": 300,
+    "cpu_seconds_per_process": 240,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/src/FractionalCalculus.jl": "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/src/TimeDiscretization.jl": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/src/Legendre.jl": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/src/Solver.jl": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/studies/legendre/cases.jl": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/studies/legendre/test/proof_audit.jl": "23e13755be42bff984d9db07ef3b82a1ec0dfd7c05bb15820dea706cf7019667"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "$WORKSPACE/.checkpoint-tools/julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "a997d2c555d311043876ead933cd0e849d9ab1ecb99fcbe8698d1d79db9f4177",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 29.993129251000937,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T18:52:30.596046+00:00",
+  "output": {
+    "julia-legendre-01.stdout.log": {
+      "bytes": 1780,
+      "sha256": "6fd6a644c27e92d5a6730349f6700e740fcd09a2dbcdb0f0c3c9d90d152288af"
+    },
+    "julia-legendre-01.stderr.log": {
+      "bytes": 595,
+      "sha256": "21e28bcb1497a3ee902e088c447d710d75615242e5cc3dfc32d41d4636375090"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "interrupted_lean_run_recovery",
+  "time_utc": "2026-11-20T19:16:26.768005+00:00",
+  "tool_reported_exit_code": 143,
+  "original_runner_record_present": false,
+  "matching_task_processes_found": 0,
+  "matching_task_processes_signalled": 0,
+  "forced_stop_count": 0,
+  "scope": "Only the interrupted lean-proofs-02 runner and Lean/Lake processes elaborating this exact project file; no unrelated processes targeted."
+}

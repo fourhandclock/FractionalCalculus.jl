@@ -1,0 +1,868 @@
+===== PDF PAGE 1 =====
+VERIFICATION NOTES ON THE L1/L1-2
+LEGENDRE SPECTRAL METHOD
+HARDIK BISHT
+1. Purpose and reference problem
+This is a separate working document for the mathematical observations raised during a
+study and numerical reproduction of the following article:
+Y. A. Sabawi, S. Santra, P. Das, and N. A. Mohammad, H 1 stability and con-
+vergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly
+singular integro-PDEs, Calcolo 62, article 42 (2025). doi:10.1007/s10092-
+025-00671-y.
+The main model is a time-fractional initial–boundary value problem with a weakly
+singular Volterra memory term. In one space dimension, its structure is
+(1.1)
+C α
+0 Dt u(x, t) − uxx (x, t) + λJ [u](x, t) = f (x, t),
+0 < α, β < 1,
+where
+J [u](x, t) = K(x, t)
+(1.2)
+Z t
+(t − s)−β u(x, s) ds.
+0
+The article uses L1 and L1-2 time discretizations, a combined trapezoidal/singular-panel
+quadrature for the Volterra operator, and Legendre–Gauss–Lobatto spectral discretization
+in space. Its analysis discusses time-step well-posedness, stability, and temporal and spatial
+convergence.
+The purpose of this document is not to declare the reported theorems false. It collects
+individual mathematical questions, the evidence currently available, and the points that
+remain to be independently derived or tested. An invalid step in a proof does not, by itself,
+imply that the theorem is false. The original seven observations were initially provisional.
+Observation 2 has a verified algebraic discrepancy (Section 5), while Observation 8 has a
+verified quadrature counterexample and sharp consistency estimate (Section 4). Section 6
+now independently audits the L1–2 portion of the stability argument and identifies a specific
+failure of its coefficient-based induction; the theorem itself remains unresolved. The other
+observations retain provisional status.
+2. Observations transferred from the original writeup
+The following seven observations are reproduced from the appendix to the main study
+notes. The entries record the initial reading; subsequent verification is documented in the
+dedicated sections below.
+Observation 1 (Signed Volterra history terms in Theorem 3.1). Status: proof gap established
+at the coefficient-based induction step; see Section 6.
+The energy estimate obtained by testing the weak equation with the current numerical
+solution is a valid starting point. The subsequent step on page 16 bounds the norm of a
+Date: November 2026.
+1
+
+===== PDF PAGE 2 =====
+2
+HARDIK BISHT
+signed sum of previous solutions by the absolute value of the sum of the coefficients. In
+general,
+X
+j
+cj U j ≤
+X
+|cj | ∥U j ∥,
+but not necessarily
+j
+X
+cj U j ≤
+j
+X
+cj max ∥U j ∥.
+j
+j
+This becomes consequential when the Volterra terms contribute negative coefficients. The
+source’s contraction proof therefore needs an additional argument, stronger hypotheses, or a
+different stability estimate. Cauchy–Schwarz itself is not the invalid step; the issue is how
+the signed historical contributions are combined.
+Observation 2 (L1-2 coefficients inferred from interpolation). Status: verified algebraic
+inconsistency in the published coefficient representation; see Section 5.
+From the L1-2 quadratic correction of equations (23)–(24),
+1
+1
+α
+b∗0 =
+− =
+.
+2−α 2
+2(2 − α)
+Thus for steps after startup, direct collection of the forward differences gives
+α
+d0 = b0 + b∗0 = 1 +
+,
+2(2 − α)
+which is not equal to one for 0 < α < 1. Equation (29), however, asserts d0 = 1 and bases
+later algebra on that identity. The index range for the middle coefficient case also requires
+clarification. Preserve the two-sum interpolatory L1-2 formula as an independent reference
+when implementing the scheme.
+Observation 3 (L1-2 startup and temporal consistency). Status: explicit test case available.
+The first panel still uses linear interpolation. For the smooth test function u(t) = t2 , the
+quadratic interpolant is exact on the second panel but the first-panel contribution to the
+Caputo error at t2 = 2τ is
+Φ2L12 =
+τ 2−α
+Γ(1 − α)
+Z 1
+(2z − 1)(2 − z)−α dz.
+0
+The integral is nonzero for 0 < α < 1. Hence this step has a contribution of order τ 2−α ,
+which is incompatible with a uniform O(τ 3−α ) Caputo truncation estimate for every step
+n ≥ 2 without a startup qualification. This should be checked separately from convergence
+at fixed positive physical time.
+Observation 4 (Quadrature consistency for variable coefficients). Status: exactness claim
+requires qualification.
+Theorem 4.1 invokes the equality B(RM , ρM ) = BM (RM , ρM ) when RM has a suitably
+restricted polynomial degree. Legendre–Gauss–Lobatto quadrature with M + 1 nodes is
+exact through degree 2M − 1, but the mass form contains the spatially varying coefficient
+b
+R(x) and need not be a polynomial of admissible degree. For M = 3, take
+RM = 1 − x2 ,
+ρM = x(1 − x2 ),
+b
+R(x)
+= 1 + cx,
+0 < c < 1.
+The exact integral and four-point Lobatto quadrature for the mass integrand differ in
+absolute value by 32c/525. A variable-coefficient quadrature consistency term, or stronger
+hypotheses, appears necessary.
+Observation 5 (Time-step-dependent H 1 -type norm). Status: interpretation caveat.
+The norm used throughout the paper is
+∥v∥21 = ∥v∥2L2 + α0 ∥vx ∥2L2 ,
+α0 = Γ(2 − α)τ α .
+For a fixed τ > 0 it is equivalent to the standard H 1 norm, but the equivalence constants
+are not uniform as τ ↓ 0. Contractivity or convergence in this weighted norm should not be
+silently restated as a uniform estimate in the standard H 1 norm.
+
+===== PDF PAGE 3 =====
+VERIFICATION NOTES ON A LEGENDRE SPECTRAL METHOD
+3
+Observation 6 (Reported discrete error normalization). Status: numerical reproduction
+check.
+The numerical section defines discrete errors with spatial Lobatto weights and an
+additional averaging factor involving (M + 1)−1 . The factor is not part of the standard
+Lobatto quadrature approximation of an L2 norm, because the quadrature weights already
+account for the spatial integration. During reproduction, report the article’s metric and the
+conventional quadrature norm separately; otherwise apparent spatial rates may be affected
+by the normalization.
+Observation 7 (Kernel-sign assumption versus numerical examples). Status: assumptions
+check.
+The stability proof assumes a strictly positive spatial coefficient K(x, t). The paper’s
+numerical Example 6.2 uses a factor K = x on a domain containing negative x, so that
+hypothesis is not satisfied throughout the domain. Distinguish which results apply under
+positivity and which experiments probe more general coefficients.
+3. Additional observation identified subsequently
+Observation 8 (Order of the weakly singular Volterra quadrature). Status: verified for
+equation (6) as printed; see Section 4.
+Equation (6) applies ordinary composite trapezoidal quadrature on all but the final
+time panel, using a special singular-panel rule on the final interval. The paper’s equation
+(8) reports a Volterra quadrature remainder of order O(τ 2−β ) under its stated smoothness
+regime. The ordinary trapezoidal contributions near the weak singularity require closer
+scrutiny.
+A simple test is K = 1, u(s) ≡ 1, T = 1, and β = 1/2. The exact integral is
+Z 1
+(1 − s)−1/2 ds = 2.
+0
+For the ordinary trapezoidal panel immediately preceding the final special panel, [1−2τ, 1−τ ],
+the difference between the trapezoidal approximation and the exact integral is
+"
+#
+√
+1 + 2−1/2
+− 2( 2 − 1) τ 1/2 .
+2
+The bracket is strictly positive. Since the kernel is convex on earlier panels and the special
+final-panel contribution is exact for constant u, the combined error cannot have a uniform
+O(τ 3/2 ) bound in this test. This contradicts the stated uniform bound. Section 4 supplies a
+rigorous proof of the sharp general O(τ 1−β ) order and independently evaluated numerical
+data. The effect on the full PDE solution error remains an open task.
+4. Verification VQ-01: the printed Volterra quadrature
+4.1. Claim and assumptions. The article’s equation (6), on PDF page 7 (journal section
+2.1), treats every time panel except the last with the ordinary composite trapezoidal rule;
+the final, singular panel uses an endpoint average multiplied by the analytically integrated
+2−β
+kernel weight. Equation (8) states that the quadrature error is O( ∆t
+). We check
+exactly this printed construction, not a product-integration method or a differently weighted
+trapezoidal rule.
+Fix a spatial point, set tn = nτ , τ = T /N , and suppress the x-argument. For the
+separable kernel K(t, s) = K(t)(t − s)−β , define
+(4.1)
+I n [u] = K(tn )
+Z tn
+0
+(tn − s)−β u(s) ds.
+
+===== PDF PAGE 4 =====
+4
+HARDIK BISHT
+The numerical formula in equation (6) is
+(
+Qnτ [u] = K(tn )
+(4.2)
+X
+
+τ n−2
+(tn − tj )−β u(tj ) + (tn − tj+1 )−β u(tj+1 )
+2 j=0
+)
+
+τ 1−β 
+u(tn−1 ) + u(tn ) .
++
+2(1 − β)
+We denote the quadrature error by ΦnT = I n [u] − Qnτ [u]. This sign convention agrees with
+the article’s definition, though the absolute-error conclusions below are independent of that
+sign.
+4.2. A counterexample for every 0 < β < 1.
+Proposition 4.1 (Failure of the claimed quadrature order). Let T = 1, K ≡ 1, u ≡ 1,
+0 < β < 1, and n = N ≥ 2. Then
+(4.3)
+1−β
+|ΦN
+,
+T | ≥ cβ τ
+cβ :=
+1 + 2−β
+21−β − 1
+−
+> 0.
+2
+1−β
+2−β for all
+In particular, there exists no τ -independent constant C such that |ΦN
+T | ≤ Cτ
+sufficiently small τ .
+Proof. The exact value is
+I N [1] =
+Z 1
+(1 − s)−β ds =
+0
+1
+.
+1−β
+The special last-panel term in (4.2) equals τ 1−β /(1 − β) and therefore integrates its panel
+exactly when u = 1. On the immediately preceding panel [1 − 2τ, 1 − τ ], the ordinary
+trapezoidal approximation equals
+Qnear =
+τ 1−β
+(1 + 2−β ),
+2
+whereas the exact panel integral is
+Inear = τ 1−β
+21−β − 1
+.
+1−β
+Their difference is exactly cβ τ 1−β . The function s 7→ (1 − s)−β has strictly positive second
+derivative wherever s < 1:
+d2
+(1 − s)−β = β(β + 1)(1 − s)−β−2 > 0.
+ds2
+Therefore every ordinary trapezoidal panel has a strictly positive overestimate; none can
+2−β ≥ c /τ →
+cancel the near-panel error. This proves (4.3). Dividing by τ 2−β gives |ΦN
+β
+T |/τ
+∞, contradicting any uniform bound of the reported order.
+□
+In fact, on this constant-function test, we have the exact identity
+N
+1−β
+QN
+τ [1] − I [1] = τ
+N
+X
+r=2
+(4.4)
+(r − 1)−β + r−β
+2
+r1−β − (r − 1)1−β
+.
+1−β
+
+−
+Each bracket is positive. As r → ∞ it is asymptotic to β(β + 1)r−β−2 /12, so the series
+converges to a finite positive number Cβ . Consequently,
+(4.5)
+1−β
+|ΦN
+T | ∼ Cβ τ
+(N → ∞, T = 1).
+Thus the loss of one power is not merely an artifact of a lower bound.
+
+===== PDF PAGE 5 =====
+VERIFICATION NOTES ON A LEGENDRE SPECTRAL METHOD
+5
+4.3. General upper estimate.
+Proposition 4.2 (Sharp general-order estimate). Assume u ∈ C 2 ([0, T ]), 0 < β < 1, and
+K is bounded on [0, T ]. Then the printed formula satisfies
+max |I n [u] − Qnτ [u]| ≤ C τ 1−β ,
+1≤n≤N
+where C depends on T, β, ∥K∥∞ and the indicated bounds on u, but not on N . The power
+1 − β cannot be improved uniformly for all such functions.
+Proof. Fix tn and put gn (s) = (tn − s)−β u(s). Direct differentiation gives
+gn′′ (s) = β(β + 1)(tn − s)−β−2 u(s)
+(4.6)
++ 2β(tn − s)−β−1 u′ (s) + (tn − s)−β u′′ (s).
+Index the ordinary panels backwards from tn , so panel r is [tn −rτ, tn −(r −1)τ ], r = 2, . . . , n.
+On this panel, tn − s ≥ (r − 1)τ . The standard local trapezoidal-error estimate yields
+|Er | ≤ C ∥u∥∞ τ 1−β (r − 1)−β−2 + ∥u′ ∥∞ τ 2−β (r − 1)−β−1
+
++ ∥u′′ ∥∞ τ 3−β (r − 1)−β .
+
+∞
+−β−2 and
+−β−1 are finite, while
+Both ∞
+r=1 r
+r=1 r
+summing the ordinary-panel errors gives
+P
+P
+n
+X
+Pn−1 −β
+≤ Cβ n1−β . Since nτ ≤ T ,
+r=1 r
+|Er | ≤ C(τ 1−β + τ 2−β + τ 2 ).
+r=2
+For the final panel, the difference between u(s) and the average of its endpoint values is at
+most τ ∥u′ ∥∞ /2. Integrating the positive weight gives an error bounded by Cτ 2−β . Multiply
+by ∥K∥∞ and combine the panels. For fixed T and sufficiently small τ , the bound is Cτ 1−β .
+Sharpness follows from Proposition 4.1.
+□
+4.4. Independent numerical check. For the exact test u = K = 1, T = 1, we evaluated
+the finite sum in (4.2) and compared it with I N = 1/(1 − β). The empirical order uses
+pN = log2 (EN /E2N ).
+β
+E256
+0.2 1.90147 · 10−4
+0.5 2.47721 · 10−3
+0.8 2.06036 · 10−2
+E512
+1.09293 · 10−4
+1.75194 · 10−3
+1.79371 · 10−2
+E1024
+6.27930 · 10−5
+1.23888 · 10−3
+1.56153 · 10−2
+p512
+0.7995
+0.4999
+0.2000
+In each case p512 approaches 1 − β, rather than the paper’s 2 − β. Two equivalent finite-sum
+implementations, one using the original time nodes and one using (4.4), agree to floating-
+point precision. A companion Python checker reproduces the table and its estimated orders;
+no PDE solver is required.
+4.5. Scope and consequences. The constant-in-time test is admissible at the level of
+the quadrature estimate. It can also be embedded in a homogeneous Dirichlet IBVP: set
+Ωx = (−1, 1),
+u(x, t) = 1 − x2 ,
+K(x, t) = 1,
+f (x, t) = 2 +
+λ(1 − x2 )t1−β
+,
+1−β
+with initial datum 1 − x2 and zero boundary values. The Caputo derivative vanishes, and
+at every interior point with u(x, t) ̸= 0, the same Volterra error persists after multiplication
+by 1 − x2 .
+With the conventional definition of the operator discrepancy,
+rτn = ΦnL1 + λΦnT ,
+the general operator consistency estimate from the printed rules is at most
+|rτn | ≤ C τ 2−α + τ 1−β = O(τ 1−β )
+
+
+===== PDF PAGE 6 =====
+6
+HARDIK BISHT
+under standard smoothness assumptions. On the constant-in-time example, ΦnL1 = 0, so
+the lower order occurs in the complete operator discrepancy whenever λ ̸= 0. The article’s
+scaled residual convention and signs should be checked independently; multiplying this
+Volterra discrepancy by α0 = Γ(2 − α)τ α yields a term of order τ 1+α−β .
+What is established: equation (6), as printed, cannot have the reported general O(τ 2−β )
+Volterra quadrature remainder in equation (8). Its sharp general consistency order for
+smooth u is 1 − β.
+What is not established: this does not by itself disprove the paper’s global PDE solution-
+error estimates, nor determine which corrected stability and convergence bounds hold. Those
+require a separate analysis of the discrete evolution and, where appropriate, experiments
+with the full scheme.
+4.6. A candidate higher-order replacement. One possible alternative is product inte-
+gration: interpolate u piecewise linearly, but integrate the singular weight exactly on each
+time panel. For the interpolant Iτ u,
+QnPI [u] = K(tn )
+n−1 Z tj+1
+X
+j=0
+Since ∥u − Iτ u∥∞
+≤ τ 2 ∥u′′ ∥
+(tn − s)−β (Iτ u)(s) ds.
+tj
+∞ /8, this construction satisfies
+|I n [u] − QnPI [u]| ≤
+∥K∥∞ T 1−β ′′
+∥u ∥∞ τ 2 .
+8(1 − β)
+This is not the method printed in equation (6). Its discrete weights, stability, and full-scheme
+convergence must be investigated separately before it can be recommended as a replacement.
+5. Verification CF-02: L1–2 coefficient identities
+5.1. Source statement and what is being checked. In Section 2.2 of the reference
+article, equations (20)–(22) define the L1–2 approximation by linearly interpolating on the
+first time panel and using a backward three-point quadratic interpolant thereafter. Equation
+(23), on PDF page 11, first gives a two-sum formula, then claims that it equals a single sum of
+backward increments weighted by dj . Equation (24) defines the correction weights; equation
+(29), on PDF page 13, states that d0 = 1 and that the dj are positive and decreasing. The
+recurrence in equations (28)–(32) uses these assertions.
+We test the algebraic equivalence of the formulas as printed, independently of the spatial
+problem, the Volterra quadrature, and the PDE stability theorem. A discrepancy in an
+identity is not, on its own, evidence that the interpolation-based scheme is unstable.
+Write τ = ∆t, uj = u(x, tj ) at a fixed spatial point, and ∆uj = uj+1 − uj . The first
+nontrivial L1–2 step occurs at t2 (k = 1). The two-sum formula directly following from the
+defining interpolants is
+(5.1)
+α
+DL12
+uk+1 =
+τ −α
+Γ(2 − α)
+k
+X
+bk−j ∆uj +
+j=0
+k
+X
+
+b∗k−j (∆uj − ∆uj−1 ) ,
+j=1
+where br = (r + 1)1−α − r1−α and
+(r + 1)2−α − r2−α (r + 1)1−α + r1−α
+−
+.
+2−α
+2
+In fact, using the local coordinate z = (s − tj )/τ , the quadratic correction comes from the
+moment
+Z
+(5.2)
+b∗r =
+b∗r = (1 − α)
+1
+0
+(z − 12 )(r + 1 − z)−α dz.
+Evaluating this integral yields (5.2), independently of the single-sum representation in the
+article.
+
+===== PDF PAGE 7 =====
+VERIFICATION NOTES ON A LEGENDRE SPECTRAL METHOD
+7
+5.2. Exact collection of the forward differences.
+Proposition 5.1 (Correct coefficients for the printed interpolatory rule). For the L1–2
+discretization (5.1), the correct collected representation is
+α
+DL12
+uk+1 =
+(5.3)
+k
+τ −α X
+d[k] ∆uk−r ,
+Γ(2 − α) r=0 r
+[0]
+with startup d0 = 1 and, when k ≥ 1,
+(5.4)
+
+∗
+
+
+b0 + b0 ,
+∗
+∗
+d[k]
+r = br + br − br−1 ,
+
+b − b∗ ,
+k
+k−1
+r = 0,
+1 ≤ r ≤ k − 1,
+r = k.
+The middle case is empty when k = 1.
+Proof. In the second sum of (5.1), each term equals b∗k−j ∆uj − b∗k−j ∆uj−1 . The newest
+increment ∆uk receives b0 from the first sum and b∗0 from the second. Each interior increment
+∆uk−r , 1 ≤ r ≤ k − 1, receives br + b∗r − b∗r−1 . The oldest increment ∆u0 receives bk − b∗k−1 .
+For k = 0, the second sum is empty and b0 = 1. These are exactly the coefficients in
+(5.4).
+□
+The superscript [k] is intentional: the oldest-panel coefficient depends on which step
+is being computed. A single infinite sequence d0 , d1 , . . . does not encode that endpoint
+modification without specifying the time level.
+5.3. Two exact counterexamples to the printed identities.
+Proposition 5.2 (The leading coefficient and positivity claim). For every 0 < α < 1 and
+every k ≥ 1, the coefficient of ∆uk in (5.1) satisfies
+α
+[k]
+> 1.
+(5.5)
+d0 = 1 + b∗0 = 1 +
+2(2 − α)
+Moreover, for the admissible value α = 3/4 at k = 1,
+13
+13
+[1]
+[1]
+(5.6)
+d0 = ,
+d1 = 21/4 −
+< 0.
+10
+10
+Thus neither d0 = 1 for all steps nor dj > 0 for all 0 < α < 1 follows from equation (23).
+Proof. Putting r = 0 in (5.2) gives b∗0 = 1/(2 − α) − 1/2 = α/[2(2 − α)], which is strictly
+[1]
+positive. For k = 1, the oldest-increment coefficient is d1 = b1 − b∗0 . At α = 3/4, this
+is 21/4 − 13/10; it is negative since 2 < (13/10)4 = 28561/10000, and both quantities are
+positive.
+□
+There is an additional, independent index reversal in the final line of the article’s equation
+(23). It displays a sum of the form
+k
+X
+∆uk−j dk−j ,
+j=0
+[k]
+[k]
+whereas the two-sum interpolation gives kj=0 ∆uk−j dj , equivalently kj=0 ∆uj dk−j . For
+example, at k = 1 choose nodal data (u0 , u1 , u2 ) = (0, 0, 1). The two-sum formula is
+[1]
+proportional to d0 = 13/10 for α = 3/4, while the final single sum as printed is proportional
+[1]
+to d1 = 21/4 − 13/10 < 0. The two expressions are plainly not equal.
+Finally, equation (24) prints the index range j = 0, 2, . . . , N − 1 for b∗j , apparently
+omitting j = 1; the middle case of the displayed definition of dj also begins at j = 2 instead
+of j = 1. Both indices are needed for a correct representation when k ≥ 2.
+P
+P
+
+===== PDF PAGE 8 =====
+8
+HARDIK BISHT
+5.4. Consequences for the recurrence and stability arguments. For any fixed step
+k ≥ 1, the basic telescoping identity is
+(5.7)
+[k]
+[k]
+(d0 − d1 ) +
+k−1
+X
+[k]
+[k]
+[k]
+(d[k]
+r − dr+1 ) + dk = d0 ,
+r=1
+not 1. This conflicts with the normalization asserted in equation (29). More strongly, the
+[1]
+corrected d1 < 0 at α = 3/4, so positivity and monotonicity-based inductions cannot be
+justified using (29) without additional analysis.
+In the elliptic rearrangement of the interpolatory L1–2 scheme, the current-state coefficient
+should accordingly be
+[k]
+b k+1 (x) = d +
+R
+0
+(2)
+λα0 τ 1−β
+K(x, tk+1 ),
+2(1 − β)
+α0 = Γ(2 − α)τ α ,
+[k]
+for k ≥ 1, rather than replacing d0 by 1 as in equation (31). It is possible to normalize the
+[k]
+[k]
+entire equation by d0 , but that would also change the diffusion coefficient to α0 /d0 and
+rescale all historical coefficients; merely writing d0 = 1 is not such a normalization. The
+startup step k = 0 is unaffected.
+This is an algebraic verification of the coefficient identities, not a stability counterexample.
+The implications for the numerical scheme and Theorem 3.1 remain open. In particular, a
+negative historical coefficient does not by itself imply numerical instability.
+5.5. Independent reproducibility and formalization status. We separately evaluated
+the defining piecewise-interpolatory Caputo integrals numerically, the two-sum formula (5.1),
+and the corrected single sum (5.3), for α ∈ {0.25, 0.5, 0.75}, k ∈ {0, 1, 2, 4}, and polynomial
+nodal data of degrees 0 through 3. The two algebraic representations agree to high precision;
+direct panel integration also agrees within numerical integration tolerance for the tested
+steps. The last line of equation (23), used literally, fails the simple k = 1 test above.
+[1]
+α
+d0
+0.25 1.07142857
+0.50 1.16666667
+0.75 1.30000000
+[1]
+d1
+0.61036426
+0.24754690
+−0.11079288
+[1]
+d1 > 0?
+yes
+yes
+no
+The accompanying Python script has been executed and passes the checks. A standard-
+library Julia counterpart and a small mathlib Lean draft are also provided. Neither the
+Julia file nor the Lean proof draft was executed in this environment; hence this document
+does not claim machine-certified formal verification. The exact algebraic proofs above do
+not depend on those programs.
+Status. The published single-sum coefficient representation and equation (29) are alge-
+braically inconsistent with the defining two-sum interpolation for the stated parameter
+range. The correct interpolation-based scheme has been reconstructed. Whether the paper’s
+implemented code follows the two-sum rule or the misindexed recurrence, and whether its
+reported stability conclusions can be recovered, remain open.
+6. Verification ST-03: L1–2 history coefficients and Theorem 3.1
+6.1. Scope, source claim, and reduced problem. Theorem 3.1 (Section 3 of Sabawi et
+al.) claims, subject to a sufficiently fine temporal mesh, the bound
+(6.1)
+k+1
+0
+∥U(q)
+∥1 ≤ ∥U(q)
+∥L2 ,
+q = 1, 2,
+where ∥v∥21 = ∥v∥2L2 + α0 ∥vx ∥2L2 and α0 = Γ(2 − α)τ α . Its written proof establishes a
+first-step energy estimate and then performs induction for q = 1, asserting that the q = 2
+case follows similarly from equation (29). Our objective here is not to prove or disprove
+(6.1), but to determine whether that induction applies to the interpolatory L1–2 scheme
+actually defined in equation (23).
+
+===== PDF PAGE 9 =====
+VERIFICATION NOTES ON A LEGENDRE SPECTRAL METHOD
+9
+For the stability test set the forcing to zero and work at a fixed time level tk+1 ; write
+j
+U j = U(2)
+and τ = ∆t. The following derivation first isolates the fractional derivative and
+then reincorporates the Volterra history term. We assume real-valued solutions, as in the
+article’s energy formulation.
+[k]
+6.2. The correct state-value recurrence. Let dr denote the interpolatory coefficients
+independently derived in Proposition 5.1, and define the historical coefficients
+[k]
+[k]
+h[k]
+r = dr − dr+1 ,
+(6.2)
+0 ≤ r < k,
+[k]
+[k]
+hk = dk .
+The backward-increment representation of the fractional operator gives the exact algebraic
+identity
+k
+X
+(6.3)
+[k]
+k+1−r
+d[k]
+− U k−r ) = d0 U k+1 −
+r (U
+r=0
+k
+X
+k−r
+h[k]
+.
+r U
+r=0
+The history coefficients telescope to
+k
+X
+(6.4)
+[k]
+hr[k] = d0 ,
+r=0
+[k]
+which equals 1 only at startup. Identity (6.4) does not imply that the coefficients hr are
+[k]
+nonnegative, nor that their absolute values sum to d0 .
+For a spatially constant positive coefficient K = 1, define
+θ=
+λα0 τ 1−β
+,
+2(1 − β)
+Qk+1
+past =
+X
+
+τ k−1
+((k + 1 − j)τ )−β U j + ((k − j)τ )−β U j+1 .
+2 j=0
+Multiplying the homogeneous time-discrete equation by α0 , the corrected recurrence becomes
+(6.5)
+[k]
+k+1
+(d0 + θ)U k+1 − α0 Uxx
+=
+k
+X
+k−r
+h[k]
+− θU k − λα0 Qk+1
+r U
+past
+(k ≥ 1).
+r=0
+If K = K(x, t) varies spatially, the θ terms are multiplied by K(x, tk+1 ) and the past-panel
+terms by the corresponding kernel factors; the key signed-history issue remains. The current-
+[k]
+state coefficient in (6.5) is d0 + θ, not 1 + θ, as printed in equations (30)–(31). At k = 0,
+[0]
+d0 = 1 and the paper’s startup coefficient is consistent.
+6.3. A certified failure of the required induction inequality.
+Proposition 6.1 (The elementary contraction induction cannot be justified from the stated
+hypotheses). For the interpolatory L1–2 scheme with α = 3/4 and k = 1, the historical
+coefficients satisfy
+13
+13
+[1]
+[1]
+[1]
+[1]
+[1]
+[1]
+[1]
+d0 = , d1 = 21/4 −
+< 0,
+h0 = d0 − d1 , h1 = d1 .
+10
+10
+In particular,
+(6.6)
+[1]
+[1]
+[1]
+[1]
+[1]
+|h0 | + |h1 | = d0 − 2d1 > d0 .
+Hence an induction hypothesis consisting only of ∥U j ∥
+P
+[k]
+[k]
+∥ kr=0 hr U k−r ∥ ≤ d0 ∥U 0 ∥ for all possible preceding states.
+≤
+∥U 0 ∥ cannot imply
+Proof. The coefficient calculation is exact by Proposition 5.2. For arbitrary real scalar
+states with U 1 = 1 and U 0 = −1 (both having norm one), the history combination is
+[1]
+[1]
+[1]
+[1]
+[1]
+h0 − h1 = d0 − 2d1 > d0 . This refutes the inference from norm bounds alone. These
+two arbitrarily assigned states are not asserted to satisfy the fractional evolution recurrence,
+so this is a proof-step counterexample, not a theorem counterexample.
+□
+
+===== PDF PAGE 10 =====
+10
+HARDIK BISHT
+[1]
+[1]
+Numerically, d0 = 1.300000, d1 = −0.110792885, and the absolute historical coefficient
+budget is 1.521585770, approximately 1.170451 times the current coefficient. Moreover,
+a negative historical coefficient can arise even without d1 < 0: at α = 1/2 and k = 2,
+[2]
+[2]
+[2]
+[2]
+[2]
+d2 > d1 , so h1 = d1 − d2 < 0. Thus the naive nonnegative-coefficient induction is not
+generally available even for moderate α.
+The Volterra contributions do not repair this inference automatically. For a sum of
+signed history terms one must bound
+X
+cj U j ≤
+X
+j
+|cj | ∥U j ∥,
+j
+not replace j |cj | with | j cj |. Positivity of the kernel K alone does not supply the missing
+sign information on the combined coefficients. The problematic replacement occurs explicitly
+in the published q = 1 argument as well; the q = 2 proof is asserted by analogy rather than
+worked out.
+P
+P
+6.4. Independent literature: the exceptional coefficients are known. A directly
+comparable analysis is M. Ramezani, R. Mokhtari, and G. Haase, Analysis of stability and
+convergence for L-type formulas combined with a spatial finite element method for solving
+subdiffusion problems, Electronic Transactions on Numerical Analysis 55 (2022), 568–584,
+doi:10.1553/etna_vol55s568.
+Section 3.2 (Theorems 3.4–3.6) treats L1–2 stability and convergence using energy
+estimates and a discrete Gronwall argument. The authors expressly note that strict coeffi-
+cient monotonicity can fail for higher-order L-type schemes, making elementary induction
+inappropriate.
+This is independent corroboration that the exceptional coefficient structure must be
+handled. But their model is a subdiffusion equation without Sabawi et al.’s additional weakly
+singular Volterra memory term, and their L2 /H 1 results cannot be imported as a proof of
+(6.1). In particular, we must first derive a discrete estimate for the combined fractional and
+Volterra histories before invoking any Gronwall inequality.
+6.5. A reduced evolution test: why signed coefficients do not prove instability.
+Consider a single diffusion eigenmode, with λ = 0 solely to isolate the L1–2 derivative and
+−Uxx = σU , σ ≥ 0. Put µ = σα0 ≥ 0 and normalize the initial amplitude to u0 = 1. The
+first step gives u1 = (1 + µ)−1 . The second step, with the correct L1–2 coefficients, satisfies
+(6.7)
+(d0 + µ)u2 = (d0 − d1 )u1 + d1 u0 ,
+=⇒
+u2 =
+d0 + d1 µ
+.
+(d0 + µ)(1 + µ)
+For 0 < α < 1 we have |d1 | < 1 and d0 > 0, hence
+|u2 | ≤
+d0 + |d1 |µ
+1
+≤
+.
+(d0 + µ)(1 + µ)
+1+µ
+√
+It follows in this particular scalar eigenmode that the modified norm factor 1 + µ |u2 |
+is at most (1 + µ)−1/2 ≤ 1. Thus the invalid induction step is compatible with genuine
+contractivity of a reduced, exactly solved trajectory. This is only a two-step calculation and
+does not extend to the full space-dependent Volterra scheme without further proof.
+The printed equation (30), with d0 replaced by 1 but historical terms left unscaled,
+defines a different recurrence. For example, at α = 3/4, µ = 0.3, and zero memory
+coupling, the correct rule gives u2 ≈ 0.609020257, whereas the unrescaled d0 = 1 form gives
+u2 ≈ 0.572048600. This diagnostic uses λ = 0 to expose the algebraic difference, not to
+assert a counterexample under the article’s λ > 0 assumptions.
+
+===== PDF PAGE 11 =====
+VERIFICATION NOTES ON A LEGENDRE SPECTRAL METHOD
+11
+6.6. Reproducible numerical diagnostic and present verdict. The accompanying
+verify_l12_stability.py independently evaluates the collected state-value recurrence
+and the direct backward-increment recurrence for the scalar equation
+C α
+0 Dt u + σu + λ
+Z t
+(t − s)−β u(s) ds = 0,
+u(0) = 1,
+K = 1.
+0
+Across 432 parameter combinations, the two independently programmed recurrence forms
+agree to within 4 × 10−15 (ordinary double precision). This checks our algebraic implementa-
+tion, not the full PDE. Some coarse-step tests exhibit weighted
+amplification above one; for
+√
+example α = 0.25, β = 0.8, σ = 10, λ = 10, N = 16 gives 1 + σα0 |u1 | ≈ 1.086. This does
+not contradict the article’s sufficiently-small-step formulation, and here β > α. For fixed
+parameters, refinement in that test reduces the amplification below one. No counterexample
+to the stated fine-grid theorem is claimed.
+Verdict (ST-03). The L1–2 extension of the published Theorem 3.1 induction is not justified
+by the stated coefficient properties: the normalization d0 = 1 after startup is incorrect, and
+signed history coefficients violate the required absolute-sum bound. The independent 2022
+L1–2 analysis explicitly recognizes this sign difficulty and develops a different route to stability.
+The stability theorem for Sabawi et al.’s full Volterra–diffusion scheme remains unresolved;
+a corrected energy estimate with a suitable discrete memory/Gronwall argument, or a
+parameter-valid counterexample, is still needed.
+7. Verification protocol
+Each observation will be considered individually. For each one, the verification record
+should identify: (i) the exact statement and assumptions in the article; (ii) an independent
+derivation or counterexample; (iii) a numerical experiment when relevant; and (iv) whether
+the issue is a notation error, an unjustified proof step, a counterexample to a stated estimate,
+or an unresolved question. Mathematical conclusions should be updated only when the
+evidence is sufficient.
+Proposed starting point. Observations 2 and 8 have verified formula-level discrepancies,
+recorded in Sections 5 and 4. The L1–2 induction audit ST-03 (Section 6) verifies a proof-
+level gap, but not a counterexample to Theorem 3.1. Next derive a stability estimate for
+the full Volterra–diffusion recurrence using signed-coefficient bounds and then reassess the
+claimed solution convergence rates.

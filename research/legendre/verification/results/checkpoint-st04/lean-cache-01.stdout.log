@@ -1,0 +1,5 @@
+installing leantar 0.1.15
+✖ [2/2] Running proofwidgets:release
+error: failed to fetch GitHub release (run with '-v' for details)
+Some required builds logged failures:
+- proofwidgets:release

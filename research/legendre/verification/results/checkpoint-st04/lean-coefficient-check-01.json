@@ -1,0 +1,55 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/lean-4.19.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-j1",
+    "-M768",
+    "--profile",
+    "--root=$WORKSPACE/.checkpoint-tools",
+    "$WORKSPACE/.checkpoint-tools/LeanCoefficientCheck.lean"
+  ],
+  "cwd": "$WORKSPACE/research/legendre/verification/lean",
+  "started_at_utc": "2026-11-20T19:25:43.032743+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/.checkpoint-tools/LeanCoefficientCheck.lean": "4a1c4c30567fb1abb96396be3d1106c56046b1a8d5521489777f6d9e65d38188"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "LEAN_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "ddb6cba4da64535a8e70edb55f94069e3666638623bd25bb8f02f8ae5b717885",
+  "outcome": "completed",
+  "returncode": 134,
+  "elapsed_seconds": 51.8180693769973,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T19:26:34.853630+00:00",
+  "child_usage": {
+    "user_seconds": 1.759697,
+    "system_seconds": 19.856287,
+    "peak_rss_kib": 1421788
+  },
+  "output": {
+    "lean-coefficient-check-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "lean-coefficient-check-01.stderr.log": {
+      "bytes": 302,
+      "sha256": "f48b58db5978f3c4955f7d14d2c850d02b0a707d741f0811e84b9f834c391fd1"
+    }
+  }
+}

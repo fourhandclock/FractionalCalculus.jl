@@ -1,0 +1,931 @@
+note: connecting to https://relay.fullyjustified.net/default_bundle_v33.tar
+note: resolved to https://data1b.fullyjustified.net/tlextras-2022.0r0.tar
+note: downloading index https://data1b.fullyjustified.net/tlextras-2022.0r0.tar.index.gz
+note: downloading SHA256SUM
+note: generating format "latex"
+(texputnote: downloading tectonic-format-latex.tex
+ (tectonic-format-latex.texnote: downloading xelatex.ini
+ (xelatex.ininote: downloading latex.ltx
+ (latex.ltxnote: downloading texsys.cfg
+ (texsys.cfg)
+./texsys.aux found
+
+
+\@currdir set to: ./.
+
+
+Assuming \openin and \input 
+have the same search path.
+
+
+Defining UNIX/DOS style filename parser.
+
+catcodes, registers, parameters,
+LaTeX2e <2021-11-15> patch level 1
+note: downloading expl3.ltx
+(expl3.ltxnote: downloading expl3-code.tex
+ (expl3-code.texnote: downloading cmr10.tfm
+note: downloading UnicodeData.txt
+note: downloading CaseFolding.txt
+note: downloading SpecialCasing.txt
+)) hacks, document commands, control, par, spacing,
+files, font encodings, lengths,note: downloading fonttext.cfg
+
+====================================
+
+Local config file fonttext.cfg used
+
+====================================
+(fonttext.cfgnote: downloading fonttext.ltx
+ (fonttext.ltx
+=== Don't modify this file, use a .cfg file instead ===
+
+note: downloading omlenc.def
+(omlenc.def)note: downloading omsenc.def
+ (omsenc.def)note: downloading ot1enc.def
+ (ot1enc.def)note: downloading t1enc.def
+ (t1enc.def)note: downloading ts1enc.def
+ (ts1enc.def)note: downloading tuenc.def
+ (tuenc.def)note: downloading tulmr.fd
+
+(tulmr.fd)note: downloading tulmss.fd
+ (tulmss.fd)note: downloading tulmtt.fd
+ (tulmtt.fd)note: downloading ts1lmr.fd
+ (ts1lmr.fd)note: downloading t1cmr.fd
+ (t1cmr.fd)note: downloading ot1cmr.fd
+ (ot1cmr.fd)note: downloading ot1cmss.fd
+
+(ot1cmss.fd)note: downloading ot1cmtt.fd
+ (ot1cmtt.fd)))note: downloading fontmath.cfg
+
+====================================
+
+Local config file fontmath.cfg used
+
+====================================
+(fontmath.cfgnote: downloading fontmath.ltx
+ (fontmath.ltx
+=== Don't modify this file, use a .cfg file instead ===
+
+note: downloading omlcmm.fd
+(omlcmm.fd)note: downloading omscmsy.fd
+ (omscmsy.fd)note: downloading omxcmex.fd
+ (omxcmex.fd)note: downloading ucmr.fd
+ (ucmr.fd)))note: downloading preload.cfg
+
+====================================
+
+Local config file preload.cfg used
+
+=====================================
+(preload.cfgnote: downloading preload.ltx
+ (preload.ltxnote: downloading cmex10.tfm
+note: downloading line10.tfm
+note: downloading linew10.tfm
+note: downloading lcircle10.tfm
+note: downloading lcirclew10.tfm
+note: downloading cmr5.tfm
+note: downloading cmr7.tfm
+note: downloading cmmi5.tfm
+note: downloading cmmi7.tfm
+note: downloading cmmi10.tfm
+note: downloading cmsy5.tfm
+note: downloading cmsy7.tfm
+note: downloading cmsy10.tfm
+)) page nos., x-ref, environments, center, verbatim,
+math definitions, boxes, title, sectioning, contents, floats, footnotes,
+index, bibliography,note: downloading atveryend.sty
+note: downloading atveryend-ltx.sty
+note: downloading atbegshi.sty
+note: downloading atbegshi-ltx.sty
+ output,  Unicode character data,note: downloading load-unicode-data.tex
+ (load-unicode-data 
+load-unicode-data.tex v1.15 (2021-09-15)
+Reading Unicode data
+# UnicodeData-14.0.0.txt
+# Modified 2021-09-15 11:00:00 GMT [JAW]
+)note: downloading hyphen.cfg
+
+===========================================
+Local configuration file hyphen.cfg used
+===========================================
+(hyphen.cfgnote: downloading xebabel.def
+ (xebabel.def)note: downloading language.dat
+note: downloading hyphen.tex
+ (hyphen.tex)note: downloading dumyhyph.tex
+ (dumyhyph.tex)note: downloading zerohyph.tex
+ (zerohyph.tex)note: downloading dehypht-x-2022-03-16.tex
+
+(dehypht-x-2022-03-16.tex
+dehyph-exptl: using a TeX engine with native UTF-8 support.note: downloading dehypht-x-2022-03-16.pat
+
+(dehypht-x-2022-03-16.pat
+German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2022-03-16 (W
+L)))note: downloading dehyphn-x-2022-03-16.tex
+ (dehyphn-x-2022-03-16.tex
+dehyph-exptl: using a TeX engine with native UTF-8 support.note: downloading dehyphn-x-2022-03-16.pat
+
+(dehyphn-x-2022-03-16.pat
+German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2022-03-16
+ (WL)))note: downloading loadhyph-af.tex
+ (loadhyph-af.tex UTF-8 Afrikaans hyphenation patternsnote: downloading hyph-af.tex
+ (hyph-af.tex)note: downloading hyph-quote-af.tex
+
+(hyph-quote-af.tex))note: downloading loadhyph-grc.tex
+ (loadhyph-grc.tex
+UTF-8 Hyphenation patterns for Ancient Greeknote: downloading hyph-grc.tex
+ (hyph-grc.tex))note: downloading ibyhyph.tex
+ (ibyhyph.tex
+Greek hyphenation patterns for Ibycus encoding, v3.0) (zerohyph.tex)note: downloading loadhyph-hy.tex
+
+(loadhyph-hy.tex UTF-8 Armenian hyphenation patternsnote: downloading hyph-hy.tex
+ (hyph-hy.tex))note: downloading loadhyph-eu.tex
+
+(loadhyph-eu.tex UTF-8 Basque hyphenation patternsnote: downloading hyph-eu.tex
+ (hyph-eu.tex))note: downloading loadhyph-be.tex
+
+(loadhyph-be.tex UTF-8 Belarusian hyphenation patternsnote: downloading hyph-be.tex
+ (hyph-be.tex)note: downloading hyph-quote-be.tex
+
+(hyph-quote-be.tex))note: downloading loadhyph-bg.tex
+ (loadhyph-bg.tex UTF-8 Bulgarian hyphenation patternsnote: downloading hyph-bg.tex
+
+(hyph-bg.tex
+Bulgarian hyphenation patterns (options: --safe-morphology --standalone-tex, ve
+rsion 21 October 2017)))note: downloading loadhyph-ca.tex
+ (loadhyph-ca.tex UTF-8 Catalan hyphenation patternsnote: downloading hyph-ca.tex
+
+(hyph-ca.tex))note: downloading loadhyph-zh-latn-pinyin.tex
+ (loadhyph-zh-latn-pinyin.tex
+UTF-8 Pinyin Hyphenation Patterns (with tone markers) 2018-11-25 (WL)note: downloading hyph-zh-latn-pinyin.tex
+
+(hyph-zh-latn-pinyin.tex))note: downloading loadhyph-cu.tex
+ (loadhyph-cu.tex
+UTF-8 Church Slavonic hyphenation patternsnote: downloading hyph-cu.tex
+ (hyph-cu.tex))note: downloading loadhyph-cop.tex
+ (loadhyph-cop.tex
+UTF-8 Coptic hyphenation patternsnote: downloading hyph-cop.tex
+ (hyph-cop.tex))note: downloading loadhyph-hr.tex
+ (loadhyph-hr.tex
+UTF-8 Croatian hyphenation patternsnote: downloading hyph-hr.tex
+ (hyph-hr.tex))note: downloading loadhyph-cs.tex
+ (loadhyph-cs.tex
+UTF-8 Czech hyphenation patternsnote: downloading hyph-cs.tex
+ (hyph-cs.tex))note: downloading loadhyph-da.tex
+ (loadhyph-da.tex
+UTF-8 Danish hyphenation patternsnote: downloading hyph-da.tex
+ (hyph-da.tex))note: downloading loadhyph-nl.tex
+ (loadhyph-nl.tex
+UTF-8 Dutch hyphenation patternsnote: downloading hyph-nl.tex
+ (hyph-nl.tex))note: downloading loadhyph-en-gb.tex
+ (loadhyph-en-gb.tex
+ASCII Hyphenation patterns for British Englishnote: downloading hyph-en-gb.tex
+ (hyph-en-gb.tex))note: downloading loadhyph-en-us.tex
+
+(loadhyph-en-us.tex ASCII Hyphenation patterns for American Englishnote: downloading hyph-en-us.tex
+
+(hyph-en-us.tex))note: downloading loadhyph-eo.tex
+ (loadhyph-eo.tex UTF-8 Esperanto hyphenation patternsnote: downloading hyph-eo.tex
+
+(hyph-eo.tex))note: downloading loadhyph-et.tex
+note: download succeeded after retry
+ (loadhyph-et.tex UTF-8 Estonian hyphenation patternsnote: downloading hyph-et.tex
+
+(hyph-et.tex))note: downloading loadhyph-mul-ethi.tex
+ (loadhyph-mul-ethi.tex UTF-8 Pan-Ethiopic hyphenation patternsnote: downloading hyph-mul-ethi.tex
+
+(hyph-mul-ethi.tex)) (zerohyph.tex)note: downloading loadhyph-fi.tex
+ (loadhyph-fi.tex
+UTF-8 Finnish hyphenation patternsnote: downloading hyph-fi.tex
+ (hyph-fi.tex))note: downloading loadhyph-fi-x-school.tex
+ (loadhyph-fi-x-school.tex
+UTF-8 Finnish hyphenation patterns for schoolnote: downloading hyph-fi-x-school.tex
+ (hyph-fi-x-school.tex))note: downloading loadhyph-fr.tex
+
+(loadhyph-fr.tex UTF-8 French hyphenation patternsnote: downloading hyph-fr.tex
+ (hyph-fr.tex)note: downloading hyph-quote-fr.tex
+
+(hyph-quote-fr.tex))note: downloading loadhyph-fur.tex
+ (loadhyph-fur.tex UTF-8 Friulan hyphenation patternsnote: downloading hyph-fur.tex
+
+(hyph-fur.tex)note: downloading hyph-quote-fur.tex
+ (hyph-quote-fur.tex))note: downloading loadhyph-gl.tex
+ (loadhyph-gl.tex
+UTF-8 Galician hyphenation patternsnote: downloading hyph-gl.tex
+ (hyph-gl.tex))note: downloading loadhyph-ka.tex
+ (loadhyph-ka.tex
+UTF-8 Georgian hyphenation patternsnote: downloading hyph-ka.tex
+ (hyph-ka.tex))note: downloading loadhyph-de-1901.tex
+ (loadhyph-de-1901.tex
+UTF-8 German hyphenation patterns (traditional orthography)note: downloading hyph-de-1901.tex
+ (hyph-de-1901.tex
+German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2021-02-26 (W
+L)))note: downloading loadhyph-de-1996.tex
+ (loadhyph-de-1996.tex
+UTF-8 German hyphenation patterns (reformed orthography)note: downloading hyph-de-1996.tex
+ (hyph-de-1996.tex
+German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2021-02-26
+ (WL)))note: downloading loadhyph-de-ch-1901.tex
+ (loadhyph-de-ch-1901.tex
+UTF-8 Swiss-German hyphenation patterns (traditional orthography)note: downloading hyph-de-ch-1901.tex
+
+(hyph-de-ch-1901.tex
+Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2021-0
+2-26 (WL)))note: downloading loadhyph-el-polyton.tex
+ (loadhyph-el-polyton.tex
+UTF-8 Hyphenation patterns for multi-accent (polytonic) Modern Greeknote: downloading hyph-el-polyton.tex
+
+(hyph-el-polyton.tex))note: downloading loadhyph-el-monoton.tex
+ (loadhyph-el-monoton.tex
+UTF-8 Hyphenation patterns for uni-accent (monotonic) Modern Greeknote: downloading hyph-el-monoton.tex
+
+(hyph-el-monoton.tex))note: downloading loadhyph-hu.tex
+ (loadhyph-hu.tex UTF-8 Hungarian hyphenation patternsnote: downloading hyph-hu.tex
+
+(hyph-hu.tex))note: downloading loadhyph-is.tex
+ (loadhyph-is.tex UTF-8 Icelandic hyphenation patternsnote: downloading hyph-is.tex
+
+(hyph-is.tex))note: downloading loadhyph-as.tex
+ (loadhyph-as.tex UTF-8 Assamese hyphenation patternsnote: downloading hyph-as.tex
+
+(hyph-as.tex))note: downloading loadhyph-bn.tex
+ (loadhyph-bn.tex UTF-8 Bengali hyphenation patternsnote: downloading hyph-bn.tex
+ (hyph-bn.tex
+))note: downloading loadhyph-gu.tex
+ (loadhyph-gu.tex UTF-8 Gujarati hyphenation patternsnote: downloading hyph-gu.tex
+ (hyph-gu.tex))note: downloading loadhyph-hi.tex
+
+(loadhyph-hi.tex UTF-8 Hindi hyphenation patternsnote: downloading hyph-hi.tex
+ (hyph-hi.tex))note: downloading loadhyph-kn.tex
+
+(loadhyph-kn.tex UTF-8 Kannada hyphenation patternsnote: downloading hyph-kn.tex
+ (hyph-kn.tex))note: downloading loadhyph-ml.tex
+
+(loadhyph-ml.tex UTF-8 Malayalam hyphenation patternsnote: downloading hyph-ml.tex
+ (hyph-ml.tex))note: downloading loadhyph-mr.tex
+
+(loadhyph-mr.tex UTF-8 Marathi hyphenation patternsnote: downloading hyph-mr.tex
+ (hyph-mr.tex))note: downloading loadhyph-or.tex
+
+(loadhyph-or.tex UTF-8 Oriya hyphenation patternsnote: downloading hyph-or.tex
+ (hyph-or.tex))note: downloading loadhyph-pi.tex
+
+(loadhyph-pi.tex UTF-8 Pali hyphenation patternsnote: downloading hyph-pi.tex
+ (hyph-pi.tex))note: downloading loadhyph-pa.tex
+
+(loadhyph-pa.tex UTF-8 Panjabi hyphenation patternsnote: downloading hyph-pa.tex
+ (hyph-pa.tex))note: downloading loadhyph-ta.tex
+
+(loadhyph-ta.tex UTF-8 Tamil hyphenation patternsnote: downloading hyph-ta.tex
+ (hyph-ta.tex))note: downloading loadhyph-te.tex
+
+(loadhyph-te.tex UTF-8 Telugu hyphenation patternsnote: downloading hyph-te.tex
+ (hyph-te.tex))note: downloading loadhyph-id.tex
+
+(loadhyph-id.tex ASCII Indonesian hyphenation patternsnote: downloading hyph-id.tex
+ (hyph-id.tex))note: downloading loadhyph-ia.tex
+
+(loadhyph-ia.tex ASCII Hyphenation patterns for Interlinguanote: downloading hyph-ia.tex
+ (hyph-ia.tex))note: downloading loadhyph-ga.tex
+
+(loadhyph-ga.tex UTF-8 Irish hyphenation patternsnote: downloading hyph-ga.tex
+ (hyph-ga.tex))note: downloading loadhyph-it.tex
+
+(loadhyph-it.tex UTF-8 Italian hyphenation patternsnote: downloading hyph-it.tex
+ (hyph-it.tex)note: downloading hyph-quote-it.tex
+
+(hyph-quote-it.tex))note: downloading loadhyph-kmr.tex
+ (loadhyph-kmr.tex UTF-8 Kurmanji hyphenation patternsnote: downloading hyph-kmr.tex
+
+(hyph-kmr.tex))note: downloading loadhyph-la-x-classic.tex
+ (loadhyph-la-x-classic.tex
+UTF-8 Classical Latin hyphenation patterns, v.2.0 2019-07-03note: downloading hyph-la-x-classic.tex
+
+(hyph-la-x-classic.tex))note: downloading loadhyph-la.tex
+ (loadhyph-la.tex UTF-8 Latin hyphenation patternsnote: downloading hyph-la.tex
+
+(hyph-la.tex))note: downloading loadhyph-la-x-liturgic.tex
+ (loadhyph-la-x-liturgic.tex
+UTF-8 Liturgical Latin hyphenation patternsnote: downloading hyph-la-x-liturgic.tex
+ (hyph-la-x-liturgic.tex))note: downloading loadhyph-lv.tex
+
+(loadhyph-lv.tex UTF-8 Latvian hyphenation patternsnote: downloading hyph-lv.tex
+ (hyph-lv.tex))note: downloading loadhyph-lt.tex
+
+(loadhyph-lt.tex UTF-8 Lithuanian hyphenation patternsnote: downloading hyph-lt.tex
+ (hyph-lt.tex))note: downloading loadhyph-mk.tex
+
+(loadhyph-mk.tex UTF-8 Macedonian hyphenation patternsnote: downloading hyph-mk.tex
+ (hyph-mk.tex))note: downloading loadhyph-mn-cyrl.tex
+
+(loadhyph-mn-cyrl.tex UTF-8 (New) Mongolian hyphenation patternsnote: downloading hyph-mn-cyrl.tex
+
+(hyph-mn-cyrl.tex))note: downloading loadhyph-mn-cyrl-x-lmc.tex
+ (loadhyph-mn-cyrl-x-lmc.tex
+UTF-8 Mongolian hyphenation patternsnote: downloading hyph-mn-cyrl-x-lmc.tex
+ (hyph-mn-cyrl-x-lmc.tex))note: downloading loadhyph-nb.tex
+ (loadhyph-nb.tex
+ UTF-8 Norwegian Bokmal hyphenation patternsnote: downloading hyph-nb.tex
+ (hyph-nb.texnote: downloading hyph-no.tex
+ (hyph-no.tex)))note: downloading loadhyph-nn.tex
+
+(loadhyph-nn.tex UTF-8 Norwegian Nynorsk hyphenation patternsnote: downloading hyph-nn.tex
+ (hyph-nn.tex
+(hyph-no.tex)))note: downloading loadhyph-oc.tex
+ (loadhyph-oc.tex UTF-8 Occitan hyphenation patternsnote: downloading hyph-oc.tex
+
+(hyph-oc.tex)note: downloading hyph-quote-oc.tex
+ (hyph-quote-oc.tex))note: downloading loadhyph-pms.tex
+ (loadhyph-pms.tex
+UTF-8 Piedmontese hyphenation patternsnote: downloading hyph-pms.tex
+ (hyph-pms.tex)note: downloading hyph-quote-pms.tex
+ (hyph-quote-pms.tex))note: downloading loadhyph-pl.tex
+
+(loadhyph-pl.tex UTF-8 Polish hyphenation patternsnote: downloading hyph-pl.tex
+ (hyph-pl.tex))note: downloading loadhyph-pt.tex
+
+(loadhyph-pt.tex UTF-8 Portuguese hyphenation patternsnote: downloading hyph-pt.tex
+ (hyph-pt.tex))note: downloading loadhyph-ro.tex
+
+(loadhyph-ro.tex UTF-8 Romanian hyphenation patternsnote: downloading hyph-ro.tex
+ (hyph-ro.tex))note: downloading loadhyph-rm.tex
+
+(loadhyph-rm.tex UTF-8 Romansh hyphenation patternsnote: downloading hyph-rm.tex
+ (hyph-rm.tex)note: downloading hyph-quote-rm.tex
+
+(hyph-quote-rm.tex))note: downloading loadhyph-ru.tex
+ (loadhyph-ru.tex UTF-8 Russian hyphenation patternsnote: downloading hyph-ru.tex
+
+(hyph-ru.tex))note: downloading loadhyph-sa.tex
+ (loadhyph-sa.tex UTF-8 Sanskrit hyphenation patternsnote: downloading hyph-sa.tex
+
+(hyph-sa.tex))note: downloading loadhyph-sr-latn.tex
+ (loadhyph-sr-latn.tex UTF-8 Serbian hyphenation patternsnote: downloading hyph-sh-latn.tex
+
+(hyph-sh-latn.tex)note: downloading hyph-sh-cyrl.tex
+ (hyph-sh-cyrl.tex))note: downloading loadhyph-sr-cyrl.tex
+ (loadhyph-sr-cyrl.tex
+UTF-8 Serbian hyphenation patterns (hyph-sh-latn.tex) (hyph-sh-cyrl.tex))note: downloading loadhyph-sk.tex
+
+(loadhyph-sk.tex UTF-8 Slovak hyphenation patternsnote: downloading hyph-sk.tex
+ (hyph-sk.tex))note: downloading loadhyph-sl.tex
+
+(loadhyph-sl.tex UTF-8 Slovenian hyphenation patternsnote: downloading hyph-sl.tex
+ (hyph-sl.tex))note: downloading loadhyph-es.tex
+
+(loadhyph-es.tex UTF-8 Spanish hyphenation patternsnote: downloading hyph-es.tex
+ (hyph-es.tex))note: downloading loadhyph-sv.tex
+
+(loadhyph-sv.tex UTF-8 Swedish hyphenation patternsnote: downloading hyph-sv.tex
+ (hyph-sv.tex))note: downloading loadhyph-th.tex
+
+(loadhyph-th.tex UTF-8 Thai hyphenation patternsnote: downloading hyph-th.tex
+ (hyph-th.tex))note: downloading loadhyph-tr.tex
+
+(loadhyph-tr.tex UTF-8 Turkish hyphenation patternsnote: downloading hyph-tr.tex
+ (hyph-tr.tex))note: downloading loadhyph-tk.tex
+
+(loadhyph-tk.tex UTF-8 Turkmen hyphenation patternsnote: downloading hyph-tk.tex
+ (hyph-tk.tex))note: downloading loadhyph-uk.tex
+
+(loadhyph-uk.tex UTF-8 Ukrainian hyphenation patternsnote: downloading hyph-uk.tex
+ (hyph-uk.tex)note: downloading hyph-quote-uk.tex
+
+(hyph-quote-uk.tex))note: downloading loadhyph-hsb.tex
+ (loadhyph-hsb.tex
+UTF-8 Upper Sorbian hyphenation patternsnote: downloading hyph-hsb.tex
+ (hyph-hsb.tex))note: downloading loadhyph-cy.tex
+ (loadhyph-cy.tex
+UTF-8 Welsh hyphenation patternsnote: downloading hyph-cy.tex
+ (hyph-cy.tex)))note: downloading latex2e-first-aid-for-external-files.ltx
+
+(latex2e-first-aid-for-external-files.ltx)
+ ) ) ) )
+Beginning to dump on file texput.fmt
+ (preloaded format=texput 0.0.0)
+88429 strings of total length 387256
+297567 memory locations dumped; current usage is 299&292789
+20858 multiletter control sequences
+\font\nullfont=nullfont
+\font\c__fp_exp_intarray=cmr10 at 0.00002pt
+\font\c__fp_trig_intarray=cmr10 at 0.00003pt
+\font\c_initex_cctab=cmr10 at 0.00005pt
+\font\c_other_cctab=cmr10 at 0.00006pt
+\font\c_str_cctab=cmr10 at 0.00008pt
+\font\g__regex_state_active_intarray=cmr10 at 0.00009pt
+\font\g__regex_thread_info_intarray=cmr10 at 0.0001pt
+\font\g__regex_submatch_prev_intarray=cmr10 at 0.00012pt
+\font\g__regex_submatch_begin_intarray=cmr10 at 0.00014pt
+\font\g__regex_submatch_end_intarray=cmr10 at 0.00015pt
+\font\g__regex_submatch_case_intarray=cmr10 at 0.00017pt
+\font\g__regex_balance_intarray=cmr10 at 0.00018pt
+\font\OMX/cmex/m/n/10=cmex10
+\font\tenln=line10
+\font\tenlnw=linew10
+\font\tencirc=lcircle10
+\font\tencircw=lcirclew10
+\font\OT1/cmr/m/n/5=cmr5
+\font\OT1/cmr/m/n/7=cmr7
+\font\OT1/cmr/m/n/10=cmr10
+\font\OML/cmm/m/it/5=cmmi5
+\font\OML/cmm/m/it/7=cmmi7
+\font\OML/cmm/m/it/10=cmmi10
+\font\OMS/cmsy/m/n/5=cmsy5
+\font\OMS/cmsy/m/n/7=cmsy7
+\font\OMS/cmsy/m/n/10=cmsy10
+\font\c_code_cctab=cmr10 at 0.0002pt
+\font\c_document_cctab=cmr10 at 0.00021pt
+469252 words of font info for 28 preloaded fonts
+1348 hyphenation exceptions
+Hyphenation trie of length 577275 has 9543 ops out of 35111
+  143 for language 86
+  110 for language 85
+  138 for language 84
+  7 for language 83
+  12 for language 82
+  53 for language 81
+  127 for language 80
+  195 for language 79
+  71 for language 78
+  248 for language 77
+  66 for language 76
+  66 for language 75
+  15 for language 74
+  119 for language 73
+  43 for language 72
+  58 for language 71
+  7 for language 70
+  194 for language 69
+  37 for language 68
+  23 for language 67
+  852 for language 66
+  852 for language 65
+  21 for language 64
+  38 for language 63
+  38 for language 62
+  77 for language 61
+  58 for language 60
+  206 for language 59
+  25 for language 58
+  316 for language 57
+  27 for language 56
+  37 for language 55
+  229 for language 54
+  38 for language 53
+  21 for language 52
+  6 for language 51
+  7 for language 50
+  6 for language 49
+  12 for language 48
+  6 for language 47
+  6 for language 46
+  8 for language 45
+  6 for language 44
+  6 for language 43
+  6 for language 42
+  6 for language 41
+  6 for language 40
+  147 for language 39
+  185 for language 38
+  20 for language 37
+  44 for language 36
+  420 for language 35
+  424 for language 34
+  432 for language 33
+  39 for language 32
+  76 for language 31
+  40 for language 30
+  89 for language 29
+  6 for language 28
+  31 for language 27
+  3 for language 25
+  113 for language 24
+  145 for language 23
+  377 for language 22
+  224 for language 21
+  265 for language 20
+  60 for language 19
+  63 for language 18
+  19 for language 17
+  15 for language 16
+  111 for language 15
+  3 for language 14
+  21 for language 13
+  54 for language 12
+  36 for language 11
+  5 for language 10
+  2 for language 9
+  148 for language 7
+  78 for language 6
+  137 for language 5
+  438 for language 4
+  442 for language 3
+  2 for language 1
+  181 for language 0
+No pages of output.
+Transcript written on texput.log.
+note: Running TeX ...
+(mathematical-verification.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24>note: downloading amsart.cls
+ (amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+note: downloading amsmath.sty
+note: downloading lmroman10-regular.otf
+note: downloading tex-text.tec
+(amsmath.stynote: downloading amsopn.sty
+
+For additional information on amsmath, use the `?' option.
+note: downloading amstext.sty
+(amstext.stynote: downloading amsgen.sty
+ (amsgen.sty))note: downloading amsbsy.sty
+ (amsbsy.sty) (amsopn.sty))note: downloading umsa.fd
+ (umsa.fd)note: downloading amsfonts.sty
+ (amsfonts.sty))
+note: downloading fontenc.sty
+ (fontenc.stynote: downloading t1lmr.fd
+ (t1lmr.fd)note: downloading ec-lmr10.tfm
+)note: downloading inputenc.sty
+ (inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+)note: downloading lmodern.sty
+ (lmodern.sty)note: downloading amssymb.sty
+ (amssymb.sty)note: downloading mathtools.sty
+ (mathtools.stynote: downloading keyval.sty
+ (keyval.sty)note: downloading calc.sty
+ (calc.sty)note: downloading mhsetup.sty
+
+(mhsetup.sty))note: downloading geometry.sty
+ (geometry.stynote: downloading ifvtex.sty
+ (ifvtex.stynote: downloading iftex.sty
+ (iftex.sty)))note: downloading microtype.sty
+ (microtype.stynote: downloading etoolbox.sty
+
+(etoolbox.sty)note: downloading microtype-xetex.def
+ (microtype-xetex.def)note: downloading microtype.cfg
+ (microtype.cfg))note: downloading xcolor.sty
+ (xcolor.stynote: downloading color.cfg
+ (color.cfg)note: downloading xetex.def
+
+(xetex.def))note: downloading hyperref.sty
+ (hyperref.stynote: downloading ltxcmds.sty
+ (ltxcmds.sty)note: downloading pdftexcmds.sty
+ (pdftexcmds.stynote: downloading infwarerr.sty
+ (infwarerr.sty))note: downloading kvsetkeys.sty
+
+(kvsetkeys.sty)note: downloading kvdefinekeys.sty
+ (kvdefinekeys.sty)note: downloading pdfescape.sty
+ (pdfescape.sty)note: downloading hycolor.sty
+ (hycolor.sty)note: downloading letltxmacro.sty
+
+(letltxmacro.sty)note: downloading auxhook.sty
+ (auxhook.sty)note: downloading kvoptions.sty
+ (kvoptions.sty)note: downloading pd1enc.def
+ (pd1enc.def)note: downloading intcalc.sty
+ (intcalc.sty)note: downloading etexcmds.sty
+
+(etexcmds.sty)note: downloading puenc.def
+ (puenc.def)note: downloading url.sty
+ (url.sty)note: downloading pzdr.tfm
+note: downloading bitset.sty
+ (bitset.stynote: downloading bigintcalc.sty
+ (bigintcalc.sty))
+(atbegshi-ltx.sty))note: downloading hxetex.def
+ (hxetex.defnote: downloading stringenc.sty
+ (stringenc.sty)note: downloading rerunfilecheck.sty
+ (rerunfilecheck.sty
+(atveryend-ltx.sty)note: downloading uniquecounter.sty
+ (uniquecounter.sty)))note: downloading l3backend-xetex.def
+ (l3backend-xetex.def)
+No file mathematical-verification.aux.
+note: downloading ts1cmr.fd
+(ts1cmr.fd)note: downloading ec-lmr9.tfm
+note: downloading ot1lmr.fd
+ (ot1lmr.fd)note: downloading rm-lmr9.tfm
+note: downloading rm-lmr6.tfm
+note: downloading rm-lmr5.tfm
+note: downloading omllmm.fd
+ (omllmm.fd)note: downloading lmmi9.tfm
+note: downloading lmmi6.tfm
+note: downloading lmmi5.tfm
+note: downloading omslmsy.fd
+ (omslmsy.fd)note: downloading lmsy9.tfm
+note: downloading lmsy6.tfm
+note: downloading lmsy5.tfm
+note: downloading omxlmex.fd
+ (omxlmex.fd)note: downloading lmex10.tfm
+ (umsa.fd)note: downloading msam10.tfm
+note: downloading msam7.tfm
+note: downloading msam5.tfm
+note: downloading umsb.fd
+
+(umsb.fd)note: downloading msbm10.tfm
+note: downloading msbm7.tfm
+note: downloading msbm5.tfm
+note: downloading graphicx.sty
+ (graphicx.stynote: downloading graphics.sty
+ (graphics.stynote: downloading trig.sty
+ (trig.sty)note: downloading graphics.cfg
+ (graphics.cfg)))
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+note: downloading mt-cmr.cfg
+(mt-cmr.cfg)note: downloading color.sty
+note: downloading nameref.sty
+ (nameref.stynote: downloading refcount.sty
+ (refcount.sty)note: downloading gettitlestring.sty
+ (gettitlestring.sty))
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+note: downloading ec-lmri9.tfm
+note: downloading ec-lmbx10.tfm
+note: downloading ec-lmcsc10.tfm
+note: downloading ec-lmri10.tfm
+note: downloading rm-lmr10.tfm
+note: downloading rm-lmr8.tfm
+note: downloading lmmi10.tfm
+note: downloading lmmi8.tfm
+note: downloading lmsy10.tfm
+note: downloading lmsy8.tfm
+note: downloading mt-msa.cfg
+(mt-msa.cfg)note: downloading mt-msb.cfg
+ (mt-msb.cfg)
+
+LaTeX Warning: Reference `sec:verified-l12' on page 1 undefined on input line 4
+9.
+
+
+LaTeX Warning: Reference `sec:verified-vq' on page 1 undefined on input line 49
+.
+
+
+LaTeX Warning: Reference `sec:stability-audit' on page 1 undefined on input lin
+e 49.
+
+
+LaTeX Warning: Reference `sec:st04-time-kernel' on page 1 undefined on input li
+ne 49.
+
+
+LaTeX Warning: Reference `sec:stability-audit' on page 1 undefined on input lin
+e 57.
+
+note: downloading ec-lmr8.tfm
+note: downloading ec-lmr6.tfm
+[1]
+
+LaTeX Warning: Reference `sec:verified-l12' on page 2 undefined on input line 7
+1.
+
+[2]
+
+LaTeX Warning: Reference `sec:verified-vq' on page 3 undefined on input line 13
+5.
+
+
+LaTeX Warning: Reference `sec:verified-vq' on page 3 undefined on input line 14
+7.
+
+[3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 174.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 174.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 174.
+
+
+LaTeX Warning: Reference `eq:vq-published' on page 4 undefined on input line 18
+9.
+
+
+LaTeX Warning: Reference `eq:vq-lower' on page 4 undefined on input line 206.
+
+[4]
+
+LaTeX Warning: Reference `prop:vq-counter' on page 5 undefined on input line 26
+5.
+
+
+LaTeX Warning: Reference `eq:vq-published' on page 5 undefined on input line 27
+0.
+
+note: downloading rm-lmr7.tfm
+note: downloading lmmi7.tfm
+note: downloading lmsy7.tfm
+
+LaTeX Warning: Reference `eq:vq-error-sum' on page 5 undefined on input line 28
+5.
+
+[5]
+
+LaTeX Warning: Reference `eq:cf-bstar' on page 6 undefined on input line 351.
+
+[6]
+
+LaTeX Warning: Reference `eq:cf-two-sum' on page 7 undefined on input line 356.
+
+
+
+LaTeX Warning: Reference `eq:cf-two-sum' on page 7 undefined on input line 373.
+
+
+
+LaTeX Warning: Reference `eq:cf-d' on page 7 undefined on input line 375.
+
+
+LaTeX Warning: Reference `eq:cf-two-sum' on page 7 undefined on input line 383.
+
+
+
+LaTeX Warning: Reference `eq:cf-bstar' on page 7 undefined on input line 395.
+
+[7]
+
+LaTeX Warning: Reference `eq:cf-two-sum' on page 8 undefined on input line 431.
+
+
+
+LaTeX Warning: Reference `eq:cf-collected' on page 8 undefined on input line 43
+1.
+
+
+LaTeX Warning: Reference `eq:st-claim' on page 8 undefined on input line 459.
+
+[8]
+
+LaTeX Warning: Reference `prop:cf-collection' on page 9 undefined on input line
+ 464.
+
+
+LaTeX Warning: Reference `eq:st-hsum' on page 9 undefined on input line 478.
+
+
+LaTeX Warning: Reference `eq:st-corrected' on page 9 undefined on input line 49
+3.
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 508--512
+\T1/lmr/m/it/10.95 Hence an in-duc-tion hy-poth-e-sis con-sist-ing only of $\OM
+S/lmsy/m/n/10.95 k\OML/lmm/m/it/10.95 U[]\OMS/lmsy/m/n/10.95 k ^^T k\OML/lmm/m/
+it/10.95 U[]\OMS/lmsy/m/n/10.95 k$ \T1/lmr/m/it/10.95 can-not im-ply
+
+LaTeX Warning: Reference `prop:cf-counter' on page 9 undefined on input line 51
+4.
+
+[9]
+
+LaTeX Warning: Reference `eq:st-claim' on page 10 undefined on input line 531.
+
+[10]note: downloading t1lmtt.fd
+ (t1lmtt.fd)note: downloading ec-lmtt10.tfm
+
+
+LaTeX Warning: Reference `sec:stability-audit' on page 11 undefined on input li
+ne 564.
+
+[11]
+
+LaTeX Warning: Reference `eq:st-history' on page 12 undefined on input line 599
+.
+
+
+LaTeX Warning: Reference `eq:st04-K' on page 12 undefined on input line 606.
+
+
+LaTeX Warning: Reference `eq:st04-claimed' on page 12 undefined on input line 6
+06.
+
+[12]
+
+LaTeX Warning: Reference `eq:st04-scalar' on page 13 undefined on input line 65
+1.
+
+
+LaTeX Warning: Reference `sec:verified-l12' on page 13 undefined on input line 
+661.
+
+
+LaTeX Warning: Reference `sec:verified-vq' on page 13 undefined on input line 6
+61.
+
+
+LaTeX Warning: Reference `sec:stability-audit' on page 13 undefined on input li
+ne 661.
+
+
+LaTeX Warning: Reference `sec:st04-time-kernel' on page 13 undefined on input l
+ine 661.
+
+[13] (mathematical-verification.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `mathematical-verification.out' has change
+d.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+Output written on mathematical-verification.xdv (13 pages, 79120 bytes).
+Transcript written on mathematical-verification.log.
+note: Rerunning TeX because "mathematical-verification.aux" changed ...
+(mathematical-verification.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(amsmath.sty
+For additional information on amsmath, use the `?' option.
+(amstext.sty (amsgen.sty)) (amsbsy.sty) (amsopn.sty)) (umsa.fd) (amsfonts.sty))
+ (fontenc.sty (t1lmr.fd)) (inputenc.sty
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (lmodern.sty) (amssymb.sty) (mathtools.sty (keyval.sty) (calc.sty)
+(mhsetup.sty)) (geometry.sty (ifvtex.sty (iftex.sty))) (microtype.sty
+(etoolbox.sty) (microtype-xetex.def) (microtype.cfg)) (xcolor.sty (color.cfg)
+(xetex.def)) (hyperref.sty (ltxcmds.sty) (pdftexcmds.sty (infwarerr.sty))
+(kvsetkeys.sty) (kvdefinekeys.sty) (pdfescape.sty) (hycolor.sty)
+(letltxmacro.sty) (auxhook.sty) (kvoptions.sty) (pd1enc.def) (intcalc.sty)
+(etexcmds.sty) (puenc.def) (url.sty) (bitset.sty (bigintcalc.sty))
+(atbegshi-ltx.sty)) (hxetex.def (stringenc.sty) (rerunfilecheck.sty
+(atveryend-ltx.sty) (uniquecounter.sty))) (l3backend-xetex.def)
+(mathematical-verification.aux) (ts1cmr.fd) (ot1lmr.fd) (omllmm.fd) (omslmsy.fd
+) (omxlmex.fd) (umsa.fd) (umsb.fd) (graphicx.sty (graphics.sty (trig.sty)
+(graphics.cfg)))
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(mt-cmr.cfg) (nameref.sty (refcount.sty) (gettitlestring.sty))
+(mathematical-verification.out) (mathematical-verification.out) (mt-msa.cfg)
+(mt-msb.cfg) [1] [2] [3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 174.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 174.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 174.
+
+[4] [5] [6] [7] [8]
+Underfull \hbox (badness 3302) in paragraph at lines 508--512
+\T1/lmr/m/it/10.95 Hence an in-duc-tion hy-poth-e-sis con-sist-ing only of $\OM
+S/lmsy/m/n/10.95 k\OML/lmm/m/it/10.95 U[]\OMS/lmsy/m/n/10.95 k ^^T k\OML/lmm/m/
+it/10.95 U[]\OMS/lmsy/m/n/10.95 k$ \T1/lmr/m/it/10.95 can-not im-ply
+[9] [10] (t1lmtt.fd) [11] [12] [13] (mathematical-verification.aux) )
+(see the transcript file for additional information)
+Output written on mathematical-verification.xdv (13 pages, 94504 bytes).
+Transcript written on mathematical-verification.log.
+note: Running xdvipdfmx ...
+note: downloading pdftex.map
+note: downloading kanjix.map
+note: downloading ckx.map
+note: downloading texglyphlist.txt
+note: downloading pdfglyphlist.txt
+note: downloading glyphlist.txt
+[1note: downloading lm-ec.enc
+note: downloading lmbx10.pfb
+note: downloading lmr9.pfb
+note: downloading lmr10.pfb
+note: downloading lmcsc10.pfb
+note: downloading lm-mathit.enc
+note: downloading lmmi10.pfb
+note: downloading lm-rm.enc
+note: downloading lmr8.pfb
+note: downloading lmri10.pfb
+note: downloading lmmi8.pfb
+note: downloading lm-mathsy.enc
+note: downloading lmsy10.pfb
+note: downloading lm-mathex.enc
+note: downloading lmex10.pfb
+note: downloading lmsy8.pfb
+note: downloading lmri9.pfb
+][2note: downloading lmr6.pfb
+][3note: downloading msbm10.pfb
+note: downloading lmmi6.pfb
+][4note: downloading msam10.pfb
+][5note: downloading lmr7.pfb
+note: downloading lmsy7.pfb
+][6][7][8][9][10][11note: downloading lmtt10.pfb
+][12note: downloading lmsy6.pfb
+][13]139079 bytes written
+note: Writing `$WORKSPACE/.checkpoint-tools/latex-build/mathematical-verification.pdf` (135.82 KiB)
+note: Writing `$WORKSPACE/.checkpoint-tools/latex-build/mathematical-verification.out` (9.35 KiB)
+note: Writing `$WORKSPACE/.checkpoint-tools/latex-build/mathematical-verification.log` (20.39 KiB)
+note: Writing `$WORKSPACE/.checkpoint-tools/latex-build/mathematical-verification.aux` (10.11 KiB)

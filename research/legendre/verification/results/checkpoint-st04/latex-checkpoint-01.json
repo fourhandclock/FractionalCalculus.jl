@@ -1,0 +1,57 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--print",
+    "--outdir",
+    "$WORKSPACE/.checkpoint-tools/latex-build",
+    "mathematical-verification.tex"
+  ],
+  "cwd": "$WORKSPACE/research/legendre/verification",
+  "started_at_utc": "2026-11-20T19:06:56.776265+00:00",
+  "limits": {
+    "wall_seconds": 240,
+    "cpu_seconds_per_process": 120,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/mathematical-verification.tex": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "a997d2c555d311043876ead933cd0e849d9ab1ecb99fcbe8698d1d79db9f4177",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 162.8507041519988,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T19:09:39.628890+00:00",
+  "output": {
+    "latex-checkpoint-01.stdout.log": {
+      "bytes": 32807,
+      "sha256": "54ce1716a58379fe356a41ee456d939aed39e96664702a3b795c57f48e588454"
+    },
+    "latex-checkpoint-01.stderr.log": {
+      "bytes": 4991,
+      "sha256": "c796cce42c42b66b4ca99a78e8bd95081fccf96d9c3cd8721a099951ff3bb6f8"
+    }
+  },
+  "raw_output_before_path_normalization": {
+    "latex-checkpoint-01.stdout.log": {
+      "bytes": 33035,
+      "sha256": "567b8367ad6cb73fdc05589a127957c63b49a3ca20f6dee725bf7370cfdb0869"
+    }
+  },
+  "path_normalization_manifest": "path-normalization.json"
+}

@@ -1,0 +1,20 @@
+Try this: ring_nf
+Coefficients.lean:19:39: error: unsolved goals
+α : ℝ
+hα0 : 0 < α
+hα1 : α < 1
+hd : 2 - α ≠ 0
+⊢ True ∨ α = 0
+interpretation of _aux_Mathlib_Tactic_Linarith_Frontend___elabRules_nlinarith_1 took 107ms
+Coefficients.lean:118:2: error: linarith failed to find a contradiction
+case intro.intro
+C : ℝ
+hC : 0 < C
+h : ∀ (w : ℝ), 0 < w → w ≤ 1 → ∀ (x y : ℝ), x ^ 2 + y ^ 2 ≤ C * (x ^ 2 + w * y ^ 2)
+hp : 0 < 2 * (C + 1)
+hw : 0 < 1 / (2 * (C + 1))
+hw1 : 1 / (2 * (C + 1)) ≤ 1
+hlt : C / (2 * (C + 1)) < 1
+hh : 1 ≤ C * ((C + 1)⁻¹ * (1 / 2))
+⊢ False failed
+Coefficients.lean:127:4: error: no goals to be solved

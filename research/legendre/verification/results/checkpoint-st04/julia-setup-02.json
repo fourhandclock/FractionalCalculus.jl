@@ -1,0 +1,56 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/julia-1.12.6/bin/julia",
+    "--startup-file=no",
+    "--compiled-modules=no",
+    "--pkgimages=no",
+    "--heap-size-hint=384M",
+    "--compile=min",
+    "-O0",
+    "--project=.",
+    "-e",
+    "using Pkg; Pkg.instantiate(;allow_autoprecomp=false)"
+  ],
+  "cwd": "$WORKSPACE/.checkpoint-tools/checkpoint-tree",
+  "started_at_utc": "2026-11-20T18:11:10.337434+00:00",
+  "limits": {
+    "wall_seconds": 360,
+    "cpu_seconds_per_process": 180,
+    "address_space_mib_per_process": 6144,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/Project.toml": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+    "$WORKSPACE/.checkpoint-tools/checkpoint-tree/Manifest.toml": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "$WORKSPACE/.checkpoint-tools/julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "a997d2c555d311043876ead933cd0e849d9ab1ecb99fcbe8698d1d79db9f4177",
+  "outcome": "completed",
+  "returncode": -24,
+  "elapsed_seconds": 181.72499580300064,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-20T18:14:12.066014+00:00",
+  "output": {
+    "julia-setup-02.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "julia-setup-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}
