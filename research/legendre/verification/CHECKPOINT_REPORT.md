@@ -1,3 +1,5 @@
+> Archival ST-04 release report. The release procedure below describes the original checkpoint. For the mathematical reading path, use the [research overview](README.md); for recorded test results, use the [validation report](results/VALIDATION.md).
+
 # Validated Legendre checkpoint through ST-04
 
 Repository: `fourhandclock/FractionalCalculus.jl`. Starting branch/commit: `main`, `a01b208d13e25800da623dcf053b32bcc2eeb0b6`. The intended release branch is `research/legendre-verification-st04`. A normal push to `origin` is authorized only after validation; no main/master merge, force-push, or pull request is part of this task. The final Git commit and remote confirmation are reported separately after release, avoiding a self-referential commit hash in this document.

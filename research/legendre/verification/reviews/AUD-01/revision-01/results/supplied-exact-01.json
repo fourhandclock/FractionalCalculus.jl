@@ -1,0 +1,53 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/aud01-close-2026-11-25/venv/bin/python",
+    "-I",
+    "-B",
+    "check_exact_aud01.py"
+  ],
+  "cwd": "$WORKSPACE/AUD01_review_package/aud01",
+  "started_at_utc": "2026-11-25T15:25:43.730520+00:00",
+  "limits": {
+    "wall_seconds": 90,
+    "cpu_seconds_per_process": 60,
+    "address_space_mib_per_process": 1024,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 768,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/AUD01_review_package/aud01/check_exact_aud01.py": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 0.6665248799999972,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:25:44.397111+00:00",
+  "child_usage": {
+    "user_seconds": 0.689197,
+    "system_seconds": 0.048256,
+    "peak_rss_kib": 51904,
+    "peak_sampled_descendant_rss_bytes": 53166080
+  },
+  "output": {
+    "supplied-exact-01.stdout.log": {
+      "bytes": 261,
+      "sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6"
+    },
+    "supplied-exact-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

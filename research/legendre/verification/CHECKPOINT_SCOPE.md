@@ -1,3 +1,5 @@
+> Archival ST-04 release scope. Authorization, staging, and environment details below describe the original release procedure. The current research entry points are the [overview](README.md) and [reproduction guide](REPRODUCE.md).
+
 # Intended ST-04 checkpoint scope
 
 This task authorizes inspection, a dedicated research branch, coherent commits, and a normal push to `origin`. It does not authorize merging, force-pushing, pull requests, or inclusion of unrelated unfinished work. Initial branch: `main`; initial commit: `a01b208d13e25800da623dcf053b32bcc2eeb0b6`; repository: `fourhandclock/FractionalCalculus.jl`. The initial index was empty.

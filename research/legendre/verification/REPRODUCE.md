@@ -1,95 +1,104 @@
-# Reproduce the checkpoint
+# Reproduce the audited Legendre checkpoint
 
-Run from a clean checkout of the research verification branch. This checkpoint's numerical target is the Legendre study; unrelated uncommitted metric-graph work in the originating workspace is not part of the release. The exact library/project snapshot used for validation is described in [CHECKPOINT_SCOPE.md](CHECKPOINT_SCOPE.md).
+The current checkpoint is **AUD-01 revision 01, ACCEPT WITH LIMITATIONS**. Start with the [mathematical overview](README.md) and [clean-tree validation report](results/checkpoint-aud01/VALIDATION.md). Commands below are run serially from the repository root unless another directory is specified. Table and figure generators are separate experiments: use a new output directory to preserve their historical data.
 
-## Reference environment
+## Environments and setup
 
-Julia 1.12.6, CPython 3.13.16 with NumPy 2.2.6, Lean 4.19.0, matching mathlib v4.19.0 at `c44e0c8ee63ca166450922a373c7409c5d26b00b`, and Tectonic 0.15.0. Exact binary/source identifiers, commands, limits, outputs, and any failed attempts are retained under `results/checkpoint-st04/`. The Lean dependency manifest locks transitive revisions. The Python diagnostic uses only NumPy plus the standard library; the other independent checks need only the standard library.
+The replay uses Julia **1.12.6** with the committed root project/manifest; CPython **3.13.16**, NumPy **2.3.5**, SciPy **1.17.0**, mpmath **1.3.0**, SymPy **1.14.0**; Lean **4.19.0** with mathlib **v4.19.0**, immutable revision `c44e0c8ee63ca166450922a373c7409c5d26b00b`; and Tectonic **0.15.0**. [The requirements](reviews/AUD-01/revision-01/requirements.txt), [review environment](reviews/AUD-01/revision-01/python-environment.json), and [integration environment](results/checkpoint-aud01/environment.json) record the exact identities.
 
-Tools and caches in the originating workspace were placed in the ignored `.checkpoint-tools/` directory. They are not included in the branch. Another researcher may use their own local installations of the pinned versions. Toolchain acquisition and registry/cache access need network access; numerical/proof validation after setup can run offline.
+Tools, virtual environments, depots, caches and rebuilt objects belong in ignored `.checkpoint-tools/` or `lean/.lake/`. Use existing compatible installations, or provision these exact versions as a separate setup step. Dependency acquisition requires network access and approval where applicable; the integration itself reused cached tools and acquired no additional dependencies. Never run `lake update` or resolve Julia dependencies merely to replay these checks.
+
+A fresh Python environment can be prepared, after dependency acquisition is authorized, with:
+
+```bash
+python3 -m venv .checkpoint-tools/python-aud01
+.checkpoint-tools/python-aud01/bin/python -m pip --isolated install --only-binary=:all: \
+  -r research/legendre/verification/reviews/AUD-01/revision-01/requirements.txt
+```
+
+The original ST-04 Python requirement and validation environment remain historical; their NumPy pin differs from this explicitly recorded replay. Do not silently substitute one environment for the other.
 
 ## Julia
 
-Use an isolated depot if desired and instantiate the existing root project without changing dependency versions:
+With Julia and the pinned dependencies already available:
 
 ```bash
-JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=1 OPENBLAS_NUM_THREADS=1 \
-  julia --startup-file=no --project=. \
-  -e 'using Pkg; Pkg.instantiate(;allow_autoprecomp=false)'
-
-JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=1 OPENBLAS_NUM_THREADS=1 \
-  julia --startup-file=no --project=. studies/legendre/test/runtests.jl
+JULIA_PKG_OFFLINE=true JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=1 \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  julia --startup-file=no --project=. test/runtests.jl
 ```
 
-The suite includes `proof_audit.jl`; it tests actual package coefficients, historical-state collection, GLL weights, and an ST-04 scalar reduction using the actual Caputo and memory matrices. Its ST-04 subset is N=128 with the printed memory rule for both derivative formulas, compared with supplied rounded amplitudes at absolute tolerance 5e-8. It checks the full discrete residual vector at tolerance 5e-10. This complements the standalone Python refinement study and does not implement product integration in the production library.
+The clean branch's root runner discovers the Legendre study. Its **669 assertions** include `proof_audit.jl`: actual library Caputo/history rows, GLL operators, and the ST-04 printed-rule scalar reduction for both derivative schemes. The audit is included once by the study runner; a separate second execution is unnecessary. No table/figure generator runs during validation, and no saved numerical results are rewritten.
 
-The original 645 assertions plus the 24 audit assertions pass in the reference run: **669 total**. Do not run the table or figure generators to validate this checkpoint; their default destinations contain historical results. No numerical table target, error norm, source problem, or result file was adjusted to achieve a pass.
+The numerical implementation follows quadratic interpolation where the printed L1–2 collection disagrees, retains L1 startup and the printed Volterra quadrature, and preserves the published error-normalization conventions. [The implementation audit](ST04_PROVENANCE.md#implementation-inspected-before-release) describes these choices. This checkpoint changes none of those algorithms.
 
 ## Python
 
-Install the pinned NumPy requirement into a local environment, then run:
+Use the isolated four-dependency environment above. Set `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1`, then execute these commands one at a time:
 
 ```bash
-python3 -B research/legendre/verification/scripts/check_counterexamples.py
-python3 -B research/legendre/verification/scripts/verify_l12_stability.py
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python3 -B research/legendre/verification/scripts/verify_time_variable_kernel_st04.py
+.checkpoint-tools/python-aud01/bin/python -I -B AUD01_review_package/aud01/check_exact_aud01.py
+.checkpoint-tools/python-aud01/bin/python -I -B AUD01_review_package/aud01/verify_aud01_homogeneous.py
+.checkpoint-tools/python-aud01/bin/python -I -B research/legendre/verification/scripts/verify_l12_stability.py
+.checkpoint-tools/python-aud01/bin/python -I -B research/legendre/verification/scripts/verify_time_variable_kernel_st04.py
+PYTHONNOUSERSITE=1 .checkpoint-tools/python-aud01/bin/python -s -B research/legendre/verification/scripts/check_counterexamples.py
 ```
 
-The first command runs 10 tests covering VQ-01, CF-02, signed-history reductions, and the exact-rational GLL example. Its numerical domain/tolerances are retained in the historical [test plan](results/TEST_PLAN.md). It uses analytical panel moments, not the missing original CF-02 integration oracle.
+The first four are identified original diagnostics. They cover exact identities, 12 homogeneous configurations, 432 ST-03 cases and 24 ST-04 configurations. The final program is a later independent 10-test suite, not a recovered original companion. The [criteria inventory](reviews/AUD-01/revision-01/acceptance-criteria.json) preserves the actual assertions and tolerances. No rate of 0.5 is required: the homogeneous observed last-doubling rate is 0.7498 for both methods. Its asymptotic half-order conclusion is analytical, not established by these grids.
 
-ST-03 checks 432 parameter combinations with a fixed representation tolerance 2e-11. The supplied source is unchanged. ST-04 checks 24 configurations: L1/L1-2, printed quadrature/product-integration control, and six N values through 4096. It asserts finite trajectories, sampled residual <5e-10, and weighted peaks >2 for N≥1024. These are finite-grid tests, not an all-fine-grid contractivity refutation. The original source uses six sampled residual levels; do not report them as an exhaustive residual test. Its optional `solve` arguments are not a validated general-parameter interface in this checkpoint.
+The [diagnostic inventory](reviews/AUD-01/revision-01/DIAGNOSTIC_INVENTORY.md) identifies ten unavailable or unauthenticated original groups. Their historical results are not counted as replayed. Original supplied output, revision-01 replay output, and integration output remain separate.
 
 ## Lean
 
-First, from the repository root, populate the exact committed dependency
-revisions without refreshing full repository history:
+Reuse the pinned project in `research/legendre/verification/lean/` with its exact dependency sources and precompiled mathlib cache. This integration does not download them. On another checkout, the existing [source helper](scripts/fetch_lean_sources.py) and cache tooling can provision the committed revisions after acquisition is authorized; do not build all of mathlib or refresh its history.
+
+From the Lean project directory, compile these modules serially:
 
 ```bash
-python3 -B research/legendre/verification/scripts/fetch_lean_sources.py
-```
-
-Then from `research/legendre/verification/lean/`, with the matching toolchain:
-
-```bash
-LEAN_NUM_THREADS=1 lake exe cache get \
-  Mathlib.Analysis.SpecialFunctions.Pow.Real \
-  Mathlib.Analysis.SpecialFunctions.Integrals \
-  Mathlib.Analysis.Normed.Group.Basic \
-  Mathlib.Tactic.FieldSimp Mathlib.Tactic.Linarith \
-  Mathlib.Tactic.NormNum Mathlib.Tactic.Positivity Mathlib.Tactic.Ring
 mkdir -p .lake/build/lib/lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -o .lake/build/lib/lean/Coefficients.olean Coefficients.lean
-LEAN_NUM_THREADS=1 lake env lean -j1 CoefficientsAxioms.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -o .lake/build/lib/lean/Quadrature.olean Quadrature.lean
-LEAN_NUM_THREADS=1 lake env lean -j1 QuadratureAxioms.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -o .lake/build/lib/lean/AuditConstants.olean AuditConstants.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -o .lake/build/lib/lean/Aud01FiniteSums.olean Aud01FiniteSums.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -o .lake/build/lib/lean/Aud01Oscillator.olean Aud01Oscillator.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 \
+  --root=../reviews/AUD-01/revision-01 \
+  ../reviews/AUD-01/revision-01/ConsolidateCertificates.lean
 ```
 
-Use the committed dependency manifest; the explicit mathlib source revision is immutable. It was constructed from that revision's own transitive lockfile and checked by Lake. The shallow setup helper refuses to change an existing checkout at another revision. `lake update` is not needed for replay and can fetch full mathlib history; two bounded attempts at that operation exceeded the file-size budget during setup and are preserved as failures. The cache command fetches only the listed modules and their imports. The four final commands compile the two local modules against those caches and print every theorem's trusted-axiom dependencies. It does not ask Lake to rebuild the entire library. If a cache is missing, resolve that missing dependency rather than launching an unrestricted full mathlib build. A source file or a draft is not a proof certificate until compilation and the axiom audit succeed. Run these commands serially: the reference bounded runs used 8 GiB per-process virtual-address limits, 120 s wall / 90 s CPU deadlines, and sampled descendant RSS ceilings of 2.25 GiB for the algebra module and 3.5 GiB for the integral module. Shared mappings can be counted more than once. Do not use Lean’s `-M` flag in this pinned setup: diagnostic attempts ended in memory exceptions or an unknown `max_memory` option; the successful runs used the external limits instead. See `lean/README.md` for the exact statements and current compilation status.
+The last command checks all 42 names and prints every axiom dependency. Accepted dependencies are `propext`, `Classical.choice`, and `Quot.sound`; incomplete proofs and unsupported axioms are not accepted. [The catalogue](lean/README.md) explains the 41-group counting convention and the finite statements covered. The full PDE stability/convergence arguments remain analytical.
 
 ## LaTeX
 
-The main TeX file is identical to the supplied original ST-04 source. From this verification directory:
+The current mathematical authority is the accepted revision source, preserved unchanged during integration. From the repository root:
 
 ```bash
-mkdir -p results/latex-build
-tectonic --untrusted --keep-logs --keep-intermediates --print \
-  --outdir results/latex-build mathematical-verification.tex
+mkdir -p .checkpoint-tools/latex-build-aud01
+tectonic --untrusted --only-cached --keep-logs --keep-intermediates \
+  --outdir .checkpoint-tools/latex-build-aud01 \
+  research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex
 ```
 
-Tectonic automatically repeats passes to resolve references. Alternatively use two ordinary `pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error` passes with the same output directory. Check the final log and rendered pages; static syntax checks cannot certify layout. Build products remain ignored. The supplied PDF is an input, not a substituted claim that this TeX source was compiled here.
+This offline command requires an already populated font/package cache; missing assets are an explicit build failure, not permission to download. The accepted source includes its documented cached-font sizing convention. The current build has 37 pages; inspect the log for missing references, undefined commands and box warnings. Earlier ST-04 source/PDF and all supplied AUD-01 versions remain unchanged.
 
-## Limits and evidence
+## Bounded execution and integrity
 
-`scripts/run_bounded.py` records new stdout/stderr files, command, source hashes, environment settings, return code, elapsed time, and limits. Use a new label per attempt; it refuses to overwrite existing evidence. Example:
+The existing [runner](scripts/run_bounded.py) preserves commands, source snapshots, stdout/stderr, environment, resource limits and exit status. Give each new attempt a new label and evidence directory; it refuses to overwrite an existing record. For example:
 
 ```bash
 python3 -B research/legendre/verification/scripts/run_bounded.py \
-  --label python-st03-new --timeout 60 --cpu-seconds 45 --memory-mib 256 \
-  --source research/legendre/verification/scripts/verify_l12_stability.py \
-  -- python3 -B research/legendre/verification/scripts/verify_l12_stability.py
+  --label aud01-exact-new --timeout 90 --cpu-seconds 60 \
+  --memory-mib 1024 --resident-mib 768 --evidence .checkpoint-tools/replay-evidence \
+  --source AUD01_review_package/aud01/check_exact_aud01.py \
+  -- .checkpoint-tools/python-aud01/bin/python -I -B AUD01_review_package/aud01/check_exact_aud01.py
 ```
 
-Runs inherit one CPU affinity and explicit single-thread settings. The wrapper uses finite wall/CPU deadlines, per-process virtual-address-space and per-file size limits, log-size monitoring, optional sampled descendant RSS limits, and process-group cleanup. These limits are resource-conscious local safeguards, not cgroup aggregate isolation or protection against deliberately detaching workloads. Run only inspected commands and keep expensive builds serial. Numerical inputs and retained source/evidence are not writable outputs of the scripts.
+Run one expensive workload at a time. Recorded safeguards are single CPU affinity/thread, finite wall and CPU deadlines, per-process address-space and file-size limits, bounded logs, sampled descendant RSS and process-group cleanup. They are not cgroup aggregate isolation. Inspect workloads before execution; retained sources and historical evidence are inputs, not output destinations.
 
-Raw failures and setup attempts are preserved. Public evidence may normalize local path prefixes, with raw hashes and original local copies explicitly recorded. Such normalization changes no numerical values, statements, or failure text. Never replace old stdout, loosen a tolerance to fit a failure, or describe the supplied historical output as a fresh run.
+The [integrated integrity checker](scripts/check_aud01_checkpoint.py) checks protected algorithms, historical sources/results, fresh run hashes, formal-certificate bindings and local Markdown links:
+
+```bash
+python3 -B research/legendre/verification/scripts/check_aud01_checkpoint.py
+```
+
+The earlier revision-01 `validate_checkpoint.py` records a different scope: all 294 files of the original development workspace, including unrelated local work and a then-missing ST-04 PDF. Its unchanged historical output is retained; it is not a clean-checkout acceptance test. The clean branch preserves the ST-04 PDF from Git, excludes unrelated work, and checks those differences explicitly rather than altering historical expectations.

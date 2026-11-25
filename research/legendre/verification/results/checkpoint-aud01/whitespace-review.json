@@ -1,0 +1,29 @@
+{
+  "complete_staged_whitespace_check_returncode": 2,
+  "warning_count": 162,
+  "warning_paths": [
+    "AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex",
+    "research/legendre/verification/results/checkpoint-aud01/environment-01.Manifest.toml.source.txt",
+    "research/legendre/verification/results/checkpoint-aud01/julia-regression-01.Manifest.toml.source.txt",
+    "research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log",
+    "research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch",
+    "research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-03.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.mathematical-verification-aud01-r1.tex.source.txt",
+    "research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log"
+  ],
+  "current_authored_documentation_and_checker_check_returncode": 0,
+  "disposition": "Preserve supplied/accepted source text, exact source snapshots and compiler output unchanged; no whitespace normalization of evidence. These are retained lint warnings, not numerical/assertion/compiler failures."
+}

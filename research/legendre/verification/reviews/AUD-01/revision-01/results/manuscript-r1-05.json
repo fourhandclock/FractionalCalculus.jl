@@ -1,0 +1,56 @@
+{
+  "command": [
+    ".checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--only-cached",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    ".checkpoint-tools/aud01-close-2026-11-25/latex-build-05",
+    "research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T15:44:53.831923+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex": "be4767ac443b95fa2d68dc8e3c9ea9f726c021fa4bfa98d9f42ce419e68b694e"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 1.517783908000638,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:44:55.349768+00:00",
+  "child_usage": {
+    "user_seconds": 1.367878,
+    "system_seconds": 0.173056,
+    "peak_rss_kib": 177480,
+    "peak_sampled_descendant_rss_bytes": 181559296
+  },
+  "output": {
+    "manuscript-r1-05.stdout.log": {
+      "bytes": 744,
+      "sha256": "d211dabec8ff3844b77c18fa8995c2ce90ca699080c62f2675235c148dbefe26"
+    },
+    "manuscript-r1-05.stderr.log": {
+      "bytes": 6572,
+      "sha256": "7ef0b60be9781d108725f374a83643ca2b56bde7f685bc8035731840210385dc"
+    }
+  }
+}

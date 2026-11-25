@@ -1,0 +1,66 @@
+{
+  "command": [
+    ".checkpoint-tools/julia-1.12.6/bin/julia",
+    "--startup-file=no",
+    "--heap-size-hint=384M",
+    "--gcthreads=1",
+    "--project=.",
+    "test/runtests.jl"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T16:33:12.267242+00:00",
+  "limits": {
+    "wall_seconds": 300,
+    "cpu_seconds_per_process": 240,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 3072,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/src/FractionalCalculus.jl": "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98",
+    "$WORKSPACE/src/TimeDiscretization.jl": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6",
+    "$WORKSPACE/src/Legendre.jl": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399",
+    "$WORKSPACE/src/Solver.jl": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3",
+    "$WORKSPACE/studies/legendre/cases.jl": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a",
+    "$WORKSPACE/studies/legendre/test/runtests.jl": "6dd054d1d6e9c4912f6561b005d1e93b7a3d9edb4fa57f74a686021ed37fd00d",
+    "$WORKSPACE/studies/legendre/test/proof_audit.jl": "23e13755be42bff984d9db07ef3b82a1ec0dfd7c05bb15820dea706cf7019667",
+    "$WORKSPACE/Project.toml": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+    "$WORKSPACE/Manifest.toml": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "$WORKSPACE/.checkpoint-tools/julia-depot:$WORKSPACE/.checkpoint-tools/shared-julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 13.738434038001287,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T16:33:26.005743+00:00",
+  "child_usage": {
+    "user_seconds": 13.372576,
+    "system_seconds": 0.901814,
+    "peak_rss_kib": 431080,
+    "peak_sampled_descendant_rss_bytes": 714944512
+  },
+  "output": {
+    "julia-regression-01.stdout.log": {
+      "bytes": 70,
+      "sha256": "c164be6f6400e2753e43f9d0a6f08094f550cc24fcee98623e14bfe264b2fcd8"
+    },
+    "julia-regression-01.stderr.log": {
+      "bytes": 140,
+      "sha256": "c5ce3c0cb9af551a48de96f0b027989ab35eecda22a7a670f60a620e55618510"
+    }
+  }
+}

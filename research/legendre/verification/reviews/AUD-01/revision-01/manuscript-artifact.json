@@ -1,0 +1,98 @@
+{
+  "pdf": "mathematical-verification-aud01-r1.pdf",
+  "pdf_pages": 37,
+  "pdf_sha256": "3d5c4e03a7910f7403b77ec24d8fd2f86601928624fec875986cf958f9ae3ea2",
+  "tex_sha256": "be4767ac443b95fa2d68dc8e3c9ea9f726c021fa4bfa98d9f42ce419e68b694e",
+  "successful_build": "results/manuscript-r1-05.json",
+  "failed_build_retained": "results/manuscript-r1-01.json",
+  "failed_build_reason": "Missing cached lmmi7.pfb in offline mode; no font downloaded. Revised copy uses cached math-script sizes in small tables.",
+  "final_missing_references": false,
+  "final_overfull_boxes": false,
+  "underfull_warning_count": 6,
+  "locations": {
+    "prop:sp-fixed": {
+      "number": "10.1",
+      "pdf_page": 21
+    },
+    "prop:sp-l1": {
+      "number": "10.2",
+      "pdf_page": 22
+    },
+    "prop:sp02-stability": {
+      "number": "11.1",
+      "pdf_page": 23
+    },
+    "prop:sp02-spatial": {
+      "number": "11.2",
+      "pdf_page": 25
+    },
+    "prop:tm01-sharp": {
+      "number": "12.1",
+      "pdf_page": 27
+    },
+    "prop:tm01-singular": {
+      "number": "12.2",
+      "pdf_page": 29
+    },
+    "prop:st05": {
+      "number": "13.1",
+      "pdf_page": 34
+    },
+    "prop:aud01-homogeneous": {
+      "number": "14.1",
+      "pdf_page": 35
+    },
+    "sec:aud01-review-closure": {
+      "number": "15",
+      "pdf_page": 37
+    }
+  },
+  "no_network_for_tex": true,
+  "retained_build_attempts": [
+    {
+      "record": "results/manuscript-r1-01.json",
+      "result": "failed",
+      "reason": "Missing cached lmmi7.pfb; no font downloaded"
+    },
+    {
+      "record": "results/manuscript-r1-02.json",
+      "result": "passed",
+      "scope": "Pre-final editorial revision with cached script sizes"
+    },
+    {
+      "record": "results/manuscript-r1-03.json",
+      "result": "failed",
+      "reason": "Requested output directory did not exist; no LaTeX engine run"
+    },
+    {
+      "record": "results/manuscript-r1-04.json",
+      "result": "passed",
+      "scope": "Intermediate editorial revision; 38 pages"
+    },
+    {
+      "record": "results/manuscript-r1-05.json",
+      "result": "passed",
+      "scope": "Final concise editorial revision; 37 pages"
+    }
+  ],
+  "visual_inspection": {
+    "earlier_build_pages": [
+      31,
+      37
+    ],
+    "checked": "Representative assumptions, theorem wording, quantifiers, layout and closure scope",
+    "final_build_pages_checked": [
+      20,
+      31,
+      37
+    ]
+  },
+  "pdf_inspection_tools": {
+    "pypdf": "existing global read-only installation for page count",
+    "render": "existing libpoppler-glib and libcairo via ctypes",
+    "unavailable_attempts": [
+      "pdfinfo and pdftocairo binaries absent",
+      "Poppler GObject introspection namespace absent; no installation attempted"
+    ]
+  }
+}

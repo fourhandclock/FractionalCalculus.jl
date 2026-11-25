@@ -1,0 +1,12 @@
+{
+  "baseline_files_checked": 294,
+  "modified_originals": [],
+  "missing_originals": [],
+  "original_paper_sha256_matches_prior_record": true,
+  "review_links_checked": 8,
+  "links_passed": true,
+  "original_aud01_program_syntax_parsed": true,
+  "numerical_programs_executed": false,
+  "new_formal_run_records_checked": 6,
+  "scope": "Read-only integrity and documentation checks. Historical numerical output is not represented as replayed."
+}

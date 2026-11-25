@@ -1,0 +1,29 @@
+{
+  "python": "3.13.16",
+  "isolated_prefix": "$WORKSPACE/.checkpoint-tools/python-aud01",
+  "python_dependencies": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0"
+  },
+  "julia": {
+    "version_output": "julia version 1.12.6",
+    "binary_sha256": "fd670aabc838e93f178cbcf7304c5e9c50aadcce3735e86d5e3218b1bb04e602"
+  },
+  "lean": {
+    "version_output": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+    "binary_sha256": "92c3d35b5bfaa5e0fea413a775d504cf46cd95e1345df61c2274f76779e7e023"
+  },
+  "tectonic": {
+    "version_output": "tectonic 0.15.0Tectonic 0.15.0",
+    "binary_sha256": "4df19452c202c5bef9f7c7e4a01a3f2b9d5199f0a1f73b70b4fe1bffbc9837f6"
+  },
+  "mathlib_revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "network_acquisition_this_integration": false,
+  "execution": "Serial offline numerical/proof/document replay; existing caches reused.",
+  "julia_environment": "Committed clean-branch Project.toml and Manifest.toml; isolated writable first depot, cached second depot; JULIA_PKG_OFFLINE=true; no resolution or instantiation.",
+  "python_environment": "Existing approved isolated four-dependency venv; no global packages modified.",
+  "limits_scope": "Recorded per-process deadlines/address space, sampled descendant RSS, CPU affinity/thread count, log/file ceilings and process-group cleanup; not cgroup aggregate isolation.",
+  "platform": "Linux-7.3.4-1-default-x86_64-with-glibc2.44"
+}

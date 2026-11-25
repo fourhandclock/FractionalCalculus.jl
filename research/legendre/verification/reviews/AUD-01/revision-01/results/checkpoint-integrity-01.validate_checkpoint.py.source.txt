@@ -1,0 +1,191 @@
+#!/usr/bin/env python3
+"""Check this documentary checkpoint without rerunning scientific experiments.
+
+Uses only the Python standard library. Reports to stdout and exits nonzero on
+any discrepancy. Paths in retained run records use the literal $WORKSPACE.
+This is a new integrity validator, not a recovered mathematical diagnostic.
+"""
+import ast
+import hashlib
+import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[5]
+checks = []
+
+
+def load(path):
+    return json.loads(path.read_text())
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check(name, ok, **details):
+    checks.append({"check": name, "passed": bool(ok), **details})
+
+
+def workspace_path(name):
+    if name.startswith("$WORKSPACE/"):
+        return ROOT / name[len("$WORKSPACE/"):]
+    return ROOT / name
+
+
+def slugs(path):
+    counts, result = {}, set()
+    for heading in re.findall(r"^#{1,6}\s+(.+?)\s*#*\s*$", path.read_text(), re.M):
+        heading = re.sub(r"<[^>]*>", "", heading).lower()
+        heading = re.sub(r"[^\w\- ]", "", heading).replace(" ", "-")
+        n = counts.get(heading, 0)
+        counts[heading] = n + 1
+        result.add(heading if n == 0 else f"{heading}-{n}")
+    return result
+
+
+preserved = load(HERE / "preserved-inputs.json")
+for key, expected in [("original_files", 294), ("additional_review_and_lean_files", 49)]:
+    failures = []
+    for name, item in preserved[key].items():
+        p = ROOT / name
+        if not p.is_file() or p.stat().st_size != item["bytes"] or sha(p) != item["sha256"]:
+            failures.append(name)
+    check(key, len(preserved[key]) == expected and not failures,
+          count=len(preserved[key]), discrepancies=failures)
+
+inputs = load(HERE.parent / "INPUTS.json")
+paper = inputs["original_paper"]
+check("source_paper", sha(ROOT / paper["path"]) == paper["sha256"])
+check("preexisting_missing_st04_pdf_still_missing",
+      not (ROOT / inputs["preexisting_missing_st04_pdf"]).exists(),
+      limitation="This is an unchanged preexisting gap, not successful source recovery.")
+check("supplied_package_manifest", all(
+    sha(ROOT / "AUD01_review_package/aud01" / x["file"]) == x["expected"]
+    for x in inputs["supplied_manifest_entries"]), entries=7)
+
+records = {}
+for p in sorted((HERE / "results").glob("*.json")):
+    record = load(p)
+    if "command" not in record:
+        continue
+    records[p.stem] = record
+    bad = []
+    for name, item in record["output"].items():
+        output = p.parent / name
+        if not output.is_file() or output.stat().st_size != item["bytes"] or sha(output) != item["sha256"]:
+            bad.append(name)
+    for source, expected_hash in record["source_sha256"].items():
+        snapshot = p.parent / f"{p.stem}.{Path(source).name}.source.txt"
+        if not snapshot.is_file() or sha(snapshot) != expected_hash:
+            bad.append(snapshot.name)
+    check(f"run_integrity:{p.stem}", not bad, discrepancies=bad,
+          returncode=record["returncode"])
+
+replay = load(HERE / "numerical-replay.json")
+for label in replay["runs"]:
+    check(f"numerical_pass:{label}", records[label]["returncode"] == 0)
+
+criteria = load(HERE / "acceptance-criteria.json")
+for label, item in criteria.items():
+    primary = next(iter(records[label]["source_sha256"]))
+    source = workspace_path(primary).read_text()
+    tree = ast.parse(source)
+    assertions = [ast.get_source_segment(source, n.test)
+                  for n in ast.walk(tree) if isinstance(n, ast.Assert)]
+    calls = [ast.unparse(n) for n in ast.walk(tree) if isinstance(n, ast.Call)
+             and isinstance(n.func, ast.Attribute)
+             and isinstance(n.func.value, ast.Name) and n.func.value.id == "self"
+             and n.func.attr.startswith("assert")]
+    check(f"criteria_unchanged:{label}",
+          assertions == item["assertions"] and calls == item.get("unittest_assertions", []))
+
+catalogue = load(HERE / "lean-catalogue.json")
+decls = catalogue["declarations"]
+axiom_text = (HERE / "results/consolidated-axioms-01.stdout.log").read_text()
+actual_axioms = dict(re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", axiom_text))
+allowed = {"propext", "Classical.choice", "Quot.sound"}
+bad = []
+for d in decls:
+    compiled = load(ROOT / d["compiled_source_record"])
+    source = ROOT / d["source"]
+    hashes = compiled["source_sha256"].values()
+    axioms = {s.strip() for s in actual_axioms.get(d["name"], "MISSING").split(",")}
+    if (sha(source) != d["source_sha256"] or d["source_sha256"] not in hashes
+            or compiled["returncode"] != 0 or set(d["axioms"]) != axioms
+            or not axioms <= allowed or d["lean_statement"] not in source.read_text()):
+        bad.append(d["name"])
+check("lean_statement_and_axiom_bindings", not bad and len(actual_axioms) == 42,
+      discrepancies=bad, audited_names=len(actual_axioms))
+check("lean_counts", len(decls) == len({d["name"] for d in decls}) == 42
+      and len({d["identity_group"] for d in decls}) == 41
+      and Counter(d["cohort"] for d in decls) == {"ST-04": 23, "AUD-01": 19})
+old_constants = (ROOT / "AUD01_review_package/aud01/AuditConstants.lean").read_text()
+current_constants = (ROOT / "research/legendre/verification/lean/AuditConstants.lean").read_text()
+check("supplied_constants_namespace_preserved",
+      old_constants[old_constants.index("namespace "):] ==
+      current_constants[current_constants.index("namespace "):])
+check("fresh_combined_lean_inspection", records["consolidated-axioms-01"]["returncode"] == 0)
+
+artifact = load(HERE / "manuscript-artifact.json")
+provenance = load(HERE / "revision-provenance.json")
+tex = HERE / provenance["revision"]
+original = ROOT / provenance["source"]
+check("manuscript_source_and_pdf_hashes",
+      sha(original) == provenance["source_sha256"]
+      and sha(tex) == provenance["revision_sha256"] == artifact["tex_sha256"]
+      and sha(HERE / artifact["pdf"]) == artifact["pdf_sha256"])
+final_build = load(HERE / artifact["successful_build"])
+check("final_manuscript_build", final_build["returncode"] == 0
+      and sha(tex) in final_build["source_sha256"].values()
+      and not artifact["final_missing_references"] and not artifact["final_overfull_boxes"])
+label_pattern = r"\\label\{([^}]+)\}"
+old_labels = re.findall(label_pattern, original.read_text())
+new_labels = re.findall(label_pattern, tex.read_text())
+check("original_labels_and_order_preserved", old_labels == [
+    x for x in new_labels if x != "sec:aud01-review-closure"])
+numbered_math = r"\\begin\{(equation|align)\}(.*?)\\end\{\1\}"
+check("numbered_equations_preserved",
+      re.findall(numbered_math, original.read_text(), re.S) ==
+      re.findall(numbered_math, tex.read_text(), re.S))
+
+bad_links, links = [], 0
+math_failures = []
+for md in sorted(HERE.glob("*.md")):
+    source = md.read_text()
+    # Current documents use inline links; exclude fenced reproduction commands.
+    clean = re.sub(r"^```.*?^```[^\n]*", "", source, flags=re.M | re.S)
+    for target in re.findall(r"\]\(([^)]+)\)", clean):
+        links += 1
+        parts = urlsplit(target.strip("<>"))
+        if parts.scheme or parts.netloc:
+            continue
+        path = (md.parent / unquote(parts.path)).resolve() if parts.path else md
+        # INTEGRITY.json is produced from this check's retained stdout afterwards.
+        expected_report = path == HERE / "INTEGRITY.json"
+        if not path.exists() and not expected_report:
+            bad_links.append([md.name, target, "missing"])
+        elif parts.fragment and path.suffix == ".md" and unquote(parts.fragment) not in slugs(path):
+            bad_links.append([md.name, target, "missing anchor"])
+    display = len(re.findall(r"(?<!\\)\$\$", clean))
+    inline = len(re.findall(r"(?<![\\$])\$(?!\$)", clean))
+    if display % 2 or inline % 2:
+        math_failures.append(md.name)
+check("new_markdown_relative_links", not bad_links, checked=links,
+      discrepancies=bad_links, scope="Only the new revision Markdown; no network link probes.")
+check("new_markdown_math_delimiters", not math_failures, discrepancies=math_failures,
+      scope="Delimiter balance, plus manual notation/layout review; not a GitHub renderer execution.")
+
+summary = {"passed": all(c["passed"] for c in checks), "checks": checks,
+           "run_records_checked": len(records),
+           "run_outcomes": {k: r["returncode"] for k, r in records.items()},
+           "self_sha256": sha(Path(__file__)),
+           "limitations": ["Source equivalence and proof acceptance are reviewed separately from byte integrity.",
+                           "Original numerical outputs are retained, not recomputed by this validator.",
+                           "Preexisting missing ST-04 PDF and missing historical programs remain documented."]}
+print(json.dumps(summary, indent=2))
+sys.exit(0 if summary["passed"] else 1)

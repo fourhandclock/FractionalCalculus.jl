@@ -1,0 +1,60 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/lean-4.19.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-j1",
+    "-o",
+    ".lake/build/lib/lean/AuditConstants.olean",
+    "AuditConstants.lean"
+  ],
+  "cwd": "$WORKSPACE/research/legendre/verification/lean",
+  "started_at_utc": "2026-11-25T16:37:50.292076+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 3584,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/lean/AuditConstants.lean": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+    "$WORKSPACE/research/legendre/verification/lean/lake-manifest.json": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+    "$WORKSPACE/research/legendre/verification/lean/lakefile.toml": "21a7deb9f018e853216e12f3d089a93c126e31a0d25cf62ed7afc6a7717b96a4",
+    "$WORKSPACE/research/legendre/verification/lean/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "LEAN_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 1.407440343999042,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T16:37:51.699574+00:00",
+  "child_usage": {
+    "user_seconds": 1.10468,
+    "system_seconds": 0.27192,
+    "peak_rss_kib": 1289996,
+    "peak_sampled_descendant_rss_bytes": 1778053120
+  },
+  "output": {
+    "lean-constants-01.stdout.log": {
+      "bytes": 138,
+      "sha256": "aa36a03a4ed02d3ccb93297e3b19d684d29ae8b9343e655a327614d93886812c"
+    },
+    "lean-constants-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--only-cached",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    ".checkpoint-tools/aud01-close-2026-11-25/latex-build",
+    "research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T15:32:52.409685+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex": "95c0adaac9ef123408dcd717b1145ef67c31f8183a11ac2d91052ba1d71587ed"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 1,
+  "elapsed_seconds": 1.570585162999123,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:32:53.980351+00:00",
+  "child_usage": {
+    "user_seconds": 1.341159,
+    "system_seconds": 0.197788,
+    "peak_rss_kib": 177636,
+    "peak_sampled_descendant_rss_bytes": 181805056
+  },
+  "output": {
+    "manuscript-r1-01.stdout.log": {
+      "bytes": 371,
+      "sha256": "b3c3028645b0d068e6150c6972f7d8bb314e8df70fd5136f43e4e1c17661ceaa"
+    },
+    "manuscript-r1-01.stderr.log": {
+      "bytes": 6561,
+      "sha256": "77320d370a28f6857b993dee34d2bd73691b02689cce39a2d49ec99c4223528e"
+    }
+  }
+}

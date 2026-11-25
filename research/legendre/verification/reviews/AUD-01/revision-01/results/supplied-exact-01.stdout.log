@@ -1,0 +1,4 @@
+SP-02: real-part numerator and nonnegative decomposition exact.
+ST-05 and homogeneous TM-01: rational inequalities exact.
+TM-01: quadratic summation identity checked symbolically for N=2..20.
+Lean draft real-polynomial statement checked (not Lean compilation).

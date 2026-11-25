@@ -1,0 +1,176 @@
+{
+  "all_available_original_diagnostics_passed": true,
+  "identified_original_programs_replayed": 4,
+  "supplementary_independent_suites_replayed": 1,
+  "exact_symbolic_checks_passed": true,
+  "homogeneous_configurations": 12,
+  "st03_parameter_cases": 432,
+  "st04_configurations": 24,
+  "supplementary_unittest_count": 10,
+  "homogeneous_last_rate_L1": 0.7498,
+  "homogeneous_last_rate_L12": 0.7498,
+  "homogeneous_max_direct_vs_error": 1.415e-13,
+  "homogeneous_max_scaled_row": 8.259e-16,
+  "homogeneous_reference_check_reported": 2.422e-15,
+  "acceptance_criteria_changed": false,
+  "asymptotic_half_order_observed": false,
+  "symbolic_stdout_matches_historical": true,
+  "homogeneous_printed_differences": {
+    "fields": 25,
+    "maximum_error_difference": 9.999986271989544e-17,
+    "max_by_column": {
+      "max_error": 9.999986271989544e-17,
+      "rate": 0.0,
+      "normalized_signed_residual": 0.0,
+      "normalized_memory_residual": 0.0,
+      "sum_abs_Caputo_residual_over_tau": 0.0,
+      "lower_bound": 0.0,
+      "direct_vs_error": 1.5459999999999995e-15,
+      "max_scaled_row": 3.1000000000000006e-16
+    }
+  },
+  "runs": {
+    "supplied-exact-01": {
+      "record": "results/supplied-exact-01.json",
+      "elapsed_seconds": 0.6665248799999972,
+      "limits": {
+        "wall_seconds": 90,
+        "cpu_seconds_per_process": 60,
+        "address_space_mib_per_process": 1024,
+        "file_size_mib_per_file": 256,
+        "combined_log_limit_mib": 8,
+        "log_monitor_interval_seconds": 0.2,
+        "sampled_descendant_rss_mib": 768,
+        "cleanup_grace_seconds": 5,
+        "aggregate_cgroup_limits": false
+      },
+      "source_sha256": {
+        "$WORKSPACE/AUD01_review_package/aud01/check_exact_aud01.py": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+      },
+      "output": {
+        "supplied-exact-01.stdout.log": {
+          "bytes": 261,
+          "sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6"
+        },
+        "supplied-exact-01.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "supplied-homogeneous-01": {
+      "record": "results/supplied-homogeneous-01.json",
+      "elapsed_seconds": 1.368551795001622,
+      "limits": {
+        "wall_seconds": 180,
+        "cpu_seconds_per_process": 120,
+        "address_space_mib_per_process": 2048,
+        "file_size_mib_per_file": 256,
+        "combined_log_limit_mib": 8,
+        "log_monitor_interval_seconds": 0.2,
+        "sampled_descendant_rss_mib": 1024,
+        "cleanup_grace_seconds": 5,
+        "aggregate_cgroup_limits": false
+      },
+      "source_sha256": {
+        "$WORKSPACE/AUD01_review_package/aud01/verify_aud01_homogeneous.py": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c"
+      },
+      "output": {
+        "supplied-homogeneous-01.stdout.log": {
+          "bytes": 1894,
+          "sha256": "36215821566008e6d30d7ba899a847ad482cc8d84c759adfe55014af3858c3f2"
+        },
+        "supplied-homogeneous-01.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "recovered-st03-01": {
+      "record": "results/recovered-st03-01.json",
+      "elapsed_seconds": 1.003252305999922,
+      "limits": {
+        "wall_seconds": 60,
+        "cpu_seconds_per_process": 45,
+        "address_space_mib_per_process": 512,
+        "file_size_mib_per_file": 256,
+        "combined_log_limit_mib": 8,
+        "log_monitor_interval_seconds": 0.2,
+        "sampled_descendant_rss_mib": 384,
+        "cleanup_grace_seconds": 5,
+        "aggregate_cgroup_limits": false
+      },
+      "source_sha256": {
+        "$WORKSPACE/research/legendre/verification/scripts/verify_l12_stability.py": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+      },
+      "output": {
+        "recovered-st03-01.stdout.log": {
+          "bytes": 675,
+          "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+        },
+        "recovered-st03-01.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "recovered-st04-01": {
+      "record": "results/recovered-st04-01.json",
+      "elapsed_seconds": 2.0680502169998363,
+      "limits": {
+        "wall_seconds": 120,
+        "cpu_seconds_per_process": 90,
+        "address_space_mib_per_process": 2048,
+        "file_size_mib_per_file": 256,
+        "combined_log_limit_mib": 8,
+        "log_monitor_interval_seconds": 0.2,
+        "sampled_descendant_rss_mib": 1024,
+        "cleanup_grace_seconds": 5,
+        "aggregate_cgroup_limits": false
+      },
+      "source_sha256": {
+        "$WORKSPACE/research/legendre/verification/scripts/verify_time_variable_kernel_st04.py": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+      },
+      "output": {
+        "recovered-st04-01.stdout.log": {
+          "bytes": 2966,
+          "sha256": "65eca5b8e0f4417c05ad89ccec7a5587e4d9d5c112d032e6a7d328655486759d"
+        },
+        "recovered-st04-01.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "independent-counterexamples-01": {
+      "record": "results/independent-counterexamples-01.json",
+      "elapsed_seconds": 0.11584118599967042,
+      "limits": {
+        "wall_seconds": 60,
+        "cpu_seconds_per_process": 45,
+        "address_space_mib_per_process": 768,
+        "file_size_mib_per_file": 256,
+        "combined_log_limit_mib": 8,
+        "log_monitor_interval_seconds": 0.2,
+        "sampled_descendant_rss_mib": 512,
+        "cleanup_grace_seconds": 5,
+        "aggregate_cgroup_limits": false
+      },
+      "source_sha256": {
+        "$WORKSPACE/research/legendre/verification/scripts/check_counterexamples.py": "26726031eec9c5c835e48512898f8e290fdc1ee2663bef449f43a62213987642",
+        "$WORKSPACE/research/legendre/verification/scripts/verify_l12_stability.py": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+      },
+      "output": {
+        "independent-counterexamples-01.stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "independent-counterexamples-01.stderr.log": {
+          "bytes": 1446,
+          "sha256": "2c85ff9237744c0100c6258e7579ba5ab736c58ce9bd703b029d064f00f889a3"
+        }
+      }
+    }
+  },
+  "numerical_failures": []
+}

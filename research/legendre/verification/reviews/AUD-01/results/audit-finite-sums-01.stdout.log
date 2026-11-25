@@ -1,0 +1,23 @@
+Try this: ring_nf
+Aud01FiniteSums.lean:29:14: error: unsolved goals
+case succ
+c v : ℕ → ℝ
+N : ℕ
+ih :
+  ∑ n ∈ Finset.range N, ∑ j ∈ Finset.range (n + 1), c (n - j) * (v (j + 1) - v j) =
+    ∑ j ∈ Finset.range N, c (N - 1 - j) * v (j + 1) - (∑ r ∈ Finset.range N, c r) * v 0
+h : ∀ (j : ℕ), N - 1 - j = N - (j + 1)
+⊢ -((∑ r ∈ Finset.range N, c r) * v 0) - v 0 * c (N - 0) + c 0 * v (1 + N) +
+      ∑ x ∈ Finset.range N, c (N - x) * v (1 + x) =
+    -((∑ r ∈ Finset.range N, c r) * v 0) - v 0 * c N + c 0 * v (1 + N) + ∑ x ∈ Finset.range N, c (N - x) * v (1 + x)
+Aud01FiniteSums.lean:45:16: error: unsolved goals
+case succ
+b : ℕ → ℝ
+N : ℕ
+ih :
+  ∑ j ∈ Finset.range N, (b (N - 1 - j + 1) - b (N - 1 - j)) = ∑ j ∈ Finset.range N, (b (j + 1) - b j) →
+    ∑ j ∈ Finset.range N, (b (j + 1) - b j) = b N - b 0
+h :
+  ∑ j ∈ Finset.range (N + 1), (b (N + 1 - 1 - j + 1) - b (N + 1 - 1 - j)) =
+    ∑ j ∈ Finset.range (N + 1), (b (j + 1) - b j)
+⊢ ∑ j ∈ Finset.range N, (b (N - 1 - j + 1) - b (N - 1 - j)) = ∑ j ∈ Finset.range N, (b (j + 1) - b j)

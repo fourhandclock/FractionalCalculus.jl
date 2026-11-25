@@ -1,0 +1,322 @@
+AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex:32: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex:33: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex:34: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/results/checkpoint-aud01/environment-01.Manifest.toml.source.txt:112: new blank line at EOF.
+research/legendre/verification/results/checkpoint-aud01/julia-regression-01.Manifest.toml.source.txt:112: new blank line at EOF.
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:407: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:413: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:455: trailing whitespace.
++* modes: twoside 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:493: trailing whitespace.
++File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:578: trailing whitespace.
++r/m/n/10.95 The stan-dalone checker eval-u-ates $\OML/lmm/m/it/10.95 b[]; c[]$ 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:594: trailing whitespace.
++\T1/lmr/m/n/10.95 ta-tion of the constant-coefficient se-ries and the lit-eral 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.engine.log:599: trailing whitespace.
++Package rerunfilecheck Info: File `mathematical-verification-aud01-r1.out' has 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.mathematical-verification-aud01-r1.tex.source.txt:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:2: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:5: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:8: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:11: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:14: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:17: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:20: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:23: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:26: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:29: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:32: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:35: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+research/legendre/verification/results/checkpoint-aud01/latex-aud01-01.stderr.log:38: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:21: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:23: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:30: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:36: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:39: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:41: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:44: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:48: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:53: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:62: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:79: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:83: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:93: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:102: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:110: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:121: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:124: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:130: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:135: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:141: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:145: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:163: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:180: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:199: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:216: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:228: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:229: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:232: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:240: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:245: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:249: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:252: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:270: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:273: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:275: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/manuscript-changes.patch:278: trailing whitespace.
++ 
+research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:407: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:413: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:455: trailing whitespace.
++* modes: twoside 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:493: trailing whitespace.
++File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:580: trailing whitespace.
++r/m/n/10.95 The stan-dalone checker eval-u-ates $\OML/lmm/m/it/10.95 b[]; c[]$ 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:592: trailing whitespace.
++\T1/lmr/m/n/10.95 ta-tion of the constant-coefficient se-ries and the lit-eral 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.engine.log:597: trailing whitespace.
++Package rerunfilecheck Info: File `mathematical-verification-aud01-r1.out' has 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.mathematical-verification-aud01-r1.tex.source.txt:34: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:2: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:5: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:8: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:11: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:14: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:17: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:20: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:23: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:26: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:29: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:32: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:35: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-01.stderr.log:38: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:407: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:413: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:455: trailing whitespace.
++* modes: twoside 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:493: trailing whitespace.
++File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:578: trailing whitespace.
++r/m/n/10.95 The stan-dalone checker eval-u-ates $\OML/lmm/m/it/10.95 b[]; c[]$ 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:590: trailing whitespace.
++\T1/lmr/m/n/10.95 ta-tion of the constant-coefficient se-ries and the lit-eral 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.engine.log:595: trailing whitespace.
++Package rerunfilecheck Info: File `mathematical-verification-aud01-r1.out' has 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.mathematical-verification-aud01-r1.tex.source.txt:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:2: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:5: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:8: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:11: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:14: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:17: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:20: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:23: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:26: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:29: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:32: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:35: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-02.stderr.log:38: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-03.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-03.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-03.mathematical-verification-aud01-r1.tex.source.txt:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:407: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:413: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:455: trailing whitespace.
++* modes: twoside 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:493: trailing whitespace.
++File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:578: trailing whitespace.
++r/m/n/10.95 The stan-dalone checker eval-u-ates $\OML/lmm/m/it/10.95 b[]; c[]$ 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:590: trailing whitespace.
++\T1/lmr/m/n/10.95 ta-tion of the constant-coefficient se-ries and the lit-eral 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.engine.log:595: trailing whitespace.
++Package rerunfilecheck Info: File `mathematical-verification-aud01-r1.out' has 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.mathematical-verification-aud01-r1.tex.source.txt:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:2: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:5: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:8: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:11: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:14: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:17: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:20: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:23: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:26: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:29: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:32: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:35: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-04.stderr.log:38: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:407: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:413: trailing whitespace.
++LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:455: trailing whitespace.
++* modes: twoside 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:493: trailing whitespace.
++File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:578: trailing whitespace.
++r/m/n/10.95 The stan-dalone checker eval-u-ates $\OML/lmm/m/it/10.95 b[]; c[]$ 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:594: trailing whitespace.
++\T1/lmr/m/n/10.95 ta-tion of the constant-coefficient se-ries and the lit-eral 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.engine.log:599: trailing whitespace.
++Package rerunfilecheck Info: File `mathematical-verification-aud01-r1.out' has 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.mathematical-verification-aud01-r1.tex.source.txt:35: trailing whitespace.
++Y.~A. Sabawi, S. Santra, P. Das, and N.~A. Mohammad, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.mathematical-verification-aud01-r1.tex.source.txt:36: trailing whitespace.
++\emph{$H^1$ stability and convergence analysis of the L1/L1-2 Legendre spectral method for non-local weakly singular integro-PDEs}, 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.mathematical-verification-aud01-r1.tex.source.txt:37: trailing whitespace.
++\emph{Calcolo} \textbf{62}, article 42 (2025). 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:2: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:5: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:8: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:11: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:14: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:17: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:20: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:23: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:26: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:29: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:32: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:35: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+research/legendre/verification/reviews/AUD-01/revision-01/results/manuscript-r1-05.stderr.log:38: trailing whitespace.
++Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 

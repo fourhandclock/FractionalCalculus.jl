@@ -1,0 +1,56 @@
+{
+  "command": [
+    ".checkpoint-tools/python-aud01/bin/python",
+    "-I",
+    "-B",
+    ".checkpoint-tools/collect_environment.py"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T16:39:12.927068+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/.checkpoint-tools/collect_environment.py": "52233af472bef6053e4271d5a09853c38f49f5e9dc5b5f61937ef68b37978920",
+    "$WORKSPACE/Project.toml": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+    "$WORKSPACE/Manifest.toml": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d",
+    "$WORKSPACE/research/legendre/verification/lean/lake-manifest.json": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 0.26798998400045093,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T16:39:13.195115+00:00",
+  "child_usage": {
+    "user_seconds": 0.11793899999999999,
+    "system_seconds": 0.07203799999999999,
+    "peak_rss_kib": 60988,
+    "peak_sampled_descendant_rss_bytes": 34033664
+  },
+  "output": {
+    "environment-01.stdout.log": {
+      "bytes": 1494,
+      "sha256": "5e8149c57bb27d030f728ea27b0a4f47b0d0c4b3d146a9f7f73624dcb4b7ba61"
+    },
+    "environment-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

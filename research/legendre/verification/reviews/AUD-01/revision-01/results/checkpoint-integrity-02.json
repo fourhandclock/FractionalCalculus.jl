@@ -1,0 +1,51 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "research/legendre/verification/reviews/AUD-01/revision-01/validate_checkpoint.py"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T15:49:07.982536+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 512,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 384,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/validate_checkpoint.py": "9ed0f4e3fa4f8da15c9a9fb36c69f8aadf39a9b8abb44f974f7bfd78135614b4",
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/preserved-inputs.json": "a50197108ad7e7f7e0414c6efba5d65c8624fa37cf40401419b4d4a292196f65"
+  },
+  "environment": {
+    "XDG_CACHE_HOME": "/home/hardeek/.cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 0.11664795400065486,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:49:08.099264+00:00",
+  "child_usage": {
+    "user_seconds": 0.071216,
+    "system_seconds": 0.017702,
+    "peak_rss_kib": 26632,
+    "peak_sampled_descendant_rss_bytes": 1720320
+  },
+  "output": {
+    "checkpoint-integrity-02.stdout.log": {
+      "bytes": 5269,
+      "sha256": "278ec070024f02626afd154e0f07ceff9fcf227ecf3e41d7361e963fa65f768c"
+    },
+    "checkpoint-integrity-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

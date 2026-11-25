@@ -1,0 +1,57 @@
+{
+  "verdict": "ACCEPT WITH LIMITATIONS",
+  "julia_assertions": 669,
+  "julia_audit_included": true,
+  "python_originals_passed": 4,
+  "python_independent_regressions": 10,
+  "homogeneous_configurations": 12,
+  "homogeneous_last_rates": [
+    0.7498,
+    0.7498
+  ],
+  "st03_cases": 432,
+  "st04_configurations": 24,
+  "python_assertions_modified": false,
+  "missing_original_groups": 10,
+  "lean_source_modules_recompiled": 5,
+  "lean_named_certificates": 42,
+  "lean_nonduplicate_identity_groups": 41,
+  "all_axiom_lists_standard_only": true,
+  "lean_complete_pde_formalization": false,
+  "latex": {
+    "pages": 37,
+    "rebuilt_pdf_sha256": "fa6943a0591fbbed837473e4edb9dd3016841ff78b4e26d15ecc77d33d06c405",
+    "accepted_source_sha256": "be4767ac443b95fa2d68dc8e3c9ea9f726c021fa4bfa98d9f42ce419e68b694e",
+    "undefined_references": false,
+    "overfull_boxes": false,
+    "underfull_warnings": 6,
+    "accepted_pdf_not_overwritten": true
+  },
+  "replay_comparison": {
+    "python-exact-01": {
+      "stdout_identical_to_revision01_replay": true,
+      "revision01_record": "supplied-exact-01",
+      "fresh_sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6",
+      "revision01_sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6"
+    },
+    "python-homogeneous-01": {
+      "stdout_identical_to_revision01_replay": true,
+      "revision01_record": "supplied-homogeneous-01",
+      "fresh_sha256": "36215821566008e6d30d7ba899a847ad482cc8d84c759adfe55014af3858c3f2",
+      "revision01_sha256": "36215821566008e6d30d7ba899a847ad482cc8d84c759adfe55014af3858c3f2"
+    },
+    "python-st03-01": {
+      "stdout_identical_to_revision01_replay": true,
+      "revision01_record": "recovered-st03-01",
+      "fresh_sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6",
+      "revision01_sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+    },
+    "python-st04-01": {
+      "stdout_identical_to_revision01_replay": true,
+      "revision01_record": "recovered-st04-01",
+      "fresh_sha256": "65eca5b8e0f4417c05ad89ccec7a5587e4d9d5c112d032e6a7d328655486759d",
+      "revision01_sha256": "65eca5b8e0f4417c05ad89ccec7a5587e4d9d5c112d032e6a7d328655486759d"
+    }
+  },
+  "new_scientific_run_failures": []
+}

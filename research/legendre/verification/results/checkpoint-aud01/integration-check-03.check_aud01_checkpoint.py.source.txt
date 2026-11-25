@@ -1,0 +1,193 @@
+"""Offline integrity checks for the integrated AUD-01 tree.
+
+This new release checker does not replace the historical workspace validator,
+run numerical experiments, compile proofs, or infer theorem truth from hashes.
+Uses the standard library and exits nonzero on any failed check.
+"""
+import ast
+from collections import Counter
+import hashlib
+import json
+from pathlib import Path
+import re
+import sys
+from urllib.parse import unquote, urlsplit
+
+V = Path(__file__).resolve().parents[1]
+ROOT = V.parents[2]
+RUN = V / 'results/checkpoint-aud01'
+REV = V / 'reviews/AUD-01/revision-01'
+CHECKS = []
+REQUIRED = {
+    'julia-regression-01', 'python-exact-01', 'python-homogeneous-01',
+    'python-st03-01', 'python-st04-01', 'python-regressions-01',
+    'lean-coefficients-01', 'lean-quadrature-01', 'lean-constants-01',
+    'lean-finite-sums-01', 'lean-oscillator-01', 'lean-all-axioms-01',
+    'latex-aud01-01', 'environment-01',
+}
+
+
+def load(p):
+    return json.loads(p.read_text())
+
+
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def check(name, ok, **details):
+    CHECKS.append({'check': name, 'passed': bool(ok), **details})
+
+
+def path_of(name):
+    return ROOT / name.removeprefix('$WORKSPACE/')
+
+
+def heading_anchors(p):
+    anchors, counts = set(), Counter()
+    for title in re.findall(r'^#{1,6}\s+(.+?)\s*#*\s*$', p.read_text(), re.M):
+        title = re.sub(r'<[^>]*>', '', title).lower()
+        slug = ''.join(c for c in title if c.isalnum() or c in ' -_').replace(' ', '-')
+        i = counts[slug]
+        counts[slug] += 1
+        anchors.add(slug if i == 0 else f'{slug}-{i}')
+    return anchors
+
+
+inputs = load(RUN / 'inputs.json')
+for key in ['protected_base_files', 'transferred_aud01_files', 'unchanged_lean_sources']:
+    errors = []
+    for name, item in inputs[key].items():
+        expected = item['sha256'] if isinstance(item, dict) else item
+        p = ROOT / name
+        if not p.is_file() or sha(p) != expected:
+            errors.append(name)
+    check(key, not errors, checked=len(inputs[key]), discrepancies=errors)
+
+marker = b'<!-- keep everything above as it is -->'
+prefix = (ROOT / 'README.md').read_bytes().split(marker)[0] + marker
+check('protected_root_readme_opening', hashlib.sha256(prefix).hexdigest() == inputs['protected_root_readme_prefix_sha256'])
+lakefile = (V / 'lean/lakefile.toml').read_bytes()
+old = b'roots = ["Coefficients", "Quadrature"]'
+new = b'roots = ["Coefficients", "Quadrature", "AuditConstants", "Aud01FiniteSums", "Aud01Oscillator"]'
+check('lean_configuration_only_adds_roots', lakefile.count(new) == 1 and
+      hashlib.sha256(lakefile.replace(new, old)).hexdigest() == inputs['original_lakefile_sha256'])
+
+records = {}
+for label in sorted(REQUIRED):
+    p = RUN / (label + '.json')
+    if not p.is_file():
+        check('run:' + label, False, reason='missing record')
+        continue
+    r = load(p)
+    records[label] = r
+    errors = []
+    for name, item in r['output'].items():
+        p = RUN / name
+        if not p.is_file() or sha(p) != item['sha256'] or p.stat().st_size != item['bytes']:
+            errors.append(name)
+    for source, expected in r['source_sha256'].items():
+        snapshot = RUN / f'{label}.{Path(source).name}.source.txt'
+        if not snapshot.is_file() or sha(snapshot) != expected:
+            errors.append(str(snapshot.relative_to(ROOT)))
+        current = path_of(source)
+        # Private metadata collector is preserved as its exact executed snapshot.
+        if '.checkpoint-tools' not in current.parts and (not current.is_file() or sha(current) != expected):
+            errors.append(source)
+    check('run:' + label, r['returncode'] == 0 and not errors,
+          discrepancies=errors, returncode=r['returncode'])
+
+mapping = {'python-exact-01': 'supplied-exact-01', 'python-homogeneous-01': 'supplied-homogeneous-01',
+           'python-st03-01': 'recovered-st03-01', 'python-st04-01': 'recovered-st04-01',
+           'python-regressions-01': 'independent-counterexamples-01'}
+criteria = load(REV / 'acceptance-criteria.json')
+for label, previous in mapping.items():
+    r = records.get(label)
+    if not r:
+        continue
+    source = path_of(next(iter(r['source_sha256']))).read_text()
+    tree = ast.parse(source)
+    assertions = [ast.get_source_segment(source, n.test) for n in ast.walk(tree) if isinstance(n, ast.Assert)]
+    calls = [ast.get_source_segment(source, n) for n in ast.walk(tree) if isinstance(n, ast.Call)
+             and isinstance(n.func, ast.Attribute) and isinstance(n.func.value, ast.Name)
+             and n.func.value.id == 'self' and n.func.attr.startswith('assert')]
+    item = criteria[previous]
+    check('unchanged_acceptance:' + label, assertions == item['assertions'] and calls == item.get('unittest_assertions', []))
+
+cat = load(REV / 'lean-catalogue.json')
+decls = cat['declarations']
+check('certificate_count', len(decls) == len({x['name'] for x in decls}) == 42
+      and Counter(x['cohort'] for x in decls) == {'ST-04': 23, 'AUD-01': 19}
+      and len({x['identity_group'] for x in decls}) == 41)
+audit = (RUN / 'lean-all-axioms-01.stdout.log').read_text()
+axioms = dict(re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", audit))
+modules = {'Coefficients': 'lean-coefficients-01', 'Quadrature': 'lean-quadrature-01',
+           'AuditConstants': 'lean-constants-01', 'Aud01FiniteSums': 'lean-finite-sums-01',
+           'Aud01Oscillator': 'lean-oscillator-01'}
+errors = []
+for d in decls:
+    source = ROOT / d['source']
+    dependencies = {a.strip() for a in axioms.get(d['name'], 'MISSING').split(',')}
+    compiled = records.get(modules[d['module']], {})
+    if (sha(source) != d['source_sha256'] or d['lean_statement'] not in source.read_text()
+            or sha(source) not in compiled.get('source_sha256', {}).values()
+            or dependencies != set(d['axioms'])
+            or not dependencies <= {'propext', 'Classical.choice', 'Quot.sound'}):
+        errors.append(d['name'])
+check('fresh_compilation_and_all_axioms', len(axioms) == 42 and not errors, discrepancies=errors)
+
+for folder in [REV, ROOT / 'AUD01_review_package/aud01']:
+    errors, count = [], 0
+    for line in (folder / 'SHA256SUMS').read_text().splitlines():
+        expected, name = line.split(None, 1)
+        p = folder / name.strip().removeprefix('*')
+        count += 1
+        if not p.is_file() or sha(p) != expected:
+            errors.append(name)
+    check('archival_manifest:' + folder.name, not errors, checked=count, discrepancies=errors)
+
+artifact = load(REV / 'manuscript-artifact.json')
+source = REV / 'mathematical-verification-aud01-r1.tex'
+check('accepted_manuscript', sha(source) == artifact['tex_sha256'] and
+      sha(REV / artifact['pdf']) == artifact['pdf_sha256'])
+summary = load(RUN / 'summary.json')
+log = (RUN / 'latex-aud01-01.engine.log').read_text()
+check('manuscript_build_and_scope', summary['latex']['pages'] == 37 and
+      not re.search(r'(undefined references|Reference .*undefined|Undefined control sequence|Overfull)', log)
+      and summary['latex']['accepted_source_sha256'] == sha(source))
+env = load(RUN / 'environment.json')
+check('exact_python_versions', env['python_dependencies'] == {
+    'numpy': '2.3.5', 'scipy': '1.17.0', 'mpmath': '1.3.0', 'sympy': '1.14.0'})
+
+paths = {ROOT / 'README.md', ROOT / 'docs/RESEARCH_WORKFLOW.md', ROOT / 'studies/legendre/README.md'}
+paths.update(p for p in V.rglob('*.md') if '.lake' not in p.parts)
+paths.update((ROOT / 'AUD01_review_package').rglob('*.md'))
+broken, count, math_errors = [], 0, []
+for p in sorted(paths):
+    text = p.read_text()
+    text = re.sub(r'^```.*?^```[^\n]*', '', text, flags=re.M | re.S)
+    text = re.sub(r'^(?: {4}|\t).*(?:\n|$)', '', text, flags=re.M)
+    text = re.sub(r'`[^`\n]+`', '', text)
+    for target in re.findall(r'(?<!\\)\[[^\]\n]+\]\(([^)]+)\)', text):
+        parsed = urlsplit(target.strip('<>'))
+        if parsed.scheme or parsed.netloc:
+            continue
+        count += 1
+        dest = (p.parent / unquote(parsed.path)).resolve() if parsed.path else p
+        if not dest.exists():
+            broken.append([str(p.relative_to(ROOT)), target, 'missing file'])
+        elif parsed.fragment and dest.suffix == '.md' and unquote(parsed.fragment) not in heading_anchors(dest):
+            broken.append([str(p.relative_to(ROOT)), target, 'missing anchor'])
+    # Archived reports retain their original notation. Check current entry docs.
+    if p in {ROOT / 'README.md', ROOT / 'studies/legendre/README.md', V / 'README.md', V / 'REPRODUCE.md', V / 'observations/README.md', V / 'lean/README.md', V / 'literature/README.md'}:
+        if len(re.findall(r'(?<!\\)\$\$', text)) % 2 or len(re.findall(r'(?<![\\$])\$(?!\$)', text)) % 2:
+            math_errors.append(str(p.relative_to(ROOT)))
+check('markdown_local_links', not broken, checked=count, discrepancies=broken,
+      scope='Markdown links outside code spans/blocks, including retained reports; local files/anchors only, no remote URL probes.')
+check('current_markdown_math_delimiters', not math_errors, discrepancies=math_errors)
+
+report = {'passed': all(c['passed'] for c in CHECKS), 'checks': CHECKS,
+          'scope': 'Integrated clean branch, distinct from historical development-workspace inventory.',
+          'self_sha256': sha(Path(__file__)), 'scientific_assertions_changed': False}
+print(json.dumps(report, indent=2))
+sys.exit(0 if report['passed'] else 1)

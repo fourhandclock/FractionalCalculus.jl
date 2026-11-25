@@ -1,0 +1,122 @@
+{
+  "classification_vocabulary": [
+    "Accepted on review",
+    "Repair required",
+    "Unresolved",
+    "Formally certified"
+  ],
+  "accepted_analytical_chains": [
+    "SP-02 under its stated Hilbert/uniform-grid/fixed-order hypotheses",
+    "TM-01 consistently forced smooth sharpness and conditional initial-layer upper bound",
+    "AUD-01 constant-kernel homogeneous initial-layer sharpness",
+    "ST-05 sufficiently-fine-grid contractivity challenge, with separate L1 and L1-2 dependencies",
+    "SP-01 with strong product regularity and continuous nodal representatives"
+  ],
+  "repairs": [
+    {
+      "id": "R1",
+      "status": "Repair required",
+      "locator": "AUD-01 manuscript \u00a710.1, TeX line 931",
+      "issue": "An L-infinity equivalence class does not specify quadrature-node values; weak formulation needs representatives and pointwise bounds. Strong smooth case unaffected."
+    },
+    {
+      "id": "R2",
+      "status": "Unresolved",
+      "locator": "Source paper pp.5,15-16; manuscript \u00a7\u00a712-14",
+      "issue": "State forcing, regularity and sufficiently-fine-grid quantifiers explicitly when comparing with the original theorems."
+    },
+    {
+      "id": "R3",
+      "status": "Repair required",
+      "locator": "Manuscript historical diagnostic subsections \u00a7\u00a78-13",
+      "issue": "Several named older companion programs/outputs are absent; those numerical claims are not replayed."
+    }
+  ],
+  "formal_certificates": {
+    "status": "Formally certified",
+    "count": 19,
+    "namespace": "LegendreAudit.AUD01",
+    "theorems": [
+      "symbol_numerator",
+      "symbol_bracket",
+      "smoothing_denominator",
+      "smoothing_amplitude",
+      "smoothing_difference",
+      "weighted_contraction",
+      "homogeneous_contraction",
+      "fractional_parameter_bound",
+      "fractional_parameter_admissibility",
+      "finite_summation_by_parts",
+      "quadratic_history_collection",
+      "reversed_difference_sum",
+      "pre_derivative",
+      "critical_position",
+      "critical_velocity",
+      "post_derivative",
+      "quarter_velocity",
+      "st05_endpoint_identity",
+      "oscillator_energy_algebra"
+    ],
+    "axioms_only": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "source_proof_body_preserved": true,
+    "passing_runs": {
+      "audit-constants-01": {
+        "returncode": 0,
+        "elapsed_seconds": 6.678061144999901
+      },
+      "audit-finite-sums-02": {
+        "returncode": 0,
+        "elapsed_seconds": 2.406125170999985
+      },
+      "audit-oscillator-02": {
+        "returncode": 0,
+        "elapsed_seconds": 3.5718606069999623
+      },
+      "audit-axioms-01": {
+        "returncode": 0,
+        "elapsed_seconds": 4.272485336000045
+      }
+    },
+    "analytical_infinite_dimensional_claims_formalized": false
+  },
+  "numerical_replay": {
+    "status": "Unresolved",
+    "supplied_scripts_executed": false,
+    "reason": "Exact NumPy/SciPy/mpmath/SymPy versions missing; workspace-only acquisition approval pending.",
+    "requested_versions": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "mpmath": "1.3.0",
+      "sympy": "1.14.0"
+    },
+    "historical_homogeneous_rate": "approximately 0.75; not observed 0.5",
+    "historical_outputs_preserved": true
+  },
+  "primary_source_review": {
+    "paper_pdf_pages_read": [
+      5,
+      6,
+      7,
+      8,
+      15,
+      16,
+      17,
+      22,
+      23,
+      24,
+      25
+    ],
+    "paper_pdf_pages_visually_checked": [
+      15,
+      16
+    ],
+    "related_work_primary_texts_not_checked": true
+  },
+  "production_algorithms_modified": false,
+  "original_manuscripts_modified": false,
+  "git_writes_or_publication_performed": false
+}

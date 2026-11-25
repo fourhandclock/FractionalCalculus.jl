@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "protected_base_files",
+      "passed": true,
+      "checked": 243,
+      "discrepancies": []
+    },
+    {
+      "check": "transferred_aud01_files",
+      "passed": true,
+      "checked": 141,
+      "discrepancies": []
+    },
+    {
+      "check": "unchanged_lean_sources",
+      "passed": true,
+      "checked": 8,
+      "discrepancies": []
+    },
+    {
+      "check": "protected_root_readme_opening",
+      "passed": true
+    },
+    {
+      "check": "lean_configuration_only_adds_roots",
+      "passed": true
+    },
+    {
+      "check": "run:environment-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:julia-regression-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:latex-aud01-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-all-axioms-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-coefficients-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-constants-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-finite-sums-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-oscillator-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:lean-quadrature-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:python-exact-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:python-homogeneous-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:python-regressions-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:python-st03-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run:python-st04-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "unchanged_acceptance:python-exact-01",
+      "passed": true
+    },
+    {
+      "check": "unchanged_acceptance:python-homogeneous-01",
+      "passed": true
+    },
+    {
+      "check": "unchanged_acceptance:python-st03-01",
+      "passed": true
+    },
+    {
+      "check": "unchanged_acceptance:python-st04-01",
+      "passed": true
+    },
+    {
+      "check": "unchanged_acceptance:python-regressions-01",
+      "passed": true
+    },
+    {
+      "check": "certificate_count",
+      "passed": true
+    },
+    {
+      "check": "fresh_compilation_and_all_axioms",
+      "passed": true,
+      "discrepancies": []
+    },
+    {
+      "check": "archival_manifest:revision-01",
+      "passed": true,
+      "checked": 92,
+      "discrepancies": []
+    },
+    {
+      "check": "archival_manifest:aud01",
+      "passed": true,
+      "checked": 7,
+      "discrepancies": []
+    },
+    {
+      "check": "accepted_manuscript",
+      "passed": true
+    },
+    {
+      "check": "manuscript_build_and_scope",
+      "passed": true
+    },
+    {
+      "check": "exact_python_versions",
+      "passed": true
+    },
+    {
+      "check": "markdown_local_links",
+      "passed": true,
+      "checked": 281,
+      "discrepancies": [],
+      "scope": "Markdown links outside code spans/blocks, including retained reports; local files/anchors only, no remote URL probes."
+    },
+    {
+      "check": "current_markdown_math_delimiters",
+      "passed": true,
+      "discrepancies": []
+    }
+  ],
+  "scope": "Integrated clean branch, distinct from historical development-workspace inventory.",
+  "self_sha256": "2ed308b717b772e5b7120e866c6907404b2b9c56865b361ad975e4795624cd63",
+  "scientific_assertions_changed": false
+}

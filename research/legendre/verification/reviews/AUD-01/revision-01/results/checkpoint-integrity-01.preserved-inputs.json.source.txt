@@ -1,0 +1,1384 @@
+{
+  "path_base": "repository root",
+  "original_inventory_sha256": "882e6badd136db53a5f4f5d25039d1572edd0fa6a2919d81ea62829aca526f21",
+  "additional_guard_inventory_sha256": "42e897badfb57a876d88c30dd1ce405336b3f34b6d6691fac827563571baf7d5",
+  "original_files": {
+    "AUD01_review_package/aud01/AuditConstants.lean": {
+      "bytes": 1687,
+      "sha256": "07a87683f7897260c23434a215fbd1b31afac28cfb123698c53ab52efff5a51a"
+    },
+    "AUD01_review_package/aud01/README.md": {
+      "bytes": 4299,
+      "sha256": "24e08caa5048d7a7f49bb5fd822761c62a6c9836f17b951a77b13ffd8e233804"
+    },
+    "AUD01_review_package/aud01/SHA256SUMS": {
+      "bytes": 667,
+      "sha256": "44b947b9edb035e03e4d624ef4245d9905ba0796dca5129567c92e174db13813"
+    },
+    "AUD01_review_package/aud01/ST05_proof_audit.md": {
+      "bytes": 10974,
+      "sha256": "5c422fa8572c0cb021912b704e82de1675b96973ae3586ebde49ff2c913be40f"
+    },
+    "AUD01_review_package/aud01/audit_addendum.tex": {
+      "bytes": 8133,
+      "sha256": "2471f9c47a320d04a161bc328db293dd6e47acab40ef49de2e2921881c3fd35f"
+    },
+    "AUD01_review_package/aud01/check_exact_aud01.py": {
+      "bytes": 1548,
+      "sha256": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+    },
+    "AUD01_review_package/aud01/exact_results.txt": {
+      "bytes": 261,
+      "sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6"
+    },
+    "AUD01_review_package/aud01/homogeneous_results.txt": {
+      "bytes": 1894,
+      "sha256": "09d5e1661ed688e10dd4d55422032a853d97f1c0a2e83befe5bf325352b1f871"
+    },
+    "AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.pdf": {
+      "bytes": 560238,
+      "sha256": "f609b93f3ed5cde0bf0120af23cd2040de80dd09898ceac2d822d5f34db5b79b"
+    },
+    "AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex": {
+      "bytes": 129250,
+      "sha256": "37aaf52ef6f6d5a96bd87780b7df6b905c9bf42bfceca95bd5aadc91ba4dfc11"
+    },
+    "AUD01_review_package/aud01/verify_aud01_homogeneous.py": {
+      "bytes": 4228,
+      "sha256": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c"
+    },
+    "src/FractionalCalculus.jl": {
+      "bytes": 986,
+      "sha256": "2637b455a83eba63cb214a18f998f188bc3d507d1a96ac6887ab3e899902c74b"
+    },
+    "src/GraphEvolution.jl": {
+      "bytes": 12949,
+      "sha256": "9376bfe9f8c8116c7ea43fdeebb81ab6f78cc230d362d868c7c85dc231424572"
+    },
+    "src/Legendre.jl": {
+      "bytes": 3565,
+      "sha256": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399"
+    },
+    "src/MetricGraphs.jl": {
+      "bytes": 11521,
+      "sha256": "c7e70791f2f10805c365af09ca983c6e4e96197374b82761fc39d5cd7e567caf"
+    },
+    "src/Solver.jl": {
+      "bytes": 3286,
+      "sha256": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3"
+    },
+    "src/TimeDiscretization.jl": {
+      "bytes": 5613,
+      "sha256": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6"
+    },
+    "studies/legendre/cases.jl": {
+      "bytes": 3829,
+      "sha256": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a"
+    },
+    "studies/legendre/export_figures.jl": {
+      "bytes": 4862,
+      "sha256": "64857e37b8feea102c7d63d4c0148a981c3834969bd3a70e21e38c9e6951ceeb"
+    },
+    "studies/legendre/plot_results.py": {
+      "bytes": 13951,
+      "sha256": "ef54cdb7f5cf5622e9f6422eba1a81b4a6ef2247f70ba4b237e7acc044f9fb04"
+    },
+    "studies/legendre/reference_tables.csv": {
+      "bytes": 13378,
+      "sha256": "c233b5db97d3e9f63fe6ea50a5fb0d1dd77f2a09eda8538b77b7f721a358fc04"
+    },
+    "studies/legendre/run.jl": {
+      "bytes": 14940,
+      "sha256": "f342ee49457b169d39db39a30a43353ed95130e33ec1c8749f6764aeb19e6359"
+    },
+    "studies/legendre/transcribe_reference.py": {
+      "bytes": 10484,
+      "sha256": "604d3692cf10049b10d0335a9b1f377a71c3865ce0f4e164eb6e4a1c7fd0266b"
+    },
+    "studies/legendre/README.md": {
+      "bytes": 4906,
+      "sha256": "dd1ba86730a15889d5dc595afd3d1788bc4634b91cf15210ca9e8c41bf1b4852"
+    },
+    "studies/metric_graphs/cases.jl": {
+      "bytes": 5339,
+      "sha256": "c52d4f1a305549200a2fe228b3a132320c0b053ed786cc97adbaf8e8f1023b52"
+    },
+    "studies/metric_graphs/plot_results.py": {
+      "bytes": 3831,
+      "sha256": "f8164b0d36894f0e4d34a995690d603b1a0fb871357f90635a1e6a5a8e64e83b"
+    },
+    "studies/metric_graphs/run.jl": {
+      "bytes": 6191,
+      "sha256": "87fe7d7a7aef5dd9b106ee38c7c13e46790fea2d2a4daa6274b75f08dca209c9"
+    },
+    "studies/metric_graphs/figures/tadpole_evolution.png": {
+      "bytes": 273758,
+      "sha256": "990c28f55a53274c77a9faf593bfec490460d0d927ff1fceace93a75473b5e21"
+    },
+    "studies/metric_graphs/figures/tadpole_evolution.svg": {
+      "bytes": 94200,
+      "sha256": "36026633c61e8b6d9553b136777459f894a3be4552658bfb0f0b3cf754d6718f"
+    },
+    "studies/metric_graphs/figures/verification.png": {
+      "bytes": 234402,
+      "sha256": "a9f1257e10e2fd257acb48f56fa231ee3835682db89e49df0055ffce01eea978"
+    },
+    "studies/metric_graphs/figures/verification.svg": {
+      "bytes": 72137,
+      "sha256": "42faf7f99b30940b105766ddfb8d3acfd0167e5c276ce06215fe1fc0b1f96c7e"
+    },
+    "studies/metric_graphs/results/baseline.csv": {
+      "bytes": 893,
+      "sha256": "635b30c542405f0d4cc7ec4d00c60acd257b85a6a66d09afc7e87062834567cc"
+    },
+    "studies/metric_graphs/results/rational.csv": {
+      "bytes": 1845,
+      "sha256": "913caef00f62e64c15e09e547337c1e909732509f322e8a9eb915d5f24568ab8"
+    },
+    "studies/metric_graphs/results/snapshots.csv": {
+      "bytes": 33463,
+      "sha256": "d28c468fe097e0cfeb2bae705f497f0807f66989e7408e5e708117902b232ca3"
+    },
+    "studies/metric_graphs/results/spatial.csv": {
+      "bytes": 1419,
+      "sha256": "2f9fd316a08b9a35a461df7f11b0520935a461aa484c40dd37ac735c24491bc8"
+    },
+    "studies/metric_graphs/results/temporal.csv": {
+      "bytes": 1347,
+      "sha256": "1b0a03a138ccd3cb391a46cd9985672698df1a104f9845e3e505f891fc39459e"
+    },
+    "studies/metric_graphs/test/cases.jl": {
+      "bytes": 2202,
+      "sha256": "fbec666b05c400dc97e94f11e9cdef9e5684026d89ffa2b63e091416673e369c"
+    },
+    "studies/metric_graphs/test/evolution.jl": {
+      "bytes": 6629,
+      "sha256": "b054ebb59807bb19243705a06810d1ec22ac416c0bb883757eab2159b3b98c5a"
+    },
+    "studies/metric_graphs/test/mesh.jl": {
+      "bytes": 5639,
+      "sha256": "86a04476849aaadff07dd4afee6cfc56dc4d33bb216e0ee227f448961c014ee6"
+    },
+    "studies/metric_graphs/test/runtests.jl": {
+      "bytes": 175,
+      "sha256": "95012b2723f4341edd17a69314ca23414e2a6e5131552168c61bde6df936cc49"
+    },
+    "studies/legendre/figures/figure1.png": {
+      "bytes": 444435,
+      "sha256": "0c9722e6e7db97928fd67f3f665eb1acf211cb03946e90ea8b1905a3a4fb312b"
+    },
+    "studies/legendre/figures/figure1.svg": {
+      "bytes": 180371,
+      "sha256": "ea80641df45d34151638e46f7275a2e34770bd3de79f0eb0e564f22ba844d729"
+    },
+    "studies/legendre/figures/figure1_parameters.csv": {
+      "bytes": 230,
+      "sha256": "b6f5461f56068d52f10242d408da110310b84aac54c4751371c8ff001443779d"
+    },
+    "studies/legendre/figures/figure1_solution.csv": {
+      "bytes": 44302,
+      "sha256": "6054eb5a34fe0cb835f1d943dc11d9e94b025137a86339a86e952be815279c17"
+    },
+    "studies/legendre/figures/figure2.png": {
+      "bytes": 471254,
+      "sha256": "b0e9e2c83b743d2b5d40ae5fb907fd44527e602df1d2ab7aae4a409d910fe894"
+    },
+    "studies/legendre/figures/figure2.svg": {
+      "bytes": 270670,
+      "sha256": "e0a538229b0aa64d75e791963106db5faa811e509183d405335c6f38a5f91cf0"
+    },
+    "studies/legendre/figures/figure2_parameters.csv": {
+      "bytes": 231,
+      "sha256": "6e21891ca7e6d1232539a1f3f777f1837de552cf9066636c641dfc08bcc83e4f"
+    },
+    "studies/legendre/figures/figure2_solution.csv": {
+      "bytes": 70634,
+      "sha256": "a3ae006d35a1bc624ae0c68f223fac91ab6a39525dbdad897dfeef2b9eb23b1c"
+    },
+    "studies/legendre/figures/figure3.png": {
+      "bytes": 200504,
+      "sha256": "d19dfef176c5dd89d57de7e157158817272c9983545ffb9ac10bc7fb37521b33"
+    },
+    "studies/legendre/figures/figure3.svg": {
+      "bytes": 34174,
+      "sha256": "60c5ac4d99a788ee2bef6bc218131f16d9bb52e235c733b436180266237e1724"
+    },
+    "studies/legendre/figures/figure3_convergence.csv": {
+      "bytes": 938,
+      "sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be"
+    },
+    "studies/legendre/figures/figure3_parameters.csv": {
+      "bytes": 938,
+      "sha256": "39bc32aefaf8ce4cc6b13b735303fc1def0b9a69da6f1a15e59d7ffafc8006be"
+    },
+    "studies/legendre/figures/figure4.png": {
+      "bytes": 303745,
+      "sha256": "59e77ba79a5eefa2407f86560bf7bee39ca4f1a9ffc15643872f758e258e1973"
+    },
+    "studies/legendre/figures/figure4.svg": {
+      "bytes": 108304,
+      "sha256": "2f4ab63c879da202586255b329803ae377b15ad827fcbd8c126753bc0d973fe9"
+    },
+    "studies/legendre/figures/figure4_parameters.csv": {
+      "bytes": 229,
+      "sha256": "6e089a0f83076e1461370a1256e768ab5cc667652f0c9a1f514b581ef0a77ce5"
+    },
+    "studies/legendre/figures/figure4_solution.csv": {
+      "bytes": 43911,
+      "sha256": "375a2e746cafb0f9bf129a366de038d7358e687ed15a693062cbcedbe3646b62"
+    },
+    "studies/legendre/figures/figure5.png": {
+      "bytes": 328895,
+      "sha256": "6af96d44088f49defeb5d6fc9240d64c24a99f0e9e22fa2700f860bd6c0b929c"
+    },
+    "studies/legendre/figures/figure5.svg": {
+      "bytes": 111498,
+      "sha256": "2fdc54e9ce153ea274c60a05049270b49fb60a60c6c54c1376b91dc1e295b21a"
+    },
+    "studies/legendre/figures/figure5_parameters.csv": {
+      "bytes": 564,
+      "sha256": "646f602eaa3b8d74515dfe9a1f419187538807078537a19f9adc5c9ad001d519"
+    },
+    "studies/legendre/figures/figure5_solution.csv": {
+      "bytes": 159252,
+      "sha256": "5de0278f2940926bdc5b7a60554110ef0554f0e836914fb87c94e0f0780b416e"
+    },
+    "studies/legendre/figures/figure6.png": {
+      "bytes": 326513,
+      "sha256": "d576d35d72c262ff2d6bd3bfab3781005692a9787860c096b247c8556910732e"
+    },
+    "studies/legendre/figures/figure6.svg": {
+      "bytes": 69390,
+      "sha256": "f52810b7478eee7a5cf56aee23b3a9e34a89a79c21173427d8ce30040d2e7dde"
+    },
+    "studies/legendre/figures/figure6_parameters.csv": {
+      "bytes": 243,
+      "sha256": "aeebac7d5beabfb1e1c93e8d59adc68045816037422542d0220daefb789ea854"
+    },
+    "studies/legendre/figures/figure6_solution.csv": {
+      "bytes": 131548,
+      "sha256": "e0833da4f5b500c3589be07562ce597742eda0c6a950dc0bf783dc5bcb3df995"
+    },
+    "studies/legendre/figures/memory_diagnostic.csv": {
+      "bytes": 477,
+      "sha256": "96c7fb3b9e3c76af311e95afc3005f91eaf6d3c0ffef42e87f8fe2b637063b96"
+    },
+    "studies/legendre/figures/memory_diagnostic.png": {
+      "bytes": 149360,
+      "sha256": "3babe99730d0b5e6ffb39538155c5753c966066ae734bd45b8c398a513ebb7b9"
+    },
+    "studies/legendre/figures/memory_diagnostic.svg": {
+      "bytes": 33795,
+      "sha256": "2f0b56b81c47f471f2eaf049a1c98621a682d8649be56436cc4fb6615bc04146"
+    },
+    "studies/legendre/figures/memory_diagnostic_parameters.csv": {
+      "bytes": 131,
+      "sha256": "23fb2e5151a7cfcfb114b2370137571b6640a3e5ba11debdadecb1fe5012f406"
+    },
+    "studies/legendre/figures/table_convergence_diagnostic.png": {
+      "bytes": 223456,
+      "sha256": "759858c11973f004423fcd9534f05f48709a38da6418d9a98c9456c3a12aea4f"
+    },
+    "studies/legendre/figures/table_convergence_diagnostic.svg": {
+      "bytes": 48125,
+      "sha256": "93ddb05a54129043b5c7b59d90abdb28dd3b3aacd4293c3efe4eaaed96d8eda4"
+    },
+    "studies/legendre/figures/table_convergence_diagnostic_parameters.csv": {
+      "bytes": 1981,
+      "sha256": "d1cb08a7b7e106c4f4fec31829259bc0831e42a37e1bb7996777d28998568048"
+    },
+    "studies/legendre/results/comparison.csv": {
+      "bytes": 59678,
+      "sha256": "4ac9c05d50520c6ef5f50388969870d9907c3871bdcf3d85d01dc920c74a0d0c"
+    },
+    "studies/legendre/results/rates.csv": {
+      "bytes": 27312,
+      "sha256": "907e7f438c99712b1c72580303b600f9a73ef67025ad551a633460089e4ec5c9"
+    },
+    "studies/legendre/results/REPORT.md": {
+      "bytes": 4086,
+      "sha256": "e98d7c5f93a5469838daeccce3de32c725dbd065164810df635bd6dad663d273"
+    },
+    "studies/legendre/test/legendre.jl": {
+      "bytes": 3738,
+      "sha256": "4d5da9cda17c079b1a506541837915ac616d8c174c94c2aa2c06a4625b5ff94f"
+    },
+    "studies/legendre/test/runtests.jl": {
+      "bytes": 168,
+      "sha256": "6dd054d1d6e9c4912f6561b005d1e93b7a3d9edb4fa57f74a686021ed37fd00d"
+    },
+    "studies/legendre/test/time_and_solver.jl": {
+      "bytes": 10707,
+      "sha256": "a1bf945bab214f0af8dd812c4ef4a60239ea35f3ce69cca5e0c6cfd2fdcbccbc"
+    },
+    "studies/legendre/test/proof_audit.jl": {
+      "bytes": 3325,
+      "sha256": "23e13755be42bff984d9db07ef3b82a1ec0dfd7c05bb15820dea706cf7019667"
+    },
+    "research/legendre/verification/page39.png": {
+      "bytes": 450910,
+      "sha256": "12e4bb53eb9abd8ca83d8f576fe16931960bd48ba626dac198567f178a408221"
+    },
+    "research/legendre/verification/page42.png": {
+      "bytes": 532259,
+      "sha256": "acf767e15bc110cc02d57f0e9421d6862e2fb6ec3259c97d00079af870abf88e"
+    },
+    "research/legendre/verification/mathematical-verification.tex": {
+      "bytes": 46181,
+      "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+    },
+    "research/legendre/verification/README.md": {
+      "bytes": 8231,
+      "sha256": "58518a62d74cc0b35f111be5d0c990af753ecac8c0ed3d9d3762b2db6b7a60fe"
+    },
+    "research/legendre/verification/PROVENANCE.md": {
+      "bytes": 10984,
+      "sha256": "c5b37026f6ca6f3c77f30cf0ec38c1b1f752a908065afe3c45419986ec1396b3"
+    },
+    "research/legendre/verification/INTEGRATION_SUMMARY.md": {
+      "bytes": 11138,
+      "sha256": "faa33b9c7efc403cd221f34d1eb899ecad98ecb47c7cf1f0474ec2a1de311bf4"
+    },
+    "research/legendre/verification/CHECKPOINT_SCOPE.md": {
+      "bytes": 3590,
+      "sha256": "26c3a79450242925a21287243822bfad5a3ba61a807a1af83d1264cf146159e8"
+    },
+    "research/legendre/verification/requirements.txt": {
+      "bytes": 13,
+      "sha256": "a23aaf94250a9f53031a592980142245a848e2372b6c6c3093e8260b129265b8"
+    },
+    "research/legendre/verification/ST04_PROVENANCE.md": {
+      "bytes": 6522,
+      "sha256": "0bd4c83dc04fb88ff12f51b23d8679941d97337073d7c245d0d65963499e2b5a"
+    },
+    "research/legendre/verification/REPRODUCE.md": {
+      "bytes": 8670,
+      "sha256": "70fa3844441ba70ea79ccd1aa97b3ff6c3a74ad097f6ccbaa9e9cc329cc3aa6e"
+    },
+    "research/legendre/verification/CHECKPOINT_REPORT.md": {
+      "bytes": 8697,
+      "sha256": "375d82326c0d1321d9bc6e9d9c4c4a357fd8a7c950b2b54dd638f9f084d58069"
+    },
+    "research/legendre/verification/sources/legendre_spectral_verification_notes_st03.pdf": {
+      "bytes": 368348,
+      "sha256": "d538f82d3767ccff406f307694784a24b753028266bbea533c747903e7258459"
+    },
+    "research/legendre/verification/sources/st03_verification_results.txt": {
+      "bytes": 675,
+      "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+    },
+    "research/legendre/verification/sources/input-manifest.json": {
+      "bytes": 1228,
+      "sha256": "55ae2a7e081dfc60a2ed7c22c6e9c0f19b728db7c95c93ec119a632e33585419"
+    },
+    "research/legendre/verification/sources/verification-notes-extracted.txt": {
+      "bytes": 31967,
+      "sha256": "97c87e8d802f057c050ac5b6e61ad49ec96443571865c972e8c287c87519a83e"
+    },
+    "research/legendre/verification/sources/legendre_spectral_verification_notes_st04.tex": {
+      "bytes": 46181,
+      "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+    },
+    "research/legendre/verification/sources/st04_recheck_2026-11-20.txt": {
+      "bytes": 2964,
+      "sha256": "08571a21137b1a7bbe224a915c28916cb1369aec2129a1ea1963302c2f782f77"
+    },
+    "research/legendre/verification/sources/mathematical-verification-st03-transcription.tex": {
+      "bytes": 38784,
+      "sha256": "ffd7d15eed1965fed809291336d3f2e2f2f88110d175d81a3a4dc0c8fb56169e"
+    },
+    "research/legendre/verification/sources/st04-input-manifest.json": {
+      "bytes": 1094,
+      "sha256": "e36b6f60a7602a23659d55d8196e2786ffc04efed96a718d092b52404a01c393"
+    },
+    "research/legendre/verification/sources/inputs.json": {
+      "bytes": 2235,
+      "sha256": "d9051127495380cdee7a1c287829f3c3a5be50b65f1428198a6b09b1b305bbc8"
+    },
+    "research/legendre/verification/sources/legendre_spectral_verification-3.pdf": {
+      "bytes": 451194,
+      "sha256": "0ed95c524efa022749a33a27ea6e252026fa720b2ff2dd583e301e43c5648bc1"
+    },
+    "research/legendre/verification/scripts/verify_l12_stability.py": {
+      "bytes": 3837,
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    "research/legendre/verification/scripts/check_counterexamples.py": {
+      "bytes": 10339,
+      "sha256": "26726031eec9c5c835e48512898f8e290fdc1ee2663bef449f43a62213987642"
+    },
+    "research/legendre/verification/scripts/check_integration.py": {
+      "bytes": 9760,
+      "sha256": "50dd8131b295a7c27c181fe122d9d57d116f77cdb2554cad7ad363bdd0c7188a"
+    },
+    "research/legendre/verification/scripts/verify_time_variable_kernel_st04.py": {
+      "bytes": 4782,
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    },
+    "research/legendre/verification/scripts/run_bounded.py": {
+      "bytes": 8858,
+      "sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb"
+    },
+    "research/legendre/verification/scripts/fetch_lean_sources.py": {
+      "bytes": 2836,
+      "sha256": "482d19d274a06e02c2a73f25ea41901236901283771e8c123548e1d208ca6e4b"
+    },
+    "research/legendre/verification/scripts/prepare_evidence.py": {
+      "bytes": 3500,
+      "sha256": "4e60bf42501395794d6f25569c620102c39f7e0b728ba0a0d8a7d52ca9674cd8"
+    },
+    "research/legendre/verification/observations/README.md": {
+      "bytes": 21599,
+      "sha256": "6071226920c9588cc88585b23d6169c8a8bcd502d5f92a77b6cb81cc26ab7240"
+    },
+    "research/legendre/verification/literature/README.md": {
+      "bytes": 4921,
+      "sha256": "593131f01fc83ca7ab3427a2157b86761707157f40110c30c1d4ae72683cdd09"
+    },
+    "research/legendre/verification/results/TEST_PLAN.md": {
+      "bytes": 9345,
+      "sha256": "5ca33b87351fc6eb738cdc1740470839511dd5db11fded592d1d9a4d39dc891d"
+    },
+    "research/legendre/verification/results/VALIDATION.md": {
+      "bytes": 9996,
+      "sha256": "f3f696681211c3199c2d047c7a1f79ad3efccd078154c69a2aeb32617bce5f01"
+    },
+    "research/legendre/verification/lean/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+    },
+    "research/legendre/verification/lean/lakefile.toml": {
+      "bytes": 393,
+      "sha256": "04a82d09465cdbd41fcbbe4484291773ab895b434841823d5d8c6c86661d87e1"
+    },
+    "research/legendre/verification/lean/lake-manifest.json": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/lean/Coefficients.lean": {
+      "bytes": 5689,
+      "sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46"
+    },
+    "research/legendre/verification/lean/Quadrature.lean": {
+      "bytes": 3213,
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323"
+    },
+    "research/legendre/verification/lean/CoefficientsAxioms.lean": {
+      "bytes": 910,
+      "sha256": "d41e33d8b73bc800d8653e7c93de1ac98811facd68fbad0c9c898a6178d313b5"
+    },
+    "research/legendre/verification/lean/QuadratureAxioms.lean": {
+      "bytes": 310,
+      "sha256": "02870ba8a56304c7a6fdb77a87697bfc59d3b23b69034709d655f4eb60b13c88"
+    },
+    "research/legendre/verification/lean/README.md": {
+      "bytes": 5869,
+      "sha256": "f47215725012195d2ba15f91456980b428c4767322003bd8436126b2c4450b6e"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/baseline-inventory.json": {
+      "bytes": 13315,
+      "sha256": "76d42528e9550310637682101bebd9b4705a7aa9bb5881b556728a5f581c1e4d"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/execution-preflight.json": {
+      "bytes": 2865,
+      "sha256": "8577755b1fdc5b31073daea84935394918dd633bcf41f712a5d5430570ae6ccf"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/static-validation-01.json": {
+      "bytes": 4594,
+      "sha256": "f5aca52cd5f719700a30d27ec17ffa56f356791b9607f2c99863f40816f836c8"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/static-validation-02.json": {
+      "bytes": 4348,
+      "sha256": "748cbd4174796b36cf7505e00da05653bc8ddb6342e5b2bc7853f05b4e794915"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/static-validation-03.json": {
+      "bytes": 4348,
+      "sha256": "a92512af3e120bbeaebd02fd7e9d97e0053fa184f7fd66e37743390e14f1a7a9"
+    },
+    "research/legendre/verification/results/integration-2026-11-20/file-changes.json": {
+      "bytes": 5357,
+      "sha256": "7718c56f647cba1c1f74a8b32488f56bef5c2710bcf4ef5b0bf55af5cd8e24d4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-01.Project.toml.source.txt": {
+      "bytes": 407,
+      "sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-01.Manifest.toml.source.txt": {
+      "bytes": 3339,
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-01.stderr.log": {
+      "bytes": 323,
+      "sha256": "504e9d2b3c071e5283d2b7514a6c14204983c6a1ab38861524ec7f6ef1303439"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-01.json": {
+      "bytes": 2167,
+      "sha256": "c3ae5fdf11c67871cccadd98a635a1c60a7d1c65d1c0760965127245b3a627c1"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.check_counterexamples.py.source.txt": {
+      "bytes": 10339,
+      "sha256": "26726031eec9c5c835e48512898f8e290fdc1ee2663bef449f43a62213987642"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.verify_l12_stability.py.source.txt": {
+      "bytes": 3837,
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.stderr.log": {
+      "bytes": 1446,
+      "sha256": "2c85ff9237744c0100c6258e7579ba5ab736c58ce9bd703b029d064f00f889a3"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-counterexamples-01.json": {
+      "bytes": 1688,
+      "sha256": "532296ba70e85287aa46314eaf2faa88ca6c91b8b2438bab779eef66979f9223"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st03-01.verify_l12_stability.py.source.txt": {
+      "bytes": 3837,
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st03-01.stdout.log": {
+      "bytes": 675,
+      "sha256": "38f3701ccd2e437d6cf1838f52fef30e0dc2cbc4b5b3c2d28bc221f31b878bd6"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st03-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st03-01.json": {
+      "bytes": 1512,
+      "sha256": "6ea933357cb10042b12edc953e183a6c33220475c68e1b5306635628f25c62af"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st04-01.verify_time_variable_kernel_st04.py.source.txt": {
+      "bytes": 4782,
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st04-01.stdout.log": {
+      "bytes": 2966,
+      "sha256": "65eca5b8e0f4417c05ad89ccec7a5587e4d9d5c112d032e6a7d328655486759d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st04-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/python-st04-01.json": {
+      "bytes": 1596,
+      "sha256": "27b81d5b991ea25cf7f1a478c62dbada21aab939ac7060a4b3b7625ab91b5f98"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-02.Project.toml.source.txt": {
+      "bytes": 407,
+      "sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-02.Manifest.toml.source.txt": {
+      "bytes": 3339,
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-02.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-02.json": {
+      "bytes": 2059,
+      "sha256": "b2c7259e0f3f5f6572d75bfca36b642a8b6904521caf88fb5d2d06521419fb5d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-03.Project.toml.source.txt": {
+      "bytes": 407,
+      "sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-03.Manifest.toml.source.txt": {
+      "bytes": 3339,
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-03.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-03.stderr.log": {
+      "bytes": 1099,
+      "sha256": "09bafcc9336c07db78336eda6459bd4a3b0492b872a9b003ad31de6c8191049e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-setup-03.json": {
+      "bytes": 2252,
+      "sha256": "fe1abf175d733f81e31520fcc555b6bc6b4b9bace03991c072e881a108c0259e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/st04-observations.csv": {
+      "bytes": 1651,
+      "sha256": "443e8da2542eedb0b98715c23b5a686164cfd1a0c541477d5c757f9d41d5eb56"
+    },
+    "research/legendre/verification/results/checkpoint-st04/st04-parameters.json": {
+      "bytes": 644,
+      "sha256": "11f60bf4ab989294bb2b3244d4aacb97fbffae4cf4a53ea1304d1384e27319f0"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.FractionalCalculus.jl.source.txt": {
+      "bytes": 521,
+      "sha256": "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.TimeDiscretization.jl.source.txt": {
+      "bytes": 5613,
+      "sha256": "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.Legendre.jl.source.txt": {
+      "bytes": 3565,
+      "sha256": "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.Solver.jl.source.txt": {
+      "bytes": 3286,
+      "sha256": "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.cases.jl.source.txt": {
+      "bytes": 3829,
+      "sha256": "897dad704d0c06ec7b1679e03cd1e11b9d3841229e08d8438101594deffb1c1a"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.proof_audit.jl.source.txt": {
+      "bytes": 3325,
+      "sha256": "23e13755be42bff984d9db07ef3b82a1ec0dfd7c05bb15820dea706cf7019667"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.stdout.log": {
+      "bytes": 1780,
+      "sha256": "6fd6a644c27e92d5a6730349f6700e740fcd09a2dbcdb0f0c3c9d90d152288af"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.stderr.log": {
+      "bytes": 595,
+      "sha256": "21e28bcb1497a3ee902e088c447d710d75615242e5cc3dfc32d41d4636375090"
+    },
+    "research/legendre/verification/results/checkpoint-st04/julia-legendre-01.json": {
+      "bytes": 2575,
+      "sha256": "593ad8447672354ed16e8e13027dcd4360fc2f8049432d7d09c5e80cbe81fdc2"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-01.lakefile.toml.source.txt": {
+      "bytes": 354,
+      "sha256": "5022fd7e5b6ced6d43b83180b9ccbeb84c3439e28bd42bff1fe0acc74e7b9ac5"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-01.lean-toolchain.source.txt": {
+      "bytes": 25,
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-01.stderr.log": {
+      "bytes": 120,
+      "sha256": "9e9746931478bcdde741a031a3e64420b4a7e64cc210d1753c2a7e86713ffa10"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-01.json": {
+      "bytes": 1748,
+      "sha256": "f306e61915eb3ede12fd5b8cdfb9a33136d4529b5f73d90e523f3c1743aa89c1"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-02.lakefile.toml.source.txt": {
+      "bytes": 354,
+      "sha256": "5022fd7e5b6ced6d43b83180b9ccbeb84c3439e28bd42bff1fe0acc74e7b9ac5"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-02.lean-toolchain.source.txt": {
+      "bytes": 25,
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-02.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-02.stderr.log": {
+      "bytes": 296,
+      "sha256": "4fc478f0da2b93d7521781fee297e151b389879eb2a463d7686786d7eaa65aab"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-setup-02.json": {
+      "bytes": 1765,
+      "sha256": "e8bf9a18fadbae7d9768eecd85b021e5c7f2a21a0788f847e2884d59d0c71a14"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-01.fetch_lean_sources.py.source.txt": {
+      "bytes": 2130,
+      "sha256": "81a6c608069fe23e8ceb142509bc1c12a785bc5f3c6bf53006144da563dd7f72"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-01.stdout.log": {
+      "bytes": 695,
+      "sha256": "8281bba5a3f70882b69f9fb2d3e2b38959cb6043acddd0c96ce5e67448339836"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-01.stderr.log": {
+      "bytes": 1045,
+      "sha256": "0474ffc9309b3b0f687eebb5e697b5190781e12f26ae7ba4fbfde91e9666597e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-01.json": {
+      "bytes": 1750,
+      "sha256": "c607a6cf298c808ea1486be2af942ba035b9a1a801770ba4a2de96a76ed63c17"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-01.stdout.log": {
+      "bytes": 192,
+      "sha256": "63ed651274cdd9cea276d389814d4416602c472c55f1833e0800563eb6b688e2"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-01.stderr.log": {
+      "bytes": 1234,
+      "sha256": "345ebf7b934151ceb49fdec790786afe3ee09f8cf3d59f9908d7f00f30fdb974"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-01.json": {
+      "bytes": 1938,
+      "sha256": "d2d10527416d985cca5d48d574fdff52f398ac36b2b3e1f9ff48643321b7b5cd"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.stdout.log": {
+      "bytes": 366,
+      "sha256": "574a1aa51de093280bc04c82ea3b3266ed929c7b3c54170d3a31ea8b47ce20aa"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.stderr.log": {
+      "bytes": 20,
+      "sha256": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-widgets-01.json": {
+      "bytes": 1494,
+      "sha256": "3dbde6cfb912522963d4a46075006e1b0bc99d87601101dd5678ed967b538fdd"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-02.fetch_lean_sources.py.source.txt": {
+      "bytes": 2836,
+      "sha256": "482d19d274a06e02c2a73f25ea41901236901283771e8c123548e1d208ca6e4b"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-02.stdout.log": {
+      "bytes": 695,
+      "sha256": "8281bba5a3f70882b69f9fb2d3e2b38959cb6043acddd0c96ce5e67448339836"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-02.stderr.log": {
+      "bytes": 102,
+      "sha256": "930171a82d23d83f63a87fde39127c7d46d7cae4a895ed7d4c6c736c7640ed41"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-sources-02.json": {
+      "bytes": 1749,
+      "sha256": "e3bc6f474a74c58d5dd5ab1a0c9f740aa78949059089ab6a0d2e3a476e6cd61e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.mathematical-verification.tex.source.txt": {
+      "bytes": 46181,
+      "sha256": "4024424fbf27c58661180ef652103b0bba98dbae7bc013733e0c302ff004d1a8"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.stdout.log": {
+      "bytes": 32807,
+      "sha256": "54ce1716a58379fe356a41ee456d939aed39e96664702a3b795c57f48e588454"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.stderr.log": {
+      "bytes": 4991,
+      "sha256": "c796cce42c42b66b4ca99a78e8bd95081fccf96d9c3cd8721a099951ff3bb6f8"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-checkpoint-01.json": {
+      "bytes": 2019,
+      "sha256": "b90753782c3f35253f71ebd9d46252ee7e619ab456a202e2153a73baaf589b3e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-02.stdout.log": {
+      "bytes": 108,
+      "sha256": "7206b2d34d26e8d8700a7d343d2a7576e577674c35ae9c82a2cb8b7484869b42"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-02.stderr.log": {
+      "bytes": 7271,
+      "sha256": "542dd7821eb12bcac53fdc6fe3e602eb73d45b0eaeb7f1d8bc54c9a339e86730"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-cache-02.json": {
+      "bytes": 1936,
+      "sha256": "957db08b11b1b96e6c83be06104a5dfe315fafc5c69a5d1bd8c4bc249c9bec57"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.LegendreAudit.lean.source.txt": {
+      "bytes": 8361,
+      "sha256": "bddee34532162ab90661209b30d83c47643f0d0ce4c6a7ff49742147a7f4aaae"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-01.json": {
+      "bytes": 1819,
+      "sha256": "53b97c67a8b37b6fd8debdc33ed63a042a10eb0e48997e869d7bbbfc248a9c4d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.LegendreAudit.lean.source.txt": {
+      "bytes": 8361,
+      "sha256": "bddee34532162ab90661209b30d83c47643f0d0ce4c6a7ff49742147a7f4aaae"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-02-recovery.json": {
+      "bytes": 430,
+      "sha256": "9cb24163e68b40c9e150c4882d81df065c722de7bb66546a0982c66a844017be"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.LegendreAudit.lean.source.txt": {
+      "bytes": 8361,
+      "sha256": "bddee34532162ab90661209b30d83c47643f0d0ce4c6a7ff49742147a7f4aaae"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-03.json": {
+      "bytes": 1814,
+      "sha256": "fb347818b7b7fba8657dd31845cf7b4ac03f415d1b4f51735d91347899f4c88a"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.LegendreAudit.lean.source.txt": {
+      "bytes": 7566,
+      "sha256": "b38e085f9c46f3253284ddeba8dad1ada55c7646d71083cf4e2ccf242e9a4fcf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-proofs-04.json": {
+      "bytes": 1873,
+      "sha256": "5dc34613b67d8bb588807eeffe8cfd100fb131930e07df0f2b4b98f2d6ef8e96"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.LeanImportCheck.lean.source.txt": {
+      "bytes": 43,
+      "sha256": "68156a6449a6385ee50128a7fe04ed18fee30ff94f14d0a2cd3c115f01866aa0"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.stderr.log": {
+      "bytes": 196,
+      "sha256": "48bc2200174632932b9ea98fd0a0c30e6dc353ce535531045f1c7efc7b79940a"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-import-check-01.json": {
+      "bytes": 1850,
+      "sha256": "7a654ab46c5b692f15943fe262f108a1b9cd38097068853461977aa82ee28bf1"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.LeanCoefficientCheck.lean.source.txt": {
+      "bytes": 1491,
+      "sha256": "4a1c4c30567fb1abb96396be3d1106c56046b1a8d5521489777f6d9e65d38188"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.stderr.log": {
+      "bytes": 302,
+      "sha256": "f48b58db5978f3c4955f7d14d2c850d02b0a707d741f0811e84b9f834c391fd1"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-check-01.json": {
+      "bytes": 1870,
+      "sha256": "3b080e16ddae7f9446f5499cd846d2f5b7fa148a2695b8bc6e684a3a7de7d420"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.Coefficients.lean.source.txt": {
+      "bytes": 5343,
+      "sha256": "d813809930b6bc0c21ea8690073a0af8585489a9eadb9b28d24e9b29ebe2f2d9"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.stderr.log": {
+      "bytes": 196,
+      "sha256": "48bc2200174632932b9ea98fd0a0c30e6dc353ce535531045f1c7efc7b79940a"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-01.json": {
+      "bytes": 1991,
+      "sha256": "067459771882ec75213ac084f605a3ce0d5d6e8e0e18efe6332e51e1dd97c82d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.Coefficients.lean.source.txt": {
+      "bytes": 5343,
+      "sha256": "d813809930b6bc0c21ea8690073a0af8585489a9eadb9b28d24e9b29ebe2f2d9"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.stdout.log": {
+      "bytes": 175,
+      "sha256": "a7be0269c78d5d3e1f2afd7fdac2d6d010782330f98a27cb1be202335ceaf31d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.stderr.log": {
+      "bytes": 99,
+      "sha256": "40246024eb1a3cb5e2fc44c541a2963d180084b5e3b7afd49e3d2a196260bde3"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-02.json": {
+      "bytes": 2009,
+      "sha256": "3b0cb407c0a88f5791227ed3b902b58dcf17f84adba9fcaba703922372d614a3"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.Coefficients.lean.source.txt": {
+      "bytes": 5343,
+      "sha256": "d813809930b6bc0c21ea8690073a0af8585489a9eadb9b28d24e9b29ebe2f2d9"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.stdout.log": {
+      "bytes": 656,
+      "sha256": "d64efef05d3134f3d10b49e5d669d96a970b53b6e32dab8817a434c99b340edd"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.stderr.log": {
+      "bytes": 448,
+      "sha256": "36b3148c2e1f1dfd948d7b20b4dd36a724b8bd537bf01df8db67cd6e8e46b6b1"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-03.json": {
+      "bytes": 2080,
+      "sha256": "dfe255e8321b45ff5d9f5714215f6764ea1f38293da76748e98ecd34d752cb94"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.Coefficients.lean.source.txt": {
+      "bytes": 5428,
+      "sha256": "9ff20970aa7ea17bab6ac3c516b4051249421916a05f87ed59b3b6185cf83d93"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.stdout.log": {
+      "bytes": 1040,
+      "sha256": "77d53d0c9602ea998ee06f1718ae351875dac5e7cda1d78fb6a59cf5b06b9958"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-04.json": {
+      "bytes": 2080,
+      "sha256": "dc177f6d377c699df94378ce9e95d096c072311af006d06fd6a4ddbd785e1bb6"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.Coefficients.lean.source.txt": {
+      "bytes": 5481,
+      "sha256": "cf3c8a165757177dcbd183e8b8a7c2db1d5fd233fc33d10e4233bf55cf7ce0e8"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.stdout.log": {
+      "bytes": 712,
+      "sha256": "02619b8be07b75c36a8341a886e1e2aff10b149f52be4ce27a40c8f61c7df86b"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-05.json": {
+      "bytes": 2089,
+      "sha256": "0a67f8f411bd6dc477f291090cf84870034dc165c55caf469681a71d4d32a8b9"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.Coefficients.lean.source.txt": {
+      "bytes": 5689,
+      "sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.stdout.log": {
+      "bytes": 878,
+      "sha256": "53d6cb42ecc185b28f8d4411e9ef24b8ccd5b6ebb4fcc07f13b9f886d55f26ac"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json": {
+      "bytes": 2078,
+      "sha256": "b87b850d1e4e7dafa7de1eded4a5e480206a32b8939d89dbbfd1d77690bc9524"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.Quadrature.lean.source.txt": {
+      "bytes": 3213,
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-01.json": {
+      "bytes": 2092,
+      "sha256": "aec8f52c5af727b4443db5324fbf8742ebf20617b8b7677812826bdb56274ab4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.Quadrature.lean.source.txt": {
+      "bytes": 3213,
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.stdout.log": {
+      "bytes": 789,
+      "sha256": "43904ff4c7a2af53733a48f15105d8333e13c746bd4c9d29704895780f09ef1e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json": {
+      "bytes": 2068,
+      "sha256": "ca13ef6076de574b63ae1ab9507bea3f4145081a39578e21f16f4dd92e28c35a"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.CoefficientsAxioms.lean.source.txt": {
+      "bytes": 910,
+      "sha256": "d41e33d8b73bc800d8653e7c93de1ac98811facd68fbad0c9c898a6178d313b5"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.Coefficients.lean.source.txt": {
+      "bytes": 5689,
+      "sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.stdout.log": {
+      "bytes": 1688,
+      "sha256": "aeb1a2965025dce91c07615640746f9c653688b2c974a48dd6e1d114b5e3ce50"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-coefficient-axioms-01.json": {
+      "bytes": 2186,
+      "sha256": "3e1a868678234d9be2d8e68826369c55f8017e93333764d6f8f122c1c5901eeb"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.QuadratureAxioms.lean.source.txt": {
+      "bytes": 310,
+      "sha256": "02870ba8a56304c7a6fdb77a87697bfc59d3b23b69034709d655f4eb60b13c88"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.Quadrature.lean.source.txt": {
+      "bytes": 3213,
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.stdout.log": {
+      "bytes": 573,
+      "sha256": "68ff812fce3ef66d837dae1e0112dd3b0afe18ed0499cb0ac2f1c0c275a4e095"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/results/checkpoint-st04/lean-quadrature-axioms-01.json": {
+      "bytes": 2178,
+      "sha256": "86252d8bcd9397409cf5405b2788e889eeb53ea39b806225636492137032c299"
+    },
+    "research/legendre/verification/results/checkpoint-st04/environment.json": {
+      "bytes": 2234,
+      "sha256": "9ab9b069fff84b3f3a0b3d72a85c938e0c4f3602c5f79bb621d258230473d4ef"
+    },
+    "research/legendre/verification/results/checkpoint-st04/workspace-preservation.json": {
+      "bytes": 706,
+      "sha256": "f30dd285b42d99369e34238d2991438bb60022f0802e559428d4b7c036a70410"
+    },
+    "research/legendre/verification/results/checkpoint-st04/protected-files.json": {
+      "bytes": 12108,
+      "sha256": "aeeca4de90a3a48aa14a6e0ec941ae61998bdb8ab5e9324c4f6d637423b1cc9d"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-final.log": {
+      "bytes": 20881,
+      "sha256": "7dc4b098e92bbb6cf43a537e655ed87f9e383ace2436439e286c0a236391483e"
+    },
+    "research/legendre/verification/results/checkpoint-st04/latex-artifact.json": {
+      "bytes": 668,
+      "sha256": "ccbf9510e5fc0642a315d8e6a809ffd58e20297d440a0b5f9d56aab780137192"
+    },
+    "research/legendre/verification/results/checkpoint-st04/validation-index.json": {
+      "bytes": 628,
+      "sha256": "a9b1da0fd41c571c1d7127f631dd212f7d8fbc5ab75789a860a5af5443b37db4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/path-normalization.json": {
+      "bytes": 3003,
+      "sha256": "e949861f13896c967e4fe6a5b1e7f70e0009b8afece72bb909284d848e39b62b"
+    },
+    "research/legendre/verification/results/checkpoint-st04/checkpoint-files.json": {
+      "bytes": 36010,
+      "sha256": "8c8de8d045acda0ddba144ebe6eb4357428fad3b3112b53aefba124d4dbf9a87"
+    },
+    "research/legendre/verification/results/checkpoint-st04/static-validation-01.json": {
+      "bytes": 7647,
+      "sha256": "e37905fc5c01c657a6d7786f8d71bb4e40cda71798678cd77096672d82b2a8ce"
+    },
+    "research/legendre/verification/results/checkpoint-st04/static-validation-02.json": {
+      "bytes": 7856,
+      "sha256": "f7507cdb7769b250950c135e2139905cca1f80471ef2d33b4bfa14d855bb46c4"
+    },
+    "research/legendre/verification/results/checkpoint-st04/release-preflight.json": {
+      "bytes": 11372,
+      "sha256": "1d4baf11839648b94f79f701db4502f89752ab3e0edce2b17271c0d63978dfd4"
+    },
+    "README.md": {
+      "bytes": 20231,
+      "sha256": "669940e50cf82446b2ba618794e5cb1ca8e7ea19c130a873e99e0e4ec31bb983"
+    },
+    "Project.toml": {
+      "bytes": 556,
+      "sha256": "b3852a1a853297fdcdc03215c77a16c39a8b657a6e4029a75ae71684a248ad4c"
+    },
+    "Manifest.toml": {
+      "bytes": 7601,
+      "sha256": "1d9eeba5e3b8c29a3d91ed5a5c8b1631113a430a1b6664948e9d0c16f7e3ee75"
+    },
+    ".gitignore": {
+      "bytes": 1063,
+      "sha256": "4f82a0888c3aa4c6bdceb1b6ed974eac060784df114568cefa90facf1f88148b"
+    },
+    "docs/RESEARCH_WORKFLOW.md": {
+      "bytes": 7989,
+      "sha256": "821f903814856ca7857e0b9ef6f70b1efcc60fb065fb817014a36f447cf159d3"
+    }
+  },
+  "additional_review_and_lean_files": {
+    "research/legendre/verification/lean/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+    },
+    "research/legendre/verification/lean/lakefile.toml": {
+      "bytes": 393,
+      "sha256": "04a82d09465cdbd41fcbbe4484291773ab895b434841823d5d8c6c86661d87e1"
+    },
+    "research/legendre/verification/lean/lake-manifest.json": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/lean/Coefficients.lean": {
+      "bytes": 5689,
+      "sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46"
+    },
+    "research/legendre/verification/lean/Quadrature.lean": {
+      "bytes": 3213,
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323"
+    },
+    "research/legendre/verification/lean/CoefficientsAxioms.lean": {
+      "bytes": 910,
+      "sha256": "d41e33d8b73bc800d8653e7c93de1ac98811facd68fbad0c9c898a6178d313b5"
+    },
+    "research/legendre/verification/lean/QuadratureAxioms.lean": {
+      "bytes": 310,
+      "sha256": "02870ba8a56304c7a6fdb77a87697bfc59d3b23b69034709d655f4eb60b13c88"
+    },
+    "research/legendre/verification/lean/README.md": {
+      "bytes": 5869,
+      "sha256": "f47215725012195d2ba15f91456980b428c4767322003bd8436126b2c4450b6e"
+    },
+    "research/legendre/verification/lean/AuditConstants.lean": {
+      "bytes": 1737,
+      "sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080"
+    },
+    "research/legendre/verification/lean/Aud01FiniteSums.lean": {
+      "bytes": 2091,
+      "sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6"
+    },
+    "research/legendre/verification/lean/Aud01Oscillator.lean": {
+      "bytes": 2916,
+      "sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd"
+    },
+    "research/legendre/verification/lean/Aud01Axioms.lean": {
+      "bytes": 1129,
+      "sha256": "d47d07ae368fb6f9b1255cd65c5f34c6f3fcb152c072e973e3bfdc5f5090002e"
+    },
+    "research/legendre/verification/reviews/AUD-01/REVIEW.md": {
+      "bytes": 34649,
+      "sha256": "4133dea44fdac64d6d7fa15f8599baec48682b50f7dd1932f65d194fb4addc0c"
+    },
+    "research/legendre/verification/reviews/AUD-01/INPUTS.json": {
+      "bytes": 4253,
+      "sha256": "aa437de8d8763ccad7a77a9bffb16dfca80e8bd9b6bd09a8d630f6e513c62178"
+    },
+    "research/legendre/verification/reviews/AUD-01/RESULTS.json": {
+      "bytes": 3728,
+      "sha256": "8a538c33f521155efb11055a9f939a788fe37742a5d0149808b9daa37177a6a5"
+    },
+    "research/legendre/verification/reviews/AUD-01/INTEGRITY.json": {
+      "bytes": 445,
+      "sha256": "33065cf5fa76f6a52f15fb97da12164cb786397c3460c000f74e93f1a38999e8"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.AuditConstants.lean.source.txt": {
+      "bytes": 1737,
+      "sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.stdout.log": {
+      "bytes": 138,
+      "sha256": "aa36a03a4ed02d3ccb93297e3b19d684d29ae8b9343e655a327614d93886812c"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json": {
+      "bytes": 2079,
+      "sha256": "59ab17a00f355f108622cebb3942d1d64c43db0b0000e2adfd507bcdbece643a"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-01.Aud01FiniteSums.lean.source.txt": {
+      "bytes": 2062,
+      "sha256": "80c2a9f34c1f829159bf168ad67604c52ea985401434d558ae0a0bf63474cb75"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-01.stdout.log": {
+      "bytes": 1117,
+      "sha256": "2b97a72b1953ae5c1ba0e3d3a4d13f5e452716fd27b8f3f7b5f2e5b2fe366000"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-01.json": {
+      "bytes": 2088,
+      "sha256": "46bfe09d64a03387e9ebe70f592f7c518d2a9cd553818efab324f2b43b5a613a"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.Aud01FiniteSums.lean.source.txt": {
+      "bytes": 2091,
+      "sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.stdout.log": {
+      "bytes": 178,
+      "sha256": "71db7b1684df0ae0ec9f383269fa1a3a5b5ccde079d30ae52ee7ef4b7e700e9c"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.json": {
+      "bytes": 2097,
+      "sha256": "e8388f99c5fbdb67906f3124c50c6e9e30e89d52843b25ec644d802a20bcf824"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-01.Aud01Oscillator.lean.source.txt": {
+      "bytes": 2907,
+      "sha256": "624299780430b1def86e8c1cd9e008c59d6048aa69d776647294cb972d11c2f3"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-01.stdout.log": {
+      "bytes": 1954,
+      "sha256": "613e89e290a3191d35ced22da59c7d831c7e85565835cec9d3f3b58b97bc2fc2"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-01.json": {
+      "bytes": 2086,
+      "sha256": "24da7a0e0ed62eb7a34cc1db789ace0de30d35b19b8ea9831b5ce9d049521721"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.Aud01Oscillator.lean.source.txt": {
+      "bytes": 2916,
+      "sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.stdout.log": {
+      "bytes": 2008,
+      "sha256": "e4ad4fe8d9a8204fcfeeb004b224739608a706b2e615ab6c40a16467358d1b84"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json": {
+      "bytes": 2087,
+      "sha256": "98edb2e592ff2e6de22d6bb955f6ce511771ce306c5f7ece729dad0a2f960b4f"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.Aud01Axioms.lean.source.txt": {
+      "bytes": 1129,
+      "sha256": "d47d07ae368fb6f9b1255cd65c5f34c6f3fcb152c072e973e3bfdc5f5090002e"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.AuditConstants.lean.source.txt": {
+      "bytes": 1737,
+      "sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.Aud01FiniteSums.lean.source.txt": {
+      "bytes": 2091,
+      "sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.Aud01Oscillator.lean.source.txt": {
+      "bytes": 2916,
+      "sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.lake-manifest.json.source.txt": {
+      "bytes": 3540,
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.stdout.log": {
+      "bytes": 1953,
+      "sha256": "4f0de6e25cf7dfdaf86722163209311e6175b4277bf28da559a8a730494f6502"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/legendre/verification/reviews/AUD-01/results/audit-axioms-01.json": {
+      "bytes": 2438,
+      "sha256": "c574afc80daa792b24d17cc733edb61b14b761b46619728206d9c6040d9f8abc"
+    }
+  },
+  "preexisting_missing_input": "research/legendre/verification/sources/legendre_spectral_verification_notes_st04.pdf",
+  "preexisting_alternative": "research/legendre/verification/sources/legendre_spectral_verification-3.pdf",
+  "comparison": "Byte identity with the inventories taken before AUD-01 review and before this closure task, respectively; no authorized revisions were made to these protected paths."
+}

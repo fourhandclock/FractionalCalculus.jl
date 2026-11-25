@@ -1,0 +1,92 @@
+import Coefficients
+import Quadrature
+import AuditConstants
+import Aud01FiniteSums
+import Aud01Oscillator
+
+set_option pp.universes false
+
+#check LegendreAudit.bStarZero_identity
+#print axioms LegendreAudit.bStarZero_identity
+#check LegendreAudit.leading_identity
+#print axioms LegendreAudit.leading_identity
+#check LegendreAudit.leading_gt_one
+#print axioms LegendreAudit.leading_gt_one
+#check LegendreAudit.leading_three_quarters
+#print axioms LegendreAudit.leading_three_quarters
+#check LegendreAudit.fourthRootTwo_fourth
+#print axioms LegendreAudit.fourthRootTwo_fourth
+#check LegendreAudit.fourthRootTwo_lt_thirteen_tenths
+#print axioms LegendreAudit.fourthRootTwo_lt_thirteen_tenths
+#check LegendreAudit.oldestSecond_three_quarters
+#print axioms LegendreAudit.oldestSecond_three_quarters
+#check LegendreAudit.oldestSecond_three_quarters_neg
+#print axioms LegendreAudit.oldestSecond_three_quarters_neg
+#check LegendreAudit.history_abs_budget
+#print axioms LegendreAudit.history_abs_budget
+#check LegendreAudit.signedHistory_triangle
+#print axioms LegendreAudit.signedHistory_triangle
+#check LegendreAudit.signed_sum_bound_false
+#print axioms LegendreAudit.signed_sum_bound_false
+#check LegendreAudit.l12_assigned_state_counterexample
+#print axioms LegendreAudit.l12_assigned_state_counterexample
+#check LegendreAudit.telescoping_history
+#print axioms LegendreAudit.telescoping_history
+#check LegendreAudit.telescoping_not_one
+#print axioms LegendreAudit.telescoping_not_one
+#check LegendreAudit.normalized_history
+#print axioms LegendreAudit.normalized_history
+#check LegendreAudit.no_uniform_weighted_energy_bound
+#print axioms LegendreAudit.no_uniform_weighted_energy_bound
+#check LegendreAudit.volterra_half_near_panel_positive
+#print axioms LegendreAudit.volterra_half_near_panel_positive
+#check LegendreAudit.mass_polynomial
+#print axioms LegendreAudit.mass_polynomial
+#check LegendreAudit.gll3_mass
+#print axioms LegendreAudit.gll3_mass
+#check LegendreAudit.mass_hasDerivAt
+#print axioms LegendreAudit.mass_hasDerivAt
+#check LegendreAudit.mass_integral
+#print axioms LegendreAudit.mass_integral
+#check LegendreAudit.positive_mass_coefficient
+#print axioms LegendreAudit.positive_mass_coefficient
+#check LegendreAudit.gll3_variable_coefficient_counterexample
+#print axioms LegendreAudit.gll3_variable_coefficient_counterexample
+#check LegendreAudit.AUD01.symbol_numerator
+#print axioms LegendreAudit.AUD01.symbol_numerator
+#check LegendreAudit.AUD01.symbol_bracket
+#print axioms LegendreAudit.AUD01.symbol_bracket
+#check LegendreAudit.AUD01.smoothing_denominator
+#print axioms LegendreAudit.AUD01.smoothing_denominator
+#check LegendreAudit.AUD01.smoothing_amplitude
+#print axioms LegendreAudit.AUD01.smoothing_amplitude
+#check LegendreAudit.AUD01.smoothing_difference
+#print axioms LegendreAudit.AUD01.smoothing_difference
+#check LegendreAudit.AUD01.weighted_contraction
+#print axioms LegendreAudit.AUD01.weighted_contraction
+#check LegendreAudit.AUD01.homogeneous_contraction
+#print axioms LegendreAudit.AUD01.homogeneous_contraction
+#check LegendreAudit.AUD01.fractional_parameter_bound
+#print axioms LegendreAudit.AUD01.fractional_parameter_bound
+#check LegendreAudit.AUD01.fractional_parameter_admissibility
+#print axioms LegendreAudit.AUD01.fractional_parameter_admissibility
+#check LegendreAudit.AUD01.finite_summation_by_parts
+#print axioms LegendreAudit.AUD01.finite_summation_by_parts
+#check LegendreAudit.AUD01.quadratic_history_collection
+#print axioms LegendreAudit.AUD01.quadratic_history_collection
+#check LegendreAudit.AUD01.reversed_difference_sum
+#print axioms LegendreAudit.AUD01.reversed_difference_sum
+#check LegendreAudit.AUD01.pre_derivative
+#print axioms LegendreAudit.AUD01.pre_derivative
+#check LegendreAudit.AUD01.critical_position
+#print axioms LegendreAudit.AUD01.critical_position
+#check LegendreAudit.AUD01.critical_velocity
+#print axioms LegendreAudit.AUD01.critical_velocity
+#check LegendreAudit.AUD01.post_derivative
+#print axioms LegendreAudit.AUD01.post_derivative
+#check LegendreAudit.AUD01.quarter_velocity
+#print axioms LegendreAudit.AUD01.quarter_velocity
+#check LegendreAudit.AUD01.st05_endpoint_identity
+#print axioms LegendreAudit.AUD01.st05_endpoint_identity
+#check LegendreAudit.AUD01.oscillator_energy_algebra
+#print axioms LegendreAudit.AUD01.oscillator_energy_algebra

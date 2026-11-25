@@ -7,6 +7,12 @@ However I plan to extend this framework for future studies.
 The natural objective is to understand the method, implement its defined operators, and compare the computations with the published results. New methods and improvements are deferred until this baseline is understood. **However, implementing the equations does not establish the fact that the published tables or stability proof have been reproduced.** See the generated comparison report for the numerical status.
 <!-- keep everything above as it is -->
 
+## Research framework
+
+This repository provides reusable Julia operators for reproducing numerical-analysis papers, with paper-specific cases and results under `studies/` and mathematical audits under `research/`. The Legendre study is its first validated research checkpoint; full agreement with the paper's numerical tables remains incomplete.
+
+Start with the [Legendre study guide](studies/legendre/README.md), [mathematical verification dashboard](research/legendre/verification/README.md), and [research workflow](docs/RESEARCH_WORKFLOW.md). The audited checkpoint through AUD-01 has verdict **ACCEPT WITH LIMITATIONS**: its analytical results, finite-grid observations, and individual Lean certificates have different scopes.
+
 ## Study layout
 
 The numerical components stay in `src/`; each paper keeps its cases, tests, runners, and results in its own directory under `studies/`.
@@ -28,7 +34,7 @@ test/runtests.jl            Runs each study's test entry point
 
 The README is the public study guide. Detailed working notes remain local in `research/`, except for the tracked Legendre verification checkpoint linked below; generated prose reports are excluded from uploads. The numerical CSVs and figures remain with their study.
 
-The [mathematical verification checkpoint through ST-04](research/legendre/verification/README.md) preserves the original LaTeX notes, observation statuses, independent numerical checks, and 23 small Lean certificates. Its [validation report](research/legendre/verification/results/VALIDATION.md) records 669 passing Legendre assertions, Python checks, and a successful LaTeX build. The verified coefficient/quadrature discrepancies and stability-proof gap remain distinct from ST-04's finite-grid counterexample candidate and the unresolved PDE theorems.
+The [AUD-01 verification dashboard](research/legendre/verification/README.md) links the accepted 37-page manuscript, independent review, reproducible diagnostics and 42 named Lean certificates (41 nonduplicate identity groups). The [integration validation report](research/legendre/verification/results/checkpoint-aud01/VALIDATION.md) records the actual clean-tree checks. Earlier ST-04 sources and evidence remain preserved; neither checkpoint implies complete numerical reproduction or formal verification of the PDE theory.
 
 ## Setup
 

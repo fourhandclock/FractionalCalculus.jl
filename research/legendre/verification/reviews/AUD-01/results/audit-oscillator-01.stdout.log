@@ -1,0 +1,26 @@
+Aud01Oscillator.lean:19:43: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:19:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:41:75: warning: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+Aud01Oscillator.lean:41:75: warning: 'simp' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+Aud01Oscillator.lean:40:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:41:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:41:59: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:46:52: error: unsolved goals
+γ ω y₀ : ℝ
+hω : ω ≠ 0
+⊢ ω * Real.pi * 2 = Real.pi * (2 * ω)
+Aud01Oscillator.lean:60:34: warning: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+Aud01Oscillator.lean:60:34: warning: 'simp' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+Aud01Oscillator.lean:57:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Aud01Oscillator.lean:60:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`

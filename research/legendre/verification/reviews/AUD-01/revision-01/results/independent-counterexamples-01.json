@@ -1,0 +1,55 @@
+{
+  "command": [
+    "$WORKSPACE/.checkpoint-tools/aud01-close-2026-11-25/venv/bin/python",
+    "-s",
+    "-B",
+    "check_counterexamples.py"
+  ],
+  "cwd": "$WORKSPACE/research/legendre/verification/scripts",
+  "started_at_utc": "2026-11-25T15:27:44.664511+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 768,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 512,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/scripts/check_counterexamples.py": "26726031eec9c5c835e48512898f8e290fdc1ee2663bef449f43a62213987642",
+    "$WORKSPACE/research/legendre/verification/scripts/verify_l12_stability.py": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONNOUSERSITE": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 0.11584118599967042,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:27:44.780436+00:00",
+  "child_usage": {
+    "user_seconds": 0.054508999999999995,
+    "system_seconds": 0.010926,
+    "peak_rss_kib": 18200,
+    "peak_sampled_descendant_rss_bytes": 999424
+  },
+  "output": {
+    "independent-counterexamples-01.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-counterexamples-01.stderr.log": {
+      "bytes": 1446,
+      "sha256": "2c85ff9237744c0100c6258e7579ba5ab736c58ce9bd703b029d064f00f889a3"
+    }
+  }
+}

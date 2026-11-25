@@ -1,0 +1,56 @@
+{
+  "command": [
+    ".checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--only-cached",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    ".checkpoint-tools/aud01-close-2026-11-25/latex-build-04",
+    "research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T15:43:42.103246+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex": "1cd0393a69c2eddf5f79883cf02ccd176acebaec772fade737336be89e87f29b"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 1.5172050299988769,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:43:43.620537+00:00",
+  "child_usage": {
+    "user_seconds": 1.34101,
+    "system_seconds": 0.173841,
+    "peak_rss_kib": 175736,
+    "peak_sampled_descendant_rss_bytes": 179941376
+  },
+  "output": {
+    "manuscript-r1-04.stdout.log": {
+      "bytes": 744,
+      "sha256": "8990ee25828de7ae39eeeb6b64a73179ec846a0cdebda8de27ed53a6f03956fc"
+    },
+    "manuscript-r1-04.stderr.log": {
+      "bytes": 6206,
+      "sha256": "6937d3b0ccda78970a9abdccc3450764d575cd60822a0ff1a7a9fc73f1605530"
+    }
+  }
+}

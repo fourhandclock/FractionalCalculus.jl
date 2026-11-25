@@ -1,0 +1,697 @@
+{
+  "named_certified_declarations": 42,
+  "distinct_fully_qualified_names": 42,
+  "nonduplicate_mathematical_identity_groups": 41,
+  "counting_rule": "Group only a direct repetition of the same all-sequence identity under index reversal, sign change and rearrangement. Do not collapse generalizations, specializations, consequences or separate intermediate propositions. This is not a count modulo unrestricted logical equivalence.",
+  "overlap": {
+    "group": "G13",
+    "members": [
+      "LegendreAudit.telescoping_history",
+      "LegendreAudit.AUD01.reversed_difference_sum"
+    ],
+    "normalization": "Reindex the reversed sum by r=N-1-j to obtain sum(b(r+1)-b(r))=b(N)-b(0); negate and move b(N) to recover the old telescoping equation. N=0 is included in both."
+  },
+  "fresh_combined_axiom_record": "results/consolidated-axioms-01.json",
+  "pinned_project_modified": false,
+  "declarations": [
+    {
+      "name": "LegendreAudit.bStarZero_identity",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G01",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 18,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem bStarZero_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :\n    bStarZero α = α / (2 * (2 - α))",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.leading_identity",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G02",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 24,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem leading_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :\n    leading α = 1 + α / (2 * (2 - α))",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.leading_gt_one",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G03",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 29,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem leading_gt_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) :\n    1 < leading α",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.leading_three_quarters",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G04",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 35,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem leading_three_quarters : leading (3 / 4 : ℝ) = 13 / 10",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.fourthRootTwo_fourth",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G05",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 38,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem fourthRootTwo_fourth : ((2 : ℝ) ^ (1 / 4 : ℝ)) ^ (4 : ℕ) = 2",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.fourthRootTwo_lt_thirteen_tenths",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G06",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 42,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem fourthRootTwo_lt_thirteen_tenths : (2 : ℝ) ^ (1 / 4 : ℝ) < 13 / 10",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.oldestSecond_three_quarters",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G07",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 53,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem oldestSecond_three_quarters :\n    oldestSecond (3 / 4 : ℝ) = (2 : ℝ) ^ (1 / 4 : ℝ) - 13 / 10",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.oldestSecond_three_quarters_neg",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G08",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 57,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem oldestSecond_three_quarters_neg : oldestSecond (3 / 4 : ℝ) < 0",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.history_abs_budget",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G09",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 61,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem history_abs_budget (d₀ d₁ : ℝ) (h₀ : 0 < d₀) (h₁ : d₁ < 0) :\n    |d₀ - d₁| + |d₁| = d₀ - 2 * d₁ ∧ d₀ < |d₀ - d₁| + |d₁|",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.signedHistory_triangle",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G10",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 66,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem signedHistory_triangle {ι : Type*} (s : Finset ι) (c u : ι → ℝ) :\n    ‖∑ j ∈ s, c j * u j‖ ≤ ∑ j ∈ s, |c j| * |u j|",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.signed_sum_bound_false",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G11",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 73,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem signed_sum_bound_false :\n    ¬ ∀ (c₀ c₁ u₀ u₁ : ℝ), |u₀| ≤ 1 → |u₁| ≤ 1 →\n      |c₀ * u₀ + c₁ * u₁| ≤ |c₀ + c₁|",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.l12_assigned_state_counterexample",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G12",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 80,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem l12_assigned_state_counterexample :\n    let d₀ := leading (3 / 4 : ℝ)\n    let d₁ := oldestSecond (3 / 4 : ℝ)\n    d₀ < |(d₀ - d₁) * 1 + d₁ * (-1)|",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.telescoping_history",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G13",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 92,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem telescoping_history (d : ℕ → ℝ) (k : ℕ) :\n    (∑ r ∈ Finset.range k, (d r - d (r + 1))) + d k = d 0",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.telescoping_not_one",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G14",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 100,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem telescoping_not_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1)\n    (d : ℕ → ℝ) (k : ℕ) (hd : d 0 = leading α) :\n    (∑ r ∈ Finset.range k, (d r - d (r + 1))) + d k ≠ 1",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.normalized_history",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G15",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 106,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem normalized_history (d : ℕ → ℝ) (k : ℕ) (hd : d 0 ≠ 0) :\n    ((∑ r ∈ Finset.range k, (d r - d (r + 1))) + d k) / d 0 = 1",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.no_uniform_weighted_energy_bound",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G16",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 112,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem no_uniform_weighted_energy_bound :\n    ¬ ∃ C : ℝ, 0 < C ∧ ∀ (w : ℝ), 0 < w → w ≤ 1 →\n      ∀ (x y : ℝ), x ^ 2 + y ^ 2 ≤ C * (x ^ 2 + w * y ^ 2)",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.volterra_half_near_panel_positive",
+      "cohort": "ST-04",
+      "module": "Coefficients",
+      "identity_group": "G17",
+      "source": "research/legendre/verification/lean/Coefficients.lean",
+      "source_line": 128,
+      "source_sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "lean_statement": "theorem volterra_half_near_panel_positive :\n    0 < (1 + 1 / Real.sqrt 2) / 2 - 2 * (Real.sqrt 2 - 1)",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-coefficients-06.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.mass_polynomial",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G18",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 19,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem mass_polynomial (c x : ℝ) :\n    massIntegrand c x = x - 2 * x ^ 3 + x ^ 5 + c * x ^ 2 - 2 * c * x ^ 4 + c * x ^ 6",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.gll3_mass",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G19",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 24,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem gll3_mass (c : ℝ) : gll3 (massIntegrand c) = 16 * c / 75",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.mass_hasDerivAt",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G20",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 42,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem mass_hasDerivAt (c x : ℝ) :\n    HasDerivAt (massPrimitive c) (massIntegrand c x) x",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.mass_integral",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G21",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 54,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem mass_integral (c : ℝ) :\n    (∫ x in (-1 : ℝ)..1, massIntegrand c x) = 16 * c / 105",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.positive_mass_coefficient",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G22",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 63,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem positive_mass_coefficient (c x : ℝ) (hc0 : 0 < c) (hc1 : c < 1)\n    (hx0 : -1 ≤ x) (hx1 : x ≤ 1) : 0 < 1 + c * x",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.gll3_variable_coefficient_counterexample",
+      "cohort": "ST-04",
+      "module": "Quadrature",
+      "identity_group": "G23",
+      "source": "research/legendre/verification/lean/Quadrature.lean",
+      "source_line": 67,
+      "source_sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "lean_statement": "theorem gll3_variable_coefficient_counterexample (c : ℝ) (hc0 : 0 < c) (hc1 : c < 1) :\n    |gll3 (massIntegrand c) - (∫ x in (-1 : ℝ)..1, massIntegrand c x)| = 32 * c / 525 ∧\n      gll3 (massIntegrand c) ≠ (∫ x in (-1 : ℝ)..1, massIntegrand c x)",
+      "compiled_source_record": "research/legendre/verification/results/checkpoint-st04/lean-quadrature-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.symbol_numerator",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G24",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 10,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem symbol_numerator (x y rho q : ℝ) (h : y^2 = 1 - x^2) :\n    ((1-x) + q*((1-x)^2-y^2))*(1-rho*x) +\n      (y+2*q*(1-x)*y)*(rho*y) =\n      (1-x)*(1+rho+2*q*(rho-x))",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.symbol_bracket",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G25",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 19,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem symbol_bracket (rho q x : ℝ) (hr : 0 ≤ rho) (hr' : rho ≤ 1)\n    (hq : 0 ≤ q) (hq' : q ≤ 1/2) (hx : x ≤ 1) :\n    2*rho ≤ 1+rho+2*q*(rho-x)",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_denominator",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G26",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 30,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem smoothing_denominator : (0 : ℚ) < 1-17*(512/1000000)",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_amplitude",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G27",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 32,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem smoothing_amplitude : (17 : ℚ)/(1-17*(512/1000000)) < 18",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_difference",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G28",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 34,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem smoothing_difference :\n    (17 : ℚ)^2*(512/1000000)/(1-17*(512/1000000)) < 1/4",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.weighted_contraction",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G29",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 37,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem weighted_contraction : ((3 : ℚ)+800/64)/64 < 1/4",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.homogeneous_contraction",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G30",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 39,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem homogeneous_contraction : (1 : ℚ)/128*(21/4)*(3+1/16) < 1/4",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.fractional_parameter_bound",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G31",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 41,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem fractional_parameter_bound :\n    (720000 : ℚ)*2^512*(1/2^600) < 1/2^68",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.fractional_parameter_admissibility",
+      "cohort": "AUD-01",
+      "module": "AuditConstants",
+      "identity_group": "G32",
+      "source": "research/legendre/verification/lean/AuditConstants.lean",
+      "source_line": 44,
+      "source_sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "lean_statement": "theorem fractional_parameter_admissibility :\n    (0 : ℚ) < 1/2^600 ∧ (1 : ℚ)/2^600 ≤ 1-1/2^600 ∧ (1 : ℚ)-1/2^600 < 1",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-constants-01.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.finite_summation_by_parts",
+      "cohort": "AUD-01",
+      "module": "Aud01FiniteSums",
+      "identity_group": "G33",
+      "source": "research/legendre/verification/lean/Aud01FiniteSums.lean",
+      "source_line": 10,
+      "source_sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6",
+      "lean_statement": "theorem finite_summation_by_parts (w u : ℕ → ℝ) (N : ℕ) :\n    (∑ j ∈ Finset.range (N + 1), w j * (u (j + 1) - u j)) =\n      w N * u (N + 1) - w 0 * u 0 +\n        ∑ j ∈ Finset.range N, (w j - w (j + 1)) * u (j + 1)",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.quadratic_history_collection",
+      "cohort": "AUD-01",
+      "module": "Aud01FiniteSums",
+      "identity_group": "G34",
+      "source": "research/legendre/verification/lean/Aud01FiniteSums.lean",
+      "source_line": 22,
+      "source_sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6",
+      "lean_statement": "theorem quadratic_history_collection (c v : ℕ → ℝ) (N : ℕ) :\n    (∑ n ∈ Finset.range N,\n      ∑ j ∈ Finset.range (n + 1), c (n - j) * (v (j + 1) - v j)) =\n      (∑ j ∈ Finset.range N, c (N - 1 - j) * v (j + 1)) -\n        (∑ r ∈ Finset.range N, c r) * v 0",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.reversed_difference_sum",
+      "cohort": "AUD-01",
+      "module": "Aud01FiniteSums",
+      "identity_group": "G13",
+      "source": "research/legendre/verification/lean/Aud01FiniteSums.lean",
+      "source_line": 40,
+      "source_sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6",
+      "lean_statement": "theorem reversed_difference_sum (b : ℕ → ℝ) (N : ℕ) :\n    (∑ j ∈ Finset.range N, (b (N - j) - b (N - 1 - j))) = b N - b 0",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-finite-sums-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.pre_derivative",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G35",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 16,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem pre_derivative (γ t : ℝ) :\n    HasDerivAt (prePosition γ) (preVelocity γ t) t",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.critical_position",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G36",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 21,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem critical_position (γ : ℝ) (hγ : γ ≠ 0) :\n    prePosition γ (1 / γ) = Real.exp (-1) / γ",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.critical_velocity",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G37",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 28,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem critical_velocity (γ : ℝ) (hγ : γ ≠ 0) :\n    preVelocity γ (1 / γ) = 0",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.post_derivative",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G38",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 35,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem post_derivative (γ ω y₀ s : ℝ) (hω : ω ≠ 0) :\n    HasDerivAt (postPosition γ ω y₀) (postVelocity γ ω y₀ s) s",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.quarter_velocity",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G39",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 43,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem quarter_velocity (γ ω y₀ : ℝ) (hω : ω ≠ 0) :\n    postVelocity γ ω y₀ (Real.pi / (2 * ω)) =\n      -y₀ * (ω + γ ^ 2 / ω) * Real.exp (-γ * (Real.pi / (2 * ω)))",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.st05_endpoint_identity",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G40",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 51,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem st05_endpoint_identity (γ : ℝ) (hγ : γ ≠ 0) :\n    postVelocity γ (16 * γ) (Real.exp (-1) / γ) (Real.pi / (2 * (16 * γ))) =\n      -(16 + 1 / 16 : ℝ) * Real.exp (-1 - Real.pi / 32)",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "LegendreAudit.AUD01.oscillator_energy_algebra",
+      "cohort": "AUD-01",
+      "module": "Aud01Oscillator",
+      "identity_group": "G41",
+      "source": "research/legendre/verification/lean/Aud01Oscillator.lean",
+      "source_line": 63,
+      "source_sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "lean_statement": "theorem oscillator_energy_algebra (k x y : ℝ) :\n    2 * k * x * y + 2 * y * (-k * x - 2 * y) = -4 * y ^ 2",
+      "compiled_source_record": "research/legendre/verification/reviews/AUD-01/results/audit-oscillator-02.json",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "toolchain": {
+    "lean": "4.19.0",
+    "mathlib_tag": "v4.19.0",
+    "mathlib_revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+    "source_project": "research/legendre/verification/lean",
+    "fresh_source_recompilation_all_modules": false
+  }
+}

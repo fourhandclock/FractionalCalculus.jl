@@ -1,0 +1,120 @@
+{
+  "program_reference_groups": 14,
+  "available": 4,
+  "unavailable_originals": 10,
+  "search_record": "search-record.json",
+  "scope": "Repository user sources, retained source snapshots, Downloads research materials, and five relevant starter archives. Installed dependencies, Git internals and caches excluded. Availability means an identified supplied/original version, not a merely related implementation.",
+  "independently_reconstructed_replacements_created": false,
+  "existing_independent_reconstruction": {
+    "path": "research/legendre/verification/scripts/check_counterexamples.py",
+    "role": "Supplementary 10-test checker from the earlier integration; replayed separately, not relabeled as any missing original."
+  },
+  "programs": [
+    {
+      "id": "VQ-01-original",
+      "manuscript_locator": "\u00a74 numerical check, TeX 285",
+      "referenced_program": "unnamed original Python checker",
+      "status": "unavailable",
+      "notes": "Later check_counterexamples.py and starter-package reference checks are independently sourced checks, not authenticated originals."
+    },
+    {
+      "id": "CF-02-python",
+      "manuscript_locator": "\u00a75 reproducibility/formalization, TeX 430\u2013448",
+      "referenced_program": "unnamed original CF-02 Python program",
+      "status": "unavailable",
+      "notes": "The described direct panel-integration companion is not identified by a filename/hash."
+    },
+    {
+      "id": "CF-02-julia",
+      "manuscript_locator": "\u00a75 reproducibility/formalization, TeX 447",
+      "referenced_program": "unnamed standard-library Julia counterpart",
+      "status": "unavailable",
+      "notes": "Existing Julia study tests and starter projects are not established as this original companion."
+    },
+    {
+      "id": "CF-02-lean",
+      "manuscript_locator": "\u00a75 reproducibility/formalization, TeX 447",
+      "referenced_program": "unnamed original mathlib Lean draft",
+      "status": "unavailable",
+      "notes": "The later ST-04 Coefficients module and AUD-01 constants draft have explicit independent provenance."
+    },
+    {
+      "id": "ST-03",
+      "manuscript_locator": "\u00a76 numerical diagnostic, TeX 550",
+      "referenced_program": "verify_l12_stability.py",
+      "status": "available",
+      "notes": "Repository and Downloads copies have identical hashes; replayed unchanged.",
+      "recovered_path": "research/legendre/verification/scripts/verify_l12_stability.py",
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    {
+      "id": "ST-04",
+      "manuscript_locator": "\u00a77 numerical record, TeX 654",
+      "referenced_program": "verify_time_variable_kernel_st04.py",
+      "status": "available",
+      "notes": "Repository and Downloads copies agree; this uses the original ST-04 kernel, not ST-05. The manuscript output filename st04_numerical_results.txt differs from the supplied st04_recheck_2026-11-20.txt.",
+      "recovered_path": "research/legendre/verification/scripts/verify_time_variable_kernel_st04.py",
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    },
+    {
+      "id": "OB-03",
+      "manuscript_locator": "\u00a78 numerical checks, TeX 735",
+      "referenced_program": "verify_l12_startup_obs03.py",
+      "status": "unavailable",
+      "notes": "No exact-name or authenticated content-equivalent original found."
+    },
+    {
+      "id": "OB-04",
+      "manuscript_locator": "\u00a79 reproducibility, TeX 887",
+      "referenced_program": "verify_gll_variable_coefficient_obs04.py",
+      "status": "unavailable",
+      "notes": "Existing M=3 checks are not the described all-degree rational/high-precision program."
+    },
+    {
+      "id": "SP-02",
+      "manuscript_locator": "\u00a711 numerical diagnostics, TeX 1163\u20131165",
+      "referenced_program": "verify_sp02_resolvent.py",
+      "status": "unavailable",
+      "notes": "Neither symbol/768-coefficient grids nor the noncommuting matrix checker was recovered."
+    },
+    {
+      "id": "TM-01-failed",
+      "manuscript_locator": "\u00a712 numerical diagnostics, TeX 1285",
+      "referenced_program": "unnamed original failed sharpness diagnostic and output",
+      "status": "unavailable",
+      "notes": "The text says the failed source/output were retained separately; they are absent from the searched materials."
+    },
+    {
+      "id": "TM-01-revised",
+      "manuscript_locator": "\u00a712 numerical diagnostics, TeX 1275\u20131285",
+      "referenced_program": "unnamed corrected smooth/initial-layer/PI diagnostic",
+      "status": "unavailable",
+      "notes": "The related temporal-residual starter tests operator residuals, not this flat forced solution-error experiment; not substituted."
+    },
+    {
+      "id": "ST-05",
+      "manuscript_locator": "\u00a713 numerical corroboration, TeX 1404\u20131413",
+      "referenced_program": "unnamed 36-configuration ST-05 trajectory checker",
+      "status": "unavailable",
+      "notes": "The ST-04 script has a different kernel and is not this program."
+    },
+    {
+      "id": "AUD-01-exact",
+      "manuscript_locator": "\u00a714 diagnostics and package README",
+      "referenced_program": "check_exact_aud01.py",
+      "status": "available",
+      "notes": "Supplied exact symbolic/rational checks; replayed unchanged.",
+      "recovered_path": "AUD01_review_package/aud01/check_exact_aud01.py",
+      "sha256": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+    },
+    {
+      "id": "AUD-01-homogeneous",
+      "manuscript_locator": "\u00a714 diagnostics and package README",
+      "referenced_program": "verify_aud01_homogeneous.py",
+      "status": "available",
+      "notes": "Supplied 12-case constant-kernel program; replayed unchanged.",
+      "recovered_path": "AUD01_review_package/aud01/verify_aud01_homogeneous.py",
+      "sha256": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c"
+    }
+  ]
+}

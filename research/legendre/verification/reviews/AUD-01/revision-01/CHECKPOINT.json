@@ -1,0 +1,93 @@
+{
+  "verdict": "ACCEPT WITH LIMITATIONS",
+  "date": "2026-11-25",
+  "revision": "AUD-01-R1",
+  "mathematical_document": "mathematical-verification-aud01-r1.tex",
+  "reports": {
+    "review": "REVIEW.md",
+    "numerical": "NUMERICAL_REPLAY.md",
+    "diagnostics": "DIAGNOSTIC_INVENTORY.md",
+    "lean": "LEAN_CATALOGUE.md"
+  },
+  "finding_closure": {
+    "R1": {
+      "status": "accepted_after_repair",
+      "correction": "Continuous compatible spatial representatives and uniform nodal coefficient bounds; spatial downstream applications explicitly inherit them."
+    },
+    "R2": {
+      "status": "accepted_with_interpretation_limits",
+      "correction": "Exact source wording; eventual versus isolated-mesh quantifiers; standalone smooth forced and homogeneous initially singular results."
+    },
+    "R3": {
+      "status": "inventory_complete_recovery_partial",
+      "available_original_program_groups": 4,
+      "unavailable_or_unauthenticated_original_program_groups": 10,
+      "historical_unavailable_runs_counted_as_fresh": false
+    }
+  },
+  "lean": {
+    "st04_named": 23,
+    "aud01_named": 19,
+    "combined_named": 42,
+    "nonduplicate_identity_groups": 41,
+    "counting_rule": "See lean-catalogue.json; one duplicate telescoping identity grouped, no assertion of logical independence.",
+    "fresh_action": "Combined type and axiom inspection; prior successful source-compilation records hash-bound.",
+    "accepted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "full_pde_theory_certified": false
+  },
+  "numerical": {
+    "available_original_diagnostics_passed": 4,
+    "supplementary_independent_suite_tests_passed": 10,
+    "homogeneous_configurations": 12,
+    "st03_cases": 432,
+    "st04_configurations": 24,
+    "assertion_changes": false,
+    "homogeneous_last_rates": [
+      0.7498,
+      0.7498
+    ],
+    "half_order_asymptotic_empirically_observed": false
+  },
+  "manuscript": {
+    "pdf_pages": 37,
+    "successful_build": "results/manuscript-r1-05.json",
+    "undefined_references": false,
+    "overfull_boxes": false,
+    "underfull_warnings": 6,
+    "failed_builds_retained": [
+      "results/manuscript-r1-01.json",
+      "results/manuscript-r1-03.json"
+    ]
+  },
+  "preservation_manifest": "preserved-inputs.json",
+  "validation_record": "INTEGRITY.json",
+  "limitations": [
+    "Ten referenced original program groups unavailable or unauthenticated.",
+    "Theorem 3.2 intended temporal regularity interpretation remains qualified.",
+    "ST-05 excludes eventual contractivity, not every coarse mesh.",
+    "ST-04 remains a separate finite-grid candidate.",
+    "Full analytical chains remain outside Lean certificates.",
+    "Primary related-work theorem locators remain unverified.",
+    "Preexisting missing ST-04 PDF remains missing at its old manifest path."
+  ],
+  "scope": {
+    "production_algorithms_modified": false,
+    "existing_lean_project_modified": false,
+    "julia_dependencies_modified": false,
+    "global_python_environment_modified": false,
+    "network_use": "Approved Python dependency acquisition only",
+    "git_mutations": false,
+    "julia_runs_this_task": false
+  },
+  "documentary_validation": {
+    "validator": "validate_checkpoint.py",
+    "earlier_failure": "results/checkpoint-integrity-01.json",
+    "failure_cause": "Validator deparsed AST calls instead of extracting their exact source text; corrected without numerical-source or acceptance-criteria changes.",
+    "source_text_extraction_pass": "results/checkpoint-integrity-02.json",
+    "final_record": "results/checkpoint-integrity-03.json"
+  }
+}

@@ -1,0 +1,63 @@
+\section{AUD-01: scope corrections and homogeneous temporal sharpness}
+\label{sec:aud01}
+
+\subsection{Scope of the audit}
+This revision preserves the earlier ST-05 manuscript as a separate snapshot. The present audit is an internal mathematical review, not independent refereeing or a complete formal certification. The main proof chains remain conditional on their explicitly stated assumptions. In particular SP-01 uses one-dimensional spatial product regularity and consistent forcing; SP-02 uses fixed fractional order, uniform grids, positive bounded memory operators and the timestep-weighted norm. ST-05's L1 convergence argument is independent of the L1--2 resolvent lemma, but still uses the interpolation residual estimates of TM-01. The L1--2 conclusions concern the interpolation-defined scheme, not the inconsistent printed collected formula. The original ST-04 parameters remain numerical only.
+
+The reference article (PDF pp.~5--6) constructs its time-semidiscrete equations with $f=0$, while explicitly discussing general forcing for the fully discrete problem. Theorem 3.2 (PDF p.~16, Eq.~(42)) names (19) and (37). Accordingly, Proposition~\ref{prop:tm01-sharp} establishes failure of the advertised rate for the consistently forced extension; it is not, on its own, a counterexample to a strictly homogeneous formulation. OB-03's manufactured amplitude is polynomial, but its forcing contains a term proportional to $t^{2-\alpha}$ and need not be arbitrarily differentiable at zero. The local Caputo consistency counterexample is independent of that forcing issue.
+
+\subsection{A homogeneous temporal error lower bound}
+\begin{proposition}[Homogeneous initial-layer sharpness]\label{prop:aud01-homogeneous}
+Take $\alpha=3/4$, $\beta=1/2$, $K=\lambda=1$, $T=2^{-10}$, $\phi(x)=\cos(\pi x/2)$, $\sigma=\pi^2/4$, homogeneous Dirichlet conditions, initial datum $\phi$, and zero forcing. For the printed memory quadrature and either L1 or interpolation-defined L1--2 on uniform grids,
+\[
+ \max_{1\le n\le N}\|U^n-u(t_n)\|_\tau=\Theta(\tau^{1/2}).
+\]
+For L1--2 the same lower order holds with the maximum restricted to $n\ge2$. The lower bound does not use SP-02; the upper bound uses the initial-layer estimate in Proposition~\ref{prop:tm01-singular} (and its stated stability dependencies).
+\end{proposition}
+\begin{proof}
+The exact amplitude satisfies $a=1+Va$, $V=-I^\alpha(\sigma I+J_\beta)$. In the ordinary supremum norm,
+\[
+ \|V\|\le \frac{T^\alpha}{\Gamma(1+\alpha)}(\sigma+2\sqrt T)<\frac14.
+\]
+Indeed $T^\alpha<1/128$, $\Gamma(7/4)>4/21$ by integration over $(0,1)$ using $e<3$, $\sigma<3$, and $2\sqrt T=1/16$. These imply the stated strict inequality. Thus $\|a-1\|_\infty\le1/3$ and $a\ge2/3$. By the differentiated Neumann-series argument in Section~\ref{sec:st05}, $|a^{(j)}(t)|\le Ct^{\alpha-j}$ for $j=1,2$, and $a$ is $\alpha$-H\"older continuous. In this constant-coefficient case the series is explicitly
+\[
+ a(t)=\sum_{\ell=0}^\infty\sum_{k=0}^{\ell}
+ \binom{\ell}{k}\frac{(-1)^\ell\sigma^{\ell-k}\Gamma(1-\beta)^k
+ t^{\ell\alpha+k(1-\beta)}}{\Gamma(1+\ell\alpha+k(1-\beta))}.
+\]
+The integral operators commute by the fractional semigroup property. The series converges uniformly with an ordinary supremum-norm truncation bound $q^{L+1}/(1-q)$ after outer degree $L$, where $q=\|V\|<1/4$.
+
+On each ordinary panel freeze $a$ at its left endpoint. H\"older continuity bounds the resulting exact and numerical quadrature differences by $C\tau^\alpha$ times their uniformly bounded total mass. For the frozen constants, the kernel-only trapezoid error on the panel indexed backwards by $r$ is $\tau^{1-\beta}c_{\beta,r}$, with $c_{\beta,r}>0$ and $c_{\beta,r}=O(r^{-\beta-2})$ as in VQ-01. Replacing the frozen value by $a(t_n)$ changes the defect by at most
+\[
+ C\tau^{1-\beta+\alpha}\sum_{r=2}^{\infty}r^\alpha c_{\beta,r}.
+\]
+The sum is finite. The final panel is exact on constants and its remaining error is $O(\tau^{1-\beta+\alpha})$. Uniformly in $n$ this yields
+\[
+ Q_\tau^n[a]-J_\beta[a](t_n)
+ =\tau^{1-\beta}C_{\beta,n}a(t_n)+O(\tau^\alpha),
+ \qquad C_{\beta,n}=\sum_{r=2}^{n}c_{\beta,r}.
+\]
+The Caputo residual estimate \eqref{eq:tm01-layer} with regularity exponent $\alpha$ gives $\tau\sum_{n=1}^N|r_D^n|=O(\tau)$. Since $\alpha>1-\beta$, Riemann summation and the bounded convergence of the coefficient sums away from zero imply
+\[
+ \frac{\tau\sum_{n=1}^N r^n}{\tau^{1-\beta}}
+ \longrightarrow C_\beta\int_0^T a(t)\,dt>0.
+\]
+For clarity, convergence of the Riemann sum follows by first restricting to $t_n\ge\epsilon>0$, where $C_{\beta,n}\to C_\beta$ uniformly, and then letting $\epsilon\downarrow0$ using uniform boundedness.
+
+For the error $e^n=U^n-a(t_n)$ in scalar amplitude units, $e^0=0$. Summing the scalar error equation and using the same summation-by-parts argument as TM-01 gives
+\[
+ \left|\tau\sum_{n=1}^N r^n\right|\le
+ \left(\frac{3T^{1-\alpha}}{\Gamma(2-\alpha)}+T(\sigma+W)\right)
+ \max_n|e^n|,
+ \qquad W=\frac{2T^{1-\beta}}{1-\beta}.
+\]
+The lower bound follows for every sufficiently small timestep; the weighted norm multiplies the scalar error by $\sqrt{1+\alpha_0\sigma}\ge1$. Proposition~\ref{prop:tm01-singular} gives the upper bound $O(\tau^\alpha+\tau^{1-\beta})$. At the first step the actual scalar error is $O(\tau^\alpha)$ by the genuine L1 startup equation and the residual bounds. Since $\alpha>1-\beta$, the maximum over $n\ge2$ also satisfies the lower bound for sufficiently fine grids.
+\end{proof}
+
+\subsection{What the two sharpness examples establish}
+Proposition~\ref{prop:tm01-sharp} supplies a classically smooth forced example, and Proposition~\ref{prop:aud01-homogeneous} a homogeneous example with a natural fractional initial layer. Neither should be represented as a nontrivial classically time-smooth homogeneous example. In fact, for an exact homogeneous solution with bounded time derivative near zero and continuous $Au(t)$ at zero, the Caputo and memory terms vanish as $t\downarrow0$. The equation then requires $Au(0)=0$; for the Dirichlet Laplacian this implies $u(0)=0$. This explains why a bounded-derivative compatibility restriction changes the class of homogeneous test problems substantially. Whether an interpretation of Theorem 3.2 imposes such restrictions must be stated explicitly; the theorem's displayed wording does not enumerate them. Theorem 3.1 is instead a discrete homogeneous stability assertion, so ST-05 is not affected by this forcing distinction.
+
+\subsection{New diagnostics and outstanding review}
+An independent implementation of the constant-coefficient series and the literal quadrature was run on $N=128,256,512,1024,2048,4096$. The two schemes were checked in the original interpolation sums, and direct numerical solutions were compared against independently forced error recurrences. The reference evaluation used 24 and 32 outer terms; the maximum differential-equation/reference discrepancy was $2.422\cdot10^{-15}$ in double precision. These are not interval enclosures. At $N=4096$, the maximum scalar errors were $5.0190\cdot10^{-6}$ (L1) and $4.8350\cdot10^{-6}$ (L1--2). Both observed rates were near $0.75$, not $0.5$. The signed normalized total residual remained negative; the normalized memory residual was positive, approximately $3.8362\cdot10^{-5}$ for both schemes. The initial-layer contribution still dominates on these finite grids. The limiting positive signed residual and the slower asymptotic error rate follow from the analytic argument, not from a fitted rate on this grid range. No assertion requiring observed asymptotic sharpness was imposed.
+
+Exact symbolic checks of the SP-02 real-part numerator and finite summation identity, and rational checks of ST-05 and the homogeneous contraction constants, passed. Formal proof targets are the algebraic identities, rational inequalities and finite summation lemmas. Complex resolvent bounds, fractional-integral regularity, asymptotic error transfer and the full PDE claims remain analytical and require a fresh independent review. No new Lean compilation, Julia execution, or repository mutation is asserted in this revision.

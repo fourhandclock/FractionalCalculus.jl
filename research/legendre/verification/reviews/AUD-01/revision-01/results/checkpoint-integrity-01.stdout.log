@@ -1,0 +1,211 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "check": "original_files",
+      "passed": true,
+      "count": 294,
+      "discrepancies": []
+    },
+    {
+      "check": "additional_review_and_lean_files",
+      "passed": true,
+      "count": 49,
+      "discrepancies": []
+    },
+    {
+      "check": "source_paper",
+      "passed": true
+    },
+    {
+      "check": "preexisting_missing_st04_pdf_still_missing",
+      "passed": true,
+      "limitation": "This is an unchanged preexisting gap, not successful source recovery."
+    },
+    {
+      "check": "supplied_package_manifest",
+      "passed": true,
+      "entries": 7
+    },
+    {
+      "check": "run_integrity:consolidated-axioms-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:independent-counterexamples-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:manuscript-r1-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 1
+    },
+    {
+      "check": "run_integrity:manuscript-r1-02",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:manuscript-r1-03",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 1
+    },
+    {
+      "check": "run_integrity:manuscript-r1-04",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:manuscript-r1-05",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:python-environment-install-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:recovered-st03-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:recovered-st04-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:supplied-exact-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "run_integrity:supplied-homogeneous-01",
+      "passed": true,
+      "discrepancies": [],
+      "returncode": 0
+    },
+    {
+      "check": "numerical_pass:supplied-exact-01",
+      "passed": true
+    },
+    {
+      "check": "numerical_pass:supplied-homogeneous-01",
+      "passed": true
+    },
+    {
+      "check": "numerical_pass:recovered-st03-01",
+      "passed": true
+    },
+    {
+      "check": "numerical_pass:recovered-st04-01",
+      "passed": true
+    },
+    {
+      "check": "numerical_pass:independent-counterexamples-01",
+      "passed": true
+    },
+    {
+      "check": "criteria_unchanged:supplied-exact-01",
+      "passed": true
+    },
+    {
+      "check": "criteria_unchanged:supplied-homogeneous-01",
+      "passed": true
+    },
+    {
+      "check": "criteria_unchanged:recovered-st03-01",
+      "passed": true
+    },
+    {
+      "check": "criteria_unchanged:recovered-st04-01",
+      "passed": true
+    },
+    {
+      "check": "criteria_unchanged:independent-counterexamples-01",
+      "passed": false
+    },
+    {
+      "check": "lean_statement_and_axiom_bindings",
+      "passed": true,
+      "discrepancies": [],
+      "audited_names": 42
+    },
+    {
+      "check": "lean_counts",
+      "passed": true
+    },
+    {
+      "check": "supplied_constants_namespace_preserved",
+      "passed": true
+    },
+    {
+      "check": "fresh_combined_lean_inspection",
+      "passed": true
+    },
+    {
+      "check": "manuscript_source_and_pdf_hashes",
+      "passed": true
+    },
+    {
+      "check": "final_manuscript_build",
+      "passed": true
+    },
+    {
+      "check": "original_labels_and_order_preserved",
+      "passed": true
+    },
+    {
+      "check": "numbered_equations_preserved",
+      "passed": true
+    },
+    {
+      "check": "new_markdown_relative_links",
+      "passed": true,
+      "checked": 31,
+      "discrepancies": [],
+      "scope": "Only the new revision Markdown; no network link probes."
+    },
+    {
+      "check": "new_markdown_math_delimiters",
+      "passed": true,
+      "discrepancies": [],
+      "scope": "Delimiter balance, plus manual notation/layout review; not a GitHub renderer execution."
+    }
+  ],
+  "run_records_checked": 12,
+  "run_outcomes": {
+    "consolidated-axioms-01": 0,
+    "independent-counterexamples-01": 0,
+    "manuscript-r1-01": 1,
+    "manuscript-r1-02": 0,
+    "manuscript-r1-03": 1,
+    "manuscript-r1-04": 0,
+    "manuscript-r1-05": 0,
+    "python-environment-install-01": 0,
+    "recovered-st03-01": 0,
+    "recovered-st04-01": 0,
+    "supplied-exact-01": 0,
+    "supplied-homogeneous-01": 0
+  },
+  "self_sha256": "8a8d2da9f7df7f3680b7d72cc576ebcbdd8c6f573dcd19e691c55a115caccdb4",
+  "limitations": [
+    "Source equivalence and proof acceptance are reviewed separately from byte integrity.",
+    "Original numerical outputs are retained, not recomputed by this validator.",
+    "Preexisting missing ST-04 PDF and missing historical programs remain documented."
+  ]
+}

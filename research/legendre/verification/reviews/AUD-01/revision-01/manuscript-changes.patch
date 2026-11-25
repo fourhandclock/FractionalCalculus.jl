@@ -1,0 +1,279 @@
+--- AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex
++++ research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex
+@@ -2,6 +2,7 @@
+ \usepackage[T1]{fontenc}
+ \usepackage[utf8]{inputenc}
+ \usepackage{lmodern}
++\DeclareMathSizes{10}{10}{8}{6}
+ \usepackage{amsmath,amssymb,mathtools}
+ \usepackage[a4paper,margin=29mm,top=28mm,bottom=29mm]{geometry}
+ \usepackage{microtype}
+@@ -21,9 +22,11 @@
+ \numberwithin{equation}{section}
+ \title[Verification notes on a Legendre spectral method]{Verification Notes on the L1/L1-2\\Legendre Spectral Method}
+ \author{Hardik Bisht}
+-\date{November 2026}
++\date{25 November 2026 --- AUD-01-R1}
+ \begin{document}
+ \maketitle
++
++\noindent\textit{Revised research record.} This version states the spatial representative convention needed for nodal quadrature, distinguishes the quantified contractivity assertions, and presents the forced and homogeneous sharpness examples on their own hypotheses. The supplied AUD-01 manuscript and its numerical outputs remain separate historical sources. The review-closure section records the scope of the replay and finite formal certificates.
+ 
+ \section{Purpose and reference problem}
+ 
+@@ -282,7 +285,7 @@
+ \end{tabular}
+ \end{center}
+ In each case $p_{512}$ approaches $1-\beta$, rather than the paper's $2-\beta$.
+-Two equivalent finite-sum implementations, one using the original time nodes and one using \eqref{eq:vq-error-sum}, agree to floating-point precision. A companion Python checker reproduces the table and its estimated orders; no PDE solver is required.
++Two equivalent finite-sum implementations, one using the original time nodes and one using \eqref{eq:vq-error-sum}, agree to floating-point precision. The preparation record describes a companion Python checker for this table; its original source has not been authenticated in the available materials. The later independent regression suite is separately identified in the review-closure record; no PDE solver is required.
+ 
+ \subsection{Scope and consequences}
+ The constant-in-time test is admissible at the level of the quadrature estimate. It can also be embedded in a homogeneous Dirichlet IBVP: set $\Omega_x=(-1,1)$,
+@@ -443,7 +446,7 @@
+ \end{tabular}
+ \end{center}
+ 
+-The accompanying Python script has been executed and passes the checks. A standard-library Julia counterpart and a small mathlib Lean draft are also provided. \emph{Neither the Julia file nor the Lean proof draft was executed in this environment}; hence this document does not claim machine-certified formal verification. The exact algebraic proofs above do not depend on those programs.
++The preparation record reports a Python check and describes a standard-library Julia counterpart and a mathlib Lean draft. Those original companion files have not been recovered; later independent regressions and certificates are identified separately in the review-closure record. No execution of the unavailable original Julia/Lean companions is claimed. Later independently written finite certificates are catalogued in the review-closure record. The algebraic derivations above do not depend on the missing programs.
+ 
+ \noindent\textit{Status.} The published single-sum coefficient representation and equation (29) are algebraically inconsistent with the defining two-sum interpolation for the stated parameter range. The correct interpolation-based scheme has been reconstructed. Whether the paper's implemented code follows the two-sum rule or the misindexed recurrence, and whether its reported stability conclusions can be recovered, remain open.
+ 
+@@ -732,7 +735,7 @@
+ This conclusion concerns the printed \emph{operator truncation} claim for smooth manufactured solutions with a nonzero source. Since the original proof initially simplifies to $f=0$, it does not independently prove the failure of an estimate formulated \emph{only} for homogeneous exact solutions; nor does it determine the numerical PDE solution-error rate.
+ 
+ \subsection{Independent numerical checks and outcome}
+-The companion Python file \texttt{verify\_l12\_startup\_obs03.py} implements both the published interpolation-defined two-sum weights and the exact first-panel error, independently comparing them for $\alpha\in\{1/4,1/2,3/4\}$. The positive integral identity is evaluated by composite Simpson integration; no floating-point result is used to prove positivity or the asymptotic orders.
++The original source describes a companion Python file \texttt{verify\_l12\_startup\_obs03.py}, unavailable in the current package, that implements both the published interpolation-defined two-sum weights and the exact first-panel error, independently comparing them for $\alpha\in\{1/4,1/2,3/4\}$. The positive integral identity is evaluated by composite Simpson integration; no floating-point result is used to prove positivity or the asymptotic orders.
+ 
+ \begin{table}[ht]
+ \centering
+@@ -847,7 +850,7 @@
+ The equality in source equation~(55) should be replaced by the preceding energy estimate \emph{with} $|\mathcal E_M(r_M,\rho_M)|$ retained. One possible route to controlling that defect is the following conditional estimate.
+ 
+ \begin{proposition}[Conditional consistency estimate for a chosen approximant]\label{prop:ob04-repair}
+-Let $m>1$, $u\in H^m(-1,1)\cap H_0^1(-1,1)$, and assume $a\in W^{1,\infty}(-1,1)$ with $au\in H^m(-1,1)$. Choose $r_M\in\mathbb P^0_{M-1}$ and $p_M\in\mathbb P_{M-1}$ satisfying the standard spectral approximation bounds
++Let $m>1$, $u\in H^m(-1,1)\cap H_0^1(-1,1)$, and assume $a\in W^{1,\infty}(-1,1)$ with $au\in H^m(-1,1)$. Use the continuous representatives of $a,u,au$ consistently in every nodal evaluation. Choose $r_M\in\mathbb P^0_{M-1}$ and $p_M\in\mathbb P_{M-1}$ satisfying the standard spectral approximation bounds
+ \[
+  \|u-r_M\|_{H^1}\le C M^{1-m}\|u\|_{H^m},\qquad
+  \|au-p_M\|_{H^1}\le C M^{1-m}\|au\|_{H^m}.
+@@ -884,7 +887,7 @@
+ The distinction between spatially varying and spatially constant coefficients is important. If $K$ depends only on time, then $a(x)$ is constant in $x$ at each fixed step and the contested exactness identity \emph{does} hold. Thus OB-04 is independent of ST-04, whose test kernel varies in time but not in space.
+ 
+ \subsection{Independent reproducibility and verdict}
+-The companion \path{verify_gll_variable_coefficient_obs04.py} computes Legendre polynomials with exact rational coefficients, verifies the Legendre energy identity and the closed-form $D_M$ for $M=3,\ldots,20$, and independently evaluates actual GLL nodes and weights at several degrees using high-precision arithmetic. These programs do not use the Julia PDE solver or infer a spatial solution-error order.
++The original source describes \path{verify_gll_variable_coefficient_obs04.py}, unavailable in the current package, which computes Legendre polynomials with exact rational coefficients, verifies the Legendre energy identity and the closed-form $D_M$ for $M=3,\ldots,20$, and independently evaluates actual GLL nodes and weights at several degrees using high-precision arithmetic. These programs do not use the Julia PDE solver or infer a spatial solution-error order.
+ \begin{table}[ht]
+ \centering
+ \caption{Exact GLL mass defects for $a(x)=2+x/2$, $r_M=(1-x^2)x^{M-3}$, $\rho_M=(1-x^2)x^{M-2}$. The defect equals $D_M/2$ and is nonzero at every degree.}
+@@ -928,7 +931,11 @@
+  (D_\tau U^n,v)+(\partial_x U^n,v')+\lambda(K_n\sum_{j\le n}w_{nj}U^j,v)&=(f^n,v),\label{eq:sp-cont}\\
+  (D_\tau U_M^n,v_M)_M+((U_M^n)',v_M')+\lambda(K_n\sum_{j\le n}w_{nj}U_M^j,v_M)_M&=(f^n,v_M)_M.\label{eq:sp-disc}
+ \end{align}
+-The stiffness term is exactly integrated by GLL because the product of two degree-$M-1$ derivatives has degree at most $2M-2$. We assume $\lambda\ge0$, $K_n\ge0$, $U^n\in H^m\cap H_0^1$, $m>1$, and sufficient product regularity; for a simple concrete sufficient hypothesis take integer $m\ge2$, $\sup_n\|K_n\|_{W^{m,\infty}}\le K_m$, and $f^n\in H^m$. More generally the proof uses $K_n\in L^\infty$ and $\|K_n v\|_{H^m}\le K_m\|v\|_{H^m}$ for the functions considered. Set $S=\max_{0\le j\le N}\|U^j\|_{H^m}$ and $F=\max_{1\le n\le N}\|f^n\|_{H^m}$.
++The stiffness term is exactly integrated by GLL because the product of two degree-$M-1$ derivatives has degree at most $2M-2$. We assume $\lambda\ge0$, $U^n\in H^m\cap H_0^1$, $m>1$, and $f^n\in H^m$. Wherever spatial nodes are sampled, $K_n$ denotes a chosen continuous representative on $\overline I$, with the uniform pointwise bounds
++\[
++ 0\le K_n(x)\le K_*\qquad(x\in\overline I,\ 1\le n\le N).
++\]
++The values of $U^j$, $f^n$, and their $H^m$ products at nodes are those of their continuous Sobolev representatives. Pointwise multiplication by the chosen $K_n$ must agree with these product representatives. A concrete sufficient condition is integer $m\ge2$ and $K_n\in W^{m,\infty}$ with its continuous representative and $\sup_n\|K_n\|_{W^{m,\infty}}\le K_m$. More generally assume the same continuity and pointwise bounds together with $\|K_n v\|_{H^m}\le K_m\|v\|_{H^m}$ for the functions considered; enlarge $K_m$ so that $K_m\ge K_*$. An essential $L^\infty$ bound on an equivalence class alone is not a bound on arbitrarily assigned quadrature-node values. For a continuous representative, its supremum and essential supremum agree. Set $S=\max_{0\le j\le N}\|U^j\|_{H^m}$ and $F=\max_{1\le n\le N}\|f^n\|_{H^m}$.
+ 
+ \subsection{Projection and quadrature estimates}
+ Let $P_M:H_0^1\to V_M$ be the derivative Ritz projection, $( (P_M u)',v_M')=(u',v_M')$. In one dimension it can be constructed by integrating from $-1$ the $L^2$ projection of $u'$ onto $\mathbb P_{M-1}$. The projected derivative has zero integral since constants are in that space, so the integrated polynomial vanishes at both endpoints. The Legendre $L^2$ projection approximation theorem, applied to $u'\in H^{m-1}$, and Poincar\'e's inequality give
+@@ -965,7 +972,7 @@
+ 
+ \subsection{A complete fixed-grid spatial convergence estimate}
+ \begin{proposition}[Fixed temporal grid]\label{prop:sp-fixed}
+-Under the preceding hypotheses, for either L1 or the corrected interpolation-defined L1--2 formula, and $U_M^0=I_M U^0$, there is a constant $C_\tau$ independent of $M$ such that
++Under the preceding spatial regularity and continuous-representative hypotheses, for either L1 or the corrected interpolation-defined L1--2 formula, and $U_M^0=I_M U^0$, there is a constant $C_\tau$ independent of $M$ such that
+ \[
+  \max_{1\le n\le N}\|U^n-U_M^n\|_{\tau,*}\le C_\tau M^{1-m}(S+F),
+  \quad \|v\|_{\tau,*}^2=\|v\|_M^2+\alpha_0\|v'\|_{L^2}^2.
+@@ -1010,7 +1017,7 @@
+ Iterating over the uniformly bounded number of blocks proves $\max_nE_n\le C_{\alpha,\beta,\lambda,K,T}(E_0+R)$ independently of $M,\tau$ for sufficiently small $\tau$.
+ 
+ \begin{proposition}[L1 estimate with explicit temporal dependence]\label{prop:sp-l1}
+-With the hypotheses above, the L1 spatial approximation satisfies
++With the hypotheses above, including the uniform pointwise nodal bounds and representative convention, the L1 spatial approximation satisfies
+ \[
+  \max_{1\le n\le N}\|U^n-U_M^n\|_{\tau,*}
+  \le C M^{1-m}\bigl((1+\tau^{-\alpha})S+F\bigr)
+@@ -1033,7 +1040,7 @@
+ \label{sec:sp02}
+ 
+ \subsection{Statement and scope}
+-We continue SP-01 for the uniform-grid, interpolation-defined L1--2 rule, not the inconsistent printed collected recurrence. The goal is a bound independent of the number of timesteps and of the spatial degree, with a finite-time constant rather than the contractivity constant one. Let $H$ be a real Hilbert space (complexified for the generating-function argument), $A$ a nonnegative self-adjoint spatial operator, and $K_n$ a bounded nonnegative self-adjoint operator on $H$, with $\|K_n\|\le K_*$. In the spectral discretization $H=V_M$ has the GLL inner product, $A$ represents the exactly integrated stiffness, and $K_n$ represents nodal multiplication tested against $V_M$. No commutation of $K_n$ with $A$ is assumed. Let $\lambda\ge0$, and retain the printed nonnegative memory weights $w_{nj}$ of (6), or any nonnegative weights with $\sum_{j\le n}w_{nj}\le W$ uniformly. Consider
++We continue SP-01 for the uniform-grid, interpolation-defined L1--2 rule, not the inconsistent printed collected recurrence. The goal is a bound independent of the number of timesteps and of the spatial degree, with a finite-time constant rather than the contractivity constant one. Let $H$ be a real Hilbert space (complexified for the generating-function argument), $A$ a nonnegative self-adjoint spatial operator, and $K_n$ a bounded nonnegative self-adjoint operator on $H$, with $\|K_n\|\le K_*$. In the spectral discretization $H=V_M$ has the GLL inner product, $A$ represents the exactly integrated stiffness, and $K_n$ represents nodal multiplication tested against $V_M$. In this GLL application, nodal multiplication uses the continuous representative prescribed in SP-01; its operator bound follows from $\max_i K_n(x_i)\le K_*$. A bare essential bound would not define this nodal operator. In the abstract Hilbert-space statement, $K_n$ is already a specified bounded operator and no spatial representative is needed. No commutation of $K_n$ with $A$ is assumed. Let $\lambda\ge0$, and retain the printed nonnegative memory weights $w_{nj}$ of (6), or any nonnegative weights with $\sum_{j\le n}w_{nj}\le W$ uniformly. Consider
+ \begin{equation}\label{eq:sp02-evolution}
+  D_{\tau,L12}u^n+Au^n+\lambda K_n\sum_{j=0}^nw_{nj}u^j=f^n,
+  \qquad 1\le n\le N,\qquad \tau=T/N.
+@@ -1142,7 +1149,7 @@
+ 
+ \subsection{Application to SP-01 and the spatial theorem}
+ \begin{proposition}[L1--2 spatial convergence with controlled timestep dependence]\label{prop:sp02-spatial}
+-Under the regularity, initialization and positive-kernel hypotheses of SP-01, for the corrected L1--2 scheme on a sufficiently fine uniform time grid,
++Under the regularity, initialization and positive-kernel hypotheses of SP-01, including continuous representatives and uniform pointwise nodal coefficient bounds, for the corrected L1--2 scheme on a sufficiently fine uniform time grid,
+ \[
+  \max_{1\le n\le N}\|U^n-U_M^n\|_{\tau,*}
+  \le C M^{1-m}(S+F+A_\tau),
+@@ -1162,7 +1169,7 @@
+ \subsection{Numerical diagnostics}
+ The standalone checker evaluates $b_r,c_r$ using 55-digit intermediate precision and then performs double-precision checks. For $\alpha\in\{.05,.25,.5,.75,.95,.99\}$, it checks the startup and state-value identities on a fixed random sequence, samples the symbol inside the unit disk, and constructs 768 scalar inverse coefficients for each of 26 values of $y$ (zero and 25 log-spaced positive values between $10^{-6}$ and $10^6$). The maximum normalized weighted Green envelope on these samples is 1.006253 (rounded upwards); the inverse convolution residual is at most $1.44\cdot10^{-15}$. The startup/state identity defect is at most $3.78\cdot10^{-15}$. These are diagnostics, not bounds on the infinite coefficient sequence.
+ 
+-A second test uses $A=\operatorname{diag}(.5,12,10^4)$ and a smooth time-dependent positive definite matrix $K_n$ not commuting with $A$, with the printed Volterra quadrature, $\beta=.05$, nonzero forcing, and $T=.8$. Across 12 configurations ($\alpha=.25,.75,.95$, $N=64,128,256,512$), direct solution of the corrected recurrence and the Green representation agree with maximum absolute Euclidean defect $9.11\cdot10^{-15}$. All finite diagnostic assertions passed. Full parameters, code (\texttt{verify\_sp02\_resolvent.py}) and output accompany this document. These checks verify the tested identities and implementation, not the analytic inequalities on their entire domains.
++A second test uses $A=\operatorname{diag}(.5,12,10^4)$ and a smooth time-dependent positive definite matrix $K_n$ not commuting with $A$, with the printed Volterra quadrature, $\beta=.05$, nonzero forcing, and $T=.8$. Across 12 configurations ($\alpha=.25,.75,.95$, $N=64,128,256,512$), direct solution of the corrected recurrence and the Green representation agree with maximum absolute Euclidean defect $9.11\cdot10^{-15}$. All finite diagnostic assertions passed. The preparation record names \texttt{verify\_sp02\_resolvent.py}, but its original source and output have not been recovered for the present replay. The numerical values above remain historical reported diagnostics. These checks verify the tested identities and implementation, not the analytic inequalities on their entire domains.
+ 
+ \subsection{Consequences and boundaries}
+ The same stability result propagates any bounded unscaled residual in $H$ for the time-semidiscrete equation. For example, with identical initial data and sufficiently smooth exact solution ($u\in C^3([0,T];H)$ and spatial domain regularity for the equation), the L1--2 Caputo residual is uniformly $O(\tau^{2-\alpha})$: the first panel derivative error is $O(\tau)$, whose kernel integral is at most $\tau^{1-\alpha}/(1-\alpha)$, and all quadratic panel derivative errors are $O(\tau^2)$ with integrable kernel. VQ-01 gives the $O(\tau^{1-\beta})$ memory residual by the same panel estimates in the Hilbert norm. The resulting conditional temporal bound is $O(\tau^{2-\alpha}+\tau^{1-\beta})$ in the weighted norm. It is not a sharp lower bound on PDE solution error and does not cover a typical initial fractional singularity without additional analysis.
+@@ -1175,8 +1182,8 @@
+ \section{TM-01: temporal error propagation and sharpness}
+ \label{sec:tm01}
+ 
+-\subsection{Question and a smooth admissible manufactured problem}
+-Theorem 3.2, equation (42), on PDF page 16 of Sabawi et al., states uniform temporal solution-error estimates of order $2-\alpha$ for L1 and $2-\beta$ after startup for L1--2; Remark 5 specifies $\beta\le\alpha$. VQ-01 established a defect at operator level. We now prove a matching lower bound at solution level, using exactly the printed memory rule and, for L1--2, the interpolation-defined derivative (not the inconsistent printed collected recurrence). The lower bound does not depend on the disputed Theorem 3.1 or on SP-02.
++\subsection{A smooth forced problem and its standalone sharpness question}
++We first establish a standalone maximum-in-time solution-error lower bound for a classically smooth, consistently forced problem. It uses exactly the printed memory rule and, for L1--2, the interpolation-defined derivative. The lower bound does not depend on Theorem 3.1 or SP-02; the matching upper bound has the stated stability dependencies. Its comparison with the homogeneous temporal equations in the source paper is discussed after the proposition.
+ 
+ Take $T=1$, $\lambda=1$, $K\equiv1$, $0<\beta\le\alpha<1$, $\phi(x)=\cos(\pi x/2)$ and $\sigma=\pi^2/4$. Thus $-\phi''=\sigma\phi$, $\|\phi\|_{L^2(-1,1)}=1$, and $\phi$ vanishes at the endpoints. Set
+ \[
+@@ -1237,7 +1244,8 @@
+ By \eqref{eq:tm01-res-sum} the left side is bounded below by $c\tau^{1-\beta}$ on every sufficiently fine grid. The weighted norm of $e^n\phi$ is $\sqrt{1+\alpha_0\sigma}|e^n|\ge|e^n|$. The lower bound follows. The upper bound is obtained from SP-02 with initial error zero and the uniform residual estimate $\max_n|r^n|\le C\tau^{1-\beta}$. For L1 the same proof of SP-02 works with no quadratic correction, $C(z)=0$. This gives the two-sided estimate.
+ \end{proof}
+ 
+-At the first step $r^1$ is smaller than any fixed power of $\tau$ because the exact amplitude is flat at zero, and $e^1=-\alpha_0 r^1/(1+\alpha_0\sigma+\alpha_0w_{11})$ has the same property. The lower bound is therefore attained among $n\ge2$ for sufficiently small $\tau$. In particular, for the consistently forced extension, the advertised solution-error rate in equation (42) for L1 cannot hold in general: $1-\beta<2-\alpha$ for the stated parameter range. The claimed $2-\beta$ rate also fails for the consistently forced interpolation-defined L1--2 scheme. See Section~\ref{sec:aud01} for the distinction from the strictly homogeneous theorem and a homogeneous initial-layer example. We do not identify that scheme with the inconsistent literal collected recurrence in (37). This is a maximum-over-time counterexample, not a proof of a matching error at every fixed positive physical time. No numerical experiment or stability conjecture is needed for the lower bound.
++At the first step $r^1$ is smaller than any fixed power of $\tau$ because the exact amplitude is flat at zero, and $e^1=-\alpha_0 r^1/(1+\alpha_0\sigma+\alpha_0w_{11})$ has the same property. The lower bound is therefore attained among $n\ge2$ for sufficiently small $\tau$. \subsection{Scope of comparison with Theorem 3.2}
++The source paper (PDF pp.~5--6) takes $f=0$ in its temporal equations. Theorem 3.2 (p.~16, Eq.~(42)) names (19) and (37), while referring to the exact solution of (1); Remark 5 specifies $\beta\le\alpha$. Our smooth amplitude has a smooth nonzero forcing. In particular, for the consistently forced extension, the advertised solution-error rate in equation (42) for L1 cannot hold in general: $1-\beta<2-\alpha$ for the stated parameter range. The claimed $2-\beta$ rate also fails for the consistently forced interpolation-defined L1--2 scheme. See Section~\ref{sec:aud01} for the distinction from the strictly homogeneous theorem and a homogeneous initial-layer example. We do not identify that scheme with the inconsistent literal collected recurrence in (37). This is a maximum-over-time counterexample, not a proof of a matching error at every fixed positive physical time. No numerical experiment or stability conjecture is needed for the lower bound.
+ 
+ \subsection{An upper bound with initial fractional singularities}
+ For comparison with the paper's nonsmooth-solution experiments, take $0<\gamma<1$ and an $H$-valued exact solution continuous at zero, twice differentiable for $t>0$, with $\|u^{(j)}(t)\|\le C t^{\gamma-j}$, $j=1,2$. Assume the equation is defined in $H$ at positive times, exact initial data, and the operator and memory hypotheses of SP-02 (or its L1 analogue). These assumptions imply absolute continuity and global $\gamma$-H\"older continuity. We obtain
+@@ -1247,7 +1255,7 @@
+  \max_{1\le n\le N}\|U^n-u(t_n)\|_\tau
+  \le C(\tau^\gamma+\tau^{1-\beta}).
+ \]
+-The constant can depend on $\alpha,\beta,\gamma,T$, the regularity bounds and kernel bounds, but not on $\tau$ or the spectrum of $A$. This is an upper bound, not a sharpness claim for every initially singular solution.
++The constant can depend on $\alpha,\beta,\gamma,T$, the regularity bounds and kernel bounds, but not on $\tau$ or the spectrum of $A$. This is an upper bound, not a sharpness claim for every initially singular solution. The abstract temporal statement uses specified bounded memory operators. Any subsequent GLL spatial application also requires SP-01's continuous representatives and uniform pointwise nodal bounds.
+ \end{proposition}
+ \begin{proof}
+ Write $r_D^n$ for the Caputo operator residual. We first establish
+@@ -1282,22 +1290,37 @@
+  .90&.80&.20&.197&.190&1.100&2.111
+ \end{array}
+ \]
+-The product-integration rates are finite-grid observations, not general theoretical orders. The smooth cases exhibit the proved lower-order behavior with the printed rule. For the nonsmooth amplitude $t^\gamma$ use the exact beta/gamma integral formulas: $(\alpha,\beta,\gamma)=(.75,.2,.4)$ yields observed rates .398 for both methods, while $(.75,.5,.75)$ yields .744 and .748, respectively, on the last doubling. The latter rates are faster than the guaranteed exponent .5 on this finite range. The initial diagnostic incorrectly required the upper-bound exponent to be attained in every nonsmooth case, and failed on this second test. Its original source and output are retained separately; the corrected assertion checks only compatibility with the upper-bound exponent on these finite grids. No numerical values or mathematical bounds were changed. All revised diagnostics pass. The tests are not interval certificates or proofs of asymptotic estimates. Full outputs accompany the notes.
++The product-integration rates are finite-grid observations, not general theoretical orders. The smooth cases exhibit the proved lower-order behavior with the printed rule. For the nonsmooth amplitude $t^\gamma$ use the exact beta/gamma integral formulas: $(\alpha,\beta,\gamma)=(.75,.2,.4)$ yields observed rates .398 for both methods, while $(.75,.5,.75)$ yields .744 and .748, respectively, on the last doubling. The latter rates are faster than the guaranteed exponent .5 on this finite range. The initial diagnostic incorrectly required the upper-bound exponent to be attained in every nonsmooth case, and failed on this second test. Its original source and output are retained separately; the corrected assertion checks only compatibility with the upper-bound exponent on these finite grids. No numerical values or mathematical bounds were changed. All revised diagnostics pass. The tests are not interval certificates or proofs of asymptotic estimates. The original failed and revised TM-01 source/output files have not been recovered from the supplied materials; the values in this subsection remain the preparation record, not a fresh replay.
+ 
+ \subsection{Consequences for the combined theorem}
+-Combining the smooth temporal upper bound with SP-01/SP-02 yields, under their respective regularity and initialization hypotheses and in the continuous weighted norm,
++Combining the smooth temporal upper bound with SP-01/SP-02 yields, under their respective regularity and initialization hypotheses, the continuous-representative convention and uniform pointwise nodal bounds of SP-01, and in the continuous weighted norm,
+ \[
+  \max_n\|u(t_n)-U_M^n\|_\tau
+  \le C\big[\tau^{1-\beta}+M^{1-m}(S+F+A_\tau)\big],
+ \]
+-where $S,F,A_\tau$ are as defined in SP-01. One may insert $A_\tau\le C\tau^{-\alpha}S$ to obtain a cruder joint estimate; these quantities still require control for a simultaneous limit. This is a conditional replacement direction for Theorem 4.2, not the original claimed rates. With piecewise-linear product integration, VQ-01 gives an $O(\tau^2)$ memory residual for smooth data and SP-02's stability applies to the positive, uniformly bounded memory weights. The uniform smooth temporal estimate then becomes $O(\tau^{2-\alpha})$ for both schemes; improved post-startup rates and corrected graded-grid estimates remain open. ST-04's constant-one claim remains a separate unresolved question. TM-01 is analytically derived and numerically checked; it has not yet been independently reviewed or formalized in Lean.
+-
+-
+-\section{ST-05: an admissible all-fine-grid counterexample to contractivity}
++where $S,F,A_\tau$ are as defined in SP-01. One may insert $A_\tau\le C\tau^{-\alpha}S$ to obtain a cruder joint estimate; these quantities still require control for a simultaneous limit. This is a conditional replacement direction for Theorem 4.2, not the original claimed rates. With piecewise-linear product integration, VQ-01 gives an $O(\tau^2)$ memory residual for smooth data and SP-02's stability applies to the positive, uniformly bounded memory weights. The uniform smooth temporal estimate then becomes $O(\tau^{2-\alpha})$ for both schemes; improved post-startup rates and corrected graded-grid estimates remain open. ST-04's constant-one claim remains a separate unresolved question. TM-01 is accepted on independent analytical review; its reported diagnostics remain historical, and only finite summation subclaims are Lean-certified.
++
++
++\section{ST-05: an admissible all-fine-grid counterexample to eventual contractivity}
+ \label{sec:st05}
+ 
+ \subsection{Scope and statement}
+-Theorem 3.1 of the reference article (PDF pp.~15--16) asserts nonamplification for the homogeneous semidiscrete problems (19) and (37) when the number of time partitions is sufficiently large. The model on pp.~4--5 allows a sufficiently smooth strictly positive factor $K(x,t)$, and the theorem does not add temporal monotonicity or a time-independent coefficient assumption. ST-04 tested a particular smooth coefficient numerically. Here we construct a different, explicit coefficient and fixed admissible fractional parameters for which every sufficiently fine uniform grid violates the bound. This is an analytical refutation of the L1 assertion and, by SP-02/TM-01, also of contractivity for the interpolation-defined L1--2 rule. The inconsistent collected L1--2 recurrence printed later in the article is not identified with that rule. No numerical lower bound or endpoint parameter is used as the theorem counterexample.
++The precise target is eventual nonamplification on every sufficiently fine uniform grid, with all problem parameters fixed first. Theorem 3.1 of the reference article (PDF p.~15) says:
++\begin{quote}
++``The semi-discretized problems (19) and (37) are stable for a sufficiently large number of partitions in time. That is, there exists one $\Delta t>0$, such that''
++\[
++ \|U_{(q)}^{k+1}\|_1\le\|U_{(q)}^0\|,
++ \qquad q=1,2,\quad k=0,1,\ldots,N-1.
++\]
++\end{quote}
++Its first sentence has the usual eventual interpretation
++\[
++ \exists N_0\ \forall N\ge N_0\ \forall n\in\{1,\ldots,N\}:\quad
++ \|U_N^n\|_{\tau_N}\le\|U^0\|_{L^2},\qquad\tau_N=T/N.
++\]
++The isolated existential wording is weaker: it could mean only that some integer $N\ge1$ contracts at all of its time levels. We do not identify these two assertions. The model allows a sufficiently smooth strictly positive $K(x,t)$ and adds no temporal monotonicity or time-independence assumption.
++
++The construction below uses a coefficient different from ST-04 and fixed admissible fractional orders. It establishes failure of eventual contractivity for L1 and, through SP-02/TM-01, the interpolation-defined L1--2 rule. The inconsistent printed collected recurrence is not identified with that rule. No endpoint parameter or floating-point lower bound is used as the admissible counterexample, and the proof makes no assertion excluding every possible coarse grid.
+ 
+ Take $T=1$, $\lambda=1$, $\Omega_x=(-1,1)$, $f=0$, homogeneous Dirichlet data and $\phi(x)=\cos(\pi x/2)$ as initial data. Then $\|\phi\|_{L^2}=1$, $-\phi''=\sigma\phi$, $\sigma=\pi^2/4$. Set $\gamma=\sigma/2$. For spatially constant $K(t)$, both the continuous and semidiscrete equations preserve this eigenmode (the current elliptic coefficient is strictly positive and the step problem is unique). Writing $u(x,t)=a(t)\phi(x)$ gives
+ \begin{equation}\label{eq:st05-scalar}
+@@ -1395,12 +1418,17 @@
+ \[
+  \|U^n\|_1=\sqrt{1+\sigma\Gamma(2-\alpha)\tau^\alpha}\,|a^n|>2\|U^0\|_{L^2}.
+ \]
+-This holds for L1 and the interpolation-defined L1--2 scheme.
++This holds for L1 and the interpolation-defined L1--2 scheme. Equivalently, for the fixed data in this section there is $N_1$ such that
++\[
++ \forall N\ge N_1\ \exists n_N\in\{1,\ldots,N\}:\quad
++ \|U_N^{n_N}\|_{\tau_N}>2\|U^0\|_{L^2}.
++\]
+ \end{proposition}
+ \begin{proof}
+-Choose a nearest grid point $t_{n(N)}$ to $t_a$. By continuity and \eqref{eq:st05-convergence}, $a^{n(N)}\to a(t_a)<-11/4$. Thus $|a^{n(N)}|>2$ for all sufficiently large $N$, and the norm factor is at least 1. The spatial eigenfunction is exact, with $\|U^0\|_{L^2}=1$; no spectral discretization or spatial approximation occurs. The L1 assertion alone contradicts the theorem's common nonamplification claim. \end{proof}
++Choose a nearest grid point $t_{n(N)}$ to $t_a$. By continuity and \eqref{eq:st05-convergence}, $a^{n(N)}\to a(t_a)<-11/4$. Thus $|a^{n(N)}|>2$ for all sufficiently large $N$, and the norm factor is at least 1. The spatial eigenfunction is exact, with $\|U^0\|_{L^2}=1$; no spectral discretization or spatial approximation occurs. The L1 assertion alone contradicts the eventual nonamplification interpretation quoted above. It does not rule out contraction on an isolated coarse grid. \end{proof}
+ 
+ \subsection{Numerical corroboration and precise verdict}
++The following 36-configuration diagnostic is retained as reported in the preparation manuscript. Its original checker is unavailable for the current replay; it is distinct from the recovered ST-04 program.
+ The separate checker uses the same smooth coefficient and practical decimal parameter pairs $(.95,.05)$, $(.99,.01)$ and $(.999,.001)$, with six uniform resolutions $128$ through $4096$ and both derivative schemes (36 configurations). Coefficients use 45-digit intermediate arithmetic; all rows are checked in the original two-sum derivative and ordinary-panel memory form. At $N=4096$ the amplitudes at the grid point nearest $t_a$ are
+ \[
+ \begin{array}{cc|rr}
+@@ -1410,16 +1438,16 @@
+ .999&.001&-5.335530&-5.345660
+ \end{array}
+ \]
+-The maximum scaled full-row residual is below $3\cdot10^{-15}$ in these runs. The steep smooth transition is underresolved on these illustrative grids; the convergence proof, rather than these samples, controls arbitrarily fine grids for the fixed analytic pair. These decimal pairs (and ST-04's original distinct kernel) are not certified by the conservative quantitative fractional perturbation bound. No calculation with the rational pair $2^{-600}$ is asserted in floating point. The counterexample depends on the admitted time-varying positive coefficient, and does not establish a violation for constant or nonincreasing coefficients. It disproves contractivity as stated, not finite-time bounded stability with a larger problem-dependent constant; SP-02 is compatible with this result. ST-05 is an analytical proof with numerical corroboration, not a Lean certificate or independently refereed result. The preceding ST-04 numerical record remains unchanged.
++The maximum scaled full-row residual is below $3\cdot10^{-15}$ in these runs. The steep smooth transition is underresolved on these illustrative grids; the convergence proof, rather than these samples, controls arbitrarily fine grids for the fixed analytic pair. These decimal pairs (and ST-04's original distinct kernel) are not certified by the conservative quantitative fractional perturbation bound. No calculation with the rational pair $2^{-600}$ is asserted in floating point. The counterexample depends on the admitted time-varying positive coefficient, and does not establish a violation for constant or nonincreasing coefficients. It disproves eventual contractivity in the sufficiently-fine-grid interpretation, without deciding the weaker isolated-mesh existential statement or finite-time bounded stability with a larger problem-dependent constant; SP-02 is compatible with this result. ST-05 is an analytical proof with numerical corroboration, not a Lean certificate or independently refereed result. The preceding ST-04 numerical record remains unchanged.
+ 
+ 
+ \section{AUD-01: scope corrections and homogeneous temporal sharpness}
+ \label{sec:aud01}
+ 
+ \subsection{Scope of the audit}
+-This revision preserves the earlier ST-05 manuscript as a separate snapshot. The present audit is an internal mathematical review, not independent refereeing or a complete formal certification. The main proof chains remain conditional on their explicitly stated assumptions. In particular SP-01 uses one-dimensional spatial product regularity and consistent forcing; SP-02 uses fixed fractional order, uniform grids, positive bounded memory operators and the timestep-weighted norm. ST-05's L1 convergence argument is independent of the L1--2 resolvent lemma, but still uses the interpolation residual estimates of TM-01. The L1--2 conclusions concern the interpolation-defined scheme, not the inconsistent printed collected formula. The original ST-04 parameters remain numerical only.
+-
+-The reference article (PDF pp.~5--6) constructs its time-semidiscrete equations with $f=0$, while explicitly discussing general forcing for the fully discrete problem. Theorem 3.2 (PDF p.~16, Eq.~(42)) names (19) and (37). Accordingly, Proposition~\ref{prop:tm01-sharp} establishes failure of the advertised rate for the consistently forced extension; it is not, on its own, a counterexample to a strictly homogeneous formulation. OB-03's manufactured amplitude is polynomial, but its forcing contains a term proportional to $t^{2-\alpha}$ and need not be arbitrarily differentiable at zero. The local Caputo consistency counterexample is independent of that forcing issue.
++This section first establishes a homogeneous initial-layer sharpness result, then compares its scope with the smooth forced example. The earlier ST-05 snapshot and original AUD-01 inputs remain separate sources. The present audit is an internal mathematical review, not independent refereeing or a complete formal certification. The main proof chains remain conditional on their explicitly stated assumptions. In particular SP-01 uses one-dimensional spatial product regularity and consistent forcing; SP-02 uses fixed fractional order, uniform grids, positive bounded memory operators and the timestep-weighted norm. ST-05's L1 convergence argument is independent of the L1--2 resolvent lemma, but still uses the interpolation residual estimates of TM-01. The L1--2 conclusions concern the interpolation-defined scheme, not the inconsistent printed collected formula. The original ST-04 parameters remain numerical only.
++
++
+ 
+ \subsection{A homogeneous temporal error lower bound}
+ \begin{proposition}[Homogeneous initial-layer sharpness]\label{prop:aud01-homogeneous}
+@@ -1470,18 +1498,34 @@
+ \end{proof}
+ 
+ \subsection{What the two sharpness examples establish}
++The reference article (PDF pp.~5--6) constructs its time-semidiscrete equations with $f=0$, while explicitly discussing general forcing for the fully discrete problem. Theorem 3.2 (PDF p.~16, Eq.~(42)) names (19) and (37). Accordingly, Proposition~\ref{prop:tm01-sharp} establishes failure of the advertised rate for the consistently forced extension; it is not, on its own, a counterexample to a strictly homogeneous formulation. OB-03's manufactured amplitude is polynomial, but its forcing contains a term proportional to $t^{2-\alpha}$ and need not be arbitrarily differentiable at zero. The local Caputo consistency counterexample is independent of that forcing issue.
+ Proposition~\ref{prop:tm01-sharp} supplies a classically smooth forced example, and Proposition~\ref{prop:aud01-homogeneous} a homogeneous example with a natural fractional initial layer. Neither should be represented as a nontrivial classically time-smooth homogeneous example. In fact, for an exact homogeneous solution with bounded time derivative near zero and continuous $Au(t)$ at zero, the Caputo and memory terms vanish as $t\downarrow0$. The equation then requires $Au(0)=0$; for the Dirichlet Laplacian this implies $u(0)=0$. This explains why a bounded-derivative compatibility restriction changes the class of homogeneous test problems substantially. Whether an interpretation of Theorem 3.2 imposes such restrictions must be stated explicitly; the theorem's displayed wording does not enumerate them. Theorem 3.1 is instead a discrete homogeneous stability assertion, so ST-05 is not affected by this forcing distinction.
+ 
+ \subsection{New diagnostics and outstanding review}
+ An independent implementation of the constant-coefficient series and the literal quadrature was run on $N=128,256,512,1024,2048,4096$. The two schemes were checked in the original interpolation sums, and direct numerical solutions were compared against independently forced error recurrences. The reference evaluation used 24 and 32 outer terms; the maximum differential-equation/reference discrepancy was $2.422\cdot10^{-15}$ in double precision. These are not interval enclosures. At $N=4096$, the maximum scalar errors were $5.0190\cdot10^{-6}$ (L1) and $4.8350\cdot10^{-6}$ (L1--2). Both observed rates were near $0.75$, not $0.5$. The signed normalized total residual remained negative; the normalized memory residual was positive, approximately $3.8362\cdot10^{-5}$ for both schemes. The initial-layer contribution still dominates on these finite grids. The limiting positive signed residual and the slower asymptotic error rate follow from the analytic argument, not from a fitted rate on this grid range. No assertion requiring observed asymptotic sharpness was imposed.
+ 
+-Exact symbolic checks of the SP-02 real-part numerator and finite summation identity, and rational checks of ST-05 and the homogeneous contraction constants, passed. Formal proof targets are the algebraic identities, rational inequalities and finite summation lemmas. Complex resolvent bounds, fractional-integral regularity, asymptotic error transfer and the full PDE claims remain analytical and require a fresh independent review. No new Lean compilation, Julia execution, or repository mutation is asserted in this revision.
++Exact symbolic checks of the SP-02 real-part numerator and finite summation identity, and rational checks of ST-05 and the homogeneous contraction constants, passed. Formal proof targets are the algebraic identities, rational inequalities and finite summation lemmas. These complex-analytic, regularity and asymptotic arguments are accepted on analytical review under their hypotheses; they remain outside the Lean certificates. The numerical values in this subsection are the original preparation record. Fresh replay and consolidation of finite Lean certificates are recorded in the review-closure section; no Julia or production-algorithm change is implied.
++
++
++\section{Review closure and evidence status (AUD-01-R1)}
++\label{sec:aud01-review-closure}
++The mathematical corrections in this revision concern interpretation and hypotheses: continuous spatial representatives and uniform nodal bounds in SP-01 and its downstream spatial applications; explicit eventual versus isolated-mesh quantifiers in ST-05; and separate standalone smooth forced and homogeneous initial-layer sharpness statements. The analytical derivations retain their stated regularity, fixed-order, uniform-grid and weighted-norm scope.
++
++The supplied source programs and historical outputs are unchanged. A separate numerical replay report identifies the exact isolated dependency versions, source hashes, acceptance criteria, fresh output and any failed attempts. Missing earlier diagnostic sources are inventoried as unavailable; related starter programs and later independent checks are not substituted as originals.
++
++The supplied symbolic checker and the 12-case homogeneous checker were replayed unchanged using Python 3.13.16 with NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0 and SymPy 1.14.0 in an isolated local environment. Both pass their original assertions. The recovered ST-03 and ST-04 programs and the later independent 10-test regression suite also pass. These executions are separate from the unavailable older companion programs.
++
++At the last homogeneous doubling, both observed rates are $0.7498$. The fresh $N=4096$ errors are $5.0190267128\cdot10^{-6}$ (L1) and $4.8350130274\cdot10^{-6}$ (L1--2). The normalized signed total residuals remain negative, while the normalized memory residual is $3.8361747868\cdot10^{-5}$ for both. The symbolic output agrees exactly with its supplied text; 25 printed homogeneous fields differ, with maximum printed error difference approximately $10^{-16}$. These are comparisons of rounded output, not interval enclosures. No rate-$1/2$ assertion was introduced. The asymptotic half-order result remains the analytical conclusion proved on its own hypotheses.
++
++The existing proof project contains 42 named certified declarations, 23 from ST-04 and 19 from AUD-01. All 42 received a fresh combined type and standard-axiom inspection without changing the pinned project. Grouping only the direct repetition of the telescoping identity under index reversal and rearrangement gives 41 nonduplicate mathematical identity groups. The count is not a claim that the propositions are logically independent or that 41 PDE theorems have been formalized.
++
++The Lean catalogue distinguishes named declarations from repeated mathematical identities and records the standard-axiom audits. These certificates concern finite algebra, rational inequalities, summation and oscillator calculus. Positive-real symbol bounds, complex resolvent estimates, fractional regularity, asymptotic solution-error arguments and convergence transfer remain analytical arguments, rather than complete formal PDE proofs.
+ 
+ \section{Verification protocol}
+ \label{sec:protocol}
+ 
+ For each observation identify the source statement and hypotheses, independent derivation, computational evidence, and precise scope of the conclusion. Historical status statements in individual sections describe their stage of investigation; the later results supersede them only where explicitly proved.
+ 
+-\noindent\textit{Current status.} VQ-01 and CF-02 establish formula-level discrepancies; ST-03 establishes a proof gap. OB-03 and OB-04 verify startup and spatial exactness defects. SP-01/SP-02 provide conditional spatial convergence and finite-time stability estimates. TM-01 proves a temporal solution-error lower bound for the consistently forced scheme; AUD-01 adds a homogeneous initial-layer lower bound and clarifies the scope of the theorem comparison. ST-05 (Section~\ref{sec:st05}) now establishes failure of the general contractivity assertion for a separate admissible coefficient and fixed fractional orders, on all sufficiently fine uniform grids. The original ST-04 parameters remain a numerical candidate. Independent review, formalization, quantitative practical parameter bounds and corrected graded-grid analysis remain future work.
++\noindent\textit{Current status.} VQ-01 and CF-02 establish formula-level discrepancies; ST-03 establishes a proof gap. OB-03 and OB-04 verify startup and spatial exactness defects. SP-01/SP-02 provide conditional spatial convergence and finite-time stability estimates. TM-01 proves a temporal solution-error lower bound for the consistently forced scheme; AUD-01 adds a homogeneous initial-layer lower bound and clarifies the scope of the theorem comparison. ST-05 (Section~\ref{sec:st05}) establishes failure of eventual contractivity in the sufficiently-fine-grid interpretation for a separate admissible coefficient and fixed fractional orders, on all sufficiently fine uniform grids. The original ST-04 parameters remain a numerical candidate. Independent review, formalization, quantitative practical parameter bounds and corrected graded-grid analysis remain future work.
+ 
+ \end{document}

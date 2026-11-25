@@ -1,0 +1,248 @@
+{
+  "historical_rows": 12,
+  "fresh_rows": 12,
+  "rates_last_doubling": {
+    "L1": "0.7498",
+    "L12": "0.7498"
+  },
+  "final_rows": [
+    {
+      "N": "4096",
+      "scheme": "L1",
+      "max_error": "5.0190267128e-06",
+      "rate": "0.7498",
+      "normalized_signed_residual": "-5.2010746803e-04",
+      "normalized_memory_residual": "3.8361747868e-05",
+      "sum_abs_Caputo_residual_over_tau": "1.14374495e+00",
+      "lower_bound": "1.2854584301e-06",
+      "direct_vs_error": "2.211e-14",
+      "max_scaled_row": "2.866e-16"
+    },
+    {
+      "N": "4096",
+      "scheme": "L12",
+      "max_error": "4.8350130274e-06",
+      "rate": "0.7498",
+      "normalized_signed_residual": "-1.0051543624e-04",
+      "normalized_memory_residual": "3.8361747868e-05",
+      "sum_abs_Caputo_residual_over_tau": "7.06736337e-01",
+      "lower_bound": "8.3522316646e-08",
+      "direct_vs_error": "8.467e-14",
+      "max_scaled_row": "6.884e-16"
+    }
+  ],
+  "maximum_printed_absolute_differences": {
+    "max_error": 9.999986271989544e-17,
+    "rate": 0.0,
+    "normalized_signed_residual": 0.0,
+    "normalized_memory_residual": 0.0,
+    "sum_abs_Caputo_residual_over_tau": 0.0,
+    "lower_bound": 0.0,
+    "direct_vs_error": 1.5459999999999995e-15,
+    "max_scaled_row": 3.1000000000000006e-16
+  },
+  "changed_printed_fields": [
+    {
+      "N": "128",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "2.562e-15",
+      "fresh": "2.435e-15",
+      "absolute_difference_of_printed_values": 1.269999999999999e-16
+    },
+    {
+      "N": "128",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "1.842e-16",
+      "fresh": "2.229e-16",
+      "absolute_difference_of_printed_values": 3.869999999999999e-17
+    },
+    {
+      "N": "128",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "9.383e-15",
+      "fresh": "9.796e-15",
+      "absolute_difference_of_printed_values": 4.13000000000001e-16
+    },
+    {
+      "N": "128",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "3.823e-16",
+      "fresh": "5.827e-16",
+      "absolute_difference_of_printed_values": 2.0039999999999996e-16
+    },
+    {
+      "N": "256",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "1.068e-14",
+      "fresh": "1.109e-14",
+      "absolute_difference_of_printed_values": 4.0999999999999996e-16
+    },
+    {
+      "N": "256",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "2.843e-16",
+      "fresh": "3.316e-16",
+      "absolute_difference_of_printed_values": 4.73e-17
+    },
+    {
+      "N": "256",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "1.078e-14",
+      "fresh": "1.181e-14",
+      "absolute_difference_of_printed_values": 1.0300000000000014e-15
+    },
+    {
+      "N": "256",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "4.066e-16",
+      "fresh": "7.166e-16",
+      "absolute_difference_of_printed_values": 3.1000000000000006e-16
+    },
+    {
+      "N": "512",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "1.214e-14",
+      "fresh": "1.202e-14",
+      "absolute_difference_of_printed_values": 1.199999999999988e-16
+    },
+    {
+      "N": "512",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "3.882e-16",
+      "fresh": "2.998e-16",
+      "absolute_difference_of_printed_values": 8.839999999999997e-17
+    },
+    {
+      "N": "512",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "6.526e-16",
+      "fresh": "1.252e-15",
+      "absolute_difference_of_printed_values": 5.994e-16
+    },
+    {
+      "N": "512",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "2.504e-16",
+      "fresh": "2.963e-16",
+      "absolute_difference_of_printed_values": 4.5900000000000016e-17
+    },
+    {
+      "N": "1024",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "2.367e-14",
+      "fresh": "2.218e-14",
+      "absolute_difference_of_printed_values": 1.4899999999999986e-15
+    },
+    {
+      "N": "1024",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "3.106e-16",
+      "fresh": "2.945e-16",
+      "absolute_difference_of_printed_values": 1.6100000000000005e-17
+    },
+    {
+      "N": "1024",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "8.962e-15",
+      "fresh": "7.416e-15",
+      "absolute_difference_of_printed_values": 1.5459999999999995e-15
+    },
+    {
+      "N": "1024",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "3.249e-16",
+      "fresh": "3.472e-16",
+      "absolute_difference_of_printed_values": 2.2299999999999988e-17
+    },
+    {
+      "N": "2048",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "8.502e-16",
+      "fresh": "9.568e-16",
+      "absolute_difference_of_printed_values": 1.066000000000001e-16
+    },
+    {
+      "N": "2048",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "2.551e-16",
+      "fresh": "1.926e-16",
+      "absolute_difference_of_printed_values": 6.25e-17
+    },
+    {
+      "N": "2048",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "1.422e-13",
+      "fresh": "1.415e-13",
+      "absolute_difference_of_printed_values": 6.999999999999869e-16
+    },
+    {
+      "N": "2048",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "6.613e-16",
+      "fresh": "8.259e-16",
+      "absolute_difference_of_printed_values": 1.6459999999999995e-16
+    },
+    {
+      "N": "4096",
+      "scheme": "L1",
+      "column": "max_error",
+      "historical": "5.0190267127e-06",
+      "fresh": "5.0190267128e-06",
+      "absolute_difference_of_printed_values": 9.999986271989544e-17
+    },
+    {
+      "N": "4096",
+      "scheme": "L1",
+      "column": "direct_vs_error",
+      "historical": "2.058e-14",
+      "fresh": "2.211e-14",
+      "absolute_difference_of_printed_values": 1.5300000000000008e-15
+    },
+    {
+      "N": "4096",
+      "scheme": "L1",
+      "column": "max_scaled_row",
+      "historical": "2.562e-16",
+      "fresh": "2.866e-16",
+      "absolute_difference_of_printed_values": 3.040000000000001e-17
+    },
+    {
+      "N": "4096",
+      "scheme": "L12",
+      "column": "direct_vs_error",
+      "historical": "8.354e-14",
+      "fresh": "8.467e-14",
+      "absolute_difference_of_printed_values": 1.1299999999999911e-15
+    },
+    {
+      "N": "4096",
+      "scheme": "L12",
+      "column": "max_scaled_row",
+      "historical": "6.678e-16",
+      "fresh": "6.884e-16",
+      "absolute_difference_of_printed_values": 2.059999999999998e-17
+    }
+  ],
+  "symbolic_stdout_matches_historical": true,
+  "interpretation": "Printed-value comparison only, not certified enclosures or a tolerance added to the supplied tests. Actual assertions are unchanged. No observed 0.5 exponent is asserted."
+}

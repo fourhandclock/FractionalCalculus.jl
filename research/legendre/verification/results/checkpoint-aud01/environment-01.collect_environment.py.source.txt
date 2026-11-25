@@ -1,0 +1,10 @@
+from pathlib import Path
+import hashlib,importlib.metadata as m,json,platform,subprocess,sys
+root=Path.cwd()
+def version(binary):
+ r=subprocess.run([str(root/binary),'--version'],capture_output=True,text=True,timeout=15,check=True)
+ return {'version_output':r.stdout.strip(),'binary_sha256':hashlib.sha256((root/binary).read_bytes()).hexdigest()}
+deps={name:m.version(name) for name in ['numpy','scipy','mpmath','sympy']}
+assert deps=={'numpy':'2.3.5','scipy':'1.17.0','mpmath':'1.3.0','sympy':'1.14.0'}
+data={'python':platform.python_version(),'isolated_prefix':str(Path(sys.prefix)).replace(str(root),'$WORKSPACE'),'python_dependencies':deps,'julia':version('.checkpoint-tools/julia-1.12.6/bin/julia'),'lean':version('.checkpoint-tools/lean-4.19.0-linux/bin/lean'),'tectonic':version('.checkpoint-tools/bin/tectonic'),'mathlib_revision':'c44e0c8ee63ca166450922a373c7409c5d26b00b','network_acquisition_this_integration':False,'execution':'Serial offline numerical/proof/document replay; existing caches reused.','julia_environment':'Committed clean-branch Project.toml and Manifest.toml; isolated writable first depot, cached second depot; JULIA_PKG_OFFLINE=true; no resolution or instantiation.','python_environment':'Existing approved isolated four-dependency venv; no global packages modified.','limits_scope':'Recorded per-process deadlines/address space, sampled descendant RSS, CPU affinity/thread count, log/file ceilings and process-group cleanup; not cgroup aggregate isolation.','platform':platform.platform()}
+print(json.dumps(data,indent=2))

@@ -1,0 +1,66 @@
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+
+noncomputable section
+namespace LegendreAudit.AUD01
+
+def prePosition (γ t : ℝ) : ℝ := t * Real.exp (-γ * t)
+def preVelocity (γ t : ℝ) : ℝ := Real.exp (-γ * t) * (1 - γ * t)
+def postPosition (γ ω y₀ s : ℝ) : ℝ :=
+  Real.exp (-γ * s) * y₀ * (Real.cos (ω * s) + γ / ω * Real.sin (ω * s))
+def postVelocity (γ ω y₀ s : ℝ) : ℝ :=
+  -y₀ * (ω + γ ^ 2 / ω) * Real.exp (-γ * s) * Real.sin (ω * s)
+
+theorem pre_derivative (γ t : ℝ) :
+    HasDerivAt (prePosition γ) (preVelocity γ t) t := by
+  have he := (Real.hasDerivAt_exp (-γ * t)).comp t ((hasDerivAt_id t).const_mul (-γ))
+  convert (hasDerivAt_id t).mul he using 1 <;> dsimp [prePosition, preVelocity] <;> ring
+
+theorem critical_position (γ : ℝ) (hγ : γ ≠ 0) :
+    prePosition γ (1 / γ) = Real.exp (-1) / γ := by
+  have h : -γ * (1 / γ) = -1 := by field_simp [hγ]
+  unfold prePosition
+  rw [h]
+  ring
+
+theorem critical_velocity (γ : ℝ) (hγ : γ ≠ 0) :
+    preVelocity γ (1 / γ) = 0 := by
+  unfold preVelocity
+  have h : γ * (1 / γ) = 1 := by field_simp [hγ]
+  rw [h]
+  ring
+
+theorem post_derivative (γ ω y₀ s : ℝ) (hω : ω ≠ 0) :
+    HasDerivAt (postPosition γ ω y₀) (postVelocity γ ω y₀ s) s := by
+  have he := (Real.hasDerivAt_exp (-γ * s)).comp s ((hasDerivAt_id s).const_mul (-γ))
+  have hc := (Real.hasDerivAt_cos (ω * s)).comp s ((hasDerivAt_id s).const_mul ω)
+  have hs := (Real.hasDerivAt_sin (ω * s)).comp s ((hasDerivAt_id s).const_mul ω)
+  convert (he.mul_const y₀).mul (hc.add (hs.const_mul (γ / ω))) using 1 <;>
+    dsimp [postPosition, postVelocity] <;> field_simp [hω] <;> ring_nf <;> simp
+
+theorem quarter_velocity (γ ω y₀ : ℝ) (hω : ω ≠ 0) :
+    postVelocity γ ω y₀ (Real.pi / (2 * ω)) =
+      -y₀ * (ω + γ ^ 2 / ω) * Real.exp (-γ * (Real.pi / (2 * ω))) := by
+  have h : ω * (Real.pi / (2 * ω)) = Real.pi / 2 := by field_simp [hω]
+  unfold postVelocity
+  rw [h, Real.sin_pi_div_two]
+  ring
+
+theorem st05_endpoint_identity (γ : ℝ) (hγ : γ ≠ 0) :
+    postVelocity γ (16 * γ) (Real.exp (-1) / γ) (Real.pi / (2 * (16 * γ))) =
+      -(16 + 1 / 16 : ℝ) * Real.exp (-1 - Real.pi / 32) := by
+  have hω : 16 * γ ≠ 0 := mul_ne_zero (by norm_num) hγ
+  rw [quarter_velocity γ (16 * γ) (Real.exp (-1) / γ) hω]
+  have h : -γ * (Real.pi / (2 * (16 * γ))) = -Real.pi / 32 := by
+    field_simp [hγ] <;> ring
+  rw [h]
+  rw [show -1 - Real.pi / 32 = -1 + (-Real.pi / 32) by ring, Real.exp_add]
+  field_simp [hγ] <;> ring_nf <;> simp
+
+/-- The directional energy identity for X'=(X2,-k X1-2 X2). -/
+theorem oscillator_energy_algebra (k x y : ℝ) :
+    2 * k * x * y + 2 * y * (-k * x - 2 * y) = -4 * y ^ 2 := by ring
+
+end LegendreAudit.AUD01

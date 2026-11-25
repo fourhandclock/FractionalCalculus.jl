@@ -1,0 +1,54 @@
+import Mathlib.Data.Real.Basic
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Tactic.Ring
+import Lean.Elab.Tactic.Omega
+
+namespace LegendreAudit.AUD01
+open scoped BigOperators
+
+/-- Finite summation by parts, including the two endpoint contributions. -/
+theorem finite_summation_by_parts (w u : ℕ → ℝ) (N : ℕ) :
+    (∑ j ∈ Finset.range (N + 1), w j * (u (j + 1) - u j)) =
+      w N * u (N + 1) - w 0 * u 0 +
+        ∑ j ∈ Finset.range N, (w j - w (j + 1)) * u (j + 1) := by
+  induction N with
+  | zero => simp; ring
+  | succ N ih =>
+    rw [Finset.sum_range_succ, ih, Finset.sum_range_succ]
+    ring
+
+/-- Exact all-length version of the symbolic N=2,...,20 quadratic-history check.
+Set v(j)=Delta e^(j+1) and take N=(number of time levels)-1. -/
+theorem quadratic_history_collection (c v : ℕ → ℝ) (N : ℕ) :
+    (∑ n ∈ Finset.range N,
+      ∑ j ∈ Finset.range (n + 1), c (n - j) * (v (j + 1) - v j)) =
+      (∑ j ∈ Finset.range N, c (N - 1 - j) * v (j + 1)) -
+        (∑ r ∈ Finset.range N, c r) * v 0 := by
+  induction N with
+  | zero => simp
+  | succ N ih =>
+    rw [Finset.sum_range_succ, ih, finite_summation_by_parts]
+    simp only [Nat.sub_self, Nat.add_sub_cancel]
+    rw [Finset.sum_range_succ, Finset.sum_range_succ]
+    simp only [Nat.sub_self]
+    have h : ∀ j, N - 1 - j = N - (j + 1) := by intro j; omega
+    simp_rw [h, sub_mul, Finset.sum_sub_distrib]
+    simp only [Nat.sub_zero]
+    ring
+
+/-- Summing the reverse differences of any sequence gives its endpoint value. -/
+theorem reversed_difference_sum (b : ℕ → ℝ) (N : ℕ) :
+    (∑ j ∈ Finset.range N, (b (N - j) - b (N - 1 - j))) = b N - b 0 := by
+  have ht : (∑ j ∈ Finset.range N, (b (j + 1) - b j)) = b N - b 0 := by
+    induction N with
+    | zero => simp
+    | succ N ih => rw [Finset.sum_range_succ, ih]; ring
+  have h := Finset.sum_range_reflect (fun j => b (j + 1) - b j) N
+  rw [← h] at ht
+  convert ht using 1
+  apply Finset.sum_congr rfl
+  intro j hj
+  have hjN : j < N := Finset.mem_range.mp hj
+  congr 2 <;> omega
+
+end LegendreAudit.AUD01

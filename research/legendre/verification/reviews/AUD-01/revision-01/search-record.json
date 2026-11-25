@@ -1,0 +1,278 @@
+{
+  "exact_name_matches": [
+    {
+      "name": "verify_l12_stability.py",
+      "location": "$WORKSPACE/research/legendre/verification/scripts/verify_l12_stability.py",
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    {
+      "name": "verify_time_variable_kernel_st04.py",
+      "location": "$WORKSPACE/research/legendre/verification/scripts/verify_time_variable_kernel_st04.py",
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    },
+    {
+      "name": "verify_l12_stability.py",
+      "location": "$WORKSPACE/.checkpoint-tools/staged-tree/research/legendre/verification/scripts/verify_l12_stability.py",
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    {
+      "name": "verify_time_variable_kernel_st04.py",
+      "location": "$WORKSPACE/.checkpoint-tools/staged-tree/research/legendre/verification/scripts/verify_time_variable_kernel_st04.py",
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    },
+    {
+      "name": "check_exact_aud01.py",
+      "location": "$WORKSPACE/AUD01_review_package/aud01/check_exact_aud01.py",
+      "sha256": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+    },
+    {
+      "name": "verify_aud01_homogeneous.py",
+      "location": "$WORKSPACE/AUD01_review_package/aud01/verify_aud01_homogeneous.py",
+      "sha256": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c"
+    },
+    {
+      "name": "verify_l12_stability.py",
+      "location": "$USER_HOME/Downloads/verify_l12_stability.py",
+      "sha256": "c1fa6b122eb695cb8653d7535beaa7c3e34482c86959dc57429b6945f463cc13"
+    },
+    {
+      "name": "verify_time_variable_kernel_st04.py",
+      "location": "$USER_HOME/Downloads/verify_time_variable_kernel_st04.py",
+      "sha256": "945dbcdf333e9f1539345ceb035cf27fef3a86e3847107b8f79af1a774d32c86"
+    }
+  ],
+  "content_candidates": [
+    "$WORKSPACE/AUD01_review_package/aud01/check_exact_aud01.py"
+  ],
+  "archives": [
+    {
+      "archive": "caputo-l1-research-starter.zip",
+      "sha256": "53b639074f8c65e844a438f021f709410285879d9ac2feb21590801b61e5c266",
+      "program_members": [
+        {
+          "member": "caputo-l1-research-starter/correctness.jl",
+          "bytes": 2162,
+          "sha256": "8973af72d990b9d74ae273c76b3c4b0a1feb5029a1ef0724c54df54593f0a4a5",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l1-research-starter/make-proposal.py",
+          "bytes": 1235,
+          "sha256": "be790a354aca56b2c9dbc01b8a24bcc1a435fe4d276a4729663f03d2b139a1d8",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l1-research-starter/baseline/src/CaputoL1Research.jl",
+          "bytes": 1016,
+          "sha256": "44899ad6343661b56c9b6ae77e5b48b620439af20fbc1fdde21ceb2dec4d3eca",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l1-research-starter/benchmark.jl",
+          "bytes": 1189,
+          "sha256": "16698f9916651e978596d6ff2f1a01402831d51b6f88ff1850e5c3ef04e93fb6",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        }
+      ]
+    },
+    {
+      "archive": "caputo-l12-research-starter.zip",
+      "sha256": "1d46caf2ca442baa9b7a29df642d984e2b9118ba40f1ea8651bfe5fafc649b4d",
+      "program_members": [
+        {
+          "member": "caputo-l12-research-starter/baseline/src/CaputoL12Research.jl",
+          "bytes": 3498,
+          "sha256": "3032bac7f2c9b13fbc528623d261f2698aea328d0c6f753149c041008533442b",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l12-research-starter/correctness.jl",
+          "bytes": 3257,
+          "sha256": "1266c460e9f961340d16698a172d0f4e141b0daa235b670e0af9dfc571c96cb7",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l12-research-starter/convergence.jl",
+          "bytes": 1000,
+          "sha256": "37d1659b77611287100deec3936294d65638fd75380e0fdf74c6b5453b9d2ef3",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l12-research-starter/benchmark.jl",
+          "bytes": 1255,
+          "sha256": "c185e2e4178810b9dee70ccee31fc3f71fa03f32a7ae1ee1860104e4ef7c89ee",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "caputo-l12-research-starter/make-proposal.py",
+          "bytes": 1869,
+          "sha256": "41ced474bc5d50342534c608abee28e3914a0e7fb17abcc9e81b2299cac8d604",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        }
+      ]
+    },
+    {
+      "archive": "julia-research-lab.zip",
+      "sha256": "fc0e67803076d539ae527f86e50f36a02a9b20b68e605cf5d0d58a2f7ff3c2d2",
+      "program_members": [
+        {
+          "member": "julia-research-lab/labctl/__main__.py",
+          "bytes": 47,
+          "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "julia-research-lab/labctl/__init__.py",
+          "bytes": 40,
+          "sha256": "61363aacb9eab789df5d31c4c714c4fdbf7cd1e711cc92d753a6a7462d0e6f8e",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "julia-research-lab/labctl/cli.py",
+          "bytes": 5284,
+          "sha256": "7a2619f8a9d37234bc74442406933d39daca5775e1d9a57b0dcb41b41372d37f",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "julia-research-lab/labctl/watchdog.py",
+          "bytes": 7252,
+          "sha256": "a7554eb8be5184908edaec9a3868067eab4d35f5622d632db581c107362fb7c8",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "julia-research-lab/tests/test_watchdog.py",
+          "bytes": 1999,
+          "sha256": "b7f7f1509ed8215e3cfd6272d61be8b2124d43c3c4937f0f8127d0c70eb33d79",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        }
+      ]
+    },
+    {
+      "archive": "temporal-residual-audit-004-005.zip",
+      "sha256": "324f8122144e7020d0151d99eb74113311bbe91088d094dd59c59f0140ca8477",
+      "program_members": [
+        {
+          "member": "temporal-residual-audit-004-005/baseline/src/TemporalResidualAudit.jl",
+          "bytes": 7421,
+          "sha256": "e7d11a6df29d4bea67918e6c9bdb75d24692b9d56f2746a1ea0ddb3abcee1505",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/benchmark.jl",
+          "bytes": 1461,
+          "sha256": "d932a3b4dd53ccdd5e7ff01f44d915d83c23b6d29ec11c6d5b8011a18f622e17",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/convergence.jl",
+          "bytes": 836,
+          "sha256": "4104306f0bb5ea0895fe4715fc147335acb50b43b5897e71f9cf73ee77bcdbbd",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/correctness.jl",
+          "bytes": 3332,
+          "sha256": "2c6101a81983129da3a89515cfd4621ee1adcf2a748e5003d232943e6b2ce72b",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/make-proposal.py",
+          "bytes": 1452,
+          "sha256": "af9cbce070dc9953b6dd5dc6aa8a419890cc3881a8b20df87ada1b02c4323a6c",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/summarize.py",
+          "bytes": 3855,
+          "sha256": "e05cd6468632a56c121920c12bb41eedeaf69e27cd69671ff84ba06b51fd0c4e",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "temporal-residual-audit-004-005/tests/test_reference.py",
+          "bytes": 1702,
+          "sha256": "682e56ca92abe907d08cecef7663ebedd5ccc6ebcfa578382073ca14e5d823ba",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        }
+      ]
+    },
+    {
+      "archive": "weak-volterra-research-starter.zip",
+      "sha256": "f52e17b131f3dc70b498bd337a94bfec2f258bfa0a5b0bc1169d0720a6bd6ae6",
+      "program_members": [
+        {
+          "member": "weak-volterra-research-starter/baseline/src/WeakVolterraResearch.jl",
+          "bytes": 3228,
+          "sha256": "c3428f2efb355f49c9d7e68bc66c1b91ea0cdcbb0c596d0a508ffba3fc667cea",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "weak-volterra-research-starter/benchmark.jl",
+          "bytes": 1375,
+          "sha256": "9a935a8fd584853debf3a2598a90017f60849f9baa9006738bee07b9fb5204c4",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "weak-volterra-research-starter/convergence.jl",
+          "bytes": 1154,
+          "sha256": "d3d6f5a6cefe9ee08604bf22751ec2e9af7273d7c41e58c44abf6a8ec6616103",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "weak-volterra-research-starter/correctness.jl",
+          "bytes": 3415,
+          "sha256": "f2309265740a08a3331039fa53cccc8cb800464168ed715d951a1d4f387216f4",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "weak-volterra-research-starter/make-proposal.py",
+          "bytes": 1518,
+          "sha256": "22c9c4f8945c9d36a247b491f5c454df15eccc33e61a204e97548b456f8fe566",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        },
+        {
+          "member": "weak-volterra-research-starter/reference_check.py",
+          "bytes": 1243,
+          "sha256": "163f66b3608bd209efb6ec490661bdf163514e3e1596930179fbe203e4b4e456",
+          "exact_target_name": false,
+          "mentions_audit_ids": false
+        }
+      ]
+    }
+  ],
+  "scope": "Repository and Downloads user-source files; dependency caches, installed toolchains, Git internals and venvs excluded. Archives inspected without extraction.",
+  "target_names": [
+    "verify_l12_stability.py",
+    "verify_time_variable_kernel_st04.py",
+    "verify_l12_startup_obs03.py",
+    "verify_gll_variable_coefficient_obs04.py",
+    "verify_sp02_resolvent.py",
+    "check_exact_aud01.py",
+    "verify_aud01_homogeneous.py"
+  ]
+}

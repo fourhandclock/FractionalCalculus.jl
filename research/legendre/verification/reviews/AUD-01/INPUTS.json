@@ -1,0 +1,111 @@
+{
+  "path_base": "repository root",
+  "package_files": [
+    {
+      "path": "AUD01_review_package/aud01/AuditConstants.lean",
+      "bytes": 1687,
+      "sha256": "07a87683f7897260c23434a215fbd1b31afac28cfb123698c53ab52efff5a51a"
+    },
+    {
+      "path": "AUD01_review_package/aud01/README.md",
+      "bytes": 4299,
+      "sha256": "24e08caa5048d7a7f49bb5fd822761c62a6c9836f17b951a77b13ffd8e233804"
+    },
+    {
+      "path": "AUD01_review_package/aud01/SHA256SUMS",
+      "bytes": 667,
+      "sha256": "44b947b9edb035e03e4d624ef4245d9905ba0796dca5129567c92e174db13813"
+    },
+    {
+      "path": "AUD01_review_package/aud01/ST05_proof_audit.md",
+      "bytes": 10974,
+      "sha256": "5c422fa8572c0cb021912b704e82de1675b96973ae3586ebde49ff2c913be40f"
+    },
+    {
+      "path": "AUD01_review_package/aud01/audit_addendum.tex",
+      "bytes": 8133,
+      "sha256": "2471f9c47a320d04a161bc328db293dd6e47acab40ef49de2e2921881c3fd35f"
+    },
+    {
+      "path": "AUD01_review_package/aud01/check_exact_aud01.py",
+      "bytes": 1548,
+      "sha256": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a"
+    },
+    {
+      "path": "AUD01_review_package/aud01/exact_results.txt",
+      "bytes": 261,
+      "sha256": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6"
+    },
+    {
+      "path": "AUD01_review_package/aud01/homogeneous_results.txt",
+      "bytes": 1894,
+      "sha256": "09d5e1661ed688e10dd4d55422032a853d97f1c0a2e83befe5bf325352b1f871"
+    },
+    {
+      "path": "AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.pdf",
+      "bytes": 560238,
+      "sha256": "f609b93f3ed5cde0bf0120af23cd2040de80dd09898ceac2d822d5f34db5b79b"
+    },
+    {
+      "path": "AUD01_review_package/aud01/legendre_spectral_verification_notes_aud01.tex",
+      "bytes": 129250,
+      "sha256": "37aaf52ef6f6d5a96bd87780b7df6b905c9bf42bfceca95bd5aadc91ba4dfc11"
+    },
+    {
+      "path": "AUD01_review_package/aud01/verify_aud01_homogeneous.py",
+      "bytes": 4228,
+      "sha256": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c"
+    }
+  ],
+  "supplied_manifest_entries": [
+    {
+      "file": "legendre_spectral_verification_notes_aud01.pdf",
+      "expected": "f609b93f3ed5cde0bf0120af23cd2040de80dd09898ceac2d822d5f34db5b79b",
+      "actual": "f609b93f3ed5cde0bf0120af23cd2040de80dd09898ceac2d822d5f34db5b79b",
+      "matches": true
+    },
+    {
+      "file": "legendre_spectral_verification_notes_aud01.tex",
+      "expected": "37aaf52ef6f6d5a96bd87780b7df6b905c9bf42bfceca95bd5aadc91ba4dfc11",
+      "actual": "37aaf52ef6f6d5a96bd87780b7df6b905c9bf42bfceca95bd5aadc91ba4dfc11",
+      "matches": true
+    },
+    {
+      "file": "AuditConstants.lean",
+      "expected": "07a87683f7897260c23434a215fbd1b31afac28cfb123698c53ab52efff5a51a",
+      "actual": "07a87683f7897260c23434a215fbd1b31afac28cfb123698c53ab52efff5a51a",
+      "matches": true
+    },
+    {
+      "file": "check_exact_aud01.py",
+      "expected": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a",
+      "actual": "e481fd941d7d4453f8ba61fbc713e71c27b5f8f8fc4f505d95e7b5e14f7c296a",
+      "matches": true
+    },
+    {
+      "file": "verify_aud01_homogeneous.py",
+      "expected": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c",
+      "actual": "5672f1f30da6df36c57d58bba59fba754e09f90e2bb55fd881b7a7544cd3ed1c",
+      "matches": true
+    },
+    {
+      "file": "homogeneous_results.txt",
+      "expected": "09d5e1661ed688e10dd4d55422032a853d97f1c0a2e83befe5bf325352b1f871",
+      "actual": "09d5e1661ed688e10dd4d55422032a853d97f1c0a2e83befe5bf325352b1f871",
+      "matches": true
+    },
+    {
+      "file": "exact_results.txt",
+      "expected": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6",
+      "actual": "85a2ef24e7b5fe3e6a784c1c75ca0ca0286894eb3a30ce059e9d5e807ba2ded6",
+      "matches": true
+    }
+  ],
+  "supplied_manifest_passed": true,
+  "addendum_equals_manuscript_section14": true,
+  "original_paper": {
+    "path": "YS_SS_PD_NM_25_Calcolo.pdf",
+    "sha256": "ddcb0a5ad061e81036233ecf6b8dc58039ad07323badd09395f5f960d9a13ced"
+  },
+  "preexisting_missing_st04_pdf": "research/legendre/verification/sources/legendre_spectral_verification_notes_st04.pdf"
+}

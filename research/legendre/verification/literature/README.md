@@ -1,6 +1,12 @@
-# Sources and related-work boundaries
+# Literature and mathematical context
 
-No literature search or external acquisition was performed for this integration. Links identify the citations already supplied; their presence is not a claim that their current web contents were consulted.
+The original method combines three numerical ingredients: L1/L1-2 approximation of a Caputo derivative, weakly singular Volterra quadrature, and Legendre spectral discretization. The present audit asks whether their stated coefficient identities and consistency estimates support the combined stability and convergence analysis.
+
+## Original method and related analyses
+
+Sabawi et al. is the source of the claims being tested. Gao, Sun, and Zhang provide background on L1-2 differentiation. The Ramezani–Mokhtari–Haase analysis is relevant to the treatment of exceptional L-type coefficients, but concerns subdiffusion without the additional Volterra term in this project. A stability argument for that model cannot be imported as a proof for the combined scheme.
+
+The independent verification notes report an energy/discrete-Grönwall treatment in the ETNA article. Its precise theorem locators and interpretation have **not been checked against the primary text**. The distinction between a reported related result and independently verified source content is retained below.
 
 | Source | Provenance and verification | What may be used here |
 | --- | --- | --- |
@@ -9,8 +15,16 @@ No literature search or external acquisition was performed for this integration.
 | G. Gao, Z. Sun, H. Zhang, *A new fractional numerical differentiation formula to approximate the Caputo fractional derivative and its applications*, Journal of Computational Physics **259** (2014), 33–50. [DOI](https://doi.org/10.1016/j.jcp.2013.11.017) | Already cited in `research/THEORY.md`; bibliographic identity matches Sabawi reference [52], p.45. The independent article itself was not checked here | Original L1-2 background; do not attribute a specific stability theorem or additional assumptions to it without checking its text |
 | Hardik Bisht, *Verification notes on the L1/L1-2 Legendre spectral method*, November 2026 | Supplied [11-page PDF](../sources/legendre_spectral_verification_notes_st03.pdf), retained byte-for-byte | Independent derivations VQ-01, CF-02, ST-03; provisional observations; historical numerical reports; research protocol |
 
-Product integration in notes §4.6 is an independently described **candidate modification**, not Eq. (6) and not an independently reproduced published method. The stated piecewise-linear interpolation error bound gives an operator-level `O(τ²)` estimate under the specified smoothness, but no full-scheme stability or convergence result is claimed. No implementation was added.
+## Independent findings and possible extensions
 
-Discrete fractional/memory Grönwall tools are a potential route mentioned in the notes, not a ready-made justification for the combined signed-history recurrence. No new citation, theorem number, or purported independent confirmation has been added for such an inequality. The original paper's own references [46]–[48] are not treated as independent verification of Eq. (8).
+The [accepted AUD-01 manuscript](../reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex) contains the earlier investigations and the OB-03/OB-04, SP-01/SP-02, TM-01, ST-05 and AUD-01 analyses. These are our independent derivations, not independently published confirmation. The [review](../reviews/AUD-01/revision-01/REVIEW.md) records their assumptions and qualifications. The [original ST-04 source](../sources/legendre_spectral_verification_notes_st04.tex) and [supplied PDF](../sources/legendre_spectral_verification_notes_st04.pdf) extend the earlier notes; their references do not independently verify the cited articles.
 
-The supplied [original ST-04 source](../sources/legendre_spectral_verification_notes_st04.tex) and [13-page PDF](../sources/legendre_spectral_verification_notes_st04.pdf) extend the independent notes through ST-04. They do not independently verify the cited external articles.
+Product integration interpolates the smooth function while integrating the singular weight exactly. Manuscript §4.6 derives a candidate operator-level $O(\tau^2)$ bound under its stated smoothness assumptions. It is a different quadrature from paper Eq. (6), and appears as a control in the supplied ST-04 diagnostic. No replacement production solver is introduced. The manuscript gives conditional smooth-data propagation using positive bounded memory weights; this is separate from validating the published quadrature or its proof.
+
+Discrete fractional or memory Grönwall inequalities may help control accumulated history once an appropriate combined estimate has been derived. They are a possible route, rather than an existing justification for the signed-history contraction step. The original paper's references [46]–[48] are likewise not treated as independent verification of its Eq. (8).
+
+## Source coverage
+
+The bibliography preserves the supplied references and their existing source-verification qualifications. No new literature search is represented here. Links identify cited works; checked source content is described in the table. Missing primary texts should be consulted before attributing precise theorems, coefficient assumptions, or independent confirmation to them.
+
+The spatial analysis cites Canuto and Quarteroni, *Approximation results for orthogonal polynomials in Sobolev spaces*, Math. Comp. 38 (1982), 67–86, Theorem 2.3, as recorded in manuscript §10.2. That precise primary-source locator has not been independently checked. It remains a source-verification qualification, rather than a Lean dependency or a claim of independent confirmation. No new literature was acquired for this integration.

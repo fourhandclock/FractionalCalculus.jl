@@ -1,0 +1,56 @@
+{
+  "command": [
+    ".checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--only-cached",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    ".checkpoint-tools/aud01-close-2026-11-25/latex-build-03",
+    "research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T15:43:33.265332+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/research/legendre/verification/reviews/AUD-01/revision-01/mathematical-verification-aud01-r1.tex": "1cd0393a69c2eddf5f79883cf02ccd176acebaec772fade737336be89e87f29b"
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 1,
+  "elapsed_seconds": 0.004728803000034532,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T15:43:33.270135+00:00",
+  "child_usage": {
+    "user_seconds": 0.031339,
+    "system_seconds": 0.016635999999999998,
+    "peak_rss_kib": 19160,
+    "peak_sampled_descendant_rss_bytes": 2322432
+  },
+  "output": {
+    "manuscript-r1-03.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "manuscript-r1-03.stderr.log": {
+      "bytes": 97,
+      "sha256": "b94dc9510b4661eba7206ce9a48950b658b88e02524c9a4a2cf6544db5bdb440"
+    }
+  }
+}

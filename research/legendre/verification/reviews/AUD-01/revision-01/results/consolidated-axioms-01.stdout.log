@@ -1,0 +1,113 @@
+LegendreAudit.bStarZero_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) : LegendreAudit.bStarZero α = α / (2 * (2 - α))
+'LegendreAudit.bStarZero_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.leading_identity (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) : LegendreAudit.leading α = 1 + α / (2 * (2 - α))
+'LegendreAudit.leading_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.leading_gt_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) : 1 < LegendreAudit.leading α
+'LegendreAudit.leading_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.leading_three_quarters : LegendreAudit.leading (3 / 4) = 13 / 10
+'LegendreAudit.leading_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.fourthRootTwo_fourth : (2 ^ (1 / 4)) ^ 4 = 2
+'LegendreAudit.fourthRootTwo_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.fourthRootTwo_lt_thirteen_tenths : 2 ^ (1 / 4) < 13 / 10
+'LegendreAudit.fourthRootTwo_lt_thirteen_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.oldestSecond_three_quarters : LegendreAudit.oldestSecond (3 / 4) = 2 ^ (1 / 4) - 13 / 10
+'LegendreAudit.oldestSecond_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.oldestSecond_three_quarters_neg : LegendreAudit.oldestSecond (3 / 4) < 0
+'LegendreAudit.oldestSecond_three_quarters_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.history_abs_budget (d₀ d₁ : ℝ) (h₀ : 0 < d₀) (h₁ : d₁ < 0) :
+  |d₀ - d₁| + |d₁| = d₀ - 2 * d₁ ∧ d₀ < |d₀ - d₁| + |d₁|
+'LegendreAudit.history_abs_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.signedHistory_triangle.{u_1} {ι : Type u_1} (s : Finset ι) (c u : ι → ℝ) :
+  ‖∑ j ∈ s, c j * u j‖ ≤ ∑ j ∈ s, |c j| * |u j|
+'LegendreAudit.signedHistory_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.signed_sum_bound_false : ¬∀ (c₀ c₁ u₀ u₁ : ℝ), |u₀| ≤ 1 → |u₁| ≤ 1 → |c₀ * u₀ + c₁ * u₁| ≤ |c₀ + c₁|
+'LegendreAudit.signed_sum_bound_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.l12_assigned_state_counterexample :
+  let d₀ := LegendreAudit.leading (3 / 4);
+  let d₁ := LegendreAudit.oldestSecond (3 / 4);
+  d₀ < |(d₀ - d₁) * 1 + d₁ * -1|
+'LegendreAudit.l12_assigned_state_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.telescoping_history (d : ℕ → ℝ) (k : ℕ) : ∑ r ∈ Finset.range k, (d r - d (r + 1)) + d k = d 0
+'LegendreAudit.telescoping_history' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.telescoping_not_one (α : ℝ) (hα0 : 0 < α) (hα1 : α < 1) (d : ℕ → ℝ) (k : ℕ)
+  (hd : d 0 = LegendreAudit.leading α) : ∑ r ∈ Finset.range k, (d r - d (r + 1)) + d k ≠ 1
+'LegendreAudit.telescoping_not_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.normalized_history (d : ℕ → ℝ) (k : ℕ) (hd : d 0 ≠ 0) :
+  (∑ r ∈ Finset.range k, (d r - d (r + 1)) + d k) / d 0 = 1
+'LegendreAudit.normalized_history' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.no_uniform_weighted_energy_bound :
+  ¬∃ C, 0 < C ∧ ∀ (w : ℝ), 0 < w → w ≤ 1 → ∀ (x y : ℝ), x ^ 2 + y ^ 2 ≤ C * (x ^ 2 + w * y ^ 2)
+'LegendreAudit.no_uniform_weighted_energy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.volterra_half_near_panel_positive : 0 < (1 + 1 / √2) / 2 - 2 * (√2 - 1)
+'LegendreAudit.volterra_half_near_panel_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.mass_polynomial (c x : ℝ) :
+  LegendreAudit.massIntegrand c x = x - 2 * x ^ 3 + x ^ 5 + c * x ^ 2 - 2 * c * x ^ 4 + c * x ^ 6
+'LegendreAudit.mass_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.gll3_mass (c : ℝ) : LegendreAudit.gll3 (LegendreAudit.massIntegrand c) = 16 * c / 75
+'LegendreAudit.gll3_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.mass_hasDerivAt (c x : ℝ) : HasDerivAt (LegendreAudit.massPrimitive c) (LegendreAudit.massIntegrand c x) x
+'LegendreAudit.mass_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.mass_integral (c : ℝ) : ∫ (x : ℝ) in -1 ..1, LegendreAudit.massIntegrand c x = 16 * c / 105
+'LegendreAudit.mass_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.positive_mass_coefficient (c x : ℝ) (hc0 : 0 < c) (hc1 : c < 1) (hx0 : -1 ≤ x) (hx1 : x ≤ 1) :
+  0 < 1 + c * x
+'LegendreAudit.positive_mass_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.gll3_variable_coefficient_counterexample (c : ℝ) (hc0 : 0 < c) (hc1 : c < 1) :
+  |LegendreAudit.gll3 (LegendreAudit.massIntegrand c) - ∫ (x : ℝ) in -1 ..1, LegendreAudit.massIntegrand c x| =
+      32 * c / 525 ∧
+    LegendreAudit.gll3 (LegendreAudit.massIntegrand c) ≠ ∫ (x : ℝ) in -1 ..1, LegendreAudit.massIntegrand c x
+'LegendreAudit.gll3_variable_coefficient_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.symbol_numerator (x y rho q : ℝ) (h : y ^ 2 = 1 - x ^ 2) :
+  (1 - x + q * ((1 - x) ^ 2 - y ^ 2)) * (1 - rho * x) + (y + 2 * q * (1 - x) * y) * (rho * y) =
+    (1 - x) * (1 + rho + 2 * q * (rho - x))
+'LegendreAudit.AUD01.symbol_numerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.symbol_bracket (rho q x : ℝ) (hr : 0 ≤ rho) (hr' : rho ≤ 1) (hq : 0 ≤ q) (hq' : q ≤ 1 / 2)
+  (hx : x ≤ 1) : 2 * rho ≤ 1 + rho + 2 * q * (rho - x)
+'LegendreAudit.AUD01.symbol_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.smoothing_denominator : 0 < 1 - 17 * (512 / 1000000)
+'LegendreAudit.AUD01.smoothing_denominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.smoothing_amplitude : 17 / (1 - 17 * (512 / 1000000)) < 18
+'LegendreAudit.AUD01.smoothing_amplitude' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.smoothing_difference : 17 ^ 2 * (512 / 1000000) / (1 - 17 * (512 / 1000000)) < 1 / 4
+'LegendreAudit.AUD01.smoothing_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.weighted_contraction : (3 + 800 / 64) / 64 < 1 / 4
+'LegendreAudit.AUD01.weighted_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.homogeneous_contraction : 1 / 128 * (21 / 4) * (3 + 1 / 16) < 1 / 4
+'LegendreAudit.AUD01.homogeneous_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.fractional_parameter_bound : 720000 * 2 ^ 512 * (1 / 2 ^ 600) < 1 / 2 ^ 68
+'LegendreAudit.AUD01.fractional_parameter_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.fractional_parameter_admissibility :
+  0 < 1 / 2 ^ 600 ∧ 1 / 2 ^ 600 ≤ 1 - 1 / 2 ^ 600 ∧ 1 - 1 / 2 ^ 600 < 1
+'LegendreAudit.AUD01.fractional_parameter_admissibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.finite_summation_by_parts (w u : ℕ → ℝ) (N : ℕ) :
+  ∑ j ∈ Finset.range (N + 1), w j * (u (j + 1) - u j) =
+    w N * u (N + 1) - w 0 * u 0 + ∑ j ∈ Finset.range N, (w j - w (j + 1)) * u (j + 1)
+'LegendreAudit.AUD01.finite_summation_by_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.quadratic_history_collection (c v : ℕ → ℝ) (N : ℕ) :
+  ∑ n ∈ Finset.range N, ∑ j ∈ Finset.range (n + 1), c (n - j) * (v (j + 1) - v j) =
+    ∑ j ∈ Finset.range N, c (N - 1 - j) * v (j + 1) - (∑ r ∈ Finset.range N, c r) * v 0
+'LegendreAudit.AUD01.quadratic_history_collection' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.reversed_difference_sum (b : ℕ → ℝ) (N : ℕ) :
+  ∑ j ∈ Finset.range N, (b (N - j) - b (N - 1 - j)) = b N - b 0
+'LegendreAudit.AUD01.reversed_difference_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.pre_derivative (γ t : ℝ) :
+  HasDerivAt (LegendreAudit.AUD01.prePosition γ) (LegendreAudit.AUD01.preVelocity γ t) t
+'LegendreAudit.AUD01.pre_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.critical_position (γ : ℝ) (hγ : γ ≠ 0) :
+  LegendreAudit.AUD01.prePosition γ (1 / γ) = Real.exp (-1) / γ
+'LegendreAudit.AUD01.critical_position' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.critical_velocity (γ : ℝ) (hγ : γ ≠ 0) : LegendreAudit.AUD01.preVelocity γ (1 / γ) = 0
+'LegendreAudit.AUD01.critical_velocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.post_derivative (γ ω y₀ s : ℝ) (hω : ω ≠ 0) :
+  HasDerivAt (LegendreAudit.AUD01.postPosition γ ω y₀) (LegendreAudit.AUD01.postVelocity γ ω y₀ s) s
+'LegendreAudit.AUD01.post_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.quarter_velocity (γ ω y₀ : ℝ) (hω : ω ≠ 0) :
+  LegendreAudit.AUD01.postVelocity γ ω y₀ (Real.pi / (2 * ω)) =
+    -y₀ * (ω + γ ^ 2 / ω) * Real.exp (-γ * (Real.pi / (2 * ω)))
+'LegendreAudit.AUD01.quarter_velocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.st05_endpoint_identity (γ : ℝ) (hγ : γ ≠ 0) :
+  LegendreAudit.AUD01.postVelocity γ (16 * γ) (Real.exp (-1) / γ) (Real.pi / (2 * (16 * γ))) =
+    -(16 + 1 / 16) * Real.exp (-1 - Real.pi / 32)
+'LegendreAudit.AUD01.st05_endpoint_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+LegendreAudit.AUD01.oscillator_energy_algebra (k x y : ℝ) : 2 * k * x * y + 2 * y * (-k * x - 2 * y) = -4 * y ^ 2
+'LegendreAudit.AUD01.oscillator_energy_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
