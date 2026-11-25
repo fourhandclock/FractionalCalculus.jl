@@ -1,0 +1,72 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py",
+    "$WORKSPACE/.checkpoint-tools/runs/r01-offline-final-latex-gr04",
+    "/usr/bin/python3",
+    "-B",
+    "/var/tmp/payload.py",
+    "$WORKSPACE/.checkpoint-tools/bin/tectonic",
+    "--untrusted",
+    "--only-cached",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    "/var/tmp",
+    "$WORKSPACE/studies/legendre/gr07/revision-01/manuscripts/GR04_discrete_two_kernel_gronwall.tex"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T22:22:17.386119+00:00",
+  "limits": {
+    "wall_seconds": 120,
+    "cpu_seconds_per_process": 90,
+    "address_space_mib_per_process": 2048,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 1024,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+    "$WORKSPACE/research/legendre/aud02/revision-01/scripts/execution.py": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+    "$WORKSPACE/.checkpoint-tools/runs/r01-offline-final-latex-gr04/payload.py": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+    "$WORKSPACE/studies/legendre/gr07/revision-01/manuscripts/GR04_discrete_two_kernel_gronwall.tex": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+    "$WORKSPACE/research/legendre/aud02/revision-01/scripts/validate_checkpoint.py": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "/var/tmp/depot:$WORKSPACE/.checkpoint-tools/shared-julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONNOUSERSITE": "1",
+    "XDG_CACHE_HOME": "/home/hardeek/.cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 3.171477251999022,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T22:22:20.557664+00:00",
+  "child_usage": {
+    "user_seconds": 0.015886,
+    "system_seconds": 0.0029779999999999997,
+    "peak_rss_kib": 12488,
+    "peak_sampled_descendant_rss_bytes": 182333440
+  },
+  "output": {
+    "r01-offline-final-latex-gr04.stdout.log": {
+      "bytes": 467,
+      "sha256": "d6a5cc70334106f87bab56fabddaff1b3b7091f79001f873581d3fd0aa0cf77c"
+    },
+    "r01-offline-final-latex-gr04.stderr.log": {
+      "bytes": 4476,
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997"
+    }
+  }
+}

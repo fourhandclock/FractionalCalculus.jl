@@ -1,0 +1,11 @@
+{
+  "trigger": "r01-typeset-latex-gr01:14 missing title font TU/lmr/m/n/17.28",
+  "required_missing": [
+    "lmroman17-regular (title font)"
+  ],
+  "bundle_entries": [
+    "lmroman17-regular.otf 2024881664 110248"
+  ],
+  "private_cache_manifest_sha256": "85e1126d18bd8a2bece59959a52dac8d493e0a210e58a850fef7d63bdfef02c6",
+  "scope": "Synthetic article title and manuscript-sized mathematics only; same fixed TeX bundle"
+}

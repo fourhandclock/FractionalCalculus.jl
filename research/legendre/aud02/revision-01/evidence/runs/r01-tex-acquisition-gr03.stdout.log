@@ -1,0 +1,15 @@
+note: Running TeX ...
+note: downloading SHA256SUM
+note: downloading cmbx10.tfm
+note: downloading cmbx8.tfm
+note: downloading cmbx6.tfm
+note: downloading cmbx7.tfm
+note: downloading cmbx5.tfm
+note: Rerunning TeX because "GR03_shifted_product_integration.aux" changed ...
+note: Running xdvipdfmx ...
+note: downloading cmr7.pfb
+note: downloading cmbx10.pfb
+note: Writing `/var/tmp/GR03_shifted_product_integration.aux` (1.42 KiB)
+note: Writing `/var/tmp/GR03_shifted_product_integration.out` (1.38 KiB)
+note: Writing `/var/tmp/GR03_shifted_product_integration.pdf` (81.27 KiB)
+note: Writing `/var/tmp/GR03_shifted_product_integration.log` (14.93 KiB)

@@ -1,0 +1,71 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py",
+    "$WORKSPACE/.checkpoint-tools/runs/julia-reference-comparison-01",
+    "/usr/bin/python3",
+    "-B",
+    "/var/tmp/payload.py",
+    "$WORKSPACE/.checkpoint-tools/python-aud01/bin/python",
+    "-s",
+    "-B",
+    "$WORKSPACE/studies/legendre/gr07/scripts/compare.py",
+    "$WORKSPACE/studies/legendre/gr07/results/python_reference.csv",
+    "$WORKSPACE/studies/legendre/gr07/results/julia_results.csv"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T20:23:59.886121+00:00",
+  "limits": {
+    "wall_seconds": 60,
+    "cpu_seconds_per_process": 45,
+    "address_space_mib_per_process": 1024,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 512,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+    "$WORKSPACE/studies/legendre/gr07/scripts/execution.py": "89cdebd746df16c512f9b9ba4a16b97dad46027c7106c622d3b6667f8fa236bf",
+    "$WORKSPACE/.checkpoint-tools/runs/julia-reference-comparison-01/payload.py": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+    "$WORKSPACE/studies/legendre/gr07/scripts/compare.py": "52ee6911755597f4b2e162a31252ebb6398a3518beb99e8a260f8bdff33af4bb",
+    "$WORKSPACE/studies/legendre/gr07/results/python_reference.csv": "de6687b10f66514b7bf2315b4037bba1bc945026f06be6e274d6b1316a5c9391",
+    "$WORKSPACE/studies/legendre/gr07/results/julia_results.csv": "d460f0faf18caca8186abaec0d79535a7117c97592d2317a66ac2bc2a9603bb0"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "/var/tmp/depot:$WORKSPACE/.checkpoint-tools/shared-julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONNOUSERSITE": "1",
+    "XDG_CACHE_HOME": "$WORKSPACE/.checkpoint-tools/cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 0.06551442599811708,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T20:23:59.951695+00:00",
+  "child_usage": {
+    "user_seconds": 0.013947999999999999,
+    "system_seconds": 0.003985,
+    "peak_rss_kib": 12444,
+    "peak_sampled_descendant_rss_bytes": 1478656
+  },
+  "output": {
+    "julia-reference-comparison-01.stdout.log": {
+      "bytes": 342,
+      "sha256": "9428a404f88fc68be7f554855e342a84e70454991f64d7421956dc2eb57c4733"
+    },
+    "julia-reference-comparison-01.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

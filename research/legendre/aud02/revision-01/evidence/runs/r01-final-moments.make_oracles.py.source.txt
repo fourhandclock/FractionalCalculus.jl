@@ -1,0 +1,58 @@
+"""GR-07 independent high-precision panel-integration oracle (new, not supplied).
+
+Integrates polynomial values after y=(d-x)^r, removing the singularity.
+No incomplete-beta formula or binomial kernel series is used. The same
+integrals are evaluated at 120 and 180 digits; this is numerical stabilization,
+not rigorous interval certification. Outputs are never overwritten.
+"""
+import csv
+from fractions import Fraction
+from pathlib import Path
+import sys
+import mpmath as mp
+
+
+def integrate(h, r, d, H, j, precision):
+    with mp.workdps(precision):
+        h, r, d, H = map(mp.mpf, (h, r, d, H))
+        lower, upper = (d-H)**r, d**r
+        # Map narrow integration intervals to [0,1] before adaptive quadrature.
+        def value(z):
+            y = lower + (upper-lower)*z
+            x = d-y**(1/r)
+            return x**j if j >= 0 else 2*x-1
+        return +(h**r/(r*mp.gamma(r))*(upper-lower)*mp.quad(value, [0, .25, .5, .75, 1]))
+
+
+def main(destination):
+    path = Path(destination)
+    assert not path.exists(), 'refusing to overwrite oracle output'
+    panels = [('1','1','1'),('.125','1.55','1'),('1e-18','1e18','1'),
+              ('1e-30','1e24','1'),('.25','.55','.55'),('1e-12','5e5','1')]
+    rows = []
+    for r in ['.01','.1','.5','.99']:
+        for h,d,H in panels:
+            row = dict(h=h,r=r,d=d,H=H)
+            for j,name in [(0,'m0'),(1,'m1'),(2,'m2'),(-1,'center')]:
+                lo,hi = integrate(h,r,d,H,j,120), integrate(h,r,d,H,j,180)
+                with mp.workdps(130):
+                    exact_zero = j == -1 and Fraction(d)==Fraction(H) and 2*Fraction(H)==1+Fraction(r)
+                    if exact_zero:
+                        # GR-02's known shifted final-panel cancellation. Relative
+                        # error is undefined at zero; both independent integrals
+                        # must be <1e-100 times the positive panel mass.
+                        mass=integrate(h,r,d,H,0,180)
+                        assert abs(lo)<mp.mpf('1e-100')*mass and abs(hi)<mp.mpf('1e-100')*mass
+                        row[name]='0'
+                    else:
+                        error = abs(lo-hi)/abs(hi)
+                        assert error < mp.mpf('1e-45'), (h,r,d,H,j,str(error))
+                        row[name] = mp.nstr(hi,60)
+            rows.append(row)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('x',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=rows[0]); w.writeheader(); w.writerows(rows)
+    print('PASS: 24 panels, 96 independent polynomial integrals; 120/180-digit stabilization <1e-45 relative for nonzero values; exact-zero integrals <1e-100 times panel mass.')
+
+if __name__=='__main__':
+    main(sys.argv[1])

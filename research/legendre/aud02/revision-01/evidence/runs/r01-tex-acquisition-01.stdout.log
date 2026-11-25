@@ -1,0 +1,24 @@
+note: Running TeX ...
+note: downloading SHA256SUM
+note: downloading article.cls
+note: downloading size11.clo
+note: downloading amsthm.sty
+note: downloading booktabs.sty
+note: downloading mt-LatinModernRoman.cfg
+note: downloading cmr8.tfm
+note: downloading cmr6.tfm
+note: downloading cmmi8.tfm
+note: downloading cmmi6.tfm
+note: downloading cmsy8.tfm
+note: downloading cmsy6.tfm
+note: downloading cmex8.tfm
+note: downloading cmex7.tfm
+note: Rerunning TeX because "tex-resource-fixture.aux" changed ...
+note: Running xdvipdfmx ...
+note: downloading cmmi10.pfb
+note: downloading cmr8.pfb
+note: downloading cmr10.pfb
+note: Writing `/var/tmp/tex-resource-fixture.log` (14.49 KiB)
+note: Writing `/var/tmp/tex-resource-fixture.pdf` (7.62 KiB)
+note: Not writing `tex-resource-fixture.out`: it would be empty.
+note: Writing `/var/tmp/tex-resource-fixture.aux` (652 B)

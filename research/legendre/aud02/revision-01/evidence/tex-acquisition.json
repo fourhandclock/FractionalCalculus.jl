@@ -1,0 +1,32 @@
+{
+  "authorization": "User-approved required TeX resources only",
+  "engine_sha256": "4df19452c202c5bef9f7c7e4a01a3f2b9d5199f0a1f73b70b4fe1bffbc9837f6",
+  "bundle": "https://relay.fullyjustified.net/default_bundle_v33.tar",
+  "source": "separate synthetic acquisition fixture; all research builds remain --only-cached",
+  "new_or_changed_files": {
+    "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "85e1126d18bd8a2bece59959a52dac8d493e0a210e58a850fef7d63bdfef02c6",
+    "files/98/8fb3e599df7e5b545e4253829dab11f0c7bd7827b79d32c2aaadfb52db6f6c": "988fb3e599df7e5b545e4253829dab11f0c7bd7827b79d32c2aaadfb52db6f6c",
+    "files/ef/c946da03cfa55c75be27d73012ab866fcc935fd47ac4a674026bbdbdcfa9f1": "efc946da03cfa55c75be27d73012ab866fcc935fd47ac4a674026bbdbdcfa9f1",
+    "files/81/50cbfac5cfe53040327df171c3059f10730b32cabf2504b01713d639a11feb": "8150cbfac5cfe53040327df171c3059f10730b32cabf2504b01713d639a11feb",
+    "files/84/c37f07ca360c41ad0a0fba7387d279d72457c69bdae03653208c683d8de6bc": "84c37f07ca360c41ad0a0fba7387d279d72457c69bdae03653208c683d8de6bc",
+    "files/37/3172fe340e4aede5129b89d65f576bfb1fe6932bd55c38f60bcaa84f3d1188": "373172fe340e4aede5129b89d65f576bfb1fe6932bd55c38f60bcaa84f3d1188",
+    "files/65/af8c1e162a952cab8e93c834fcf43ce09b508e6c16e512ebb673cd850b0d41": "65af8c1e162a952cab8e93c834fcf43ce09b508e6c16e512ebb673cd850b0d41",
+    "files/ab/6ecb4aaba9ca1b4259b1d1f64309a785bbaeb09183fd79a066b7764a448a28": "ab6ecb4aaba9ca1b4259b1d1f64309a785bbaeb09183fd79a066b7764a448a28",
+    "files/10/6afa9172f0c00e58b9f5cbc72b302a18aaeeaddf50caca145af9cc0b81afd2": "106afa9172f0c00e58b9f5cbc72b302a18aaeeaddf50caca145af9cc0b81afd2",
+    "files/3f/e694a5406f84847143e56ba1841385364277cfe7694a9f4bc0072ca8656abc": "3fe694a5406f84847143e56ba1841385364277cfe7694a9f4bc0072ca8656abc",
+    "files/3f/56ab22f7fc6a015813976c6c6cc2fd55736bbaec4958a4562e10719fa18062": "3f56ab22f7fc6a015813976c6c6cc2fd55736bbaec4958a4562e10719fa18062",
+    "files/fd/cede8794018df5f2b58f0905fb20a2b418ed8f67b73ee12445855dfbe5b1be": "fdcede8794018df5f2b58f0905fb20a2b418ed8f67b73ee12445855dfbe5b1be",
+    "files/13/7eb9f38f661c66309614066a7b5d63d8969d33aba0c9efee9f844a4ce65b50": "137eb9f38f661c66309614066a7b5d63d8969d33aba0c9efee9f844a4ce65b50",
+    "files/8d/5e2bdb117297385971927b14fe4804314133dc0027b3171249a08280894626": "8d5e2bdb117297385971927b14fe4804314133dc0027b3171249a08280894626",
+    "files/77/ec81551b712a59b0ab55c8965ab038c898cf7c29e425624c15c37d5a983578": "77ec81551b712a59b0ab55c8965ab038c898cf7c29e425624c15c37d5a983578",
+    "files/4c/5ae243ac0aa254e7ec7f0602cc2a4351e5011ff0cb6dc150a5f6de19585de6": "4c5ae243ac0aa254e7ec7f0602cc2a4351e5011ff0cb6dc150a5f6de19585de6",
+    "files/e3/661061e8aa474d6de5ffa916edceb0e3d8b998862018c147f0357fce00bcd7": "e3661061e8aa474d6de5ffa916edceb0e3d8b998862018c147f0357fce00bcd7"
+  },
+  "resource_names": [
+    "article.cls",
+    "size11.clo",
+    "booktabs.sty"
+  ],
+  "global_environment_modified": false,
+  "numerical_dependencies_acquired": false
+}

@@ -1,0 +1,107 @@
+status = "admitted"
+baseline_id = "gr07-baseline-01"
+candidate_id = "gr07-candidate-01"
+
+[files]
+"GR07.jl" = "1ddabb9c10064fadf8eea87d15e0f083cf98fa5d3c4e7989a322b81feca01f15"
+"run.jl" = "184ab4e335b2c1f6d7e1536e2310e0ce7d72b6557ee9dff70bd26d9bea6d26b2"
+"benchmark.jl" = "12fdf89ce17009829e4404468da8a6144720916aac8b1af5a0c0c7581cf6bf84"
+"test/runtests.jl" = "f071e84efd21de5fb4133c4dcf6bbb23974241de462ca99656a87ac5d8aa835e"
+"scripts/compare.py" = "52ee6911755597f4b2e162a31252ebb6398a3518beb99e8a260f8bdff33af4bb"
+"scripts/make_oracles.py" = "f0ead4965e0c39f41029af0d5a1c9b39f4a1c8a24c4cf97b282586a9a503f70a"
+"scripts/execution.py" = "89cdebd746df16c512f9b9ba4a16b97dad46027c7106c622d3b6667f8fa236bf"
+"scripts/isolate.py" = "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108"
+"../../../src/FractionalCalculus.jl" = "874c0e7021b7ce3bc4c17761e536b462490236f2259e22a00cb16a1bfcc34d98"
+"../../../src/TimeDiscretization.jl" = "4924991b6bc5987565e4d42634055c613651377cd461764bf5ba68d526d7c6a6"
+"../../../src/Legendre.jl" = "fea08f9a8be51c805511235b223ce20994bdb2510c2cfbdd424a3569e1089399"
+"../../../src/Solver.jl" = "fe81edc186cb846351c01b5156f1ebfd84b1c29f33143f9abfe2ef051c167ea3"
+"evidence/PLAN.md" = "5e76eb56292844bec1b2d2b1722605cb14dfaff0b52a5c609ae4a92d75b5b9e8"
+"evidence/environment.json" = "aa8e61a36c066f34db92f6523d7ac272e847f9c670953cb4c6c385b89025c640"
+"../../../Project.toml" = "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4"
+"../../../Manifest.toml" = "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d"
+"results/julia_results.csv" = "d460f0faf18caca8186abaec0d79535a7117c97592d2317a66ac2bc2a9603bb0"
+"results/python_reference.csv" = "de6687b10f66514b7bf2315b4037bba1bc945026f06be6e274d6b1316a5c9391"
+
+[expected."64|smooth|L1-printed"]
+h1_max = 0.0018128761116336894
+l2_max = 0.000973503748828906
+
+[expected."128|smooth|L1-printed"]
+h1_max = 0.0007196322589706116
+l2_max = 0.0003864329621152822
+
+[expected."256|smooth|L1-printed"]
+h1_max = 0.00028356060388362754
+l2_max = 0.00015226484604056846
+
+[expected."64|smooth|L12-printed"]
+h1_max = 0.000651806826332555
+l2_max = 0.00034940038276978807
+
+[expected."128|smooth|L12-printed"]
+h1_max = 0.0005399428317671511
+l2_max = 0.0002894631183877963
+
+[expected."256|smooth|L12-printed"]
+h1_max = 0.0004100767039444052
+l2_max = 0.00021984947878906107
+
+[expected."64|smooth|L12-PI-L"]
+h1_max = 0.0002536601379661675
+l2_max = 0.00013622286085797827
+
+[expected."128|smooth|L12-PI-L"]
+h1_max = 6.800739528500526e-5
+l2_max = 3.652195851276927e-5
+
+[expected."256|smooth|L12-PI-L"]
+h1_max = 1.7729442894290147e-5
+l2_max = 9.52122962542677e-6
+
+[expected."64|smooth|Alikhanov-PI-L"]
+h1_max = 9.042570343146885e-5
+l2_max = 4.8561249361189823e-5
+
+[expected."128|smooth|Alikhanov-PI-L"]
+h1_max = 2.257235216814966e-5
+l2_max = 1.2122013651847065e-5
+
+[expected."256|smooth|Alikhanov-PI-L"]
+h1_max = 5.637131065733598e-6
+l2_max = 3.0273043139538494e-6
+
+[expected."64|smooth|Alikhanov-PI-Q"]
+h1_max = 7.256148537600261e-5
+l2_max = 3.896535916030441e-5
+
+[expected."128|smooth|Alikhanov-PI-Q"]
+h1_max = 1.8140324209393306e-5
+l2_max = 9.74131420855749e-6
+
+[expected."256|smooth|Alikhanov-PI-Q"]
+h1_max = 4.535099040377644e-6
+l2_max = 2.4353391423373987e-6
+
+[expected."64|singular|Alikhanov-PI-L"]
+h1_max = 6.585053153791785e-5
+l2_max = 3.53636628253914e-5
+
+[expected."128|singular|Alikhanov-PI-L"]
+h1_max = 1.7495474009873962e-5
+l2_max = 9.395581667648555e-6
+
+[expected."256|singular|Alikhanov-PI-L"]
+h1_max = 4.493012020305466e-6
+l2_max = 2.412878974934762e-6
+
+[expected."64|singular|Alikhanov-PI-Q"]
+h1_max = 6.587431687408642e-5
+l2_max = 3.537643639856956e-5
+
+[expected."128|singular|Alikhanov-PI-Q"]
+h1_max = 1.749724759446911e-5
+l2_max = 9.396534138487338e-6
+
+[expected."256|singular|Alikhanov-PI-Q"]
+h1_max = 4.493090828909098e-6
+l2_max = 2.4129212974617844e-6

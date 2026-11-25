@@ -1,0 +1,6 @@
+{
+  "method": "read-only Git metadata files; no Git command",
+  "head": "ref: refs/heads/research/legendre-gr07",
+  "git_mutations": false,
+  "commit": "bf43fd0e78bcbcaae94d4c95fd9e43fd562ba477"
+}

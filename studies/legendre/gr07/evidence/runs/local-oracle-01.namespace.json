@@ -1,0 +1,13 @@
+{
+  "namespace_started": true,
+  "surviving_namespace_pids": [],
+  "namespace_cleanup_verified": true,
+  "bwrap_info": {
+    "child-pid": 43,
+    "ipc-namespace": 4026532629,
+    "mnt-namespace": 4026532627,
+    "pid-namespace": 4026532630,
+    "uts-namespace": 4026532628
+  },
+  "scope": "Linux PID namespace; no cgroup aggregate-resource claim."
+}

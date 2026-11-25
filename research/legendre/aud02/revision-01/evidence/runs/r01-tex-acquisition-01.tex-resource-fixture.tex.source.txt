@@ -1,0 +1,8 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\begin{document}
+Required resource fixture: $x^2+\Gamma(1+r)$.
+\begin{tabular}{cc}\toprule A&B\\\midrule 1&2\\\bottomrule\end{tabular}
+\end{document}

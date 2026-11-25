@@ -1,0 +1,54 @@
+[
+  {
+    "manuscript": "GR01_two_kernel_gronwall.tex",
+    "source_sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+    "cache_delta": {
+      "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "9b25e906bcb112bff604a57f62401849f51a8656dda3f6fbcdd9bd7f5bf6034a",
+      "files/c3/1dbaffb861162eadf3a7210bdf271b0dda577841aed4c0572069b0d52662b6": "c31dbaffb861162eadf3a7210bdf271b0dda577841aed4c0572069b0d52662b6",
+      "files/10/2fe06c430a8b681b2bf6876b7cd967ae4d47b4b6b41d915eb7913b726d9fb1": "102fe06c430a8b681b2bf6876b7cd967ae4d47b4b6b41d915eb7913b726d9fb1",
+      "files/73/eed8a83a07d8ef04d240da22bce1fd3646074f46179e3677f4f42a542f20b6": "73eed8a83a07d8ef04d240da22bce1fd3646074f46179e3677f4f42a542f20b6",
+      "files/c1/fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169": "c1fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169"
+    }
+  },
+  {
+    "manuscript": "GR02_alikhanov_kernels.tex",
+    "source_sha256": "4bfa15baba9a4ffef8d996aacd8db13669161875fbabb293cd93be23d17a74d8",
+    "cache_delta": {
+      "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "578cc2903dc55adeac6cc717631e9bc1e17b98e5f4f99f7ca18e37e6bd9fb085",
+      "files/22/deb6d3be3ffcb40b33f0e010afb256c677d97c2a2bdee1f5740cdc97751558": "22deb6d3be3ffcb40b33f0e010afb256c677d97c2a2bdee1f5740cdc97751558",
+      "files/9f/e20cb9ef24a0f4c74d38a65d4eee5cff3165f3b8600407ceba396aeb2b7617": "9fe20cb9ef24a0f4c74d38a65d4eee5cff3165f3b8600407ceba396aeb2b7617"
+    }
+  },
+  {
+    "manuscript": "GR03_shifted_product_integration.tex",
+    "source_sha256": "07f942a2d6070bc5f49f320346c6a1ebb7b1d6c543b94265566d61b76596f732",
+    "cache_delta": {
+      "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "01992f6f1944b7cba2e81bef30209598dcf8b53c00592eda52c27860524b1b4c",
+      "files/a7/46151d8e3a521965bbfae2666e1528374a514375daa7d620e9b89ebbbfb0ae": "a746151d8e3a521965bbfae2666e1528374a514375daa7d620e9b89ebbbfb0ae",
+      "files/b3/7e8671820b0753c6e233eaa3230c6ab9cff04e6c4baee312d60ae261e5aba1": "b37e8671820b0753c6e233eaa3230c6ab9cff04e6c4baee312d60ae261e5aba1",
+      "files/6d/ab44c885b7cbf567771d9cfa565f3df34d0e8124132b9b6f9fdc496a1c2eda": "6dab44c885b7cbf567771d9cfa565f3df34d0e8124132b9b6f9fdc496a1c2eda",
+      "files/e7/b284f0ee98b7773be9b57ca652b4bb14391370509a424b5b62b06b5cae86e4": "e7b284f0ee98b7773be9b57ca652b4bb14391370509a424b5b62b06b5cae86e4",
+      "files/38/ded79d7cce07fa28921f37f6b88e67bd86951a3e5af709c219d63454786ce1": "38ded79d7cce07fa28921f37f6b88e67bd86951a3e5af709c219d63454786ce1",
+      "files/ca/41102968b817bf6e8b22fd6de205ca23bf5088218511cce0c8129e1577cb70": "ca41102968b817bf6e8b22fd6de205ca23bf5088218511cce0c8129e1577cb70",
+      "files/ae/296e8e41b2b0f73e9a17fdc42c743b9ddcc58d23c30acaa3411206f7824780": "ae296e8e41b2b0f73e9a17fdc42c743b9ddcc58d23c30acaa3411206f7824780"
+    }
+  },
+  {
+    "manuscript": "GR04_discrete_two_kernel_gronwall.tex",
+    "source_sha256": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+    "cache_delta": {
+      "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "efbf0c0f93c923833750981a417809b1238e0bd61f7e79492905e10555681aba",
+      "files/58/3b65bd1857bffc2ab184fcb4aad4e70e12eb05c9ca9f1c58c9a00a86c8bccf": "583b65bd1857bffc2ab184fcb4aad4e70e12eb05c9ca9f1c58c9a00a86c8bccf"
+    }
+  },
+  {
+    "manuscript": "GR05_main_convergence.tex",
+    "source_sha256": "434483cab8a7ebfbc6f14e7eaeefb18a3d86a8e1780ffdb3bb5302c18f76a5df",
+    "cache_delta": {}
+  },
+  {
+    "manuscript": "GR06_graded_convergence.tex",
+    "source_sha256": "a422873375fa1edb79d476cb67ddd358be2b788ecc84ebfd87322bf9696ce735",
+    "cache_delta": {}
+  }
+]

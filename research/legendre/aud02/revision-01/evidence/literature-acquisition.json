@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-25T21:57:36.311048+00:00",
+  "authorization": "Additional primary-source search and downloads approved for revision 01",
+  "downloads": [
+    {
+      "file": "literature/whitt-1986.pdf",
+      "url": "https://www.columbia.edu/~ww2040/StochasticComparisons1986.pdf",
+      "bytes": 857773,
+      "sha256": "36f6e089e9ee8e8b39dde40c07b68b734e4db579ce16189535453ab0324806cb"
+    },
+    {
+      "file": "literature/van-dijk-sladky-2006.pdf",
+      "url": "https://dml.cz/bitstream/handle/10338.dmlcz/135698/Kybernetika_42-2006-1_2.pdf",
+      "bytes": 630182,
+      "sha256": "d62ff67d96e90dc2590fb03780e6d4dca118b617fe088e5e531214597b7bab5d"
+    }
+  ],
+  "CQ_recovery": {
+    "status": "exact locator unresolved",
+    "failures": [
+      "AMS web PDF HTTP 403",
+      "AMS official bare-host curl HTTP 403",
+      "AMS article landing page unavailable"
+    ],
+    "author_repository_searches": [
+      "EPFL",
+      "Politecnico di Torino",
+      "Pavia"
+    ],
+    "secondary_material_used_as_primary": false
+  },
+  "new_numeric_dependencies": false,
+  "notes": [
+    "Downloaded papers are local primary-source review copies, not part of the proposed publication-source scope.",
+    "The van Dijk\u2013Sladky equation page was rendered with pre-existing system Poppler/Cairo libraries; no dependency installation."
+  ]
+}

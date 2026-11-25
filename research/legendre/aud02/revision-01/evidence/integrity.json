@@ -1,0 +1,20 @@
+{
+  "original_input_files": 1393,
+  "original_input_mismatches": [],
+  "copied_input_files_preserved": 1388,
+  "intentional_integration_edits": [
+    ".gitignore",
+    "README.md",
+    "research/legendre/verification/README.md",
+    "research/legendre/verification/lean/lakefile.toml",
+    "studies/legendre/README.md"
+  ],
+  "original_workspace_files_checked": 481,
+  "original_workspace_mismatches": [],
+  "protected_readme_prefix_unchanged": true,
+  "original_test_body_preserved": true,
+  "Julia_project_and_manifest_unchanged": true,
+  "Lean_mathlib_pins_unchanged": true,
+  "scientific_review_Git_operations": false,
+  "publication_Git_operations_authorized": true
+}

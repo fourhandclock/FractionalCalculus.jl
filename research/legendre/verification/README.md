@@ -4,6 +4,10 @@
 
 **AUD-01 revision 01: ACCEPT WITH LIMITATIONS.** This checkpoint joins the numerical reproduction of Sabawi et al. (2025) to an independent mathematical audit. It preserves the earlier ST-04 work, adds the accepted spatial and temporal investigations, and records which arguments are analytical, machine-checked, or supported only by finite-grid experiments.
 
+## GR-01–07 closure
+
+The [AUD-02 revision-01 checkpoint](../aud02/revision-01/README.md) adds the revised uniform/graded Alikhanov–product-integration analysis and its separate Julia research module. Its conditional ordinary-H1 results, 54 named finite certificates, repaired moment-domain contract and actual validation are distinct from the endpoint L1/L1-2 results below. See the [research-method study guide](../../../studies/legendre/gr07/revision-01/README.md). Original AUD-01/ST-04 mathematical sources and all historical evidence remain preserved.
+
 ## Problem and published claims
 
 The model couples a Caputo time derivative to diffusion and weakly singular Volterra memory:

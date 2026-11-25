@@ -1,0 +1,170 @@
+{
+  "successful": [
+    {
+      "label": "aud02-abstract-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.6661867889997666
+    },
+    {
+      "label": "aud02-compare-fresh-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.06511444300122093
+    },
+    {
+      "label": "aud02-compare-julia-preserved-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.0656137270052568
+    },
+    {
+      "label": "aud02-compare-python-preserved-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.06559819300309755
+    },
+    {
+      "label": "aud02-export-rows-01",
+      "returncode": 0,
+      "elapsed_seconds": 6.8604394319991115
+    },
+    {
+      "label": "aud02-independent-rows-01",
+      "returncode": 0,
+      "elapsed_seconds": 6.9301732659987465
+    },
+    {
+      "label": "aud02-julia-environment-01",
+      "returncode": 0,
+      "elapsed_seconds": 2.3712238040025113
+    },
+    {
+      "label": "aud02-julia-matrix-01",
+      "returncode": 0,
+      "elapsed_seconds": 14.064065863996802
+    },
+    {
+      "label": "aud02-julia-regression-01",
+      "returncode": 0,
+      "elapsed_seconds": 13.596795235000172
+    },
+    {
+      "label": "aud02-julia-unit-01",
+      "returncode": 0,
+      "elapsed_seconds": 16.1533271340013
+    },
+    {
+      "label": "aud02-lean-aud01axioms-01",
+      "returncode": 0,
+      "elapsed_seconds": 5.526777757000673
+    },
+    {
+      "label": "aud02-lean-aud01finitesums-01",
+      "returncode": 0,
+      "elapsed_seconds": 1.2039854920003563
+    },
+    {
+      "label": "aud02-lean-aud01oscillator-01",
+      "returncode": 0,
+      "elapsed_seconds": 2.5702417270003934
+    },
+    {
+      "label": "aud02-lean-aud02axioms-01",
+      "returncode": 0,
+      "elapsed_seconds": 2.815118541002448
+    },
+    {
+      "label": "aud02-lean-aud02finite-02",
+      "returncode": 0,
+      "elapsed_seconds": 4.1736027070001
+    },
+    {
+      "label": "aud02-lean-aud02finite-04",
+      "returncode": 0,
+      "elapsed_seconds": 4.942782072001137
+    },
+    {
+      "label": "aud02-lean-auditconstants-01",
+      "returncode": 0,
+      "elapsed_seconds": 1.468337612997857
+    },
+    {
+      "label": "aud02-lean-coefficients-01",
+      "returncode": 0,
+      "elapsed_seconds": 14.84325447500305
+    },
+    {
+      "label": "aud02-lean-coefficientsaxioms-01",
+      "returncode": 0,
+      "elapsed_seconds": 5.015621389000444
+    },
+    {
+      "label": "aud02-lean-quadrature-01",
+      "returncode": 0,
+      "elapsed_seconds": 6.281502374997217
+    },
+    {
+      "label": "aud02-lean-quadratureaxioms-01",
+      "returncode": 0,
+      "elapsed_seconds": 8.834047697997448
+    },
+    {
+      "label": "aud02-preflight-02",
+      "returncode": 0,
+      "elapsed_seconds": 0.06534712299981038
+    },
+    {
+      "label": "aud02-python-environment-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.3666361270006746
+    },
+    {
+      "label": "aud02-python-gr02-01",
+      "returncode": 0,
+      "elapsed_seconds": 1.3680121319994214
+    },
+    {
+      "label": "aud02-python-gr03-01",
+      "returncode": 0,
+      "elapsed_seconds": 1.8132122310053091
+    },
+    {
+      "label": "aud02-python-gr04-01",
+      "returncode": 0,
+      "elapsed_seconds": 0.9676299310012837
+    },
+    {
+      "label": "aud02-python-gr05-01",
+      "returncode": 0,
+      "elapsed_seconds": 3.6111764360030065
+    },
+    {
+      "label": "aud02-python-gr06-01",
+      "returncode": 0,
+      "elapsed_seconds": 1.1675424249988282
+    },
+    {
+      "label": "aud02-python-reference-01",
+      "returncode": 0,
+      "elapsed_seconds": 2.6709483719969285
+    }
+  ],
+  "failed": [
+    {
+      "label": "aud02-boundary-acceptance-01",
+      "returncode": 1,
+      "elapsed_seconds": 0.06507737599895336
+    },
+    {
+      "label": "aud02-lean-aud02finite-01",
+      "returncode": 1,
+      "elapsed_seconds": 11.220119708999846
+    },
+    {
+      "label": "aud02-lean-aud02finite-03",
+      "returncode": 1,
+      "elapsed_seconds": 8.590383456998097
+    }
+  ],
+  "all_started_namespaces_cleaned": true,
+  "prelaunch_attempt": "evidence/preflight/prelaunch-01.json",
+  "all_scientific_runs_serial": true,
+  "aggregate_cgroup_isolation": false
+}

@@ -1,0 +1,4 @@
+case,h,r,d,H,m0,m1,m2,center
+tiny_product_M0_only,1.0e-200,0.5,1.0e-200,1.0e-200,1.1283791670955125e-200,unrepresentable,unrepresentable,not requested
+subnormal_step,5.0e-324,0.5,0.55,0.55,1.8600676194405033e-162,6.820247937948512e-163,3.000909092697345e-163,-4.960180318508007e-163
+near_zero_order,1.0,1.0e-310,1.0,1.0,1.0,1.0,1.0,1.0

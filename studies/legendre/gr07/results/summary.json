@@ -1,0 +1,85 @@
+{
+  "verdict": "ACCEPT WITH LIMITATIONS",
+  "baseline_commit": "bf43fd0e78bcbcaae94d4c95fd9e43fd562ba477",
+  "baseline_tracked_files": 521,
+  "supplied_package_files": 41,
+  "baseline_regression_assertions": 669,
+  "final_regression_assertions": 669,
+  "experimental_unit_assertions": 7941,
+  "earlier_unit_assertions": 7925,
+  "julia_scientific_configurations": 156,
+  "independent_reference_configurations": 156,
+  "julia_python_comparison": {
+    "passed": true,
+    "rows": 156,
+    "atol": 5e-11,
+    "rtol": 2e-06,
+    "maximum_absolute_differences": {
+      "l2_max": 1.9277981988530257e-14,
+      "h1_max": 3.437441303821842e-14,
+      "h1_final": 3.437441303821842e-14
+    },
+    "failures": [],
+    "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+  },
+  "python_supplied_replay_comparison": {
+    "passed": true,
+    "rows": 156,
+    "atol": 5e-11,
+    "rtol": 2e-06,
+    "maximum_absolute_differences": {
+      "l2_max": 2.581864843448356e-15,
+      "h1_max": 5.535448401733367e-15,
+      "h1_final": 5.535448401733367e-15
+    },
+    "failures": [],
+    "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+  },
+  "maximum_julia_scaled_residual": 4.1747833680964675e-13,
+  "maximum_python_scaled_residual": 4.3710194689557106e-13,
+  "performance": {
+    "warmup_solves": 21,
+    "measured_solves": 105,
+    "phase_records": 420,
+    "repeats_per_configuration": 5,
+    "sizes": [
+      64,
+      128,
+      256
+    ],
+    "sampled_descendant_peak_rss_bytes": 697708544,
+    "compile_time_during_measured_samples_max_seconds": 0.0,
+    "rss_scope": "Whole benchmark namespace, including warmup/JIT; sampled sum, shared pages can be counted more than once. Not per-case RSS or an enforced aggregate cap. Outer launcher ru_maxrss is not used as Julia peak memory.",
+    "source_admission": "evidence/admission.toml",
+    "cross_language_speedup_claim": false
+  },
+  "fresh_reproduction_entrypoint": {
+    "run_id": "replay-check",
+    "correctness_pipeline_passed": true,
+    "performance_repeated": false,
+    "results": "results/replay-check"
+  },
+  "figures": {
+    "standalone_svg_count": 10,
+    "source_csv": "results/julia_results.csv",
+    "timing_csv": "results/timing_repeats.csv",
+    "runtime_bars": "minimum\u2013maximum of five actual repeats, not confidence intervals",
+    "visually_reviewed": [
+      "error_N_a0.75_singular.svg",
+      "error_runtime_smooth.svg",
+      "spatial_refinement.svg"
+    ],
+    "initial_layout_correction_retained": true
+  },
+  "invalid_initial_reference_used": false,
+  "additional_dependencies_acquired": false,
+  "scientific_source_freeze": "Implementation, tests, benchmark source and admitted inputs unchanged after timing admission.",
+  "limitations": [
+    "GR-01\u201306 proofs remain proposed for AUD-02; no Lean certification of these arguments.",
+    "Forced 1D manufactured solutions only; no 2D, general PDE regularity or novelty claim.",
+    "Uniform/nondecreasing-step Float64 meshes; extreme unrepresentable nodes or orders are outside the tested numerical range.",
+    "Finite-grid rates are observations, including nonmonotone uniform singular errors.",
+    "Controls retain diagnostic state/increment copies and use their actual high-precision library weight construction; timings/storage are implementation-specific.",
+    "Per-process and sampled execution safeguards are not aggregate cgroup isolation."
+  ]
+}

@@ -1,0 +1,10 @@
+**
+(GR01_two_kernel_gronwall.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24>
+! ! LaTeX Error: File `article.cls' not found..
+\@missingfileerror ...or: File `#1.#2' not found.}
+                                                  
+l.2 \usepackage
+               [margin=25mm]{geometry}
+No pages of output.

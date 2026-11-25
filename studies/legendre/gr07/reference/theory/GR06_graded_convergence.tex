@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\D}{\mathcal D_\tau^\alpha}
+\title{GR-06: Graded-mesh convergence\\\large Alikhanov--product integration with Legendre spectral diffusion}
+\author{Research working notes}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Scope.} Extend GR-05 to fixed fractional orders and a fixed grading exponent; no claim of order-uniform constants, optimal grading for all data, novel Alikhanov theory, or formal certification. The following argument is a proposed analytical extension pending independent review. Use the nodal and spatial assumptions of GR-05 and replace classical time smoothness by the regularity below.
+\section{Nonuniform time discretization}
+Let $t_n=T(n/N)^\gamma$, $\gamma\ge1$, $\tau_n=t_n-t_{n-1}$, $r=1-\beta$, $\theta=\alpha/2$, $\sigma=1-\theta$, $t_*^n=t_{n-1}+\sigma\tau_n$ and $v_*^n=\sigma v^n+\theta v^{n-1}$. Use forward quadratic interpolation on completed panels and linear interpolation on the final partial panel for the Caputo derivative. Denote its collected increment coefficients by $A_{nk}$, and let $P$ be the complementary matrix, $PA=J$ with $J_{nk}=1$ for $k\le n$. Theorem 2.2 and Corollary 2.3 of the preprint \cite{lmz} apply since $\tau_k/\tau_{k+1}\le1<7/4$. They give positive monotone coefficients, the shifted energy inequality, and
+\[
+ A_{nk}\ge d(t_n-t_{k-1})^{-\alpha},\qquad d=\frac4{11\Gamma(1-\alpha)}.
+\]
+The GR-02 complementary construction gives $P\ge0$ and $\sum_{j=m}^nP_{nj}\le d^{-1}(t_n-t_{m-1})^\alpha$.
+
+For normalized memory $I^r$ use PI-L on all panels, or PI-Q with forward quadratic interpolation and backward quadratic interpolation on the final partial panel (linear at startup). On panel $k$ put $x=(s-t_{k-1})/\tau_k$, $d_k=(t_*^n-t_{k-1})/\tau_k$, $h=1$ or $\sigma$. The moment is $\tau_k^r d_k^{r+j} B_{h/d_k}(j+1,r)/\Gamma(r)$ for $j=0,1,2$. Evaluate $d_n=\sigma$ exactly. For a completed panel let $R=\tau_{k+1}/\tau_k\ge1$; its nodes in $x$ are $0,1,1+R$, with negative basis $x(x-1)/(R(1+R))$. On the final panel let $\rho=\tau_{n-1}/\tau_n$; its nodes are $-\rho,0,1$, with negative basis $x(x-1)/(\rho(1+\rho))$. For fixed $\gamma$, $\rho$ is bounded below by a positive $\rho_\gamma$ independent of $N$: at $n=2$ it equals $1/(2^\gamma-1)$; for $n\ge3$, comparison of the integrals of $\gamma x^{\gamma-1}$ gives $\rho\ge((n-2)/n)^{\gamma-1}\ge3^{1-\gamma}$. Take the minimum of these two bounds.
+
+With $H_{nk}=|W_{nk}|$ for assembled memory weights, partition of unity and the absolute basis sum yield
+\[
+ \sum_{k=0}^nH_{nk}\le J_X:=L_X T^r/\Gamma(1+r),\quad L_L=1,\quad L_Q=1+[2\rho_\gamma(1+\rho_\gamma)]^{-1}.
+\]
+The forward stencil extends support at most one panel earlier than the linear one. For $m\ge1$, any basis belonging to $k\ge m$ is supported (within the integrated domain) after $t_{\max(0,m-2)}$. Since the steps are nondecreasing, its integrated tail is bounded using length $2(t_n-t_{m-1})$. Hence for $\ell=t_n-t_{m-1}$,
+\[
+ \sum_{k=m}^n H_{nk}\le L_X2^r\ell^r/\Gamma(1+r),\quad
+ \sum_{k=m}^n(PH_+)_{nk}\le d^{-1} L_X2^r\ell^{\alpha+r}/\Gamma(1+r).
+\]
+The subscript $+$ omits the initial column. PI-L permits removal of $2^r$. Unlike GR-04, we use a physical-time block comparison, not a uniform Toeplitz resolvent.
+\section{Stability with two classes of residual}
+Let $A$ now denote the fixed nonnegative self-adjoint spatial operator (distinct from the time coefficient matrix), $V=D(A^{1/2})$ with $\norm{v}_V^2=\norm{v}^2+\norm{A^{1/2}v}^2$, and assume a uniformly bounded family $K_n$. Consider
+\[
+ \D v+Av_*+\lambda\Gamma(r)K_n Q_X^n[v]=g_n+h_n,
+ \qquad g_n\in V,\quad h_n\in H.
+\]
+For data in $D(A)$, stepwise solvability follows as in GR-04: the relative norm of the bounded memory perturbation of $A_{nn}I+\sigma A$ is $O(\tau_n^{\alpha+r})$ by the diagonal tail estimates. In particular, the sufficiently fine condition is independent of the spatial dimension.
+\begin{theorem}[Split-residual energy estimate]
+With fixed orders, grading and operator bounds, for sufficiently fine grids,
+\[
+ \max_n\norm{v^n}_V\le C\left(\norm{v^0}_V+\max_n\norm{h_n}+\max_n\sum_{j=1}^nP_{nj}\norm{g_j}_V\right).
+\]
+\end{theorem}
+\begin{proof}
+Let $E_n=\norm{v^n}_V^2$, $S E=\sigma E_n+\theta E_{n-1}$, $L=\max_nE_n^{1/2}$. Test with $2(v_*+Av_*)$ and use the shifted energy inequality in $H$ and on $A^{1/2}v$. Bound the contribution of $g_n$ by $2L\norm{g_n}_V$. Young's inequality absorbs the $Av_*$ contribution of $h_n$ and the memory into the positive diffusion term. By weighted Cauchy--Schwarz the squared memory norm is at most $\mu^2 J_X\sum_k H_{nk}E_k$ with $\mu=|\lambda|\Gamma(r)\sup_n\norm{K_n}$. We obtain, discarding dissipation,
+\[
+ \D E\le C SE+C\sum_{k=0}^n H_{nk}E_k+C\norm{h_n}^2+2L\norm{g_n}_V.
+\]
+Apply $P$, separate the initial column, and use its total mass bound. Thus $E_+\le a\mathbf 1+B E_+$, where $B=CPS_++CPH_+$ and
+\[
+ a=C(E_0+\max_j\norm{h_j}^2)+2L\max_n\sum_{j=1}^nP_{nj}\norm{g_j}_V.
+\]
+The row tails of $PS_+$ are bounded by $d^{-1}\ell^\alpha$ since $S_+$ is causal with row sums at most one. Those of $PH_+$ obey the previous bound. Pick a fixed physical length $\ell_0>0$ so that $C(\ell_0^\alpha+\ell_0^{\alpha+r})\le1/2$. Partition into maximal consecutive blocks of span at most $\ell_0$; if $\max\tau_n\le\ell_0/2$, all nonfinal blocks span at least $\ell_0/2$. On each block absorb its current contribution and bound previous blocks by the uniform total row mass of $B$. Iteration over at most $2T/\ell_0+1$ blocks gives $L^2\le C(a+E_0)$. Young's inequality absorbs the resulting linear term in $L$, proving the estimate. No commutation of $K_n$ with $A$ is used.
+\end{proof}
+\section{Initial-layer consistency and the fully discrete result}
+Assume $u\in C([0,T];H^m\cap H_0^1)$, $u\in C^3((0,T];H^m\cap H_0^1)$, $m\ge2$ integer, with $\norm{\partial_t^j u(t)}_{H^m}\le C(1+t^{\alpha-j})$ for $j=1,2,3$. The nodal multiplier, forcing and weak equation assumptions of GR-05 hold at all shifted points. The exact Caputo derivative is uniformly bounded in $H^m$ by beta integration of the first derivative.
+
+Let $R_D^j=(\D u)^{j-\theta}-{}^CD_t^\alpha u(t_*^j)$. The nonuniform global consistency estimate (Lemma 3.6 of \cite{lmz}, preprint version) extends to Hilbert-valued functions by its integral remainder and triangle-inequality proof. With regularity exponent $\alpha$, it gives
+\[
+ \max_n\sum_{j=1}^nP_{nj}\norm{R_D^j}_{H^m}\le C N^{-\min(\gamma\alpha,3-\alpha)}.
+\]
+Indeed its startup terms are $O(\tau_1^\alpha+t_1^{\alpha-3}\tau_2^3)=O(N^{-\gamma\alpha})$ and its remaining maximum is bounded by $C\max_{k\ge2} t_k^\alpha t_{k-1}^{\alpha-3}\tau_k^3/\tau_{k-1}^\alpha$. The latter is $O(N^{-\min(\gamma\alpha,3-\alpha)})$ by $\tau_k\asymp N^{-\gamma} k^{\gamma-1}$ and $t_{k-1}\asymp t_k$ for $k\ge2$. A maximum of the unweighted local derivative defects would not converge at startup.
+
+Let $s=\min(2,\gamma\alpha)$. Linear interpolation errors are $O(N^{-s})$ in $H^m$: the first interval uses $\norm{u(t)-u(0)}\le Ct^\alpha$, and later intervals use $C\tau_k^2(1+t_{k-1}^{\alpha-2})$. The same bound holds for the quadratic memory interpolant. On stencils touching zero use the variation bound and bounded absolute basis sum; elsewhere subtract the first-order Taylor polynomial at the earliest stencil node and use the bounded absolute basis sum and a second-derivative bound over the stencil. Adjacent step ratios are uniformly bounded above and below for fixed grading, and for stencils not touching zero their earliest positive time is comparable to their latest time. Therefore the same $O(N^{-s})$ follows. Integration against the normalized memory kernel of bounded total mass preserves the estimate, as does applying the spatial Laplacian to the shifted linear interpolation error (since $m\ge2$).
+
+For the fully discrete GLL method let $z^k=\mathcal R_Mu(t_k)$ be the derivative Ritz projection of GR-05, with $e^k=U_M^k-z^k$. Split the derivative part of the residual as
+\[
+ \D z-{}^CD_t^\alpha u=\mathcal R_M R_D+(\mathcal R_M-I){}^CD_t^\alpha u.
+\]
+The first term is a polynomial in $V_M$ with energy norm bounded by $C\norm{R_D}_{H^m}$ because of Ritz stability, Poincar\'e and GLL norm equivalence. Assign it (with the appropriate error-equation sign) to $g_n$. The second is a nodal residual of size $O(M^{1-m})$. Assign this and all other residuals to $h_n$ via their GLL Riesz representatives. GR-05's quadrature defect applies to the bounded $H^m$ function ${}^CD_t^\alpha u+\lambda\Gamma(r)KI^ru-f$; the spatial projection defects are $O(M^{1-m})$, the memory projection uses its absolute row mass, and the time interpolation and memory consistency defects are $O(N^{-s})$. Thus $\max\norm{h_n}_M\le C(M^{1-m}+N^{-s})$. The stiffness projection cancels by Ritz orthogonality; the shifted stiffness residual is integrated by parts as in GR-05.
+\begin{theorem}[Graded-mesh fully discrete convergence]
+Under these hypotheses and Ritz initial data (or an approximation of order $M^{1-m}$ in energy norm), both PI-L and PI-Q satisfy, for sufficiently large $N$,
+\[
+ \max_{0\le n\le N}\norm{u(t_n)-U_M^n}_{H^1}\le C(N^{-\min(2,\gamma\alpha)}+M^{1-m}).
+\]
+In particular $\gamma\ge2/\alpha$ suffices for second-order temporal convergence. Constants are independent of $N,M$ but may depend on fixed $\alpha,\beta,\gamma$, $T$, and the stated data norms. This does not establish that the exact PDE solution has the assumed spatial-temporal regularity for arbitrary initial data.
+\end{theorem}
+\begin{proof}
+Apply the split-residual theorem using the discrete spatial operator $A_M$ of GR-05. Its energy norm is equivalent to $H^1$ uniformly in $M$. The complementary-weighted $g$ bound is $O(N^{-\min(\gamma\alpha,3-\alpha)})$, no larger than $O(N^{-s})$. Add the uniform Ritz error. \qedhere
+\end{proof}
+\clearpage
+\section{Standalone diagnostic and remaining work}
+The Python diagnostic uses incomplete-beta panel moments, a scalar manufactured solution $1+t^\alpha$, $T=1$, diffusion eigenvalue 2, $K=1$, $\lambda=0.4$, and exact consistent forcing. All 60 cases pass the coefficient, mass, complementary, tail and scaled equation residual assertions. Last-doubling rates ($128\to256$):
+\begin{center}
+\begin{tabular}{ccccc}\toprule
+$\alpha$&$\beta$&Uniform (both)&Graded PI-L&Graded PI-Q\\\midrule
+0.50&0.25&0.328&1.977&1.975\\
+0.75&0.50&0.688&1.967&1.967\\
+0.90&0.80&0.859&1.867&1.871\\\bottomrule
+\end{tabular}
+\end{center}
+Graded tests use $\gamma=2/\alpha$. These are scalar finite-grid diagnostics, not full spectral tests or proof of asymptotic rates. The first run failed a mass assertion because the last partial-panel ratio was formed by floating-point subtraction; setting its known exact value $d_n=\sigma$ corrected this without weakening assertions. Retain the initial script and stdout. No Lean, Julia, GitHub or independent audit work is claimed. GR-07 should implement and benchmark the new schemes, including a nonuniform GLL case; AUD-02 should independently review GR-01--06, in particular the Hilbert-valued consistency extension, mixed-residual proof and spatial regularity. Check relevant prior art before any novelty assertion.
+\begin{thebibliography}{9}
+\bibitem{lmz} H.-L. Liao, W. McLean and J. Zhang, A second-order scheme with nonuniform time steps for a linear reaction-subdiffusion problem, \emph{Commun. Comput. Phys.} 30 (2021), 567--601. DOI: \href{https://doi.org/10.4208/cicp.OA-2020-0124}{10.4208/cicp.OA-2020-0124}. Preprint \href{https://arxiv.org/abs/1803.09873v4}{arXiv:1803.09873v4}; theorem locators here refer to that version.
+\end{thebibliography}
+\end{document}

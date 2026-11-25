@@ -1,0 +1,75 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py",
+    "$WORKSPACE/.checkpoint-tools/runs/r01-final-unit",
+    "/usr/bin/python3",
+    "-B",
+    "/var/tmp/payload.py",
+    "$WORKSPACE/.checkpoint-tools/julia-1.12.6/bin/julia",
+    "--startup-file=no",
+    "--heap-size-hint=512M",
+    "--gcthreads=1",
+    "--project=$WORKSPACE",
+    "$WORKSPACE/studies/legendre/gr07/revision-01/test/runtests.jl",
+    "--oracles=$WORKSPACE/research/legendre/aud02/revision-01/evidence/results/final/moments.csv",
+    "--boundary-oracle=$WORKSPACE/research/legendre/aud02/revision-01/evidence/results/boundary.csv"
+  ],
+  "cwd": "$WORKSPACE",
+  "started_at_utc": "2026-11-25T21:48:07.839204+00:00",
+  "limits": {
+    "wall_seconds": 300,
+    "cpu_seconds_per_process": 240,
+    "address_space_mib_per_process": 8192,
+    "file_size_mib_per_file": 256,
+    "combined_log_limit_mib": 8,
+    "log_monitor_interval_seconds": 0.2,
+    "sampled_descendant_rss_mib": 2048,
+    "cleanup_grace_seconds": 5,
+    "aggregate_cgroup_limits": false
+  },
+  "source_sha256": {
+    "$WORKSPACE/studies/legendre/gr07/scripts/isolate.py": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+    "$WORKSPACE/research/legendre/aud02/revision-01/scripts/execution.py": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+    "$WORKSPACE/.checkpoint-tools/runs/r01-final-unit/payload.py": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+    "$WORKSPACE/studies/legendre/gr07/revision-01/GR07.jl": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+    "$WORKSPACE/studies/legendre/gr07/revision-01/test/runtests.jl": "632abd307fdd6ace8e3a1ff8c54910169f8b72c8603aaab9448e37f4f9d0f84d",
+    "$WORKSPACE/research/legendre/aud02/revision-01/evidence/results/final/moments.csv": "75539bfdd1ec1c0875954bb32bb6a0e21f2e33a6310ad418a6a2ec45918709c5",
+    "$WORKSPACE/research/legendre/aud02/revision-01/evidence/results/boundary.csv": "4769909cbab060cbc05c6eaa93cba7c4ab641d465fc74ac8fc39166ad1d02abe",
+    "$WORKSPACE/research/legendre/aud02/revision-01/scripts/validate_checkpoint.py": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c"
+  },
+  "environment": {
+    "JULIA_DEPOT_PATH": "/var/tmp/depot:$WORKSPACE/.checkpoint-tools/shared-julia-depot",
+    "JULIA_NUM_THREADS": "1",
+    "JULIA_NUM_PRECOMPILE_TASKS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONNOUSERSITE": "1",
+    "XDG_CACHE_HOME": "/home/hardeek/.cache"
+  },
+  "runner_sha256": "b9a4893ffd819b8965d7d432c91308d04dd5f20ea1332d094e99a709fd55cbfb",
+  "outcome": "completed",
+  "returncode": 0,
+  "elapsed_seconds": 18.6418197660023,
+  "interrupted_signal": null,
+  "cleanup": "process_group_stop_attempted_and_direct_child_reaped",
+  "scope_limitation": "Process groups retain ordinary children, not deliberately detached processes. No cgroup-isolation claim.",
+  "finished_at_utc": "2026-11-25T21:48:26.481794+00:00",
+  "child_usage": {
+    "user_seconds": 0.012990999999999999,
+    "system_seconds": 0.0059949999999999995,
+    "peak_rss_kib": 12488,
+    "peak_sampled_descendant_rss_bytes": 710123520
+  },
+  "output": {
+    "r01-final-unit.stdout.log": {
+      "bytes": 1356,
+      "sha256": "ac868c4427a4c408ca0ebc1aad15c252ddd67133fe7a597eb47d2d8b6d15f50a"
+    },
+    "r01-final-unit.stderr.log": {
+      "bytes": 140,
+      "sha256": "c88e0d4cab95b21b4e2223d8c5d11fb2b3cb1db447fbe791de281ef4090c8efe"
+    }
+  }
+}

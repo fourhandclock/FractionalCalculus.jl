@@ -1,0 +1,4 @@
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Aud02Finite.lean:112:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Aud02Finite.lean:125:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`

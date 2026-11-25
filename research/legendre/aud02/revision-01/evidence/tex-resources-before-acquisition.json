@@ -1,0 +1,28 @@
+{
+  "authorization": "AUD-02 revision 01 final validation and publication: missing TeX resources required for six manuscripts",
+  "required_missing_before_acquisition": [
+    {
+      "name": "article.cls",
+      "bundle_offset": 143732224,
+      "bundle_bytes": 20144,
+      "absent_from_private_cache_manifest": true
+    },
+    {
+      "name": "size11.clo",
+      "bundle_offset": 145089024,
+      "bundle_bytes": 8464,
+      "absent_from_private_cache_manifest": true
+    },
+    {
+      "name": "booktabs.sty",
+      "bundle_offset": 75262464,
+      "bundle_bytes": 6078,
+      "absent_from_private_cache_manifest": true
+    }
+  ],
+  "manifest_sha256": "72483d4e48c13c1f7a4992da3299d74f2997153ce3e085bcc9686acbeb90e343",
+  "index_sha256": "0fb434b0fa5fdebea7f767ed9c31939c99a780d6f95cd3f540aae55910bb5697",
+  "acquisition_scope": "Only TeX resources requested by the synthetic manuscript-package fixture; existing engine and fixed bundle",
+  "original_offline_failure": "evidence/runs/r01-final-latex-gr01.stderr.log",
+  "global_environments_and_Julia_Lean_pins": "unchanged"
+}

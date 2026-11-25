@@ -1,0 +1,2 @@
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/AuditConstants.lean:19:38: warning: unused variable `hr`
+note: this linter can be disabled with `set_option linter.unusedVariables false`

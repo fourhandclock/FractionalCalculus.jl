@@ -1,0 +1,267 @@
+{
+  "runs": [
+    {
+      "label": "r01-boundary-oracle-01",
+      "returncode": 0,
+      "wall_seconds": 0.5665903629997047
+    },
+    {
+      "label": "r01-final-baseline",
+      "returncode": 0,
+      "wall_seconds": 16.566155976004666
+    },
+    {
+      "label": "r01-final-export",
+      "returncode": 0,
+      "wall_seconds": 4.011222206005186
+    },
+    {
+      "label": "r01-final-independent-rows",
+      "returncode": 0,
+      "wall_seconds": 6.879790756996954
+    },
+    {
+      "label": "r01-final-julia-environment",
+      "returncode": 0,
+      "wall_seconds": 2.2696830200002296
+    },
+    {
+      "label": "r01-final-julia-matrix",
+      "returncode": 0,
+      "wall_seconds": 14.800336346001131
+    },
+    {
+      "label": "r01-final-julia-python",
+      "returncode": 0,
+      "wall_seconds": 0.06530382500204723
+    },
+    {
+      "label": "r01-final-latex-gr01",
+      "returncode": 1,
+      "wall_seconds": 0.20195192100072745
+    },
+    {
+      "label": "r01-final-lean-aud01axioms",
+      "returncode": 0,
+      "wall_seconds": 4.123648241999035
+    },
+    {
+      "label": "r01-final-lean-aud01finitesums",
+      "returncode": 0,
+      "wall_seconds": 1.3178570839954773
+    },
+    {
+      "label": "r01-final-lean-aud01oscillator",
+      "returncode": 0,
+      "wall_seconds": 3.171906780997233
+    },
+    {
+      "label": "r01-final-lean-aud02axioms",
+      "returncode": 0,
+      "wall_seconds": 1.8691131629966549
+    },
+    {
+      "label": "r01-final-lean-aud02finite",
+      "returncode": 0,
+      "wall_seconds": 2.7705818180038477
+    },
+    {
+      "label": "r01-final-lean-auditconstants",
+      "returncode": 0,
+      "wall_seconds": 2.169594302002224
+    },
+    {
+      "label": "r01-final-lean-coefficients",
+      "returncode": 0,
+      "wall_seconds": 14.649180641994462
+    },
+    {
+      "label": "r01-final-lean-coefficientsaxioms",
+      "returncode": 0,
+      "wall_seconds": 5.128161034001096
+    },
+    {
+      "label": "r01-final-lean-quadrature",
+      "returncode": 0,
+      "wall_seconds": 12.154368021001574
+    },
+    {
+      "label": "r01-final-lean-quadratureaxioms",
+      "returncode": 0,
+      "wall_seconds": 7.786548905998643
+    },
+    {
+      "label": "r01-final-moments",
+      "returncode": 0,
+      "wall_seconds": 17.350500567998097
+    },
+    {
+      "label": "r01-final-pdf-render",
+      "returncode": 0,
+      "wall_seconds": 0.9670461190034985
+    },
+    {
+      "label": "r01-final-preserved-julia",
+      "returncode": 0,
+      "wall_seconds": 0.06493254400265869
+    },
+    {
+      "label": "r01-final-python-environment",
+      "returncode": 0,
+      "wall_seconds": 0.365678686001047
+    },
+    {
+      "label": "r01-final-python-reference",
+      "returncode": 0,
+      "wall_seconds": 2.6698259960030555
+    },
+    {
+      "label": "r01-final-unit",
+      "returncode": 0,
+      "wall_seconds": 18.6418197660023
+    },
+    {
+      "label": "r01-final-verify_gr02",
+      "returncode": 0,
+      "wall_seconds": 1.367662800999824
+    },
+    {
+      "label": "r01-final-verify_gr03",
+      "returncode": 0,
+      "wall_seconds": 1.8365505760011729
+    },
+    {
+      "label": "r01-final-verify_gr04",
+      "returncode": 0,
+      "wall_seconds": 0.9669876429979922
+    },
+    {
+      "label": "r01-final-verify_gr05",
+      "returncode": 0,
+      "wall_seconds": 3.5713354340041406
+    },
+    {
+      "label": "r01-final-verify_gr06_graded",
+      "returncode": 0,
+      "wall_seconds": 1.0033300400027656
+    },
+    {
+      "label": "r01-julia-unit-01",
+      "returncode": 1,
+      "wall_seconds": 19.363332118999097
+    },
+    {
+      "label": "r01-julia-unit-02",
+      "returncode": 0,
+      "wall_seconds": 20.11554936399625
+    },
+    {
+      "label": "r01-literature-render-01",
+      "returncode": 0,
+      "wall_seconds": 0.2016228379943641
+    },
+    {
+      "label": "r01-offline-final-latex-gr01",
+      "returncode": 0,
+      "wall_seconds": 3.1713906150034745
+    },
+    {
+      "label": "r01-offline-final-latex-gr02",
+      "returncode": 0,
+      "wall_seconds": 3.2086416570018628
+    },
+    {
+      "label": "r01-offline-final-latex-gr03",
+      "returncode": 0,
+      "wall_seconds": 3.123030150003615
+    },
+    {
+      "label": "r01-offline-final-latex-gr04",
+      "returncode": 0,
+      "wall_seconds": 3.171477251999022
+    },
+    {
+      "label": "r01-offline-final-latex-gr05",
+      "returncode": 0,
+      "wall_seconds": 3.121276158002729
+    },
+    {
+      "label": "r01-offline-final-latex-gr06",
+      "returncode": 0,
+      "wall_seconds": 3.0726847799960524
+    },
+    {
+      "label": "r01-original-boundaries-01",
+      "returncode": 0,
+      "wall_seconds": 4.480638160996023
+    },
+    {
+      "label": "r01-preflight-01",
+      "returncode": 0,
+      "wall_seconds": 0.1158313720006845
+    },
+    {
+      "label": "r01-repaired-export-01",
+      "returncode": 0,
+      "wall_seconds": 4.3753402959991945
+    },
+    {
+      "label": "r01-repaired-independent-01",
+      "returncode": 0,
+      "wall_seconds": 6.83161466200545
+    },
+    {
+      "label": "r01-tex-acquisition-01",
+      "returncode": 0,
+      "wall_seconds": 10.43074747799983
+    },
+    {
+      "label": "r01-tex-acquisition-02",
+      "returncode": 0,
+      "wall_seconds": 7.735765356002958
+    },
+    {
+      "label": "r01-tex-acquisition-gr01",
+      "returncode": 0,
+      "wall_seconds": 5.78217004200269
+    },
+    {
+      "label": "r01-tex-acquisition-gr02",
+      "returncode": 0,
+      "wall_seconds": 4.276826930996322
+    },
+    {
+      "label": "r01-tex-acquisition-gr03",
+      "returncode": 0,
+      "wall_seconds": 6.456014060000598
+    },
+    {
+      "label": "r01-tex-acquisition-gr04",
+      "returncode": 0,
+      "wall_seconds": 4.412701296998421
+    },
+    {
+      "label": "r01-tex-acquisition-gr05",
+      "returncode": 0,
+      "wall_seconds": 3.124555695001618
+    },
+    {
+      "label": "r01-tex-acquisition-gr06",
+      "returncode": 0,
+      "wall_seconds": 3.007491079995816
+    },
+    {
+      "label": "r01-typeset-latex-gr01",
+      "returncode": 1,
+      "wall_seconds": 3.27168019599776
+    },
+    {
+      "label": "r01-typeset02-latex-gr01",
+      "returncode": 1,
+      "wall_seconds": 3.120830954001576
+    }
+  ],
+  "all_namespace_cleanup_verified": true,
+  "aggregate_cgroup_isolation": false,
+  "prelaunch_record": "evidence/prelaunch-01.json"
+}

@@ -1,0 +1,11 @@
+Abstract noncommuting matrices: 12 cases, 744 word inequalities, minimum commutator infinity norm 1.562590e-03
+Max comparison excess (clipped at zero): 5.551e-17; equality residual 8.882e-16
+Continuous limit of scalar majorant at T=1 (not a PDE solution):
+p=0.35 q=0.85: continuous=2.632465296; errors=3.773099e-02, 1.924814e-02, 9.804961e-03, 4.981395e-03
+p=0.75 q=1.25: continuous=2.228937806; errors=2.268538e-02, 1.126130e-02, 5.615261e-03, 2.805246e-03
+p=0.95 q=1.60: continuous=2.094708798; errors=1.674208e-02, 8.261759e-03, 4.104346e-03, 2.045681e-03
+Traceback (most recent call last):
+  File "/mnt/data/verify_gr04.py", line 115, in <module>
+    assert D[0,0]<1
+           ^^^^^^^^
+AssertionError

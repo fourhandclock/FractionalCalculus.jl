@@ -1,0 +1,7 @@
+{
+  "guard": "original GR-07 preflight workspace snapshot",
+  "guard_sha256": "fdbb664f06c20164e9dc027ee59ebbc883472f81b52d9d7a54b81d1788c67e15",
+  "files_checked": 481,
+  "mismatches": [],
+  "scope": "Existing source/navigation/metric-graph files in the original workspace; audit outputs are separate additions."
+}

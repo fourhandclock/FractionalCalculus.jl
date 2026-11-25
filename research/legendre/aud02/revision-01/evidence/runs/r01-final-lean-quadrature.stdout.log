@@ -1,0 +1,10 @@
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Quadrature.lean:50:66: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Quadrature.lean:51:41: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Quadrature.lean:61:41: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Quadrature.lean:64:20: warning: unused variable `hx1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/research/legendre/verification/lean/Quadrature.lean:67:72: warning: unused variable `hc1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`

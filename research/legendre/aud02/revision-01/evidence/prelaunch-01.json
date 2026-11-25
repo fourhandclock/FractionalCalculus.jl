@@ -1,0 +1,6 @@
+{
+  "status": "no workload launched",
+  "cause": "preservation allowlist Boolean grouping did not cover the intended Lean target-list edit",
+  "repair": "group both missing-file/hash checks under the existing narrow allowlist",
+  "scientific_assertions_changed": false
+}

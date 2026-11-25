@@ -1,0 +1,5 @@
+read-only operation blocked: write
+read-only operation blocked: chmod
+read-only operation blocked: rename
+read-only operation blocked: unlink
+detached child started; namespace teardown must remove it: 3

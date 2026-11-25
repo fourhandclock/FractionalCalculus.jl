@@ -1,0 +1,19 @@
+blas = "LBTConfig([ILP64] libopenblas64_.so)"
+cpu_name = "alderlake"
+startup_disabled = true
+word_size = 64
+gcthreads = 1
+blas_threads = 1
+sysimage_sha256 = "a3404a5b0e87e7f0a9063fec4864a04b4e69d59d4d69dfc6b5faf368c9c7f1c2"
+specialfunctions = "2.9.0"
+machine = "x86_64-linux-gnu"
+julia_threads = 1
+julia = "1.12.6"
+additional_dependency_acquisition = false
+kernel = "Linux"
+binary_sha256 = "fd670aabc838e93f178cbcf7304c5e9c50aadcce3735e86d5e3218b1bb04e602"
+
+[native_library_hashes]
+"/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/gr07-2026-11-26/worktree/.checkpoint-tools/shared-julia-depot/compiled/v1.12/OpenSpecFun_jll/TDl1L_Xnoxa.so" = "3839e5f14ad61ee1766631100fcb9d7f398514cb6d8df70153df282aff407990"
+"/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/julia-1.12.6/bin/../lib/julia/libopenblas64_.so" = "8ee07277bc2a35049697c73f10c419eb16b235845f15666b74cf284476d91097"
+"/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/gr07-2026-11-26/worktree/.checkpoint-tools/shared-julia-depot/artifacts/09b351e89a85e07e957194a647765403d4ee1bcb/lib/libopenspecfun.so" = "12c3a3b62eb99ea6c67e0a1e3f0210e16e6fd0c7b55ce468a5639ecc23b0cb83"

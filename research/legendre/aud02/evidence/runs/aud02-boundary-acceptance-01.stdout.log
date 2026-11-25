@@ -1,0 +1,27 @@
+{
+  "criterion": "relative M0 error < 5e-12",
+  "failed_cases": [
+    {
+      "case": "tiny_product",
+      "m0": "0.0",
+      "exact_m0": "1.128379167095512553698468e-200",
+      "relative_error": 1.0,
+      "meets_5e-12_relative": false
+    },
+    {
+      "case": "subnormal_step",
+      "m0": "2.508114666398235e-162",
+      "exact_m0": "1.860067619440503319985637e-162",
+      "relative_error": 0.3483997249264842,
+      "meets_5e-12_relative": false
+    },
+    {
+      "case": "near_zero_order",
+      "m0": "0.0",
+      "exact_m0": "1.0",
+      "relative_error": 1.0,
+      "meets_5e-12_relative": false
+    }
+  ],
+  "verdict": "REPAIR REQUIRED for the unrestricted generic moment API"
+}

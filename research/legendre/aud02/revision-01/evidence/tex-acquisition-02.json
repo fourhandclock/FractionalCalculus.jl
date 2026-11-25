@@ -1,0 +1,25 @@
+{
+  "authorization": "User-approved required TeX resources only",
+  "engine_sha256": "4df19452c202c5bef9f7c7e4a01a3f2b9d5199f0a1f73b70b4fe1bffbc9837f6",
+  "bundle": "https://relay.fullyjustified.net/default_bundle_v33.tar",
+  "source": "separate synthetic acquisition fixture; all research builds remain --only-cached",
+  "new_or_changed_files": {
+    "manifests/6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c.txt": "42fdd5ab9c5dd6330540838835afaf067bc8e59e18097027b2e049dc4f16d847",
+    "files/ed/048c80fb4b67663b80899b89fe5fba17d7442e1286d61fd08fe5689c6b7c3c": "ed048c80fb4b67663b80899b89fe5fba17d7442e1286d61fd08fe5689c6b7c3c",
+    "files/79/563547084d85388e6909888f9fa7f5cad33bdda44ca6b25b362e1d301db539": "79563547084d85388e6909888f9fa7f5cad33bdda44ca6b25b362e1d301db539",
+    "files/79/1b31aa1db8608d0144b3a40fc0fe53383a60f6b00d0e8fd9f06ac4a11df8cb": "791b31aa1db8608d0144b3a40fc0fe53383a60f6b00d0e8fd9f06ac4a11df8cb",
+    "files/28/c8782ac2b6486958b5dc7610ada7800c53546ff7f36bc65909a876e1cd338e": "28c8782ac2b6486958b5dc7610ada7800c53546ff7f36bc65909a876e1cd338e",
+    "files/e6/be218ae83e61aa8a29990d3cdc401c678c1962188cb9a4a8b6359e4f5e5870": "e6be218ae83e61aa8a29990d3cdc401c678c1962188cb9a4a8b6359e4f5e5870",
+    "files/23/13392f0f4cd974d9da5fb54a52feae126059759edc04a4e47e33ea6027418b": "2313392f0f4cd974d9da5fb54a52feae126059759edc04a4e47e33ea6027418b",
+    "files/1c/e8af37ed38e93940829d3540e494eaaddc5201758d036b9074467e70a738dc": "1ce8af37ed38e93940829d3540e494eaaddc5201758d036b9074467e70a738dc",
+    "files/62/ee8cef552017551cd3e026a483e700730103eceaad959c87b7730017f59cff": "62ee8cef552017551cd3e026a483e700730103eceaad959c87b7730017f59cff",
+    "files/f3/96f52d9ed3498c15aa7e694baef74c0a11119624fcd6db66dad4ac76972cb0": "f396f52d9ed3498c15aa7e694baef74c0a11119624fcd6db66dad4ac76972cb0"
+  },
+  "resource_names": [
+    "article.cls",
+    "size11.clo",
+    "booktabs.sty"
+  ],
+  "global_environment_modified": false,
+  "numerical_dependencies_acquired": false
+}

@@ -1,0 +1,187 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "preserved:baseline.json",
+      "passed": true,
+      "count": 521,
+      "discrepancies": []
+    },
+    {
+      "check": "preserved:supplied-inputs.json",
+      "passed": true,
+      "count": 41,
+      "discrepancies": []
+    },
+    {
+      "check": "run_sources_outputs_and_namespace_cleanup",
+      "passed": true,
+      "records": 39,
+      "discrepancies": []
+    },
+    {
+      "check": "failed_attempt_retained_and_excluded",
+      "passed": true,
+      "failed_attempts": [
+        "local-oracle-01"
+      ],
+      "scope": "New exact-zero oracle guard failure retained; corrected run is independently required by admission."
+    },
+    {
+      "check": "measured_admission_identity",
+      "passed": true,
+      "files": 18,
+      "discrepancies": []
+    },
+    {
+      "check": "correctness_admissions:evidence/admission",
+      "passed": true,
+      "discrepancies": []
+    },
+    {
+      "check": "correctness_admissions:evidence/replays/replay-check/admission",
+      "passed": true,
+      "discrepancies": []
+    },
+    {
+      "check": "scientific_comparison:results/python_reference.csv",
+      "passed": true,
+      "rows": 156,
+      "atol": 5e-11,
+      "rtol": 2e-06,
+      "maximum_absolute_differences": {
+        "l2_max": 2.581864843448356e-15,
+        "h1_max": 5.535448401733367e-15,
+        "h1_final": 5.535448401733367e-15
+      },
+      "failures": [],
+      "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+    },
+    {
+      "check": "scientific_comparison:results/julia_results.csv",
+      "passed": true,
+      "rows": 156,
+      "atol": 5e-11,
+      "rtol": 2e-06,
+      "maximum_absolute_differences": {
+        "l2_max": 1.9277981988530257e-14,
+        "h1_max": 3.437441303821842e-14,
+        "h1_final": 3.437441303821842e-14
+      },
+      "failures": [],
+      "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+    },
+    {
+      "check": "scientific_comparison:results/replay-check/python_reference.csv",
+      "passed": true,
+      "rows": 156,
+      "atol": 5e-11,
+      "rtol": 2e-06,
+      "maximum_absolute_differences": {
+        "l2_max": 0.0,
+        "h1_max": 0.0,
+        "h1_final": 0.0
+      },
+      "failures": [],
+      "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+    },
+    {
+      "check": "scientific_comparison:results/replay-check/julia_results.csv",
+      "passed": true,
+      "rows": 156,
+      "atol": 5e-11,
+      "rtol": 2e-06,
+      "maximum_absolute_differences": {
+        "l2_max": 0.0,
+        "h1_max": 0.0,
+        "h1_final": 0.0
+      },
+      "failures": [],
+      "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+    },
+    {
+      "check": "timing_design",
+      "passed": true,
+      "measured_solves": 105,
+      "warmup_solves": 21,
+      "phase_groups": 84
+    },
+    {
+      "check": "measured_samples",
+      "passed": true
+    },
+    {
+      "check": "count_summary",
+      "passed": true
+    },
+    {
+      "check": "standalone_figures",
+      "passed": true,
+      "figures": 10,
+      "discrepancies": []
+    },
+    {
+      "check": "figure_input_identity",
+      "passed": true
+    },
+    {
+      "check": "markdown_links",
+      "passed": true,
+      "checked": 57,
+      "broken": [],
+      "scope": "Local relative links and anchors, excluding code; no external URL probes."
+    },
+    {
+      "check": "markdown_math_delimiters",
+      "passed": true,
+      "discrepancies": [],
+      "scope": "Static delimiter check plus manual notation review; not a GitHub rendering execution."
+    },
+    {
+      "check": "python_syntax:make_oracles.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:compare.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:plots.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:summarize.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:isolate.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:execution.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:python_environment.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:admit.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:reproduce.py",
+      "passed": true
+    },
+    {
+      "check": "python_syntax:checkpoint.py",
+      "passed": true
+    },
+    {
+      "check": "original_workspace_guard",
+      "passed": true
+    }
+  ],
+  "self_sha256": "b1347a3f7c40eae6ddd7569dffb9b7b11bcbe1166f6a812ebc8bb8ad244581a4",
+  "scope": "Source, evidence, numerical comparisons, admission bindings and documentation; no additional mathematical investigation."
+}

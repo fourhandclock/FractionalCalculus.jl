@@ -1,0 +1,74 @@
+{
+  "markdown_files": 9,
+  "local_links": 151,
+  "table_lines": 122,
+  "files": [
+    {
+      "file": "README.md",
+      "local_links": 23,
+      "table_lines": 33,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/aud02/revision-01/LITERATURE.md",
+      "local_links": 2,
+      "table_lines": 7,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/aud02/revision-01/PLAN.md",
+      "local_links": 0,
+      "table_lines": 0,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/aud02/revision-01/README.md",
+      "local_links": 15,
+      "table_lines": 9,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/aud02/revision-01/REPAIRS.md",
+      "local_links": 5,
+      "table_lines": 28,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/aud02/revision-01/VALIDATION.md",
+      "local_links": 25,
+      "table_lines": 17,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "research/legendre/verification/README.md",
+      "local_links": 43,
+      "table_lines": 19,
+      "display_math_blocks": 1,
+      "failures": []
+    },
+    {
+      "file": "studies/legendre/README.md",
+      "local_links": 30,
+      "table_lines": 9,
+      "display_math_blocks": 0,
+      "failures": []
+    },
+    {
+      "file": "studies/legendre/gr07/revision-01/README.md",
+      "local_links": 8,
+      "table_lines": 0,
+      "display_math_blocks": 0,
+      "failures": []
+    }
+  ],
+  "new_failures": [],
+  "preexisting_failures": [],
+  "visual_github_render_performed": false,
+  "passed": true
+}

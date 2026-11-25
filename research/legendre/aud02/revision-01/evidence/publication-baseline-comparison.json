@@ -1,0 +1,12 @@
+{
+  "AUD01_commit": "bf43fd0e78bcbcaae94d4c95fd9e43fd562ba477",
+  "tracked_files": 521,
+  "missing": [],
+  "changed": [
+    ".gitignore",
+    "README.md",
+    "research/legendre/verification/README.md",
+    "research/legendre/verification/lean/lakefile.toml",
+    "studies/legendre/README.md"
+  ]
+}

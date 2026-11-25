@@ -1,0 +1,146 @@
+import Mathlib.Data.Real.Basic
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FieldSimp
+
+namespace LegendreAudit.AUD02
+open scoped BigOperators
+
+/-- Reorder a finite row against cumulative increments: exact row-tail identity. -/
+theorem row_tail_identity (s : Finset ℕ) (w dv : ℕ → ℝ) :
+    (∑ k ∈ s, w k * ∑ m ∈ s with m ≤ k, dv m) =
+      ∑ m ∈ s, dv m * ∑ k ∈ s with m ≤ k, w k := by
+  simp only [Finset.sum_filter, Finset.mul_sum, mul_ite, mul_zero]
+  rw [Finset.sum_comm]
+  congr 1
+  funext m
+  congr 1
+  funext k
+  simp [mul_comm]
+
+/-- Tail bounds imply domination on vectors with nonnegative increments. -/
+theorem ordered_vector_domination (s : Finset ℕ) (w d dv : ℕ → ℝ)
+    (hv : ∀ m ∈ s, 0 ≤ dv m)
+    (ht : ∀ m ∈ s, (∑ k ∈ s with m ≤ k, w k) ≤ ∑ k ∈ s with m ≤ k, d k) :
+    (∑ k ∈ s, w k * ∑ m ∈ s with m ≤ k, dv m) ≤
+      ∑ k ∈ s, d k * ∑ m ∈ s with m ≤ k, dv m := by
+  rw [row_tail_identity, row_tail_identity]
+  exact Finset.sum_le_sum (fun m hm => mul_le_mul_of_nonneg_left (ht m hm) (hv m hm))
+
+/-- Finite increment reconstruction, including the initial value. -/
+theorem increment_reconstruction (v : ℕ → ℝ) (n : ℕ) :
+    (∑ j ∈ Finset.range n, (v (j+1)-v j)) = v n-v 0 := by
+  induction n with
+  | zero => simp
+  | succ n ih => rw [Finset.sum_range_succ, ih]; ring
+
+/-- Mixed words need monotonicity of the original positive operators, and
+invariance of the ordered cone only for their majorants. They need not commute. -/
+theorem finite_word_domination {ι : Type*} {n : ℕ}
+    (B D : ι → (Fin n → ℝ) → (Fin n → ℝ))
+    (cone : (Fin n → ℝ) → Prop)
+    (hB : ∀ i, Monotone (B i))
+    (hD : ∀ i v, cone v → cone (D i v))
+    (hBD : ∀ i v, cone v → B i v ≤ D i v)
+    (v : Fin n → ℝ) (hv : cone v) (word : List ι) :
+    word.foldr (fun i x => B i x) v ≤ word.foldr (fun i x => D i x) v := by
+  have hc : ∀ l : List ι, cone (l.foldr (fun i x => D i x) v) := by
+    intro l
+    induction l with
+    | nil => exact hv
+    | cons i l ih => exact hD i _ ih
+  induction word with
+  | nil => exact le_refl v
+  | cons i l ih => exact le_trans (hB i ih) (hBD i _ (hc l))
+
+/-- Toeplitz cumulative differences telescope to the prescribed row tail. -/
+theorem cumulative_weights (f : ℕ → ℝ) (m n : ℕ) (C : ℝ) :
+    (∑ j ∈ Finset.range n, C*(f (m+j+1)-f (m+j))) = C*(f (m+n)-f m) := by
+  rw [← Finset.mul_sum]
+  have h := increment_reconstruction (fun j => f (m+j)) n
+  simpa [Nat.add_assoc] using congrArg (fun x : ℝ => C*x) h
+
+/-- Scalar polarized shifted-energy identity; finite Hilbert sums follow
+componentwise. This is an identity, not a proof of coefficient positivity. -/
+theorem shifted_energy_identity (h : ℕ → ℝ) (v : ℕ → ℝ)
+    (n : ℕ) (vn vs : ℝ) :
+    2*(∑ j ∈ Finset.range n, h j*(vn-v j))*vs -
+      (∑ j ∈ Finset.range n, h j*(vn^2-(v j)^2)) =
+    (∑ j ∈ Finset.range n, h j*(vs-v j)^2) -
+      (∑ j ∈ Finset.range n, h j)*(vn-vs)^2 := by
+  simp only [Finset.sum_mul, Finset.mul_sum, ← Finset.sum_sub_distrib]
+  apply Finset.sum_congr rfl
+  intro j hj
+  ring
+
+/-- Absolute linear basis mass on its interpolation panel. -/
+theorem linear_absolute_basis (x : ℝ) (h0 : 0 ≤ x) (h1 : x ≤ 1) :
+    |1-x|+|x| = 1 := by
+  rw [abs_of_nonneg (by linarith), abs_of_nonneg h0]
+  ring
+
+/-- Exact uniform forward quadratic Lebesgue function and its 5/4 bound. -/
+theorem quadratic_absolute_basis (x : ℝ) (h0 : 0 ≤ x) (h1 : x ≤ 1) :
+    |(x-1)*(x-2)/2|+|x*(2-x)|+|x*(x-1)/2| = 1+x*(1-x) ∧
+    1+x*(1-x) ≤ (5:ℝ)/4 := by
+  have ha : 0 ≤ (x-1)*(x-2)/2 := by nlinarith
+  have hb : 0 ≤ x*(2-x) := by nlinarith
+  have hc : x*(x-1)/2 ≤ 0 := by nlinarith
+  constructor
+  · rw [abs_of_nonneg ha, abs_of_nonneg hb, abs_of_nonpos hc]; ring
+  · nlinarith [sq_nonneg (x-1/2)]
+
+/-- Exact assembled initial-weight sign witness of GR-03 at alpha=beta=9/10. -/
+theorem quadratic_negative_weight :
+    (1:ℝ)-3*(31/20)/(2*(1+1/10))+(31/20)^2/((1+1/10)*(2+1/10)) = -17/231 := by
+  norm_num
+
+/-- Forward nonuniform stencil nodes 0,1,1+R reproduce all three moments. -/
+theorem forward_moment_identities (R m0 m1 m2 : ℝ) (hR : 0 < R) :
+    let f0 := (m2-(2+R)*m1+(1+R)*m0)/(1+R)
+    let f1 := ((1+R)*m1-m2)/R
+    let f2 := (m2-m1)/(R*(1+R))
+    f0+f1+f2=m0 ∧ f1+(1+R)*f2=m1 ∧ f1+(1+R)^2*f2=m2 := by
+  dsimp
+  have h0 : R ≠ 0 := ne_of_gt hR
+  have h1 : 1+R ≠ 0 := by linarith
+  constructor
+  · field_simp; <;> ring
+  · constructor <;> field_simp <;> ring
+
+/-- Backward nonuniform stencil nodes -rho,0,1 reproduces all three moments. -/
+theorem backward_moment_identities (rho m0 m1 m2 : ℝ) (hr : 0 < rho) :
+    let f0 := (m2-m1)/(rho*(1+rho))
+    let f1 := m0+((1-rho)*m1-m2)/rho
+    let f2 := (m2+rho*m1)/(1+rho)
+    f0+f1+f2=m0 ∧ -rho*f0+f2=m1 ∧ rho^2*f0+f2=m2 := by
+  dsimp
+  have h0 : rho ≠ 0 := ne_of_gt hr
+  have h1 : 1+rho ≠ 0 := by linarith
+  constructor
+  · field_simp <;> ring
+  · constructor <;> field_simp <;> ring
+
+/-- Finite complementary composition, conditional on every exact column sum. -/
+theorem complementary_composition (s : Finset ℕ) (P dv : ℕ → ℝ)
+    (A : ℕ → ℕ → ℝ) (h : ∀ k ∈ s, (∑ j ∈ s, P j*A j k)=1) :
+    (∑ j ∈ s, P j*(∑ k ∈ s, A j k*dv k)) = ∑ k ∈ s, dv k := by
+  calc
+    _ = ∑ k ∈ s, (∑ j ∈ s, P j*A j k)*dv k := by
+      simp only [Finset.mul_sum, Finset.sum_mul]
+      rw [Finset.sum_comm]
+      apply Finset.sum_congr rfl
+      intro k hk
+      apply Finset.sum_congr rfl
+      intro j hj
+      ring
+    _ = _ := by
+      apply Finset.sum_congr rfl
+      intro k hk
+      rw [h k hk, one_mul]
+
+end LegendreAudit.AUD02

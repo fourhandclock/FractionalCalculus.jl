@@ -1,0 +1,8 @@
+{
+  "initial_network_namespace_probe": "failed before payload: NETLINK_ROUTE socket denied by outer sandbox",
+  "successful_namespace_probe": "PID/user/mount isolation without new network namespace; outer network restrictions inherited",
+  "user_manager": "Read-only access denied: Operation not permitted",
+  "aggregate_cgroup_limits": "unavailable within authorized writable roots; explicitly waived in execution-policy.json",
+  "scientific_payload_started_by_failed_probe": false,
+  "runtime_fixture_record": "../runs/isolation-fixture-01.json"
+}

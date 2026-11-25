@@ -1,0 +1,20 @@
+[
+  {
+    "label": "r01-final-latex-gr01",
+    "tex_log": "evidence/results/failed-offline/r01-final-latex-gr01/GR01_two_kernel_gronwall.log",
+    "sha256": "0ebae093e4f677e0c53ca9d08060ee2715d439efb5912427ae4ca8ac786ed0aa",
+    "unaltered": true
+  },
+  {
+    "label": "r01-typeset-latex-gr01",
+    "tex_log": "evidence/results/failed-offline/r01-typeset-latex-gr01/GR01_two_kernel_gronwall.log",
+    "sha256": "20a63cd5fbe024b5ea05666abb0a754afbec075f0a2ca3b5d991f132f517eee0",
+    "unaltered": true
+  },
+  {
+    "label": "r01-typeset02-latex-gr01",
+    "tex_log": "evidence/results/failed-offline/r01-typeset02-latex-gr01/GR01_two_kernel_gronwall.log",
+    "sha256": "8aecc72d557bd51976b590686ce97ac2a1110b26d4c20d233e090dd6fba02131",
+    "unaltered": true
+  }
+]

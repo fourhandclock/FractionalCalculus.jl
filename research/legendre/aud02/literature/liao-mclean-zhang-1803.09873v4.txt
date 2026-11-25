@@ -1,0 +1,1539 @@
+PAGE 1
+arXiv:1803.09873v4  [math.NA]  28 Apr 2019
+A SECOND-ORDER SCHEME WITH NONUNIFORM TIME STEPS
+FOR A LINEAR REACTION-SUBDIFFUSION PROBLEM ∗
+HONG-LIN LIAO †, WILLIAM MCLEAN ‡, AND JIWEI ZHANG §
+Abstract. It is reasonable to assume that a discrete convolution struc ture dominates the local
+truncation error of any numerical Caputo formula because th e fractional time derivative and its
+discrete approximation have the same convolutional form. W e suggest an error convolution structure
+(ECS) analysis for a class of interpolation-type approxima tions to the Caputo fractional derivative.
+Our assumptions permit the use of adaptive time steps, such a s is appropriate for accurately resolving
+the initial singularity of the solution and also certain com plex behavior away from the initial time.
+The ECS analysis of numerical approximations has two advant ages: (i) to localize (and simplify) the
+analysis of the approximation error of a discrete convoluti on formula on general nonuniform time
+grids; and (ii) to reveal the error distribution informatio n in the long-time integration via the global
+consistency error. The core result in this paper is an ECS bou nd and a global consistency analysis
+of the nonuniform Alikhanov approximation, which is constr ucted at an oﬀset point by using linear
+and quadratic polynomial interpolation. Using this result , we derive a sharp L2-norm error estimate
+of a second-order Crank-Nicolson-like scheme for linear re action-subdiﬀusion problems. An example
+is presented to show the sharpness of our analysis.
+Key words. Caputo fractional derivative, nonuniform time mesh, error convolution structure,
+global consistency error, stability and convergence
+AMS subject classiﬁcations. 65M06, 35B65
+1. Introduction. The time-fractional diﬀusion equation provides a valuable tool
+for modeling complex systems such as glassy and disordered media [ 7]. This paper
+builds on our recent results [ 8, 9, 11] for the nonuniform mesh technique applied to
+the time discretization of the following reaction-subdiﬀusion problem in a bounded
+domain Ω ⊂ Rd (d = 1, 2, 3),
+(1.1) Dαtu − △u =κu +f (x,t ) for x ∈ Ω and 0 <t<T ,u =u0(x) for x ∈ Ω when t = 0,
+subject to the homogeneous Dirichlet boundary condition u = 0 on ∂Ω. Here, the
+reaction coeﬃcient κ is a real constant, and Dαt = C0Dαt denotes the Caputo fractional
+derivative of order α (0<α< 1) with respect to time t, that is,
+(Dαtv)(t) :=
+∫ t
+0
+ω1−α(t −s)v′(s) ds for t> 0, where ωβ(t) := tβ−1/Γ(β).
+1.1. Initial singularity and the nonuniform time meshes tec hnique. In
+developing numerical methods for solving the subdiﬀusion problem ( 1.1), an important
+issue to be considered is that the solution u is typically less regular than in the case of
+∗Submitted to the editors DATE.
+F unding: This work was funded by NSFC grants 11771035, 91430216, U153 0401; a grant
+1008-56SYAH18037 from NUAA Scientiﬁc Research Starting Fu nd of Introduced Talent and a grant
+DRA2015518 from 333 High-level Personal Training Project o f Jiangsu Provipnce; Australian Re-
+search Council grant DP140101193.
+†Department of Mathematics, Nanjing University of Aeronaut ics and Astronautics, Nanjing,
+211106, P. R. China. ( liaohl@csrc.ac.cn,liaohl@nuaa.edu.cn).
+‡School of Mathematics and Statistics, University of New Sou th W ales, Sydney 2052, Australia.
+(w.mclean@unsw.edu.au).
+§School of Mathematics and Statistics, and Hubei Key Laborat ory of Computational Science,
+W uhan University, W uhan 430072, P. R. China. ( jiweizhang@whu.edu.cn).
+1
+PAGE 2
+a classical parabolic PDE (as the limiting case α → 1). Sakamoto and Yamamoto [ 17]
+showed that if the initial data u0 ∈ H 2(Ω) ∩H 10 (Ω), then the unique solution u ∈
+C
+(
+[0,T ];H 2(Ω) ∩H 10 (Ω)), with Dαtu ∈C ([0,T ];L2(Ω)) and ∂tu ∈L2(Ω). However,
+‖∂tu(t)‖L2(Ω) ≤Cutα−1 for 0 <t ≤T , where the constant Cu > 0 is independent of t
+but may depend on T . In fact, u can only be a smooth function of t if the initial data
+and source term satisfy some restrictive compatibility conditions [ 18].
+The focus of this paper is on a second-order time discretization of ( 1.1). The
+spatial discretization is of less interest: we apply the standard Gale rkin ﬁnite element
+method based on the weak form of the fractional PDE,
+⟨Dαtu,v ⟩ + ⟨∇u, ∇v⟩ =κ⟨u,v ⟩ + ⟨f (t),v ⟩ for all v ∈H 10 (Ω) and for 0 <t ≤T ,
+where ⟨u,v ⟩ denotes the usual inner product in L2(Ω). Thus, we construct the usual
+space of continuous, piecewise-linear functions with respect to a p artition of Ω into
+subintervals (in 1D), triangles (in 2D) or tetrahedrons (in 3D) with t he maximum
+diameter h, and let Xh denote the subspace of functions satisfying the homogeneous
+Dirichlet boundary condition. In the usual way, the (semidiscrete) Galerkin ﬁnite
+element solution uh : [0,T ] →Xh is then deﬁned by requiring that
+⟨Dαtuh,χ ⟩ + ⟨∇uh, ∇χ⟩ =κ⟨uh,χ ⟩ + ⟨f (t),χ ⟩ for all χ ∈Xh and for 0 <t ≤T ,
+with uh(0) = u0h ≈u0 for a suitable u0h ∈Xh.
+Consider (generally nonuniform) time levels 0 = t0 < t1 < t2 < · · · < tN = T
+and deﬁne a fractional time level tn−θ := θtn−1 + (1 −θ)tn for an oﬀ-set parameter
+θ ∈ [0, 1/2). We denote the kth time-step size by τk :=tk −tk−1 for 1 ≤k ≤N , and
+the maximum step size by τ := max 1≤k≤Nτk. We also deﬁne the local step-size ratios
+ρk := τkτk+1 for 1 ≤k ≤N − 1, and put ρ := max1≤k≤N −1ρk.
+For any time sequence (vk)Nk=0, deﬁne the backward diﬀerence ▽τvk :=vk −vk−1
+and the interpolated value vn−θ :=θvn−1 +(1 −θ)vn. We consider a numerical Caputo
+formula approximating ( Dαtv)(tn−θ) of the form
+(Dατv)n−θ :=
+n∑
+k=1
+A(n)n−k▽τvk ≈
+n∑
+k=1
+∫ min{tk,tn−θ}
+tk−1
+ω1−α(tn−θ −s)v′(s) ds,(1.2)
+for appropriate discrete convolution kernels A(n)n−k. Our fully-discrete numerical so-
+lution, unh(x) ≈ u(x,t n) for x ∈ Ω, is then deﬁned by a time-stepping scheme: we
+require that unh ∈Xh satisﬁes
+(1.3) ⟨(Dατuh)n−θ,χ ⟩ + ⟨∇un−θh , ∇χ⟩ =κ⟨un−θh ,χ ⟩ + ⟨f (tn−θ),χ ⟩
+for all χ ∈Xh and for 1 ≤n ≤N , with u0h =u0h.
+In the literature, several high-order numerical Caputo formulas have a discrete
+convolution form like ( 1.2), such as the L1-2 schemes [ 3, 10, 13] and the L2-1 σ formula
+[1, 12] that applied the piecewise quadratic polynomial interpolation. They achieve
+second-order temporal accuracy for suﬃciently smooth solution s when applied to time
+approximation of the pure subdiﬀusion equation ( 1.1) with κ = 0. This article con-
+siders the L2-1 σ formula of Alikhanov [ 1], which employs a quadratic interpolant in
+each subinterval [ tk−1,t k] for 1 ≤ k ≤ n − 1, and a linear interpolant in the ﬁnal
+2
+PAGE 3
+subinterval [tn−1,t n−θ]. The oﬀset parameter is chosen as θ =α/2 (in our notation).
+As described below, in the limit as α → 1, this scheme reduces to the well-known
+Crank–Nicolson method ( θ → 1/2) for the classical diﬀusion equation. We therefore
+refer to the time-stepping scheme ( 1.3) as a fractional Crank–Nicolson method.
+In the special case of uniform time steps τn =τ , the discrete kernels A(n)n−k =An−k
+depend only on the diﬀerence n −k, and were shown to be positive and monotonically
+decreasing, leading to a proof that the resulting fractional Crank –Nicolson scheme is
+stable and convergent of order O(τ 2 +h2) in the L2-norm assuming that the solu-
+tion u is suﬃciently smooth [ 1]. However, as remarked above, in practice the time
+derivative∂tu typically behaves like O(tα−1) ast → 0 [17, 18], and so this error bound
+breaks down.
+In resolving a ﬁxed singularity at t = 0 of the type described above, a simple
+but useful technique to recover an optimal convergence order is to employ a smoothly
+graded mesh tk = T (k/N)γ, where the grading parameter γ ≥ 1 is adapted to the
+strength of the singularity. The larger the value of γ the more strongly the mesh
+points are concentrated near t = 0. Actually, such meshes have long been used in
+the numerical solution of Fredholm [ 4] and Volterra [ 2] integral equations, and their
+use for time-fractional PDEs is now well established [ 8, 10, 15, 19]. By using such a
+nonuniform mesh we will restore the second-order convergence in time of the fractional
+Crank–Nicolson scheme in [ 1] when the solution is not smooth at t = 0. This idea was
+tested recently in [ 12] to resolve the initial singularity for the subdiﬀusion problem,
+corresponding to κ = 0 in ( 1.1). However, this is only a part of our story.
+We will establish the stability and convergence theory for the fract ional Crank–
+Nicolson scheme on a wider class of nonuniform time meshes, not just the standard
+graded mesh described above. In this way, the theory could be app lied in advanced
+studies on adaptive time grids required to resolve certain complex be havior (such as
+physical oscillations, blowup and so on) in nonlinear time-fractional P DEs. These
+goals are natural, at least for linear reaction-subdiﬀusion equation s, since the back-
+ward Euler and Crank–Nicolson schemes for the linear parabolic equa tion are stable
+and convergent (provided τ → 0) on arbitrary nonuniform grids with ρ =O(1).
+We refer the reader to other high-order time approximations in [ 6, 20] and the
+recent survey paper [5], which describes some useful approaches other than the nonuni-
+form grids technique to achieve second-order accuracy in time.
+1.2. Error convolution structure (ECS) analysis and a new pr oblem.
+Generally, our goals are theoretically challenging because the numer ical Caputo for-
+mula always has a form of discrete convolutional summation ( 1.2). Actually, the
+consistency analysis over the whole time interval [ t0,t n−θ] becomes too cumbersome
+to implement in practice when there has not enough grid information. To evade this
+diﬃculty, we propose an error convolution structure (ECS) analysis which begins by
+recasting the discrete Caputo formula ( 1.2) as
+(Dατv)n−θ =A(n)0 vn −
+n−1∑
+k=1
+(
+A(n)n−k−1 −A(n)n−k)vk −A(n)n−1v0.(1.4)
+Consider the local truncation error Υ n−θ := ( Dαtv)(tn−θ) − (Dατv)n−θ. Given the
+construction of ( Dατv)n−θ via local interpolation of v, and provided the discrete con-
+volution kernels A(n)k are decreasing, it is reasonable to conjecture that a discrete
+3
+PAGE 4
+convolution structure dominates the local truncation error:
+(ECS hypothesis) |Υn−θ| ≤ A(n)0 Gnloc +
+n−1∑
+k=1
+(
+A(n)n−k−1 −A(n)n−k)Gkhis.
+Here, Gnloc arises from the interpolation error on the local subinterval [tn−1,t n−θ]
+whereas the Gkhis (1 ≤k ≤n − 1) arise from the interpolation errors over the history
+[t0,t n−1]. Obviously, this ECS hypothesis localizes the consistency analysis of discrete
+Caputo formulas, and makes it possible to analyze the numerical app roximations on
+a general class of nonuniform time grids.
+Always, there is a loss of accuracy for Υ n−θ due to the initial singularity of
+solution. Actually, Υ 1−θ =O(1) holds on any mesh and a superconvergence analysis
+should be required. For example, Stynes et al. [ 18, Lemma 5.2] showed that, on a
+graded mesh, the truncation error of the well-known L1 formula ( θ = 0) behaves like
+Υn = O(n− min{2−α,γα}). Building on the ideas ﬁrst introduced by Liao et al. [ 8,
+Section 3], we will prove a sharp error estimate via a fractional discr ete Gronwall
+inequality (Theorem 1.1) that provides a global consistency error in the form
+(1.5) E nglob :=
+n∑
+k=1
+P (n)n−k|Υk−θ|, for 1 ≤k ≤n ≤N ,
+where the complementary discrete convolution kernels P (n)n−k are chosen to enforce the
+identity
+(1.6)
+n∑
+j=k
+P (n)n−jA(j)j−k ≡ 1 for 1 ≤k ≤n ≤N .
+In fact, rearranging this identity yields a recursive formula (in eﬀec t, a deﬁnition)
+P (n)0 := 1A(n)0 , P (n)n−j := 1A(j)0
+n∑
+k=j+1
+(
+A(k)k−j−1 −A(k)k−j )P (n)n−k, 1 ≤j ≤n − 1.(1.7)
+In our recent paper [ 9], we showed that this approach is not limited to the L1 rule, but
+applies to a general class of discrete convolution kernels A(n)n−k satisfying the following
+two assumptions:
+A1. There is a constant πA > 0 such that
+A(n)n−k ≥ 1πAτk
+∫ tk
+tk−1
+ω1−α(tn −s) ds for 1 ≤k ≤n ≤N ;
+A2. The discrete kernels are monotone, A(n)k−2 ≥A(n)k−1 > 0 for 2 ≤k ≤n ≤N .
+In this case, the complementary kernels P (n)n−k in ( 1.7) are well-deﬁned and non-
+negative, and satisfy [ 9, Lemma 2.1]
+n∑
+j=1
+P (n)n−jω1+(m−1)α(tj) ≤πAω1+mα(tn) for m = 0, 1 and 1 ≤n ≤N .(1.8)
+4
+PAGE 5
+From the ECS hypothesis, one can exchange the order of summation to ﬁnd
+E nglob ≤
+n∑
+k=1
+P (n)n−kA(k)0 Gkloc +
+n∑
+k=1
+P (n)n−k
+k−1∑
+j=1
+(
+A(k)k−j−1 −A(k)k−j)Gjhis
+≤
+n∑
+k=1
+P (n)n−kA(k)0 Gkloc +
+n−1∑
+j=1
+Gjhis
+n∑
+k=j+1
+(
+A(k)k−j−1 −A(k)k−j )P (n)n−k,
+and then, by using the deﬁnition ( 1.7) directly, arrive at
+E nglob ≤
+n∑
+k=1
+P (n)n−kA(k)0 Gkloc +
+n−1∑
+k=1
+P (n)n−kA(k)0 Gkhis.(1.9)
+Thus, by using the properties in ( 1.6) and ( 1.8), it is possible to obtain some useful
+error estimates on a variety of nonuniform grids, not limited to tk =T (k/N)γ.
+Obviously, the ﬁrst term on the right-hand side of ( 1.9) represents the total error
+contributions from discretization errors over the n current cells [tk,t k−θ] (1 ≤k ≤n),
+whereas the second term represents those from discretization e rrors over the 12n(n−1)
+small cells in the historic intervals [ t0,t k−1] (2 ≤ k ≤ n). This observation is very
+interesting: the local error in the current cell [ tn,t n−θ] and the historic errors in
+the (long-time) interval [ t0,t n−1] make almost the same contribution, in the sense
+of convolutional summation, to the global consistency error of th e discrete Caputo
+derivative. If some appropriate time grid is chosen to make Gkhis =O (Gkloc) according
+to the error equidistribution principle, the error bound ( 1.9) becomes
+E nglob ≲
+n∑
+k=1
+P (n)n−kA(k)0 Gkloc.
+It suggests that the global approximation error of the numerical Caputo formula ( 1.2)
+depends mainly on the local error Gkloc. In this sense, the error of numerical Caputo
+formula is “local” despite its overtly nonlocal nature.
+Table 1.1
+Mesh restriction to stability for linear reaction-(sub)di ﬀusion equations
+backward Euler-like Crank-Nicolson-like
+diﬀusion (α → 1) ρ =O(1) ρ =O(1)
+subdiﬀusion (0 <α< 1) ρ =O(1) ?
+The ECS hypothesis plays a key role in our analysis. Actually, it has been used
+implicitly for the nonuniform L1 (fractional backward Euler-type) m ethod employing
+a linear interpolant in each subinterval [ tk−1,t k] for 1 ≤ k ≤ n. That analysis [ 8,
+(3.9) in Lemma 3.3] showed that the ECS hypothesis is valid for ρ = 1, or in other
+words provided τk ≤ τk+1 for all k. In a further study [ 11] on the two-level fast
+L1 scheme (which includes the original L1 scheme as a special case by setting the
+SOE approximation error ǫ ≡ 0), the ECS hypothesis is shown to be valid for any
+nonuniform mesh with ρ =O(1) [ 11, Lemma 3.1], that is,
+|Υn| ≤ a(n)0 Gn +
+n−1∑
+k=1
+(
+a(n)n−k−1 −a(n)n−k)Gk
+5
+PAGE 6
+where the L1 kernels a(n)n−k := 1τk ∫ tktk−1ω1−α(tn −s) ds for 1 ≤k ≤n, and
+Gk := 2
+∫ tk
+tk−1
+(t −tk−1) |v′′(t)| dt for 1 ≤k ≤n.
+This local step ratio restriction is the same as that for the backwar d Euler scheme
+for a classical diﬀusion equation. Considering Table 1.1, it is then natural to ask an
+elementary problem: what restriction on ρ will suﬃce to ensure that the fractional
+Crank–Nicolson time-stepping scheme ( 1.3) is stable and convergent? We address this
+problem in the condition M1 below.
+1.3. The discrete fractional Gr¨ onwall inequality and our a nswer. Our
+answer relies also on a discrete fractional Gr¨ onwall inequality suited to general nonuni-
+form time meshes, proved in our recent paper [ 9, Theorem 3.1] and stated below (in
+a simpliﬁed form). This result involves the aforementioned complemen tary discrete
+convolution kernels P (n)n−k, which are well-deﬁned thanks to our assumptions A1–A2
+on the discrete convolution kernels A(n)n−k in the numerical Caputo formula ( 1.2). The
+Mittag–Leﬄer function Eα(z) := ∑∞k=0zk/Γ(1 +kα) also appears.
+Theorem 1.1. Let the criteria A1–A2 hold, and the oﬀset parameter θ ∈ [0, 1).
+Suppose that λ> 0 is a constant independent of the time steps and that the maxim um
+time-step size
+τ ≤ 1/
+α
+√
+2Γ(2 −α)πAλ.
+If the non-negative time sequences (ξk)Nk=1 and (vk)Nk=0 satisfy
+(1.10)
+n∑
+k=1
+A(n)n−k▽τ (vk)2 ≤λ (vn−θ)2 +vn−θξn for 1 ≤n ≤N ,
+then the solution (vk)Nk=0 satisﬁes, for 1 ≤n ≤N ,
+vn ≤ 2Eα(2 max(1,ρ )πAλtαn)(v0 + max1≤k≤n k∑j=1P (k)k−jξj)(1.11)
+≤ 2Eα
+(
+2 max(1,ρ )πAλtαn)(v0 +πAΓ(1 −α) max1≤j≤n{tαjξj}).(1.12)
+Thus, we need to complete the following three tasks:
+T ask 1. Verify the assumptions A1–A2 for the nonuniform Alikhanov kernels A(n)n−k
+(deﬁned in section 2 ) so that we can use the complementary kernels P (n)n−k
+and apply the fractional Gr¨ onwall inequality to establish the stabilit y of the
+fully discrete scheme ( 1.3).
+T ask 2. Verify the ECS hypothesis on nonuniform time meshes and determine the
+corresponding expressions for Gkloc and Gkhis to insert in the bound ( 1.9) for
+the global consistency error E nglob.
+T ask 3. Establish a sharp error estimate in L2 for the fully discrete scheme ( 1.3) for
+the subdiﬀusion problem ( 1.1) taking the initial singularity into account.
+In more detail, we complete Task 1 in section 2. We describe the fractional Crank–
+Nicolson scheme and the corresponding discrete Alikhanov kernels A(n)n−k, and show
+in Theorem 2.2 (The lengthy and technical proofs for these properties of the dis crete
+kernels A(n)n−k are postponed until section 4 ) that the criteria A1–A2 hold given the
+following assumption on the mesh.
+6
+PAGE 7
+M1. The parameter θ =α/2, and the maximum time-step ratio is ρ = 7/4.
+The special choice of θ in M1 is needed in any case to achieve second-order
+accuracy (see Remark 3.2 ). At the end of section 2 , the discrete fractional Gr¨ onwall
+inequality is applied to establish stability for the time-stepping scheme (1.3). Actually,
+by showing thatvn = ‖unh‖ satisﬁes (1.10), the a priori estimate with respect to initial
+and external perturbations in the forms ( 1.11)–(1.12), follows.
+To verify the ECS hypothesis in Task 2 we make use of a proper lower bound for
+A(n)n−k−1 −A(n)n−k, already proved in part (II) of Theorem 2.2 to ensure the criterion
+A2 directly. In the ﬁrst part of section 3, an interpolation error formula for quadratic
+polynomials is derived in Lemma 3.3 . Then we complete Task 2 in Theorem 3.4 by
+showing that the ECS hypothesis and the bound ( 1.9) for the global consistency
+error E nglob are valid under the condition M1.
+Task 3 is completed in the second part of section 3 . To make our analysis extend-
+able (such as, for distributed-order subdiﬀusion problems), we as sume that there is a
+constantCu > 0 such that the continuous solution u satisﬁes
+(1.13) ‖u(l)(t)‖H2(Ω) ≤Cu(1 +tσ−l) for l = 0, 1, 2, 3, and 0 <t ≤T ,
+where σ ∈ (0, 1) ∪ (1, 2) is a regularity parameter. For example [ 14, 17, 19], the
+assumption ( 1.13) holds with σ =α for the subdiﬀusion problem ( 1.1) if f (x,t ) = 0
+andu0 ∈H 10 (Ω) ∩H 2(Ω). To resolve such a solution u eﬃciently, it is appropriate to
+choose the time mesh in such a way that the following condition [ 2, 16] holds.
+M2. There is a constant Cγ > 0 such that τk ≤Cγτ min{1,t 1−1/γk } for 1 ≤k ≤N ,
+with tk ≤Cγtk−1 and τk/tk ≤Cγτk−1/tk−1 for 2 ≤k ≤N .
+Here, the parameterγ ≥ 1 controls the extent to which the time levels are concentrated
+near t = 0. If the mesh is quasi-uniform, then M2 holds with γ = 1. As γ increases,
+the initial step sizes become smaller compared to the later ones. A sim ple example of
+a family of meshes satisfying M2 is the graded mesh tk =T (k/N)γ.
+When the oﬀset parameter θ = 0 and ( 1.2) is the nonuniform L1 method, our
+previous work [ 8, Theorem 3.1] proved the following error bound for the fully discret e
+scheme ( 1.3),
+‖‖u(tn) −unh‖‖ ≤ Cuσ(1 −α)τ min{γσ,2−α} +Cuh2, 1 ≤n ≤N.
+In particular, the error is of order O(τ 2−α +h2) if γ ≥ (2 −α)/σ. When θ =α/2 and
+(1.2) is the Alikhanov formula, Theorem 3.9 establishes an error bound
+(1.14)
+‖‖u(tn) −unh‖‖ ≤ Cuσ(1 −α)τ min{γσ,2} +Cuh2, 1 ≤n ≤N,
+which is of order O(τ 2 +h2) if γ ≥ 2/σ. Thus, in comparison to the L1 scheme, the
+Alikhanov formula leads to a higher convergence rate with respect t oτ ; however, both
+methods achieve only order O(τ σ +h2) convergence on a uniform mesh. Numerical
+experiments in section 5 conﬁrm that our error bound ( 1.14) is sharp.
+2. Numerical Caputo formula and stability . Let Π 1,kv denote the linear
+interpolant of a function v with respect to the nodes tk−1 and tk, and let Π 2,kv
+denote the quadratic interpolant with respect to tk−1,tk andtk+1. The corresponding
+interpolation errors are denoted by
+( ~Πp,kv)(t) := v(t) − (Πp,kv) (t) for p ∈ {1, 2}.
+7
+PAGE 8
+Recalling that ρk = τk/τk+1, it is easy to ﬁnd (for instance, by using the Newton
+forms of the interpolating polynomials) that
+(Π1,kv)′ (t) = ▽τvkτk and (Π 2,kv)′ (t) = ▽τvkτk + 2(t −tk−1/2)τk(τk +τk+1) (ρk▽τvk+1 − ▽τvk).
+Throughout this paper, we will always use the notation
+̟n(t) := −ω2−α(tn−θ −t) ≤ 0 for 0 ≤t ≤tn−θ.
+If 0 ≤t<t n−θ, then ̟′n(t) = ω1−α(tn−θ −t)> 0, ̟′′n(t) = −ω−α(tn−θ −t)> 0 and
+̟′′′n (t) = ω−α−1(tn−θ −t)> 0.
+2.1. Discrete Caputo formula. The nonuniform Alikhanov approximation to
+the Caputo derivative ( Dαtv)(tn−θ) is deﬁned by
+(Dατv)n−θ :=
+∫ tn−θ
+tn−1
+̟′n(s) (Π1,nv)′ (s) ds +
+n−1∑
+k=1
+∫ tk
+tk−1
+̟′n(s) (Π2,kv)′ (s) ds(2.1)
+=a(n)0 ▽τvn +
+n−1∑
+k=1
+(
+a(n)n−k▽τvk +ρkb(n)n−k▽τvk+1 −b(n)n−k▽τvk
+)
+,
+where the discrete coeﬃcients a(n)n−k and b(n)n−k are deﬁned by
+a(n)n−k := 1τk
+∫ min{tk,tn−θ}
+tk−1
+̟′n(s) ds, 1 ≤k ≤n;(2.2)
+b(n)n−k := 2τk(τk +τk+1) ∫ tktk−1 (s −tk− 12 )̟′n(s) ds, 1 ≤k ≤n − 1.(2.3)
+Whenθ = 0, the coeﬃcients a(n)n−k in (2.2) are just the discrete convolution kernels
+in the L1 formula [ 8]. Notice that if α → 1, then ω2−α(t) → 1 whereas ω1−α(t) → 0,
+uniformly for t in any compact subinterval of the open half-line (0 , ∞). Thus,
+a(n)0 =ω2−α((1 −θ)τn)/τn → 1/τn
+whereas a(n)n−k → 0 and b(n)n−k → 0 for 1 ≤ k ≤ n − 1. It follows that ( Dατv)n−θ →
+▽τvn/τk andθ =α/2 → 1/2 so the scheme ( 1.3) tends to the Crank–Nicolson method
+for a linear parabolic equation. This is why we also call ( 1.3) a fractional Crank–
+Nicolson time-stepping method.
+Rearranging the terms in ( 2.1), we obtain the compact form ( 1.2) where the
+discrete convolution kernels A(n)n−k are deﬁned as follows: A(1)0 := a(1)0 if n = 1 and,
+for n ≥ 2,
+(2.4) A(n)n−k :=
+
+
+
+a(n)0 +ρn−1b(n)1 , for k =n,
+a(n)n−k +ρk−1b(n)n−k+1 −b(n)n−k, for 2 ≤k ≤n − 1,
+a(n)n−1 −b(n)n−1, for k = 1.
+Before studying the kernels A(n)n−k, we present two alternative formulas for b(n)n−k.
+Recall the integral form of error term for the trapezoidal rule, w hich can be derived
+by the Taylor expansion with the integral remainder. Integration b y parts yields the
+following identities.
+8
+PAGE 9
+Lemma 2.1. For any function q ∈C2([tk−1,t k]),
+∫ tk
+tk−1
+(s −tk−1/2)q′(s) ds = −
+∫ tk
+tk−1
+( ~Π1,kq)(s) ds
+= 12 ∫ tktk−1 (s −tk−1)(tk −s)q′′(s) ds.
+Takingq :=̟n in Lemma 2.1, the deﬁnition ( 2.3) of b(n)n−k gives
+b(n)n−k = − 2
+∫ tk
+tk−1
+( ~Π1,k̟n)(s) ds
+τk(τk+1 +τk)(2.5)
+=
+∫ tk
+tk−1
+(tk −s)(s −tk−1)
+τk(τk+1 +τk) ̟′′n(s) ds, 1 ≤k ≤n − 1.(2.6)
+The following theorem gathers some useful properties of the discr ete kernelsA(n)n−k,
+but the rigorous proof is left to section 4 . It should be noted here that this proof is
+quite diﬀerent from the previous analysis [ 1, 3, 13] for the discrete convolution kernels
+in high-order numerical Caputo formulas with uniform time-steps.
+Theorem 2.2. Let M1 hold and consider the discrete kernels deﬁned in (2.4).
+(I) The discrete kernels A(n)n−k are bounded,
+A(n)0 ≤ 2411τn
+∫ tn
+tn−1
+ω1−α(tn −s) ds
+and
+A(n)n−k ≥ 411τk
+∫ tk
+tk−1
+ω1−α(tn −s) ds, 1 ≤k ≤n;
+(II) The discrete kernels A(n)n−k are monotone,
+A(n)n−k−1 −A(n)n−k ≥ (1 +ρk)b(n)n−k + 15τk
+∫ tk
+tk−1
+(tk −s)̟′′n(s) ds, 1 ≤k ≤n− 1;
+(III) And the ﬁrst kernel A(n)0 is appropriately larger than the second one,
+1 − 2θ
+1 −θ A(n)0 −A(n)1 > 0 for n ≥ 2.
+The ﬁrst part (I) implies that the criterion A1 holds with πA = 114 , the sec-
+ond part (II) ensures that the criterion A2 is valid and the third part (III) is used
+to prove the following corollary. These results allow us to apply Theorem 1.1 and
+establish the stability of the time-stepping scheme ( 1.3). Also, the second part (II)
+establishes a stronger estimate used in obtaining an ECS bound for the error analysis
+(see Theorem 3.4 ).
+Corollary 2.3. Under the condition M1, the discrete Caputo formula (1.2) with
+the discrete kernels (2.4) satisﬁes
+⟨
+(Dατv)n−θ,v n−θ⟩ ≥ 12 n∑k=1A(n)n−k▽τ ( ‖‖vk‖‖2 ) for 1 ≤n ≤N .
+9
+PAGE 10
+Proof. The inequality is known to hold [ 9, Lemma 4.1] provided A2 is satisﬁed
+and θ(n) ≥θ for 1 ≤n ≤N , where
+θ(1) = 12 and θ(n) = A(n)0 −A(n)12A(n)0 −A(n)1 for n ≥ 2.
+Obviously, Theorem 2.2 (II) ensures that A2 holds, and the condition M1 leads to
+θ(1) ≥θ. From Theorem 2.2 (III), θ(n) ≥θ holds also for n ≥ 2.
+2.2. Unconditional stability . By taking the χ =un−θh in ( 1.3), one has
+(2.7)
+⟨
+(Dατuh)n−θ,u n−θh ⟩ ≤κ+‖‖un−θh ‖‖2 + ⟨f (tn−θ),u n−θh ⟩ for 1 ≤n ≤N,
+where κ+ := max {κ, 0} and the property ⟨∇un−θh , ∇un−θh ⟩ ≥ 0 was used. There-
+fore, applying the above Corollary 2.3 along with the Cauchy–Schwarz and triangle
+inequalities, one gets
+n∑
+k=1
+A(n)n−k▽τ ( ‖‖ukh‖‖2 ) ≤ 2κ+((1 −θ)‖‖unh‖‖ +θ‖‖un−1h ‖‖)2
++ 2
+(
+(1 −θ)
+‖‖unh‖‖ +θ‖‖un−1h ‖‖)‖‖f (tn−θ)‖‖, 1 ≤n ≤N,
+which has the form of ( 1.10) with
+λ := 2κ+, v k := ‖‖uk‖‖ and ξk := 2‖‖f k−θ‖‖ for 1 ≤k ≤N.
+Note that Theorem 2.2 shows the criteria A1–A2 of Theorem 1.1 are satisﬁed with
+πA = 11/4, and the condition M1 gives ρ = 7/4. Therefore, applying Theorem 1.1 ,
+we see that the time-stepping method ( 1.3) is stable in the following sense.
+Theorem 2.4. If M1 holds with the maximum time step τ ≤ 1/ α
+√
+11Γ(2 −α)κ+
+(there is no limit to the maximum time step if κ ≤ 0), then the solution unh of the
+time-stepping scheme (1.3) is stable, that is,
+‖unh‖ ≤ 2Eα(20κ+tαn)( ‖u0h‖ + 2 max1≤k≤n k∑j=1P (k)k−j ‖f (tj−θ)‖ )
+≤ 2Eα
+(
+20κ+tαn)( ‖u0h‖ + 6Γ(1 −α) max1≤j≤n{tαj ‖f (tj−θ)‖}) for 1 ≤n ≤N.
+3. Global consistency error and convergence. We now derive a representa-
+tion for the consistency error of the discrete Caputo derivative ( 1.2) with the discrete
+kernels in ( 2.4). Fix a function v(t) and decompose the local consistency error into
+n terms corresponding to the n subintervals, writing
+(3.1) Υ n−θ := (Dαtv)(tn−θ) − (Dατv)n−θ =
+n∑
+k=1
+Υn−θk , 1 ≤n ≤N,
+where, recalling the notations ̟n(s), ( ~Π1,kv) and ( ~Π2,kv) from section 2 ,
+Υn−θk :=
+∫ tk
+tk−1
+̟′n(s)( ~Π2,kv)′(s) ds, 1 ≤k ≤n − 1 ≤N − 1,(3.2)
+Υn−θn :=
+∫ tn−θ
+tn−1
+̟′n(s)( ~Π1,nv)′(s) ds, 1 ≤n ≤N.(3.3)
+10
+PAGE 11
+Compared with the traditional technique using direct estimation of t he local error
+Υn−θ, the stability estimate in Theorem 2.4 suggests that one can consider the global
+consistency error E nglob, deﬁned in ( 1.5), accumulated from t =t1−θ to t =tn−θ with
+the complementary discrete kernel P (n)n−j. To exploit this convolution structure, we
+will control Υ n−θ by an ECS bound in terms of the discrete kernels A(n)n−k deﬁned in
+(2.4), and the following quantities
+Gkloc := 32 ∫ tk−1/2tk−1 (s −tk−1)2|v′′′(s)| ds + 3τk2 ∫ tktk−1/2 (tk −s)|v′′′(s)| ds,(3.4)
+Gkhis := 52 ∫ tktk−1 (s −tk−1)2|v′′′(s)| ds + 52 ∫ tk+1tk (tk+1 −s)2|v′′′(s)| ds,(3.5)
+assuming in what follows that v is such that these integrals exist and are ﬁnite.
+3.1. Global consistency error.
+Lemma 3.1. For any function v ∈C3((0,T ]), the local consistency error Υn−θn in
+(3.3) satisﬁes ⏐⏐Υn−θn ⏐⏐ ≤a(n)0 Gnloc ≤A(n)0 Gnloc for 1 ≤n ≤N .
+Proof. Taylor expansion (with integral remainder) about tn−1/2 shows that
+v′(s) = v′(tn−1/2) +v′′(tn−1/2)(s −tn−1/2) +
+∫ s
+tn−1/2
+(s −y)v′′′(y) dy,
+and
+( ~Π1,nv)′(s) =v′′(tn−1/2)(s −tn−1/2) + ∫ s
+tn−1/2
+(s −y)v′′′(y) dy
+− 12τn
+∫ tn−1/2
+tn−1
+(y −tn−1)2v′′′(y) dy − 12τn
+∫ tn
+tn−1/2
+(tn −y)2v′′′(y) dy.
+Inserting these four terms in ( 3.3) yields the splitting Υ n−θn = ∑4ℓ=1 Υn−θn,ℓ . After
+integrating by parts, we ﬁnd that
+(3.6) Υ n−θn,1 = (α − 2θ) (1 −θ)1−α2Γ(3 −α) v′′(tn−1/2)τ 2−αn ,
+which vanishes for θ = α/2. For the term Υ n−θn,2 , we split the integration interval
+[tn−1,t n−θ] into two parts: [tn−1,t n−1/2] and [tn−1/2,t n−θ]. Since tn−1/2<t n−θ <t n,
+the second term reads
+Υn−θn,2 =
+∫ tn−θ
+tn−1
+̟′n(s)
+∫ s
+tn−1/2
+(s −y)v′′′(y) dy ds
+=
+∫ tn−1/2
+tn−1
+̟′n(s)
+∫ tn−1/2
+s
+(y −s)v′′′(y) dy ds +
+∫ tn−θ
+tn−1/2
+̟′n(s)
+∫ s
+tn−1/2
+(s −y)v′′′(y) dy ds.
+Reversing the order of integration, then integrating by parts in th e second term and
+using ̟n(tn−θ) = 0, we have
+Υn−θn,2 =
+∫ tn−1/2
+tn−1
+v′′′(y)
+∫ y
+tn−1
+(y −s)̟′n(s) ds dy +
+∫ tn−θ
+tn−1/2
+v′′′(y)
+∫ tn−θ
+y
+(s −y)̟′n(s) ds dy
+=
+∫ tn−1/2
+tn−1
+v′′′(y)
+∫ y
+tn−1
+(y −s)̟′n(s) ds dy −
+∫ tn−θ
+tn−1/2
+v′′′(y)
+∫ tn−θ
+y
+̟n(s) ds dy.
+11
+PAGE 12
+The inner integrals can be estimated as
+⏐⏐⏐⏐∫ y
+tn−1
+(y −s)̟′n(s) ds
+⏐⏐⏐⏐ ≤̟′n(tn−1/2) (y −tn−1)22 for tn−1 <y <t n−1/2,
+⏐⏐⏐⏐∫ tn−θ
+y
+̟n(s) ds
+⏐⏐⏐⏐ ≤ ⏐⏐̟n(tn−1/2)⏐⏐(tn−θ −y) for tn−1/2 <y <t n−θ.
+Recalling the deﬁnition ( 2.2) of a(n)0 , we see that ω2−α(tn−θ −tn−1) = τna(n)0 and then
+⏐⏐̟n(tn−1/2)⏐⏐ =ω2−α(tn−θ −tn−1/2) ≤ω2−α(tn−θ −tn−1) = τna(n)0 ,
+̟′n(tn−1/2) = ω1−α(tn−θ −tn−1/2) = 2τnω2−α(tn−θ −tn−1/2) ≤ 2a(n)0 ,
+where we used the fact that tn−θ −tn−1/2 = (1 −α)τn/2. Hence, it follows that
+⏐⏐Υn−θn,2 ⏐⏐ ≤a(n)0 ∫ tn−1/2
+tn−1
+(y −tn−1)2|v′′′(y)| dy +a(n)0 τn
+∫ tn−θ
+tn−1/2
+(tn−θ −y)|v′′′(y)| dy,
+and ﬁnally
+⏐⏐⏐ 4∑
+ℓ=3
+Υn−θn,ℓ
+⏐⏐⏐ ≤ a(n)0
+2
+∫ tn−1/2
+tn−1
+(y −tn−1)2|v′′′(y)| dy + a(n)02 ∫ tntn−1/2(tn −y)2|v′′′(y)| dy.
+Thus the triangle inequality yields |Υn−θn | ≤ a(n)0 Gnloc where Gnloc is deﬁned in ( 3.4).
+The deﬁnition ( 2.4) implies a(n)0 ≤A(n)0 and completes the proof.
+Remark 3.2. If we were to choose θ ⁄=α/2, the term ( 3.6) would limit the consis-
+tency error to an order of O(τ 2−αn ), even for smooth solutions.
+To estimate the remaining terms in ( 3.2), we present an interpolation error for-
+mula for the quadratic polynomial Π 2,kv employed in the Alikhanov formula ( 1.2),
+but leave the proof to Appendix A. This formula is crucial for verifying the ECS
+hypothesis for the local consistency error Υ n−θ.
+Lemma 3.3. If v ∈C3([tk−1,t k+1]) and q ∈C2([tk−1,t k]), then
+∫ tk
+tk−1
+q′(t)( ~Π2,kv)′(t) dt = ∫ tk+1
+tk
+(tk+1 −s)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk+1
+−
+∫ tk
+tk−1
+(s −tk−1)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk
++
+∫ tk
+tk−1
+v′′′(s) ds
+∫ s
+tk−1
+( ~Π1,kq)(t) dt, 1 ≤k ≤n − 1.
+Theorem 3.4. Assume that the mesh condition M1 holds and v ∈ C3((0,T ]).
+For the nonuniform Alikhanov formula (1.2) with the discrete kernels (2.4), an ECS
+dominates the local consistency error Υn−θ in (3.1), that is,
+⏐⏐Υn−θ⏐⏐ ≤A(n)0 Gnloc + n−1∑
+k=1
+(
+A(n)n−k−1 −A(n)n−k)Gkhis for 1 ≤n ≤N,
+12
+PAGE 13
+and consequently the global consistency error satisﬁes
+E nglob ≤
+n∑
+k=1
+P (n)n−kA(k)0 Gkloc +
+n−1∑
+k=1
+P (n)n−kA(k)0 Gkhis for 1 ≤n ≤N,
+whereGkloc and Gkhis are deﬁned by (3.4) and (3.5), respectively.
+Proof. According to the arguments in subsection 1.2 , it suﬃces to verify the ﬁrst
+inequality (the ECS bound). The deﬁnition ( ??) of Υ n−θk and Lemma 3.3 (taking
+q :=̟n) yield
+(3.7) Υ n−θk = b(n)n−k2 ∫ tktk−1(s −tk−1)2v′′′(s) ds − ρkb(n)n−k2 ∫ tk+1tk (tk+1 −s)2v′′′(s) ds
++
+∫ tk
+tk−1
+v′′′(s)
+∫ s
+tk−1
+( ~Π1,k̟n)(t) dt ds, 1 ≤k ≤n − 1,
+where the alternative deﬁnition ( 2.5) of b(n)n−k has been used. Recall the error formula
+of linear interpolation [ 8, Lemma 3.1],
+( ~Π1,k̟n)(t) = ∫ tk
+tk−1
+χk(t,y )̟′′n(y) dy, t k−1 <t<t k, 1 ≤k ≤n − 1,
+where the Peano kernel χk(t,y ) = max {t −y, 0} − (t −tk−1)(tk −y)/τk satisﬁes
+−t −tk−1
+τk
+(tk −y) ≤χk(t,y )< 0 for any t,y ∈ (tk−1,t k).
+The inner integral in the last term of ( 3.7) can be bounded by
+⏐⏐⏐⏐∫ s
+tk−1
+( ~Π1,k̟n)(t) dt⏐⏐⏐⏐ ≤ 12 (s −tk−1)2 ∫ tktk−1 tk −sτk ̟′′n(s) ds, t k−1 <s<t k.
+By the deﬁnition ( 3.5) of Gnhis and the triangle inequality, we obtain from ( 3.7) that
+⏐⏐Υn−θk ⏐⏐ ≤ 15 ((1 +ρk)b(n)n−k + ∫ tktk−1tk −sτk ̟′′n(s) ds)Gkhis ≤ (A(n)n−k−1 −A(n)n−k)Gkhis,
+where Theorem 2.2 (II) was used in the second inequality. Then the deﬁnition ( 3.1)
+and Lemma 3.1 yield the ﬁrst inequality immediately. The proof is completed.
+Remark 3.5. Traditionally, the global approximation error would be estimated by
+using the truncation error Υ n−θ directly. Once an upper bound of ⏐⏐Υn−θ⏐⏐ is available,
+the inequality ( 1.8) with m = 0 will give the global approximate error
+E nglob ≤
+n∑
+j=1
+P (n)n−jω1−α(tj) max1≤l≤n
+⏐⏐Υl−θ⏐⏐
+ω1−α(tl) ≤πAΓ(1 −α) max1≤l≤ntαl ⏐⏐Υl−θ⏐⏐.
+Nonetheless, the local and global consistency errors described in Theorem 3.4 present
+a new understanding of the error contributions generated by the two diﬀerent poly-
+nomial approximations, respectively, in the local cell [ tn−1,t n−θ] and the historical
+interval [0,t n−1] of the fractional Caputo derivative.
+13
+PAGE 14
+Originally, our ECS bound for Υ n−θ is constructed to preserve the convolution
+structure of the Caputo fractional derivative as much as possible . A direct estimate
+of the global consistency error ( 1.5) would lead to the double sum ∑nk=1 ∑kj=1 |Υk−θj |,
+whereas the ECS bound leads to a single sum ∑nk=1P (n)n−kA(k)0 (Gkloc +Gkhis). This sim-
+pliﬁcation assists for proving sharp error bounds even with quite ge neral nonuniform
+meshes. Nonetheless, an explicit bound for the complementary disc rete kernel P (n)n−j
+remains an open problem until now, and we will make full use of the iden tity ( 1.6)
+and the upper bound ( 1.8) in the subsequent analysis.
+Lemma 3.6. Assume that v ∈ C3((0,T ]), and there exists a positive constant
+Cv such that
+⏐⏐v′′′(t)⏐⏐ ≤ Cv(1 + tσ−3) for 0 < t ≤ T , where σ ∈ (0, 1) ∪ (1, 2) is a
+regularity parameter. If the mesh condition M1 holds, for 1 ≤n ≤N , then the global
+consistency error satisﬁes
+E nglob ≤Cv
+(
+τ σ1/σ +tσ−31 τ 32 + 11 −α max2≤k≤ntαktσ−3k−1τ 3k/τ αk−1).
+Proof. The bounds on the discrete kernel A(n)n−k in Theorem 2.2 (I) yield the
+inequalities
+A(k)0 ≤ 2411ω2−α(τk)/τk, A (k)k−2 ≥ 411ω1−α(tk −t1),
+and
+A(k)0
+A(k)k−2 < 6ω2−α(τk)τkω1−α(tk −t1) ≤ 61 −α (tk −t1)ατ αk , 2 ≤k ≤n ≤N.
+Furthermore, the identity ( 1.6) for the complementary discrete kernel P (n)n−j gives
+P (n)n−1A(1)0 ≤ 1 and
+n−1∑
+k=2
+P (n)n−kA(k)k−2 ≤
+n∑
+k=2
+P (n)n−kA(k)k−2 = 1.
+Applying the deﬁnition ( 3.4) with the regularity assumption, it is not diﬃcult to get
+G1loc ≤Cvτ σ1/σ and Gkloc ≤Cvtσ−3k−1τ 3k for 2 ≤k ≤N.
+Similarly, by using the formula ( 3.5), one gets
+G1his ≤Cv(τ σ1/σ +tσ−31 τ 32 ) and Gkhis ≤Cv (tσ−3k−1τ 3k +tσ−3k τ 3k+1) for 2 ≤k ≤N − 1.
+Then it follows from Theorem 3.4 that
+E nglob ≤P (n)n−1A(1)0 (G1loc +G1his) + n∑
+k=2
+P (n)n−kA(k)0 Gkloc +
+n−1∑
+k=2
+P (n)n−kA(k)0 Gkhis.
+The ﬁrst term on the right is bounded by Cv(τ σ1/σ +tσ−31 τ 32 ), and the remaining terms
+can be bounded by
+6
+1 −α
+( n∑
+k=2
+P (n)n−kA(k)k−2tαkτ −αk Gkloc +
+n−1∑
+k=2
+P (n)n−kA(k)k−2tαkτ −αk Gkhis
+)
+≤ Cv
+1 −α max2≤k≤ntαktσ−3k−1τ 3−αk + Cv1 −α max2≤k≤n−1(tαktσ−3k−1τ 3−αk +tα+σ−3k τ 3k+1τ −αk )
+≤ Cv
+1 −α max2≤k≤ntαktσ−3k−1τ 3k/τ αk−1(1 +ραk−1),
+implying the claimed estimate.
+14
+PAGE 15
+Remark 3.7. The proof of Lemma 3.6 and the ECS bound in Theorem 3.4 give
+⏐⏐Υ1−θ⏐⏐ ≤A(1)0 G1loc ≤Cvτ σ−α1 /σ,
+implying that Υ 1−θ =O(1) when σ =α, and if 0 <σ<α then the situation becomes
+worse. The global consistency analysis seems therefore to be also a superconvergence
+analysis.
+Now we describe the contribution to the global truncation error fr om the time
+weighted terms. The next lemma suggests that the temporal erro r introduced by the
+time weighted approach is smaller than that generated by the Alikhan ov approxima-
+tion of the Caputo derivative.
+Lemma 3.8. Assume that v ∈C2((0,T ]), and there exists a positive constant Cv
+such that
+⏐⏐v′′(t)⏐⏐ ≤Cv(1 +tσ−2) for 0<t ≤T , where σ ∈ (0, 1) ∪ (1, 2) is a regularity
+parameter. Denote the local truncation error of vn−θ by
+Rn−θ =v(tn−θ) −vn−θ for 1 ≤n ≤N .
+If the mesh condition M1 holds, then the global consistency error satisﬁes
+n∑
+j=1
+P (n)n−j ⏐⏐Rj−θ⏐⏐ ≤Cv(τ σ+α1 /σ +tαn max2≤k≤ntσ−2k−1τ 2k ) for 1 ≤n ≤N .
+Proof. The following integral representation of Rj−θ can be easily veriﬁed, for
+example using the Taylor formula with integral remainder [ 12, Lemma 2.5],
+Rj−θ = −θ
+∫ tj−θ
+tj−1
+(s −tj−1)v′′(s) ds − (1 −θ)
+∫ tj
+tj−θ
+(tj −s)v′′(s) ds, 1 ≤j ≤N.
+Under the regularity assumption, one has
+⏐⏐R1−θ⏐⏐ ≤Cv τ σ1σ and ⏐⏐Rj−θ⏐⏐ ≤Cvtσ−2j−1τ 2j, 2 ≤j ≤N.
+Note that Theorem 2.2 (I) implies A(1)0 ≥ 411ω2−α(τ1)/τ1, and then the identity ( 1.6)
+shows that
+P (n)n−1 ≤ 1/A(1)0 ≤ 3Γ(2 −α)τ α1.
+Therefore we obtain
+n∑
+j=1
+P (n)n−j⏐⏐Rj−θ⏐⏐ =P (n)n−1⏐⏐R1−θ⏐⏐ + n∑
+j=2
+P (n)n−j⏐⏐Rj−θ⏐⏐
+≤ 3Γ(2 −α)τ α1 ⏐⏐R1−θ⏐⏐ + max2≤k≤n ⏐⏐Rk−θ⏐⏐ n∑j=1P (n)n−j
+≤Cv
+(
+τ σ+α1 /σ +tαn max2≤k≤ntσ−2k−1τ 2k
+)
+, 1 ≤n ≤N,
+where the estimate ( 1.8) with πA = 11/4 has been used in the last inequality.
+15
+PAGE 16
+3.2. Convergence. We now establish the convergence of the numerical solution
+under the regularity conditions ( 1.13) and the assumptions M1–M2. To deal with
+the spatial error, we introduce the Ritz projector Rh :H 10 (Ω) →Xh, deﬁned by
+⟨∇Rhv, ∇χ⟩ = ⟨∇v, ∇χ⟩ for v ∈H 10 (Ω) and χ ∈Xh.
+Theorem 3.9. Suppose that the solution u of (1.1) has the regularity property
+(1.13) for the parameter σ ∈ (0, 1) ∪ (1, 2), and consider the time-stepping method
+(1.3) using the nonuniform Alikhanov formula (1.2) with the discrete kernels (2.4).
+If M1 holds with the maximum step size τ ≤ 1/ α
+√
+11Γ(2 −α)κ+, then the discrete
+solution unh is convergent with respect to the L2-norm,
+‖‖u(tn) −unh‖‖ ≤CuEα(20κ+tαn)(τ σ1σ + 11 −α max2≤k≤ntαktσ−3k−1 τ 3kτ αk−1 +tαn max2≤k≤ntσ−2k−1τ 2k
++ ‖u0h −Rhu0‖ + (tn +tαn +tσn)h2
+)
+for 1 ≤n ≤N.
+In particular, if M2 also holds and if we choose u0h =Rhu0, then
+‖‖u(tn) −unh‖‖ ≤ Cuσ(1 −α)τ min{γσ,2} +Cuh2 for 1 ≤n ≤N ,
+whereCu may depend on u and T , but is uniformly bounded with respect to α and σ.
+Proof. Let enh =unh −Rhun ∈Xh where un =u(tn), so that
+‖unh −un‖ ≤ ‖un −Rhun‖ + ‖enh‖.
+The usual analysis of the elliptic problem shows that, under the ﬁrst regularity as-
+sumption in ( 1.13),
+(3.8) ‖un −Rhun‖ ≤ CΩh2‖un‖H2(Ω) ≤Cuh2,
+so it suﬃces to deal with enh. We ﬁnd [ 9, Section 4] that
+⟨(Dατeh)n−θ,χ ⟩ + ⟨∇en−θh , ∇χ⟩ =κ⟨en−θh ,χ ⟩ + ⟨Rn,χ ⟩,
+for all χ ∈Xh, where
+(3.9) Rn = (Dαtu)(tn−θ)−(DατRhu)n−θ −κ(u(tn−θ)−Rhun−θ)+△(un−θ −u(tn−θ)).
+Choosing χ = un−θh yields an inequality of the form ( 2.7) with un−θh and f (tn−θ)
+replaced by en−θh and Rn, respectively. Hence, the argument leading to Theorem 2.4
+shows that
+(3.10) ‖enh‖ ≤ 2Eα(20κ+tαn)
+(
+‖e0h‖ + 2 max1≤k≤n
+k∑
+j=1
+P (k)k−j ‖Rj‖
+)
+for 1 ≤n ≤N .
+Write Rj = Rj1 + Rj2 + Rj3 + Rj4, where
+Rj1 = (Dαtu)(tj−θ) − (Dατu)j−θ, Rj2 = (κ + △)(uj−θ −u(tj−θ)),
+Rj3 = (Dατ (u −Rhu))j−θ, Rj4 =κ(Rhu −u)j−θ.
+16
+PAGE 17
+Applying Lemmas 3.6 and 3.8, combined with the regularity assumption ( 1.13), one
+obtains
+max
+1≤k≤n
+k∑
+j=1
+P (k)k−j ‖‖Rj1 + Rj2‖‖ ≤Cu(τ σ1σ + 11 −α max2≤k≤ntαktσ−3k−1 τ 3kτ αk−1 +tαn max2≤k≤ntσ−2k−1τ 2k ).
+Since
+‖Rj3‖ =
+‖‖‖‖ j∑
+ℓ=1
+A(j)j−ℓ∇τ (u −Rhu)ℓ
+‖‖‖‖ ≤ j∑
+ℓ=1
+A(j)j−ℓ
+∫ tℓ
+tℓ−1
+‖(u −Rhu)′(t)‖dt,
+the identity ( 1.6), the error bound ( 3.8) for the Ritz projection and the regularity
+assumption ( 1.13) give
+max
+1≤k≤n
+k∑
+j=1
+P (k)k−j ‖Rj3‖ ≤ max1≤k≤n
+k∑
+ℓ=1
+( k∑
+j=ℓ
+P (k)k−jA(j)j−ℓ
+) ∫ tℓ
+tℓ−1
+‖(u −Rhu)′(t)‖dt
+≤Cuh2
+∫ tn
+0
+‖u′(t)‖H2(Ω)dt ≤Cu(tn +tσn)h2.
+Recalling the upper bound ( 1.8) and the Ritz projection error ( 3.8), we see that
+max
+1≤k≤n
+k∑
+j=1
+P (k)k−j ‖Rj4‖ ≤ CΩh2 max1≤k≤n
+k∑
+j=1
+P (k)k−j ‖uj−θ‖H2(Ω) ≤Cutαnh2,
+so the ﬁrst estimate for ‖unh −u(tn)‖ follows. If the mesh assumption M2 holds, then
+τ1 ≤Cγτ γ and, with β := min{2,γσ },
+tαktσ−3k−1τ 3k/τ αk−1 ≤Cγtα+σ−3k τ 3−αk ≤Cγtσ−3+αk τ 3−α−βk (τ min{1,t 1−1/γk })β(3.11)
+≤Cγtσ−β/γk (τk/tk)3−α−βτ β
+≤Cγtmax{0,σ−(3−α)/γ}k τ β, 2 ≤k ≤n.
+In addition, we have
+(3.12) tσ−2k−1τ 2k ≤Cγtσ−2k τ 2−βk (τ min{1,t 1−1/γk })β
+≤Cγtσ−β/γk (τk/tk)2−βτ β ≤Cγtmax{0,σ−2/γ}k τ β, 2 ≤k ≤n,
+so the claimed second result follows immediately by noting that tn ≤T .
+Remark 3.10. Replacing f (tn−θ) withf n−θ in (1.3) would introduce an additional
+termf n−θ −f (tn−θ) in the deﬁnition ( 3.9) of Rn, but would not aﬀect the ﬁnal error
+bound, assuming f has the regularity properties needed to apply Lemma 3.8 . Also,
+instead of u0h =Rhu0 we could choose the interpolant or the L2-projection of u0 and
+still maintain second-order accuracy in space.
+Remark 3.11. By an argument similar to that in ( 3.11), it is not diﬃcult to show
+tαktσ−3k−1τ 3k/τ αk−1 ≤Cγtσ−(3−α)/γk τ 3−α,
+which means that the Alikhanov formula ( Dατv)n−θ approximates ( Dαtu)(tn−θ) to
+order O(τ 3−α) if γ ≥ (3 −α)/σ. However, the term ( 3.12) arising from the diﬀer-
+ence u(tn−θ) −un−θ in ( 3.9) would still limit the convergence rate for the overall
+scheme to order O(τ 2).
+17
+PAGE 18
+4. Proof of Theorem 2.2 (discrete convolution kernels). Our aim is to
+prove the boundedness and monotonicity of the convolution kerne ls A(n)n−k. Since the
+coeﬃcients a(n)n−k, b(n)n−k and A(n)n−k in ( 2.2), ( 2.3) and ( 2.4) are deﬁned on nonuniform
+meshes, it is a technically challenging task and some new techniques will be necessary.
+Note that, some techniques using Taylor expansion or function mon otonicity have
+been applied in [ 1, 3, 13] to investigate the discrete convolution kernels in high-order
+numerical Caputo formulas. These techniques can not be directly a pplied here al-
+though they would be well suited for the uniform case with τk =τ .
+We start from the alternative deﬁnition ( 2.6) ofb(n)n−k. Compared with the original
+deﬁnition (2.3), the new formula ( 2.6) has a nonnegative integrand because Γ( −α)< 0
+and ω−α(tn−θ −s)< 0, motivating us to consider the integrals
+∫ tk
+tk−1
+̟′′n(t) dt,
+∫ tk
+tk−1
+tk −t
+τk
+̟′′n(t) dt and
+∫ tk
+tk−1
+t −tk−1
+τk
+̟′′n(t) dt.
+Actually, they are very close to the values of b(n)n−k and a(n)n−k−1 −a(n)n−k if ρ = O(1).
+In studying theoretical properties of the discrete kernels A(n)n−k, these integrals will
+play a bridging role in establishing some useful links between the under laying discrete
+coeﬃcients a(n)n−k, b(n)n−k and A(n)n−k; see Lemmas 4.2 , 4.3 and 4.6.
+4.1. Proof of Theorem 2.2 (I).
+Lemma 4.1. The discrete coeﬃcients a(n)n−k deﬁned in (2.2) satisfy
+(i) a(n)n−k >ω 1−α(tn−θ −tk−1)>a (n)n−k+1 for 1 ≤k ≤n;
+(ii) a(n)0 > 34 ∫ tntn−1 ω1−α(tn−s)τn ds anda(n)n−k > ∫ tktk−1 ω1−α(tn−s)τk ds for 1 ≤k ≤n−1.
+Proof. (i) If k =n, one has
+a(n)0 = 1 −θ1 −αω1−α(tn−θ −tn−1)>ω 1−α(tn−θ −tn−1).
+For 1 ≤k < n, the claimed inequalities follow directly from the integral mean value
+theorem and the fact that ̟′n(s) = ω1−α(tn−θ −s) is a strictly increasing function.
+(ii) Also, the lower bounds of a(n)n−k for 1 ≤k <n follow from the deﬁnition ( 2.2)
+immediately. For the remaining coeﬃcient a(n)0 , since ex > 1 + x for all real x and
+since ln(1 −x/2)> −x for 0 <x< 1, we ﬁnd that
+(1 −θ)1−α =e(1−α) ln(1−α/2)> 1 + (1 −α) ln(1 −α/2)> 1 −α(1 −α) ≥ 3/4,
+and then a(n)0 = (1 −θ)1−αω2−α(τn)/τn> 34τn ∫ tntn−1ω1−α(tn −s) ds.
+Lemma 4.2. The discrete coeﬃcients b(n)n−k deﬁned in (2.3) satisfy
+0<b (n)n−k ≤ ρk4(1 +ρk) ∫ tktk−1̟′′n(s) ds, 1 ≤k ≤n − 1.
+Proof. Since 0 < (s −tk−1)(tk −s) < τ2k/4 for tk−1 < s < tk, the alternative
+deﬁnition ( 2.6) of b(n)n−k yields the result and completes the proof.
+As an application of Lemma 4.2 , the next lemma builds up a link between
+a(n)n−k and b(n)n−k. For a uniform mesh tn =nτ , this lemma gives
+0<b (n)n−k < θ4(n −θ −k)a(n)n−k for 1 ≤k ≤n − 1.
+18
+PAGE 19
+By comparison, Alikhanov [ 1, Lemma 3 and Corollary 2] gives b(n)n−k < θ2(1−θ)a(n)n−k.
+Obviously, the new bound is much sharper.
+Lemma 4.3. The positive coeﬃcientsa(n)n−k,b(n)n−k deﬁned in (2.2) and (2.3) satisfy
+b(n)n−k < θτk2(tn−θ −tk) ρk1 +ρka(n)n−k, 1 ≤k ≤n − 1.
+Proof. For ﬁxed n and 1 ≤k ≤n − 1, consider an auxiliary function
+ϕk(z) :=
+∫ tk−1+z
+tk−1
+̟′′n(s) ds − 2θtn−θ −tk
+∫ tk−1+z
+tk−1
+̟′n(s) ds, 0<z <τ k.
+Since ̟′′n(t) = α̟′n(t)/(tn−θ −t), the ﬁrst derivative
+ϕ′k(z) = ̟′n(tk−1 +z)
+( α
+tn−θ −tk−1 −z − 2θtn−θ −tk
+)
+<̟ ′n(tk−1 +z) α − 2θtn−θ −tk = 0, 0<z <τ k, 1 ≤k ≤n − 1.
+Hence the deﬁnition ( 2.2) of a(n)n−k yields
+∫ tk
+tk−1
+̟′′n(s) ds − 2θτktn−θ −tka(n)n−k =ϕk(τk)<ϕ k(0) = 0, 1 ≤k ≤n − 1.
+Lemma 4.2 gives the claimed inequality and completes the proof.
+Now we verify Theorem 2.2 (I) by using Lemmas 4.1 and 4.3.
+Proof of Theorem 2.2 (I). Under the assumption M1, one has θ <1−θ,ρk ≤ 7/4
+and tn−θ −tk ≥ (1 −θ)τk+1 for 1 ≤k ≤n − 1. Thus, by using Lemma 4.3 , one has
+b(n)n−k < θτk2(1 −θ)τk+1 ρk1 +ρka(n)n−k ≤ 7ρk8(1 +ρk)a(n)n−k ≤ 711a(n)n−k, 1 ≤k ≤n − 1,
+since the function t/(1 +t) is increasing for any t> 0. By Lemma 4.1 (i),a(n)1 <a (n)0 ,
+then the deﬁnition ( 2.4) yields
+A(n)0 =a(n)0 +ρn−1b(n)1 ≤a(n)0 + 4944a(n)1 ≤ 2411a(n)0 .
+So the deﬁnition ( 2.2) of a(n)0 gives the upper bound
+A(n)0 ≤ 2411τn (1 −θ)1−α
+∫ tn
+tn−1
+ω1−α(tn −s) ds ≤ 2411τn
+∫ tn
+tn−1
+ω1−α(tn −s) ds.
+The lower bounds of A(n)n−k for 1 ≤k ≤n − 1 follow from Lemma 4.1 (ii) because the
+deﬁnition ( 2.4) implies that
+A(n)n−k ≥a(n)n−k −b(n)n−k ≥ 411a(n)n−k.
+The proof of Theorem 2.2 (I) is complete.
+19
+PAGE 20
+4.2. Proof of Theorem 2.2 (II)–(III). For simplicity of presentation, in this
+subsection we let
+(4.1) I (n)n−k :=
+∫ tk
+tk−1
+tk −t
+τk
+̟′′n(t) dt and J (n)n−k :=
+∫ tk
+tk−1
+t −tk−1
+τk
+̟′′n(t) dt
+for 1 ≤k ≤n − 1.
+Lemma 4.4. For 1 ≤k ≤n − 2, the positive coeﬃcients b(n)n−k in (2.3) satisfy
+(i) I (n)n−k ≥ 1+ρkρk b(n)n−k; (ii) J (n)n−k ≥ 2(1+ρk)ρk b(n)n−k; (iii) J (n)n−k ≥I (n)n−k.
+Proof. The alternative deﬁnition ( 2.6) of b(n)n−k gives the result (i) directly since
+0 < s−tk−1 < τk for s ∈ (tk−1,t k). Since ̟′′′n (t) > 0 for 0 < t < tn−θ, we take
+q :=̟′n in Lemma 2.1 to ﬁnd
+∫ tk
+tk−1
+(s −tk−1
+τk
+− 12 )̟′′n(s) ds = 12τk ∫ tktk−1 (s −tk−1)(tk −s)̟′′′n (s) ds> 0,
+and then J (n)n−k > 12 ∫ tktk−1̟′′n(s) ds for 1 ≤ k ≤ n − 1. So the inequality (ii) follows
+immediately from Lemma 4.2 . Moreover, 2 J nn−k > ∫ tktk−1̟′′n(s) ds = I (n)n−k +J (n)n−k so
+the claimed result (iii) follows directly.
+Lemma 4.5. For any ﬁxed n (3 ≤n ≤N ) and 1 ≤k ≤n − 2, it holds that
+(i) I (n)n−k−1 ≥ 1ρkI (n)n−k; (ii) J (n)n−k−1 ≥ 1ρkJ (n)n−k.
+Proof. For ﬁxed n ≥ 2, introduce an auxiliary function with respect to z ∈ [0, 1],
+ψk(z) := 1τk
+∫ tk−1+zτk
+tk−1
+(tk−1 +zτk −s)̟′′n(s) ds, 1 ≤k ≤n − 1,
+with the ﬁrst and second derivatives
+ψ′k(z) =
+∫ tk−1+zτk
+tk−1
+̟′′n(s) ds, ψ ′′k (z) = τk̟′′n(tk−1 +zτk), 1 ≤k ≤n − 1.
+Note that ψk(0) = ψ′k(0) = 0 for 1 ≤ k ≤ n − 1, and ψk+1(0) = ψ′k+1(0) = 0 for
+0 ≤ k ≤ n − 2. Thanks to the Cauchy diﬀerential mean-value theorem, there e xist
+z1k,z2k ∈ (0, 1) such that
+I (n)n−k−1
+I (n)n−k = ψk+1(1)ψk(1) = ψk+1(1) −ψk+1(0)ψk(1) −ψk(0) = ψ′k+1(z1k)ψ′k(z1k) = ψ′k+1(z1k) −ψ′k+1(0)ψ′k(z1k) −ψ′k(0)
+= ψ′′k+1(z2k)ψ′′k (z2k) = τk+1̟′′n(tk +z2kτk+1)τk̟′′n(tk−1 +z2kτk) ≥ 1ρk, 1 ≤k ≤n − 2,
+because ̟′′n(t)> 0 is increasing and tk >t k−1 +z2kτk. The inequality (i) follows. We
+now introduce another auxiliary function for z ∈ [0, 1],
+φk(z) := 1τk
+∫ tk−1+zτk
+tk−1
+(s −tk−1)̟′′n(s) ds, 1 ≤k ≤n − 1,
+with the ﬁrst derivative φ′k(z) = zτk̟′′n(tk−1 +zτk) for 1 ≤k ≤n − 1. Then a similar
+argument yields the desired result (ii) and completes the proof.
+20
+PAGE 21
+Lemma 4.6. The positive coeﬃcients a(n)n−k in (2.2) satisfy
+a(n)n−k−1 −a(n)n−k =I (n)n−k−1 +J (n)n−k, 1 ≤k ≤n − 2 (3 ≤n ≤N ),
+and for k =n − 1 (2 ≤n ≤N ),
+a(n)0 −a(n)1 = θ1 − 2θ̟′n(tn−1) +J (n)1 .
+Proof. For ﬁxed n (3 ≤ n ≤ N ), applying the deﬁnition ( 2.2), we exchange the
+order of integration to ﬁnd
+a(n)n−k−1 −̟′n(tk) =
+∫ tk+1
+tk
+̟′n(s) −̟′n(tk)
+τk+1
+ds =
+∫ tk+1
+tk
+∫ s
+tk
+̟′′n(t)
+τk+1
+dt ds =I (n)n−k−1
+for 0 ≤k ≤n − 2, and similarly,
+a(n)n−k −̟′n(tk) =
+∫ tk
+tk−1
+̟′n(s) −̟′n(tk)
+τk
+ds = −J (n)n−k
+for 1 ≤ k ≤ n − 1 (2 ≤ n ≤ N ). Hence the desired ﬁrst equality is obtained by a
+simple subtraction. For the case of k =n − 1 (2 ≤n ≤N ), the above equality gives
+a(n)1 −̟′n(tn−1) = −J (n)1 .
+We have a(n)0 = 1−θ1−α̟′n(tn−1) such that a(n)0 −̟′n(tn−1) = θ1−2θ̟′n(tn−1). Thus a
+simple subtraction yields the second equality and completes the proo f.
+Lemma 4.7. If M1 holds, the positive coeﬃcients a(n)n−k in (2.2) satisfy
+a(n)n−k−1 −a(n)n−k ≥
+{
+b(n)n−2 + 65I (n)n−1, k = 1,
+b(n)n−k−1 +ρk−1b(n)n−k+1 + 15I (n)n−k, k > 1,
+for 1 ≤k ≤n − 2 (3 ≤n ≤N ), and for k =n − 1 (2 ≤n ≤N ),
+a(n)0 −a(n)1 ≥
+{
+I (2)1 , n = 2,
+ρn−2b(n)2 +I (n)1 , n> 2.
+Proof. For ﬁxed n, applying Lemma 4.4 (i) and Lemma 4.5 (i), we obtain
+I (n)n−k−1 = ρk+1I (n)n−k−11 +ρk+1 + I (n)n−k−11 +ρk+1 ≥b(n)n−k−1 + I (n)n−kρk(1 +ρk+1)(4.2)
+≥b(n)n−k−1 + I (n)n−kρ(1 +ρ) =b(n)n−k−1 + 1677I (n)n−k, 1 ≤k ≤n − 2,
+where the assumption M1 was used. By using Lemma 4.5 (ii) and Lemma 4.4 (ii),
+ρ3k−1
+2(1 +ρk−1)J (n)n−k ≥ ρ2k−12(1 +ρk−1)J (n)n−k+1 ≥ρk−1b(n)n−k+1, 2 ≤k ≤n − 1.
+21
+PAGE 22
+Then, noting that 2 + 2 x −x3 ≥ 9/64 for x ∈ [0, 7/4], we apply Lemma 4.4 (iii) and
+the assumption M1 to get
+J (n)n−k = ρ3k−12(1 +ρk−1)J (n)n−k + 2 + 2ρk−1 −ρ3k−12(1 +ρk−1) J (n)n−k ≥ρk−1b(n)n−k+1 + 9352I (n)n−k,(4.3)
+where 2 ≤k ≤n − 1. Hence, with help of ( 4.2)–(4.3), we apply Lemma 4.6 to ﬁnd
+a(n)n−k−1 −a(n)n−k =I (n)n−k−1 +J (n)n−k ≥b(n)n−k−1 +ρk−1bn−k+1 + ( 9352 + 1677 )I (n)n−k
+>b (n)n−k−1 +ρk−1b(n)n−k+1 + 15I (n)n−k, 2 ≤k ≤n − 2.
+If k = 1, by applying Lemma 4.6 with the bound ( 4.2) and Lemma 4.4 (iii), one has
+a(n)n−2 −a(n)n−1 =I (n)n−2 +J (n)n−1 ≥b(n)n−2 + 1677I (n)n−1 +I (n)n−1 ≥b(n)n−2 + 65I (n)n−1.
+To complete the proof, it remains to consider the case of k =n − 1 (2 ≤n ≤N ).
+If n = 2, Lemma 4.6 and Lemma 4.4 (iii) yield
+a(2)0 −a(2)1 = θ1 − 2θ̟′n(t1) +J (2)1 >J (2)1 >I (2)1 .
+Now treat the last case of n ≥ 3. We apply Lemma 4.3 (by taking k = n − 2),
+Lemma 4.1 (i) and the given condition M1 to get
+ρn−2b(n)2 ≤ θτn−22(tn−θ −tn−2) ρ2n−21 +ρn−2a(n)2 ≤ θρn−22 ρ2n−21 +ρn−2a(n)2 ≤ θρ32(1 +ρ)a(n)0
+= 343352θa(n)0 < θτnω2−α(tn−θ −tn−1) = θ(1 −θ)1 − 2θ ̟′n(tn−1) ≤ θ1 − 2θ̟′n(tn−1).
+Therefore Lemma 4.6 and Lemma 4.4 (iii) lead to
+a(n)0 −a(n)1 = θ1 − 2θ̟′n(tn−1) +J (n)1 >ρ n−2b(n)2 +I (n)1 .
+The proof is completed.
+Recalling the deﬁnition ( 2.4), we proceed to apply Lemmas 4.6 and 4.7.
+Proof of Theorem 2.2 (II). With the notation I (n)n−k deﬁned in ( 4.1), we can write
+the desired inequality as
+A(n)n−k−1 −A(n)n−k ≥ (1 +ρk)b(n)n−k + 15I (n)n−k, 1 ≤k ≤n − 1,
+and treat four separate cases covering all possibilities. Indeed, f rom the deﬁnition ( 2.4)
+of A(n)n−k, it is not diﬃcult to verify that
+(1) If k = 1 for n = 2,
+A(2)0 −A(2)1 = (1 + ρ1)b(2)1 +a(2)0 −a(2)1 ;
+(2) If k =n − 1 for n ≥ 3,
+A(n)0 −A(n)1 = (1 + ρn−1)b(n)1 +a(2)0 −a(2)1 −ρn−2b(n)2 ;
+22
+PAGE 23
+(3) If k = 1 for n ≥ 3,
+A(n)n−2 −A(n)n−1 = (1 + ρ1)b(n)n−1 +a(n)n−2 −a(n)n−1 −b(n)n−2;
+(4) If 2 ≤k ≤n − 2 for n ≥ 4,
+A(n)n−k−1 −A(n)n−k = (1 + ρk)b(n)n−k +a(n)n−k−1 −a(n)n−k −b(n)n−k−1 −ρk−1b(n)n−k+1.
+The claimed inequality follows from Lemma 4.7 directly and completes the proof.
+Proof of Theorem 2.2 (III). The proof of Lemma 4.6 shows that
+1 − 2θ
+1 −θ a(n)0 −a(n)1 =J (n)1 > 0 for 2 ≤n ≤N .
+In the case n = 2, the deﬁnition ( 2.4) gives
+1 − 2θ
+1 −θ A(2)0 −A(2)1 = 1 − 2θ1 −θ (a(2)0 +ρ1b(2)1 ) − (a(2)1 −b(2)1 )
+=J (2)1 + 1 − 2θ1 −θ ρ1b(2)1 +b(2)1 > 0.
+Forn ≥ 3, one has
+1 − 2θ
+1 −θ A(n)0 −A(n)1 = 1 − 2θ1 −θ (a(n)0 +ρn−1b(n)1 ) − (a(n)1 +ρn−2b(n)2 −b(n)1 )
+=J (n)1 −ρn−2b(n)1 + 1 − 2θ1 −θ ρn−1b(n)1 +b(n)1 > 0
+because J (n)1 ≥ρn−1b(n)2 + 9352I (n)1 from the case k =n − 1 of ( 4.3).
+5. Numerical experiments. A numerical example is reported here to support
+our theory. The fully discrete scheme ( 1.3) is used to solve the subdiﬀusion problem
+(1.1) in the domain Ω = (0 ,π ) and T = 1. We take κ = 2 and set the exact solution
+u(x,t ) =
+(
+1 +ω1+σ(t)
+)
+sin(x). This solution satisﬁes a stronger estimate than ( 1.13),
+namely,
+‖‖u(ν)(t)‖‖H2(Ω) ≤ Cutσ−ν for 0 < t ≤ T and ν ∈ { 1, 2, 3}. As noted in [ 8,
+Remark 7], the graded mesh tn =T (n/N)γ satisfying M1–M2, is optimal in resolving
+the initial singularity.
+In our computations, a linear ﬁnite element approximation is applied on a uniform
+mesh for Ω with M nodes. As done in an earlier paper [ 8], we split the interval [0 ,T ]
+into two parts [0 ,T 0] ∪ [T0,T ]. In ﬁrst part [0 ,T 0] we used the smoothly graded
+mesh tn = (n/N0)γT0 for 0 ≤n ≤N0, while a uniform mesh with step size τ is used
+in the second part [ T0,T ]. For a given total number N of time levels, we put
+T0 := 2 −γ and N0 :=
+⌈ γN
+2γ − 1 +γ
+⌉
+so that τ := T −T0
+N −N0
+≥ γT0
+N0
+≥τN0.
+To avoid problems with roundoﬀ, the discrete coeﬃcients a(n)n−k and b(n)n−k from ( 2.2)
+and ( 2.6), respectively, were computed using adaptive Gauss–Kronrod qu adrature.
+Since the O(h2) behaviour of the spatial error is standard, we ﬁxed M = 10 4 so
+that the temporal error dominates when N ≤ 2, 048. Thus, from Theorem 3.9 , we
+expect theL∞(L2)-errore(N ) := max 1≤n≤N ‖unh−u(tn)‖ to behave likeO(τ min{γσ,2}).
+We tested the sharpness of this prediction by four scenarios:
+23
+PAGE 24
+Table 5.1
+Numerical temporal accuracy for σ = 1 + α and γ = 1.
+α = 0.4, σ = 1.4 α = 0.6, σ = 1.6 α = 0.8, σ = 1.8
+N e(N ) Order e(N ) Order e(N ) Order
+64 2.78e-04 – 2.32e-04 – 1.62e-04 –
+128 7.24e-05 1.94 5.97e-05 1.96 4.13e-05 1.97
+256 1.87e-05 1.95 1.52e-05 1.97 1.05e-05 1.97
+512 4.74e-06 1.97 3.85e-06 1.98 2.68e-06 1.98
+1024 1.59e-06 1.58 9.72e-07 1.99 6.80e-07 1.98
+2048 5.61e-07 1.50 2.45e-07 1.99 1.73e-07 1.97
+4096 2.01e-07 1.48 6.06e-08 2.02 4.52e-08 1.94
+8192 5.83e-08 1.46 1.23e-08 1.98 1.01e-08 1.83
+min{γσ, 2} 1.40 1.60 1.80
+Table 5.2
+Numerical temporal accuracy for σ = 1.2 and α = 0.4.
+γ = 1 γ = 5/3 = γopt γ = 2
+N e(N ) Order e(N ) Order e(N ) Order
+64 2.98e-04 – 1.29e-04 – 2.12e-04 –
+128 8.52e-05 1.81 3.08e-05 2.07 5.07e-05 2.07
+256 2.97e-05 1.52 7.38e-06 2.06 1.24e-05 2.03
+512 1.18e-06 1.33 1.77e-06 2.05 3.02e-06 2.04
+1024 4.81e-06 1.30 4.21e-07 2.07 7.22e-07 2.06
+2048 1.98e-06 1.27 9.25e-08 2.19 1.65e-07 2.12
+min{γσ, 2} 1.20 2.00 2.00
+Table 5.3
+Numerical temporal accuracy for σ = 0.8 and α = 0.4.
+γ = 2 γ = 5/2 = γopt γ = 3
+N e(N ) Order e(N ) Order e(N ) Order
+64 3.52e-04 – 5.28e-04 – 5.04e-04 –
+128 8.17e-05 2.11 1.22e-04 2.11 1.17e-04 2.09
+256 1.93e-05 2.08 2.93e-05 2.07 2.83e-05 2.06
+512 4.54e-06 2.08 7.02e-06 2.06 6.86e-06 2.05
+1024 1.08e-06 2.07 1.69e-06 2.05 1.68e-06 2.02
+2048 3.27e-07 1.73 4.29e-07 1.98 4.28e-07 1.97
+min{γσ, 2} 1.60 2.00 2.00
+Table 5.1: σ = 1 + α and γ = 1 with fractional orders α = 0.4, 0.6 and 0.8.
+Table 5.2: σ = 1.2 and α = 0.4 with mesh parameters γ = 1, 5/3 and 2.
+Table 5.3: σ = 0.8 and α = 0.4 with mesh parameters γ = 2, 5/2 and 3.
+Table 5.4: σ = 0.4 and α = 0.4 with mesh parameters γ = 2, 5/2 and 5.
+The empirical order of convergence, listed as “Order” in the tables , was computed
+in the usual way by supposing that e(N ) ≈Cuτ q and evaluating the convergence rate
+q ≈ log2[e(N )/e(2N )]. The optimal mesh parameter γopt := 2/σ is the smallest value
+24
+PAGE 25
+Table 5.4
+Numerical temporal accuracy for σ = 0.4 and α = 0.4.
+γ = 2 γ = 5/2 γ = 5 = γopt
+N e(N ) Order e(N ) Order e(N ) Order
+64 8.30e-03 – 4.61e-03 – 2.04e-03 –
+128 4.53e-03 0.87 2.23e-03 1.00 4.82e-04 2.08
+256 2.56e-03 0.83 1.11e-03 1.01 1.22e-04 2.11
+512 1.45e-03 0.82 5.51e-04 1.00 2.66e-05 2.08
+1024 8.25e-04 0.81 2.74e-04 1.01 6.40e-06 2.05
+2048 4.71e-04 0.81 1.37e-04 1.00 1.58e-06 2.02
+min{γσ, 2} 0.80 1.00 2.00
+ofγ for which we expect second-order convergence; for γ >γopt we still expect second-
+order convergence but with a constant factor that grows with γ. The convergence
+behaviour is always as expected, but it is interesting to observe tha t, for larger values
+of σ (corresponding to a less singular solution), the order can be close t o 2 on the
+coarser grids. In such cases, the predicted convergence order is not observed until the
+total number N of time levels is quite large.
+6. Concluding remarks. An ECS analysis, including a reasonable ECS hy-
+pothesis and a global consistency error, is proposed for investiga ting a class of numer-
+ical approximations to the Caputo fractional derivative, employing piecewise polyno-
+mial interpolation on general nonuniform time meshes. The global co nsistency error
+bound ( 1.9) reveals an interesting behavior: the global approximate error of numeri-
+cal Caputo formula would be “local” despite being naturally nonlocal, by choosing the
+time mesh according to the error equidistribution principle. The eﬀec tiveness of the
+ECS analysis is shown for the familiar L1 formula in [ 8, 11], and for the higher-order
+Alikhanov formula in this paper. In the latter case, the theoretical properties of the
+discrete convolution kernels ( Theorem 2.2) and a new interpolation error formula with
+integral remainder for quadratic polynomials ( Lemma 3.3 ) are crucial to obtaining a
+useful ECS bound of the local truncation error.
+As our answer to the problem formulated in section 1 , the fractional Crank–
+Nicolson time-stepping scheme ( 1.3) for the linear reaction-subdiﬀusion equation ( 1.1)
+is stable ( Theorem 2.4 ) and convergent ( Theorem 3.9 ) on general nonuniform grids
+satisfying a mild restriction ( ρ = 7/4) on the local time step-size ratio. Consequently,
+some adaptive step-size control withτnext/τcurrent ≥ 4/7 is permitted to resolve certain
+complex behaviors of the solution arising in nonlinear time-fractional PDEs, but a
+sudden, drastic reduction of the step size should be avoided to ens ure stability. For
+the linear case, a sharp L2-norm error estimate of the numerical solution is also
+presented ( Theorem 3.9 ), demonstrating that a graded mesh can eﬀectively resolve
+the initial singularity.
+The present results lead naturally to another question: can an ECS analysis be
+applied to other high-order numerical Caputo formulas such as the BDF2-like (L1-2)
+approximation [ 3, 9, 10, 13]? We plan to address this issue in further research.
+Acknowledgements. Hong-lin Liao thanks Prof. Ying Zhao for her valuable
+discussions and fruitful suggestions, and the hospitality of Beijing Computational
+25
+PAGE 26
+Science Research Center during the period of his visit.
+Appendix A. Proof of Lemma 3.3 .
+For ﬁxedn and 1 ≤k ≤n − 1, let ℓk,j (t) (j =k − 1,k,k + 1) be the basis functions
+of quadratic Lagrange interpolation Π 2,kv at the points tk−1,tk andtk+1. Firstly, we
+will express the interpolation error
+( ~Π2,kv)(t) = v(t) − (Π2,kv) (t) in an integral form.
+To do so, recall two basic properties of basis functions, ℓk,j (tl) = δjl and
+k+1∑
+j=k−1
+ℓk,j (t)(tj −t)ν =δ0ν, ν ∈ {0, 1, 2},(A.1)
+whereδjl andδ0ν are Kronecker delta functions. Now applying the Taylor’s expansion
+with integral remainder, one has
+v(tj ) =
+2∑
+m=0
+v(m)(t)
+m! (tj −t)m + 12 ∫ tjt (tj −s)2v′′′(s) ds, j ∈ {k − 1,k,k + 1}.
+Since (Π 2,kv) (t) = ∑k+1j=k−1ℓk,j (t)v(tj ), a simple combination with the three weights
+(basis functions) ℓk,j (t) (j =k − 1,k,k + 1) gives the interpolation error
+( ~Π2,kv)(t) = 12 k+1∑j=k−1 ∫ ttj ℓk,j (t)(tj −s)2v′′′(s) ds, t k−1 ≤t ≤tk+1,(A.2)
+because the property ( A.1) implies that
+k+1∑
+j=k−1
+ℓk,j (t)
+2∑
+m=0
+v(m)(t)
+m! (tj −t)m =
+2∑
+m=0
+v(m)(t)
+m!
+k+1∑
+j=k−1
+ℓk,j (t)(tj −t)m =v(t).
+Furthermore, diﬀerentiating both sides of ( A.2), one applies ( A.1) again to get
+( ~Π2,kv)′(t) = 12v′′′(t) k+1∑j=k−1ℓk,j (t)(tj −t)2 + 12 k+1∑j=k−1 ∫ ttj ℓ′k,j (t)(tj −s)2v′′′(s) ds
+= 12
+k+1∑
+j=k−1
+∫ t
+tj
+ℓ′k,j (t)(tj −s)2v′′′(s) ds =
+k+1∑
+j=k−1
+Lj(v)(A.3)
+for tk−1 ≤t ≤tk+1, where
+Lj(v) := 12 ∫ ttj ℓ′k,j (t)(tj −s)2v′′′(s) ds, j ∈ {k − 1,k,k + 1}.
+Secondly, we express the required integration error
+∫ tk
+tk−1q′(t)( ~Π2,kv)′(t) dt in terms
+of ~Π1,kq by using ( A.3). Since
+ℓ′k,k+1(t) = 2(τk+1 +τk)τk+1 (t −tk−1/2),
+Lemma 2.1 yields
+∫ tk
+tk−1
+ℓ′k,k+1(t)q′(t) dt = 2
+∫ tk
+tk−1
+(t −tk−1/2)q′(t) dt
+(τk+1 +τk)τk+1
+= −2
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk+1
+.
+26
+PAGE 27
+Thus applying the formula for Lk+1(v), we exchange the order of integration to ﬁnd
+∫ tk
+tk−1
+q′(t)Lk+1(v) dt = 12 ∫ tktk−1ℓ′k,k+1(t)q′(t) dt ∫ ttk+1(tk+1 −s)2v′′′(s) ds(A.4)
+= − 12 ∫ tktk−1ℓ′k,k+1(t)q′(t) dt ∫ tk+1tk (tk+1 −s)2v′′′(s) ds
+− 12 ∫ tktk−1ℓ′k,k+1(t)q′(t) dt ∫ ttk (tk+1 −s)2v′′′(s) ds
+=
+∫ tk+1
+tk
+(tk+1 −s)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk+1
+− 12 ∫ tktk−1 [(tk+1 −s)2 ∫ stk−1ℓ′k,k+1(t)q′(t) dt]v′′′(s) ds.
+Similarly, it is easy to check the following equality
+ℓ′k,k−1(t) = 2t −tk −tk+1(τk+1 +τk)τk = 2(τk+1 +τk)τk (t −tk−1/2) − 1τk ,
+and it follows that
+∫ tk
+tk−1
+ℓ′k,k−1(t)q′(t) dt = 2
+∫ tk
+tk−1
+(t −tk−1/2)q′(t) dt
+(τk+1 +τk)τk
+− 1τk
+∫ tk
+tk−1
+q′(t) dt
+= − 2
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk
+− 1τk
+∫ tk
+tk−1
+q′(t) dt.
+So applying the formula of Lk−1(v), we exchange the order of integration to ﬁnd
+∫ tk
+tk−1
+q′(t)Lk−1(v) dt = 12 ∫ tktk−1q′(t) ∫ ttk−1ℓ′k,k−1(t)(tk−1 −s)2v′′′(s) ds dt(A.5)
+= 12 ∫ tktk−1 (tk−1 −s)2v′′′(s) ds ∫ tks ℓ′k,k−1(t)q′(t) dt
+= 12 ∫ tktk−1 (tk−1 −s)2v′′′(s) ds ∫ tktk−1ℓ′k,k−1(t)q′(t) dt
+− 12 ∫ tktk−1 (tk−1 −s)2v′′′(s) ds ∫ stk−1ℓ′k,k−1(t)q′(t) dt
+= −
+∫ tk
+tk−1
+(tk−1 −s)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk
+− 12 ∫ tktk−1 [∫ tktk−1q′(t)τk dt + ∫ stk−1ℓ′k,k−1(t)q′(t) dt] (tk−1 −s)2v′′′(s) ds.
+For the remaining term involving Lk(v), one has
+∫ tk
+tk−1
+q′(t)Lk(v) dt = 12 ∫ tktk−1q′(t) ∫ ttkℓ′k,k(t)(tk −s)2v′′′(s) ds dt
+= − 12 ∫ tktk−1 [(tk −s)2 ∫ stk−1ℓ′k,k(t)q′(t) dt]v′′′(s) ds.(A.6)
+27
+PAGE 28
+Then collecting the three equalities ( A.4)–(A.6), one applies the formula ( A.3) to get
+∫ tk
+tk−1
+q′(s)( ~Π2,kv)′(s) ds = ∫ tk+1
+tk
+(tk+1 −s)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk+1
+−
+∫ tk
+tk−1
+(s −tk−1)2v′′′(s) ds
+∫ tk
+tk−1
+( ~Π1,kq)(t) dt
+(τk+1 +τk)τk
++
+∫ tk
+tk−1
+Kq(s)v′′′(s) ds,
+where the integral kernel
+Kq(s) := − (tk−1 −s)22τk ∫ tktk−1q′(t) dt − 12 k+1∑j=k−1(tj −s)2 ∫ stk−1ℓ′k,j (t)q′(t) dt.(A.7)
+Finally, to complete the proof, it remains to verify
+Kq(s) =
+∫ s
+tk−1
+( ~Π1,kq)(t) dt, t k−1 ≤s ≤tk.(A.8)
+Diﬀerentiating the identity ( t −s)2 = ∑k+1j=k−1(tj −s)2ℓk,j (t), we have
+k+1∑
+j=k−1
+(tj −s)2ℓ′k,j (t) = 2(t −s), t k−1 ≤s ≤tk+1.
+Thus it follows from ( A.7) that
+Kq(s) = − (tk−1 −s)22τk ∫ tktk−1q′(t) dt − ∫ stk−1(t −s)q′(t) dt.
+We see that Kq(tk−1) = 0 and
+K′q(s) = q(s) −q(tk−1) − q(tk) −q(tk−1)τk (s −tk−1) = ( ~Π1,kq)(s), t k−1 ≤s ≤tk,
+which leads to the desired result ( A.8) immediately since Kq(s) =
+∫ s
+tk−1 K′q(t) dt.
+REFERENCES
+[1] A. A. Alikhanov , A new diﬀerence scheme for the time fractional diﬀusion equa tion, J.
+Comput. Phys., 280 (2015), pp. 424–438.
+[2] H. Brunner , The numerical solution of weakly singular Volterra integra l equations by collo-
+cation on graded meshes , Math. Comp., 45 (1985), pp. 417–437.
+[3] G.H. Gao, Z.Z. Sun and H.W. Zhang , A new fractional diﬀerentiation formula to approximate
+the Caputo fractional derivative and its applications , J. Comput. Phys., 259 (2014), pp. 33-
+50.
+[4] I. G. Graham , Galerkin methods for second kind integral equations with si ngularities, Math.
+Comp., 39 (1982), pp. 519–533.
+[5] N. Ford and Y. Yan. , An approach to construct higher order time discretisation s chemes
+for time fractional partial diﬀerential equations with non smooth data , Fract. Calc. Appl.
+Anal., 20 (2017), pp. 1076–1105.
+[6] B. Jin, B. Li and Z. Zhou , Correction of high-order BDF convolution quadrature for fr actional
+evolution equations , SIAM J. Sci. Comput., 39 (2017), pp. A3129-A3152.
+[7] R. Hilfer , Applications of fractional calculus in physics , W orld Scientiﬁc, Singapore, 2000.
+[8] H.-L. Liao, D. Li and J. Zhang , Sharp error estimate of nonuniform L1 formula for linear
+reaction-subdiﬀusion equations,, SIAM J. Numer. Anal., 56 (2018), pp. 1112–1133.
+28
+PAGE 29
+[9] H.-L. Liao, W. McLean, and J. Zhang , A discrete Gr¨ onwall inequality with application to
+numerical schemes for fractional reaction-subdiﬀusion pr oblems, SIAM J. Numer. Anal.,
+2019, arXiv:1803.09879v2.
+[10] H.-L. Liao, P. L yu, S. W. Vong and Y. Zhao , Stability of fully discrete schemes with
+interpolation-type fractional formulas for distributed- order subdiﬀusion equations , Numer.
+Algor., 75 (2017), pp. 845-878.
+[11] H.-L. Liao, Y. Yan, and J. Zhang , Unconditional convergence of a two-level linearized fast
+algorithm for nonlinear subdiﬀusion equations , J. Sci. Comput., 2019, arXiv:1803.09858v2.
+[12] H.-L. Liao, Y. Zhao, and X. Teng , A weighted ADI scheme for subdiﬀusion equations , J.
+Sci. Comput., 69 (2016), pp. 1144–1164.
+[13] C. L v and C. Xu, Error analysis of a high order method for time-fractional di ﬀusion equations,
+SIAM J. Sci. Comput., 38 (2016), pp. A2699-A2724.
+[14] W. McLean , Regularity of solutions to a time-fractional diﬀusion equa tion, ANZIAM J., 52
+(2010), pp. 123–138.
+[15] W. McLean and K. Mustapha , A second-order accurate numerical method for a fractional
+wave equation , Numer. Math., 105 (2007), pp. 481–510.
+[16] W. McLean and K. Mustapha , Time-stepping error bounds for fractional diﬀusion proble ms
+with nonsmooth initial data , J. Comput. Phys., 293 (2015), pp. 201-217.
+[17] K. Sakamoto and M. Yamamoto , Initial value/boundary value problems for fractional
+diﬀusion-wave equations and applications to some inverse p roblems, J. Math. Anal. Appl.,
+382 (2011), pp. 426–447.
+[18] M. Stynes , Too much regularity may force too much uniqueness , Frac. Calc. Appl. Anal., 19
+(2016), pp. 1554–1562.
+[19] M. Stynes, E. O’Riordan, and J. L. Gracia , Error analysis of a ﬁnite diﬀerence method on
+graded meshes for a time-fractional diﬀusion equation , SIAM J. Numer. Anal., 55 (2017),
+pp. 1057–1079.
+[20] F. Zeng, C. Li, F. Liu, and I. Turner , Numerical algorithms for a time-fractional subdiﬀusion
+equation with second-order accuracy , SIAM J. Sci. Comput., 37 (2015), pp. A55–A78.
+29

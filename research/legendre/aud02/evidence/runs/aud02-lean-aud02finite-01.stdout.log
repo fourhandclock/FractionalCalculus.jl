@@ -1,0 +1,9 @@
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:15:32: error: unknown constant 'Finset.mul_sum'
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:16:6: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ∑ x ∈ ?m.1251, ∑ y ∈ ?m.1252, ?m.1253 x y
+s : Finset ℕ
+w dv : ℕ → ℝ
+⊢ (∑ x ∈ s, w x * ∑ a ∈ s, if a ≤ x then dv a else 0) = ∑ x ∈ s, dv x * ∑ a ∈ s, if x ≤ a then w a else 0
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:71:13: error: unknown constant 'Finset.sum_mul'
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:71:29: error: unknown constant 'Finset.mul_sum'
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:71:2: error: simp made no progress

@@ -1,0 +1,193 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\one}{\mathbf1}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\title{GR-04: Discrete two-kernel Gr\"onwall comparison\\\large Commuting majorants, resolvent limit and shifted-scheme stability}
+\author{Research working notes}
+\date{26 November 2026 --- revision 01}
+\begin{document}
+\maketitle
+\noindent\textbf{Revision 01 (AUD-02 closure).}
+The independent analytical review verdict is \emph{ACCEPT WITH LIMITATIONS}.
+The results below are conditional on their stated hypotheses. Finite-grid
+diagnostics are evidence for implementations, not proofs of the analytical
+theorems. The numerical tables retain the original diagnostic values.
+Lean certificates cover the explicitly identified finite algebraic subclaims,
+not complete fractional PDE arguments. Original manuscripts and execution
+evidence are preserved separately.
+
+\noindent\textbf{Scope.} This note continues GR-01--03 separately from AUD-01. We prove a uniform-grid comparison for nonnegative causal matrices using only row-tail bounds, apply it to Alikhanov with both shifted product-integration rules, and establish solvability on sufficiently fine grids. The comparison is an analytical majorant, not the exact resolvent of the original scheme. No novelty claim, nonuniform-grid result, complete convergence theorem or formal certification is made.
+
+\section*{Review qualifications and novelty boundary}
+The quantitative Toeplitz resolvent argument is a uniform-grid result for
+fixed exponents and coefficients. GR-06 uses a different physical-time block
+argument on graded meshes. Row-tail domination applies to nonnegative
+nondecreasing vectors, not arbitrary vectors or entrywise matrix comparison.
+In a mixed word only the majorant intermediate vector must stay in that cone;
+the original operators need not preserve it. Only the Toeplitz majorants
+commute in the binomial expansion.
+
+The diagonal condition $\rho_\tau<1$ proves finite triangular Neumann
+convergence. The stronger $\xi$-condition is used separately for the
+mesh-uniform shifted upper series and its limit. The upper simplex time is
+$t_n+(h-1)\tau$ for word length $h$; dropping this shift is not justified.
+Sharpness is over the abstract row-tail class with constant data, not the
+subclass of actual PDE energies.
+
+For the operator application $A$ is fixed, nonnegative and self-adjoint,
+$U^0\in D(A)$ and $K_n:H\to H$ is uniformly bounded. The base resolvent
+maps $H$ into $D(A)$, so the displayed bounded-perturbation factorization is
+an operator from $D(A)$ onto $H$. No preservation of $D(A)$ by $K_n$ is
+required. In collocation the bound concerns actual continuous representative
+values at the nodes. Solvability and stability timestep restrictions are
+sufficient, not necessary.
+
+The result is in the underlying Hilbert norm. Ordinary diffusion-energy
+stability is established separately in GR-05; no timestep-weighted norm is
+silently identified with ordinary $H^1$.
+Finite row-tail, mixed-word and composition algebra has Lean certificates;
+infinite resolvent convergence, real-power bounds and PDE applications do not.
+General positive-kernel resolvent comparison and monotone-kernel comparison
+have established precedents. The novelty of this particular power-tail
+majorant construction and uniform limit remains unresolved. No novelty claim
+is made, and mathematical validity does not depend on establishing novelty.
+
+Van Dijk and Sladky \cite{dijksladky}, Section 4, already give comparison
+results for nonnegative matrix iterations and cumulative rewards. Their
+written monotonicity-class and trajectory conditions are not identical to
+our one-sided ordered-majorant construction; an equivalence for the complete
+power-tail mixed-product and uniform-limit statement has not been established.
+Thus the comparison mechanism has clear precedents while the exact novelty
+question remains unresolved.
+
+\section{Tail domination by a convolution}
+Let $t_n=n\tau$, $T=N\tau$. Suppose $B_1,B_2$ are nonnegative lower-triangular matrices indexed by $1,\ldots,N$, and for $1\le m\le n\le N$,
+\begin{equation}\label{eq:tail}
+ \sum_{k=m}^n(B_i)_{nk}\le C_i((n-m+1)\tau)^{s_i},\qquad s_1=p>0,\quad s_2=q>0,\quad C_i\ge0.
+\end{equation}
+Define $d_s(l)=\tau^s[(l+1)^s-l^s]$ for integer $l\ge0$ and $D_i$ by $(D_i)_{nk}=C_i d_{s_i}(n-k)$ for $k\le n$, zero otherwise. Their row tails equal the bounds in \eqref{eq:tail} by telescoping. They are positive convolution matrices, and commute. They preserve nonnegative nondecreasing vectors: extend such a vector by zero before its first index, then convolve with the nonnegative sequence $C_i d_{s_i}$.
+\begin{proposition}[Domination of mixed words]\label{prop:words}
+For any nonnegative nondecreasing vector $v$, $B_iv\le D_iv$. For any ordered word $(i_1,\ldots,i_h)$ with letters in $\{1,2\}$,
+\[
+ B_{i_1}\cdots B_{i_h}\one\le D_{i_1}\cdots D_{i_h}\one.
+\]
+In particular, with $B=B_1+B_2$ and $D=D_1+D_2$,
+\[B^h\one\le D^h\one=\sum_{j=0}^h\binom hj D_1^{h-j}D_2^j\one.\]
+\end{proposition}
+\begin{proof}
+Set $v_0=0$. Finite summation gives $(B_iv)_n=\sum_{m=1}^n(v_m-v_{m-1})\sum_{k=m}^n(B_i)_{nk}$. Apply \eqref{eq:tail}; all increments are nonnegative. For words, induct from the right: positivity of $B_i$ transfers the previous inequality, then the resulting $D$-word applied to $\one$ is nondecreasing, so the first assertion applies. Expand into all ordered words and use commutation only for the $D$ matrices. No entrywise comparison $B_i\le D_i$ is assumed.
+\end{proof}
+\section{A discrete binomial resolvent}
+Put $\rho_\tau=C_1\tau^p+C_2\tau^q$. If $\rho_\tau<1$, the spectral radii of the finite triangular matrices $B,D$ are less than one, because their diagonals are bounded by $\rho_\tau$ and $D$ has constant diagonal $\rho_\tau$. Their Neumann series converge and are nonnegative. Define $G_\tau^n=[(I-D)^{-1}\one]_n$, and $\bar a_n=\max_{1\le j\le n}a_j$.
+\begin{theorem}[Discrete two-kernel Gr\"onwall]\label{thm:compare}
+If $Y,a\ge0$ satisfy $Y\le a+BY$ under \eqref{eq:tail}, and $\rho_\tau<1$, then
+\[Y_n\le \bar a_nG_\tau^n.\]
+The scalar majorant is the unique solution of
+\begin{equation}\label{eq:scalar}
+ G_\tau^n=1+\sum_{k=1}^n[C_1d_p(n-k)+C_2d_q(n-k)]G_\tau^k.
+\end{equation}
+This is the best possible bound for constant $a$ over the abstract class \eqref{eq:tail}, because $B_i=D_i$ is allowed and equality holds in that case.
+\end{theorem}
+\begin{proof}
+Iterate $Y\le a+BY$ and let the number of iterations increase; the remainder tends to zero since the spectral radius of $B$ is below one. In row $n$, causality permits replacing $a$ by $\bar a_n\one$. Proposition \ref{prop:words} then gives the result. The diagonal in \eqref{eq:scalar} is implicit and must be moved to the left in an implementation.
+\end{proof}
+\section{Mixed-product bounds and the continuous limit}
+For a word of length $h\ge1$ with exponents $s_1',\ldots,s_h'$ in $\{p,q\}$, denote $R=\sum_i s_i'$ and $\mathcal C=\prod_i C_{i_i}\Gamma(1+s_i')$. The product of majorants applied to $\one$ is a sum over nonnegative integer lags $l_1+\cdots+l_h\le n-1$. Since
+\[
+ d_s(l)=\int_{l\tau}^{(l+1)\tau}s x^{s-1}\,dx,
+\]
+that sum is an integral over a union of boxes in the positive orthant. Up to measure-zero boundaries, the union contains the simplex $\sum x_i\le t_n-\tau$ and is contained in the simplex $\sum x_i\le t_n+(h-1)\tau$. Repeated beta integration yields
+\begin{equation}\label{eq:simplex}
+ \frac{\mathcal C(t_n-\tau)^R}{\Gamma(1+R)}
+ \le (D_{i_1}\cdots D_{i_h}\one)_n
+ \le \frac{\mathcal C(t_n+(h-1)\tau)^R}{\Gamma(1+R)}.
+\end{equation}
+Indeed the integral of $\prod_i s_i'x_i^{s_i'-1}$ over a simplex of length $t$ is $\prod_i\Gamma(1+s_i')t^R/\Gamma(1+R)$. This identity follows by induction using the beta integral. Both sides of \eqref{eq:simplex} remain valid for $n=1$; the lower bound there is zero.
+
+Write $b_*=C_1\Gamma(1+p)$, $c_*=C_2\Gamma(1+q)$ and $R_{hj}=(h-j)p+jq$. Then
+\begin{equation}\label{eq:series}
+ G_\tau^n\le 1+\sum_{h=1}^\infty\sum_{j=0}^h
+ \binom hj b_*^{h-j}c_*^j
+ \frac{(t_n+(h-1)\tau)^{R_{hj}}}{\Gamma(1+R_{hj})},
+\end{equation}
+whenever this upper series converges. Its time shift depends on the word length; dropping the shift would not be justified at a fixed mesh. The exact scalar majorant \eqref{eq:scalar} still exists under the weaker diagonal condition in Theorem \ref{thm:compare}.
+\begin{proposition}[Mesh-uniform bound and limit]\label{prop:limit}
+Choose $\xi>0$ such that $\eta=b_*\xi^{-p}+c_*\xi^{-q}\le1/4$ and assume $\xi\tau\le\log 2$. Then $\rho_\tau<1$, \eqref{eq:series} converges uniformly for $n\le N$, and $G_\tau^n\le2e^{\xi t_n}$. As $\tau=T/N\to0$,
+\[
+ \max_{1\le n\le N}\left|G_\tau^n-\mathcal E_{p,q;1}(b_*t_n^p,c_*t_n^q)\right|\to0,
+\]
+where $\mathcal E_{p,q;1}$ is the binomial Mittag--Leffler function of GR-01.
+\end{proposition}
+\begin{proof}
+The elementary bound $t^R/\Gamma(1+R)\le e^{\xi t}\xi^{-R}$ follows by inserting $e^{-\xi x}$ into the integral of $x^{R-1}/\Gamma(R)$ on $[0,t]$ and extending to infinity. Thus the length-$h$ contribution to \eqref{eq:series} is at most $e^{\xi t_n}(e^{\xi\tau}\eta)^h$; the ratio is at most $1/2$. The same bound on the $h=1$ term at $n=1$, or directly $\tau^s\le e^{\xi\tau}\Gamma(1+s)\xi^{-s}$, proves $\rho_\tau\le1/2$. Summing gives $G_\tau^n\le 1+e^{\xi t_n}\le2e^{\xi t_n}$. For each fixed $h$, the two simplex bounds converge uniformly at all grid nodes to the same continuous expression by uniform continuity of $t^R$ on a bounded interval. The geometric length bound permits uniform passage through the series. The resulting series is exactly $\sum_{h\ge0}\sum_{j=0}^h\binom hj b_*^{h-j}c_*^jt_n^{R_{hj}}/\Gamma(1+R_{hj})$. The continuous limit concerns the majorant, not the actual scheme's energy or its exact resolvent.
+\end{proof}
+If \eqref{eq:series} is truncated after length $H$, an analytical upper bound on the omitted positive terms is $e^{\xi t_n}\eta_\tau^{H+1}/(1-\eta_\tau)$, with $\eta_\tau=e^{\xi\tau}\eta<1$. Floating-point evaluation would additionally require rounding control for a certified numerical enclosure. The constants are conservative; no equality of the discrete fractional semigroup is invoked.
+\section{Application to Alikhanov--product integration}
+Let $A$ be a nonnegative self-adjoint operator on a Hilbert space, $U^0\in D(A)$, $K_n$ uniformly bounded operators, $f_n$ Hilbert-space data, $r=1-\beta$, $\sigma=1-\alpha/2$, $\theta=1-\sigma$. Consider GR-02/03's shifted scheme
+\begin{equation}\label{eq:pde}
+ (\mathcal D_\tau^\alpha U)^{n-\theta}+A(\sigma U^n+\theta U^{n-1})
+ +\lambda\Gamma(r)K_n\sum_{k=0}^nW^X_{nk}U^k=f_n.
+\end{equation}
+All constants below are for fixed $\alpha,\beta,T$, $X=L,Q$. Write $\mu=|\lambda|\Gamma(r)\sup_n\norm{K_n}$, $L_L=1,L_Q=5/4$, $C_L=1,C_Q=(5/4)2^r$, $d=(2\Gamma(1-\alpha))^{-1}$. These constants use the normalized fractional memory and the GR-03 row-tail estimate. No commutation or positivity of $K_n$ is needed; it is a bounded operator (for collocation, its actual nodal values must be bounded).
+\subsection*{Per-step solvability}
+Let $a_{nn}=A_0^{(n)}$ denote the newest \emph{derivative coefficient}, not the spatial operator. The current-level operator in \eqref{eq:pde} is $M_n=a_{nn}I+\sigma A+\lambda\Gamma(r)W^X_{nn}K_n$. GR-02 gives $a_{nn}\ge d\tau^{-\alpha}$. The base resolvent $R_n=(a_{nn}I+\sigma A)^{-1}$ exists with norm at most $1/a_{nn}$ and maps into $D(A)$ by spectral calculus. The memory-tail estimate with $m=n$ gives
+\[
+ \norm{\lambda\Gamma(r)W^X_{nn}K_nR_n}
+ \le \frac{\mu C_X}{d\Gamma(1+r)}\tau^{\alpha+r}.
+\]
+If this is below one, $M_n=(I+\lambda\Gamma(r)W^X_{nn}K_nR_n)(a_{nn}I+\sigma A)$ is invertible by a Neumann series. Induction on time levels establishes existence and uniqueness in $D(A)$, also covering all finite-dimensional spatial schemes. This is a sufficient condition, not a necessary condition for solvability.
+\subsection*{Energy comparison and initial data}
+Set $E^k=\norm{U^k}^2$, $F_n=\norm{f_n}^2$, $H^X=|W^X|$ entrywise. As in GR-03, test with $2(\sigma U^n+\theta U^{n-1})$, use the GR-02 shifted energy inequality, then Young's inequality and the absolute memory row mass. For $\varepsilon>0$,
+\[
+ (\mathcal D_\tau^\alpha E)^{n-\theta}\le b(SE)_n+\mu(H^XE)_n+\varepsilon^{-1}F_n,
+ \qquad b=\varepsilon+\mu L_XT^r/\Gamma(1+r).
+\]
+Here $S_{nk}=\sigma\mathbf1_{k=n}+\theta\mathbf1_{k=n-1}$; both $S,H^X$ include column zero. Multiplying by the nonnegative complementary matrix $P$, and writing subscript $0$ for column zero and $+$ for columns $1,\ldots,N$, yields
+\begin{align*}
+ E_+&\le a+(B_1+B_2)E_+,\
+ B_1&=bPS_+,\qquad B_2=\mu PH_+^X,\
+ a&=E^0(\one+bPS_0+\mu PH_0^X)+\varepsilon^{-1}PF.
+\end{align*}
+All entries are nonnegative. The GR-02 and GR-03 tails give \eqref{eq:tail} with
+\[
+ p=\alpha,\quad q=\alpha+r,\quad C_1=b/d,\quad C_2=\mu C_X/(d\Gamma(1+r)).
+\]
+In particular $C_1\tau^p+C_2\tau^q<1$ also implies the sufficient solvability condition. Bound the initial-data column and forcing by the nondecreasing majorant
+\begin{align*}
+ \bar a_n^{\rm bd}={}& E^0\left[1+\frac{t_n^\alpha}{d}\left(b+\frac{\mu L_Xt_n^r}{\Gamma(1+r)}\right)\right]
+ +\frac{t_n^\alpha}{d\varepsilon}\max_{1\le j\le n}F_j.
+\end{align*}
+Indeed $PS_0\le d^{-1}t_n^\alpha$, $PH_0^X\le L_Xt_n^{\alpha+r}/(d\Gamma(1+r))$, and $PF\le d^{-1}t_n^\alpha\max_{j\le n}F_j$ in row $n$. Theorem \ref{thm:compare} gives
+\begin{theorem}[Finite-time stability of both shifted schemes]
+For sufficiently small $\tau$, the solution of \eqref{eq:pde} is unique and satisfies $\norm{U^n}^2\le \bar a_n^{\rm bd}G_\tau^n$. In particular
+\[
+ \max_{0\le n\le N}\norm{U^n}\le C\left(\norm{U^0}+\max_n\norm{f_n}\right),
+\]
+where $C$ is independent of $\tau$ and of the spectrum/dimension of $A$. For homogeneous forcing, omit the $\varepsilon$ term in $b$ and the forcing term in $a$. The estimate applies to differences of solutions with fixed operators and weights.
+\end{theorem}
+The estimate is in the underlying Hilbert norm, not a mesh-uniform standard $H^1$ bound. It allows transient amplification, as it must in light of ST-05. Full spatial convergence, singular initial layers, variable temporal steps, and a refined forcing-response estimate remain separate tasks. In particular the shifted diffusion approximation requires control of $Au''$ for a second-order residual; GR-05 must track this regularity or a compatible weak formulation.
+\section{Finite-grid verification and limitations}
+The diagnostic \texttt{verify\_gr04.py} reuses the unchanged GR-03 memory assembly and independently integrates derivative panels using Gauss--Legendre quadrature. The abstract tests transfer diagonal weight to earlier indices, preserving tail bounds while breaking entrywise domination and commutation. Twelve synthetic configurations check 744 words of lengths one through five, exact triangular comparison, and a nondecreasing data vector. A separate scalar comparison on $N=32,64,128,256$ checks convergence towards the continuous binomial series, and a truncated shifted series plus its analytical tail bound where the sufficient test condition holds.
+\begin{center}\small
+\begin{tabular}{ccc}
+\toprule
+$(p,q)$ & Majorant error at $N=32$ & at $N=256$\\\midrule
+$(0.35,0.85)$ & $3.7731\cdot10^{-2}$ & $4.9814\cdot10^{-3}$\\
+$(0.75,1.25)$ & $2.2685\cdot10^{-2}$ & $2.8052\cdot10^{-3}$\\
+$(0.95,1.60)$ & $1.6742\cdot10^{-2}$ & $2.0457\cdot10^{-3}$\\\bottomrule
+\end{tabular}
+\end{center}
+For both shifted schemes, 24 configurations solve a three-dimensional positive diffusion problem with a time-dependent positive matrix coefficient not commuting with diffusion. Full-equation scaled residuals are at most $9.329\cdot10^{-15}$; sampled energy and comparison inequalities pass. The largest abstract word excess is roundoff-sized ($5.551\cdot10^{-17}$). These are finite diagnostics, not certificates of the infinite series. The initial script used larger coefficients and stopped on a coarse-grid diagonal condition ($\rho_\tau\ge1$); both script and output are retained. The final tests use smaller coupling and Young parameter to keep all chosen grids within the sufficient hypothesis; assertions were not relaxed. No statement about instability outside this hypothesis follows. Python environment: NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0; single BLAS worker.
+
+\textbf{Literature and scope.} The complementary-kernel framework is established in Liao, McLean and Zhang \cite{liao}; discrete comparison for weakly singular product-integration methods also has precedent in the Volterra literature \cite{volterra,weak}. The present derivation is a tail-based comparison specialized to our two-order structure; its novelty relative to general positive-kernel comparison theorems has not been established. The earlier GR-01--03 derivations are the mathematical inputs. The original production algorithms and historical evidence remain preserved separately. GR-05 should derive residual-to-solution estimates for the shifted scheme, beginning with sufficiently smooth solutions and then addressing initial singularities separately.
+\begin{thebibliography}{9}
+\bibitem{liao} H.-L. Liao, W. McLean and J. Zhang, A discrete Gr\"onwall inequality with applications to numerical schemes for subdiffusion problems, \emph{SIAM J. Numer. Anal.} 57 (2019), 218--237. \href{https://doi.org/10.1137/16M1175742}{doi:10.1137/16M1175742}.
+\bibitem{volterra} Volterra integral equations and a new Gronwall inequality (Part I: The linear case), \emph{Proceedings of the Royal Society of Edinburgh Section A: Mathematics}. \href{https://www.cambridge.org/core/journals/proceedings-of-the-royal-society-of-edinburgh-section-a-mathematics/article/abs/volterra-integral-equations-and-a-new-gronwall-inequality-part-i-the-linear-case/D4B84BA2D0CFF988F6D72D4B9273A7BA}{Publisher abstract}.
+\bibitem{weak} Weakly Singular Discrete Gronwall Inequalities, \emph{ZAMM}. \href{https://doi.org/10.1002/zamm.19860661107}{doi:10.1002/zamm.19860661107}.
+\bibitem{dijksladky} N. M. van Dijk and K. Sladky, Monotonicity and comparison results for nonnegative dynamic systems. Part I: Discrete-time case, \emph{Kybernetika} 42 (2006), 37--56. Section 4, Results 4.1--4.2 and Corollary 4.1. \href{https://dml.cz/handle/10338.dmlcz/135698}{Primary archive}.
+\end{thebibliography}
+\end{document}

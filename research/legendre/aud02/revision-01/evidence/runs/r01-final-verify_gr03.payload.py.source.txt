@@ -1,0 +1,4 @@
+import os,json,sys
+from pathlib import Path
+Path("/var/tmp/namespace.json").write_text(json.dumps({"pid_namespace":os.readlink("/proc/self/ns/pid")}))
+os.execv(sys.argv[1],sys.argv[1:])

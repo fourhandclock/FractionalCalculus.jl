@@ -1,0 +1,1 @@
+PASS: source writes/chmod/rename/unlink denied; service-manager sockets masked; detached-child cleanup checked by controller.

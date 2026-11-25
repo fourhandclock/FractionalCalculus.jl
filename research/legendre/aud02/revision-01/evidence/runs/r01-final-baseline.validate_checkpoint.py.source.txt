@@ -1,0 +1,75 @@
+"""Bounded serial closure validation. Each replay ID has new immutable outputs."""
+import argparse,json,shutil
+from execution import *
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--run-id',required=True)
+    parser.add_argument('--part',choices=['numerics','lean','latex'],required=True)
+    args=parser.parse_args()
+    assert args.run_id and all(c.isalnum() or c in '-_' for c in args.run_id)
+    prefix='r01-'+args.run_id+'-'
+    new=STUDY/'revision-01';out=REVIEW/'evidence/results'/args.run_id
+    out.mkdir(parents=True,exist_ok=True)
+    def launch(label,command,**kwargs):
+        kwargs['sources']=[*kwargs.get('sources',()),Path(__file__)]
+        return run(prefix+label,command,**kwargs)
+    def copy(p,name):
+        dest=out/name;assert not dest.exists(),dest;shutil.copyfile(p,dest)
+    if args.part=='numerics':
+        launch('baseline',julia(ROOT/'test/runtests.jl'),sources=[ROOT/'test/runtests.jl',ROOT/'Project.toml',ROOT/'Manifest.toml'])
+        oracle=STUDY/'scripts/make_oracles.py'
+        work,_=launch('moments',[PYTHON,'-s','-B',oracle,'/var/tmp/moments.csv'],memory=2048,rss=1024,sources=[oracle])
+        copy(work/'moments.csv','moments.csv')
+        launch('unit',julia(new/'test/runtests.jl','--oracles='+str(out/'moments.csv'),
+            '--boundary-oracle='+str(REVIEW/'evidence/results/boundary.csv')),
+            sources=[new/'GR07.jl',new/'test/runtests.jl',out/'moments.csv',REVIEW/'evidence/results/boundary.csv'])
+        diag=STUDY/'reference/reference_diagnostics'
+        for name in ['verify_gr02.py','verify_gr03.py','verify_gr04.py','verify_gr05.py','verify_gr06_graded.py']:
+            deps=[diag/'verify_gr03.py'] if name in ['verify_gr04.py','verify_gr05.py'] else []
+            launch(name[:-3],[PYTHON,'-s','-B',diag/name],memory=2048,rss=1024,sources=[diag/name,*deps])
+        ref=STUDY/'reference'
+        work,_=launch('python-reference',[PYTHON,'-s','-B',ref/'benchmark_gr07.py','/var/tmp/reference.csv'],
+            memory=2048,rss=1024,sources=[ref/'benchmark_gr07.py',ref/'verify_gr06_graded.py'])
+        copy(work/'reference.csv','python_reference.csv')
+        work,_=launch('julia-matrix',julia(new/'run.jl','--output-dir=/var/tmp/results'),wall=600,cpu=540,
+            sources=[new/'GR07.jl',new/'run.jl',ROOT/'Manifest.toml'])
+        copy(work/'results/julia_results.csv','julia_results.csv')
+        compare=STUDY/'scripts/compare.py'
+        for label,a,b in [('julia-python',out/'python_reference.csv',out/'julia_results.csv'),
+                          ('preserved-julia',STUDY/'results/julia_results.csv',out/'julia_results.csv')]:
+            launch(label,[PYTHON,'-s','-B',compare,a,b],wall=60,cpu=45,memory=1024,rss=512,sources=[compare])
+        export=REVIEW/'scripts/export_rows.jl'
+        work,_=launch('export',julia(export,'/var/tmp/rows.csv'),sources=[new/'GR07.jl',export])
+        copy(work/'rows.csv','rows.csv')
+        # The independent AUD-02 oracle is unchanged. Its archived boundary file
+        # remains explicitly old evidence; the fresh repaired boundary check is
+        # the separate BigFloat-backed Julia regression suite above.
+        independent=ROOT/'research/legendre/aud02/scripts/independent_rows.py'
+        launch('independent-rows',[PYTHON,'-s','-B',independent,out/'rows.csv',
+            ROOT/'research/legendre/aud02/evidence/targeted/extremes.csv'],
+            wall=180,cpu=150,memory=2048,rss=1024,sources=[independent,out/'rows.csv'])
+        launch('python-environment',[PYTHON,'-s','-B',STUDY/'scripts/python_environment.py'],wall=60,cpu=45,memory=1024,rss=512,sources=[STUDY/'scripts/python_environment.py'])
+        launch('julia-environment',julia(STUDY/'scripts/environment.jl'),wall=90,cpu=60,sources=[STUDY/'scripts/environment.jl'])
+    elif args.part=='lean':
+        project=ROOT/'research/legendre/verification/lean';cache=ROOT/'.checkpoint-tools/lean-cache'
+        paths=[str(cache),*[str(p) for p in (project/'.lake/packages').glob('*/.lake/build/lib/lean')]]
+        modules=['Coefficients','Quadrature','AuditConstants','Aud01FiniteSums','Aud01Oscillator','Aud02Finite',
+                 'CoefficientsAxioms','QuadratureAxioms','Aud01Axioms','Aud02Axioms']
+        for module in modules:
+            source=project/(module+'.lean')
+            work,_=launch('lean-'+module.lower(),[LEAN,'-j1','--root='+str(project),'-o','/var/tmp/'+module+'.olean',source],
+                wall=120,cpu=90,memory=8192,rss=3584,sources=[source,project/'lean-toolchain',project/'lake-manifest.json'],
+                extra_env={'LEAN_PATH':':'.join(paths),'LEAN_NUM_THREADS':'1'})
+            shutil.copyfile(work/(module+'.olean'),cache/(module+'.olean'))
+    else:
+        for source in sorted((new/'manuscripts').glob('*.tex')):
+            work,_=launch('latex-'+source.stem[:4].lower(),
+                [ROOT/'.checkpoint-tools/bin/tectonic','--untrusted','--only-cached','--keep-logs','--keep-intermediates',
+                 '--outdir','/var/tmp',source],wall=120,cpu=90,memory=2048,rss=1024,sources=[source],latex_cache=True)
+            for suffix in ['.pdf','.log','.aux','.out']:
+                p=work/(source.stem+suffix)
+                if p.exists():copy(p,p.name)
+            # A PDF beside the revised TeX is the researcher-facing artifact.
+            dest=source.with_suffix('.pdf');assert not dest.exists();shutil.copyfile(work/(source.stem+'.pdf'),dest)
+    check_preserved();print('Closure validation part complete:',args.part,args.run_id)
+if __name__=='__main__':main()

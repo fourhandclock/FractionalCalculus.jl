@@ -1,0 +1,1761 @@
+PAGE 1
+http://www.aimspress.com/journal/nhm
+NHM, 18(1): 212–243.
+DOI: 10.3934/nhm.2023008
+Received: 26 September 2022
+Revised: 11 November 2022
+Accepted: 23 November 2022
+Published: 02 December 2022
+Research article
+Galerkin spectral method for a multi-term time-fractional diffusion
+equation and an application to inverse source problem
+L.L. Sun* and M.L. Chang
+School of Mathematics and statistics, Northwest Normal University, Gansu 730000, P.R. China
+* Correspondence: Email: sunll0321@163.com; Tel: +086-135-1931-1957.
+Abstract: In this paper, we employ the Galerkin spectral method to handle a multi-term time-
+fractional diffusion equation, and investigate the numerical stability and convergence of the proposed
+method. In addition, we find an interesting application of the Galerkin spectral method to solving
+an inverse source problem e fficiently from the noisy final data in a general bounded domain, and
+the uniqueness and the ill-posedness for the inverse problem are proved based on expression of the
+solution. Furthermore, we compare the calculation results of spectral method and finite di fference
+method without any regularization method, and get a norm estimate of the coe fficient matrix of a
+spectral method discretized. And for that we conclude that the spectral method itself can act as a
+regularization method for some inverse problem (such as inverse source problem). Finally, several
+numerical examples are used to illustrate the effectiveness and accuracy of the method.
+Keywords: Multi-term time-fractional diffusion equation; Ill-posed problem; Inverse source
+problem; Galerkin spectral method; Finite difference method
+1. Introduction
+Let Ω be a bounded domain in Rd with sufficient smooth boundary∂Ω. We consider the following
+initial boundary value problem (IBVP) for the anomalous di ffusion model with multi-term
+time-fractional derivatives
+ sPj=1 q j∂α j0+u(x, t)− (Lu)(x, t) = f (x)p(t), (x, t)∈ Ω× I,u(x, 0) = 0, x∈ Ω,u(x, t) = 0, (x, t)∈∂Ω× I, (1.1)
+PAGE 2
+213
+where I = (0, T) with T > 0 be fixed and ∂
+α j
+0+ is the Caputo fractional derivative defined by
+∂
+α j
+0+u(x, t) = 1Γ(1−α j) Z t0 ∂u(x, s)∂s ds(t− s)α j, 0<α j < 1.
+For a fixed positive integer s, the orders α = (α1,...,α s) and the coe fficients q = (q1,..., qs) are
+restricted in the admissible sets
+B :={(α1,...,α s)∈ Rs; α≥α1 >α 2 >··· >α s≥α}, (1.2)
+Q :={(q1,..., qs)∈ Rs; q1 = 1, q j∈ [q, q], ( j = 2,..., s)}, (1.3)
+with fixed 0<α <α< 1 and 0< q< q.
+− L is a symmetric uniformly elliptic operator defined on D(−L) = H2(Ω)∩ H10(Ω) given by
+Lu(x, t) =
+dX
+i=1
+∂
+∂xi
+ dX
+j=1
+ai j(x) ∂∂x j u(x, t)
+ + c(x)u(x, t), x∈ Ω,
+in which the coefficients satisfy
+ai j = a ji, 1≤ i, j≤ d, ai j∈ C1( ¯Ω),
+µ
+dX
+i=1
+ξ2i ≤
+dX
+i, j=1
+ai j(x)ξiξ j, x∈ ¯Ω, ξ= (ξ1,...,ξ d)∈ Rd, for a constant µ> 0,
+c(x)≤ 0, x∈ ¯Ω, c(x)∈ C( ¯Ω).
+If the number of fractional derivatives s, the orders α and its coefficients q, elliptic operator L and
+source functions p(t), f (x) are given appropriately, then IBVP Eq (1.1) is a direct problem. Here the
+spatial source term f (x) is unknown, so the inverse problem in the paper is to determine the spatial
+source term f (x) based on problem Eq (1.1) and an additional terminal data
+u(x, T) = g(x), x∈ Ω. (1.4)
+Since the measurement is noise-contaminated inevitably, we denote the noisy measurement of g as
+gδ(x) satisfying
+∥gδ(x)− g(x)∥≤ δ. (1.5)
+It is well known that the time-fractional di ffusion equations (TFDEs) have a wide range of
+applications in physics, chemistry and other aspects [1–5]. The most representative is continuous time
+random walk problem in general non-Markovian processes. However, with the increasing demand on
+the accuracy of the problem, the single-time fractional di ffusion equation gradually failed to meet the
+needs of the problem, so Schumer et al. [6] proposed using the multi-term time-fractional di ffusion
+equation (MTFDE) to increase the accuracy of the model. MTFDE is not only a useful tool for
+describing the behavior of anomalous di ffusion phenomena in highly heterogeneous aquifers and
+complex viscoelastic materials [7], but can also be applied indirectly in the numerical solution of
+distributed-order fractional differential equations [8].
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 3
+214
+There are many studies on the direct problem for IBVP Eq (1.1) in recent years such as some
+uniqueness and existence results [9], the maximum principle [10], and analytic solutions [11, 12]. In
+terms of numerical work, there are also some papers on the numerical solutions by finite di fference
+methods [13–15] and by finite element methods [16–19].
+Due to the spectral method needs fewer grid points to obtain highly accurate solution. Therefore,
+the spectral method is more suitable for discrete MTFDE because of its huge computations. The
+study of the spectral method can be divided into two categories in MTFDE. On the one hand, the time
+fractional derivative is discreted by finite difference method and spectral method is applied for the space
+variable. Guo et al. [20] studied the numerical approximation of distributed-order time-space fractional
+reaction-diffusion equation. Jiang et al. [21] considered a Legendre spectral method on graded meshes
+for handling MTFDE with non-smooth solutions in two-dimensional case. Liu et al. [22] applied
+an alternating direction implicit Legendre spectral method to handle the multi-term time fractional
+Oldroyd-B fluid type diffusion equation in the two-dimensional case. On the other hand, the spectral
+method is applied both in space and in time. Zheng et al. [23] considered a high order numerical
+method for handling MTFDE. Zaky [24] applied a Legendre spectral tau method to handle MTFDE.
+However, we are interested not only in obtaining a numerical solution with high precision by using
+spectral method, but also in determining the spatial source term in an inverse problem of the MTFDE.
+As far as we know, the theory as well as numerical methods of inverse source problems for single
+term (i.e,. s = 1) case in Eq (1.1) are relatively abundant. Zhang et al. [25] testified a uniqueness
+result to inverse the spatial source term in one-dimensional case by using one-point Cauchy data and
+proposed an efficient numerical method. Wei et al. [26] studied to identify a spatial source term in a
+multi-dimensional time-fractional diffusion equation from boundary measured data. The uniqueness
+for the inverse source problem is proved by the Laplace transformation method. Yan et al. [27]
+studied to identify a spatial source term in a multi-dimensional time-fractional di ffusion-wave
+equation from a part of noisy boundary data. The uniqueness of inverse spatial source term problem is
+proved by the Titchmarsh convolution theorem and the Duhamel principle. Sun et al. [28] devoted to
+recovering simultaneously the fractional order and the space-dependent source term from partial
+Cauchy’s boundary data in a multi-dimensional time-fractional diffusion equation. Recently, Yeganeh
+et al. [29] came up with an interesting idea. They used a method based on a finite di fference scheme
+in time and a local discontinuous Galerkin method in space to determine a spatial source term in a
+time-fractional diffusion equation. This has not been seen in previous studies.
+For a multi-term case, however, research results on inverse source problem are relatively few at
+present. Jiang et al. [30] built a weak unique continuation property for time-fractional
+diffusion-advection equations, and they considered an inverse problem on determining identifying the
+spatial source term by interior measurements. Li et al. [31] considered an inverse problem of
+recovering time-dependent source term from the Cauchy data in a MTFDE, and they applied the
+conjugate gradient method to identify the approximate source term. Recently, Sun et al. [32]
+investigated an inverse the spatial source term in MTFDE with nohomogeneous boundary condition
+from partially disturbed boundary data. They proposed the Levenberg-Marquardt regularization
+method to compute an inverse source problem. In addition, simultaneous inversion of source term and
+other terms has been studied. For instance, Malik et al. [33] studied an inverse problem of identifying
+a time-dependent source term along with di ffusion/temperature concentration from a non-local
+over-specified condition for a space-time fractional di ffusion equation. Sun et al. [34] considered a
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 4
+215
+nonlinear inverse problem for simultaneously recovering the potential function and the fractional
+orders in a MTFDE from the noisy boundary Cauchy data in the one-dimensional case. For other
+inverse source problems, we can refer to [35–37]. Nevertheless, to the best knowledge of the authors,
+no one has used the spectral method to determine a spatial source term in an inverse problem of
+MTFDE.
+In this paper, we will focus on two aspect research on our proposed model Eq (1.1). One is the study
+on the direct problem. The theoretical analysis and the numerical scheme of the Galerkin spectral
+method are proposed to solve the IBVP Eq (1.1). On the other hand, we use the Galerkin spectral
+method to investigate an inverse spatial source term problem in a MTFDE from a noisy final data
+in a general bounded domain. In the propose method, multi-term Caputo fractional derivatives are
+discretized by the L1-formula and the Galerkin spectral method is applied for the space variable. At
+the same time, the comparison between the Galerkin spectral method and the finite di fference method
+is added in this paper. Finally, we not only prove the validity of the Galerkin spectral method in the
+application of MTFDE, but also verify the superiority of the Galerkin spectral method in forward and
+inverse problems by comparing the numerical results with the finite difference method.
+The remainder of this paper is organized as follows. Some preliminaries are presented in Section
+2. The detailed convergence analysis of the presented method is shown in Section 3. Uniqueness
+and ill-posedness for the inverse problem are showed in Section 4. We present the Galerkin spectral
+method and the finite di fference method algorithm in Section 5. Numerical results for four examples
+are investigated in Section 6. Finally, we give a conclusion in Section 7.
+2. Preliminary
+We firstly introduce some preliminaries as follows in this section.
+Definition 2.1. The multinomial Mittag-Leffler function is defined by (see [9, 38])
+E(θ1,···,θs),θ0(z1,··· , zs) :=
+∞X
+k=0
+X
+k1+···+ks=k
+(k; k1,··· , ks)Qsj=1 zk jj
+Γ(θ0 + Psj=1θ jk j) ,
+whereθ0, θj∈ R, and z j∈ C ( j = 1,··· , s), and (k; k1,··· , ks) denotes the multinomial coefficient
+(k; k1,··· , ks) := k!k1!··· ks! with k =
+sX
+j=1
+k j,
+where k j ( j = 1,··· , s) are non-negative integers.
+For the convenience of the later, if the orders α = (α1,...,α s) and its coe fficients q = (q1,..., qs)
+satisfy Eq (1.2) and Eq (1.3), then we adopt the abbreviation
+E(n)α′,β(t) := E(α1,α1−α2,···,α1−αs),β(−λntα1,−q2tα1−α2,··· ,−qstα1−αs), t> 0, n = 1, 2,...,
+where α′ = (α1,α 1−α2,··· ,α 1−αs) andλn denotes the n-th eigenvalues of elliptic operator−L with
+the homogeneous Dirichlet boundary condition.
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 5
+216
+Lemma 2.2. ( [9]) Let 0<α s <α s−1 <··· <α 1 < 1. Then,
+d
+dt
+n
+tα1E(n)α′,1+α1(t)o = tα1−1E(n)α′,α1(t), t> 0.
+Lemma 2.3. ( [9, 39]) Let 0 < αs < αs−1 <··· < α1 < 1. Then the function t α1−1E(n)α′,α1(t) is positivefor t> 0.
+Lemma 2.4. ( [40]) Let 0<α s <α s−1 <··· <α 1 < 1. Then
+1−λntα1E(n)α′,α1+1(t)≤ sX
+j=2
+M(1 + q jtα1−α j)
+1 +λntα1 , t> 0, n = 1, 2,...,
+where M ia a positive constant.
+Proposition 2.5. Let 0<α s <α s−1 <··· <α 1 < 1. Then we have E (n)α′,1+α1(t)> 0.
+Proof. By Lemma 2.2 and 2.3, we know that
+d
+dt
+n
+tα1E(n)α′,1+α1(t)o = tα1−1E(n)α′,α1(t)> 0.
+Hence it is obvious E(n)α′,1+α1(t)> 0. □
+Proposition 2.6. Forλn > 0 and 0 < αs < αs−1 <··· < α1 < 1, we have 0 < 1−λntα1E(n)α′,1+α1(t) < 1
+for t> 0. Moreover, 1−λntα1E(n)α′,1+α1(t) is a strictly decreasing function on t> 0.
+Proof. By Lemma 2.2 and 2.3, we have
+d
+dt
+n
+1−λntα1E(n)α′,1+α1(t)o =−λntα1−1E(n)α′,α1(t)< 0.
+We notice that 1 − λntα1E(n)α′,1+α1(t) is a continuous function on t. Hence, we have
+limt→0(1−λntα1E(n)α′,1+α1(t)) = 1. By Lemma 2.4 we know lim t→∞(1−λntα1E(n)α′,1+α1(t)) = 0. The proofis completed. □
+Lemma 2.7. Forλn > 0 and 0<α s <α s−1 <··· <α 1 < 1, such that
+0≤ E(n)α′,1+α1(T)≤ 1Tα1λn.
+Proof. By Proposition 2.6, we know 0< E(n)α′,1+α1(T)< 1λnTα1 . □
+Lemma 2.8. Let k be a positive integer,∆t> 0 and limk→∞ k∆t = T. We have the following properties
+from the sequence defined by
+ωk =
+sX
+j=1
+q j
+∆t−α j
+Γ(2−α j)(k1−α j− (k− 1)1−α j), (2.1)
+where α j and q j are defined in equation Eq (1.1). Here we denoteω−1k equivalent to 1ωk .
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 6
+217
+(1)ωk is a decreasing sequence with respect to k;
+(2)ω1 >··· >ω k > 0 for each k;
+(3)ω−1k is an increasing sequence with respect to k;
+(4) limk→∞ k−α1ω−1k = ∆tα1q1(1−α1)
+Γ(2−α1) +
+sP
+j=2
+q j
+Tα1−α j (1−α j)
+Γ(2−α j)
+.
+Proof. First, let Φ(x) = ωx be a continuous function with respect to x, According to dΦ(x)dx < 0, we
+know Φ(x) is decreasing function, then we have ωk is decreasing the sequence. And we can direct to
+check thatω1 >··· >ω k > 0 for each k. In addition, we can easy to derive ω−1k is increasing function.
+Further, we have
+lim
+k→∞
+k−α1ω−1k = limk→∞ k−α1q1∆t−α1
+Γ(2−α1)(k1−α1− (k− 1)1−α1) +
+sP
+j=2
+q j ∆t−α jΓ(2−α j)(k1−α j− (k− 1)1−α j)
+=: lim
+k→∞
+1
+Ψ1k + Ψ2k,
+where
+Ψ1k = q1∆t−α1
+Γ(2−α1)(k1−α1− (k− 1)1−α1)kα1,
+Ψ2k =
+sX
+j=2
+q j
+∆t−α j
+Γ(2−α j)(k1−α j− (k− 1)1−α j)kα1.
+First we have
+lim
+k→∞
+Ψ1k = limk→∞ q1∆t−α1Γ(2−α1)(1− (1− 1k )1−α1)k1−α1kα1
+= lim
+k→∞
+q1∆t−α1
+Γ(2−α1) limk→∞(1− 1 + (1−α1)1k + o(1k ))k
+= q1(1−α1)Γ(2−α1) ∆t−α1,
+where we use the Taylor’s formula of (1− 1/x)1−α1 in the second equation. Similarly, we have
+lim
+k→∞
+Ψ2k = limk→∞
+sX
+j=2
+q j
+∆t−α j
+Γ(2−α j)(k1−α j− (k− 1)1−α j)kα1
+= lim
+k→∞
+sX
+j=2
+q j
+∆t−α j
+Γ(2−α j)(k1−α j− (k− 1)1−α j)kα jk−α j∆t−α1∆tα1kα1
+= lim
+k→∞
+sX
+j=2
+q j
+1
+Γ(2−α j)(1− (1− 1k )1−α j)k(k∆t)−α j(k∆t)α1∆t−α1
+=
+sX
+j=2
+q j
+Tα1−α j(1−α j)
+Γ(2−α j) ∆t−α1.
+For all these reasons, we arrive at
+lim
+k→∞
+k−α1ω−1k = ∆tα1
+q1(1−α1)
+Γ(2−α1) +
+sP
+j=2
+q j
+Tα1−α j(1−α j)
+Γ(2−α j)
+. (2.2)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 7
+218
+This proof is complete. □
+3. Semi-discretize scheme and full discretize scheme
+In this section, we discuss semi-discretize and full discretize schemes of the problem Eq (1.1) in the
+one-dimensional case. First, let tn := n∆t, n = 0, 1,··· , N, where ∆t := TN (at leat satisfying ∆t < 1)
+is the time step. We can denote un an approximation to u(x, tn), and in order to convenience we write
+p(tn), f (x), a(x), c(x) is equal to pn, f, a, c, where f (x), p(tn) are the source terms of Eq (1.1), and
+a(x), c(x) come from the definition of the symmetric uniformly elliptic operator L. Then we introduce
+the time-fractional derivative is approximated by the L1 formula [41].
+sX
+j=1
+q j∂
+α j
+0+u(x, tn) =
+nX
+k=1
+ωk(u(x, tn−k+1)− u(x, tn−k)) + rn∆t,
+whereωk =
+sP
+j=1
+q j ∆t−α jΓ(2−α j)(k1−α j− (k− 1)1−α j) and rn∆t is the truncation error with the estimate
+rn∆t≤ cu∆t2−α1 +··· + cu∆t2−αs≤ c1∆t2−α1.
+Here c1 is a constant depending on u, a j and T.
+In this paper, we use H1-norm defined by
+∥ν∥H1(Ω) =
+ 
+∥ν∥2L2(Ω) + 1ω1
+dνdx2L2(Ω)! 12.
+whereω1 is defined in Lemma 2.8.
+3.1. Semi-discretize scheme
+In order to establish the complete semi-discrete problem, we define the error term rn by
+rn := 1ω1
+ nX
+j=1
+ω j(u(x, tn− j+1)− u(x, tn− j))−
+sX
+j=1
+q j∂
+α j
+0+u(x, tn)
+. (3.1)
+Then we have
+|rn| = 1ω1|rn∆t|≤ c2∆t2−α1, (3.2)
+where c2 is a constant depending on u, a j and T .
+Using the first term on right hand side of Eq (3.1) as an approximation of
+sP
+j=1
+q j ∂
+α j
+0+u(x, tn) leads to
+the following finite difference scheme to Eq (1.1)
+nX
+k=1
+ωk(un−k+1− un−k)−
+ 
+a∂un
+∂x
+!
+x
+− cun = f pn. (3.3)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 8
+219
+Then we have
+un− 1ω1
+ 
+a∂un
+∂x
+!
+x
+− 1ω1 cun =
+n−1X
+k=1
+ωk−ωk+1
+ω1
+un−k + ωn
+ω1
+u0 + 1ω1 f pn. (3.4)
+Multiply both sides byν∈ H10(Ω) and integrate over Ω and by Green formula. We can findun∈ H10(Ω),
+such that
+(un,ν ) + 1ω1
+ 
+a∂un
+∂x,∂ν∂x!− 1ω1 (cun,ν ) = n−1Xk=1 ωk−ωk+1ω1 (un−k,ν )
++ ωn
+ω1
+(u0,ν ) + 1ω1 ( f pn,ν ).
+(3.5)
+For convenience and without loss of generality, we consider the case ai j(x)≡ 1, c(x) = 0. Stability of
+the scheme Eq (3.5) is given in the following result.
+Theorem 3.1. The semi-discretized problem Eq (3.5) is unconditionally stable in sense that for all
+∆t> 0, holds
+∥un∥H1(Ω)≤∥ u0∥L2(Ω) + 1ω1
+nX
+k=1
+pk∥ f∥L2(Ω).
+Proof. we prove this theorem using induction. When n=1, scheme Eq (3.5) has
+(u1,ν ) + 1ω1
+ ∂u1
+∂x,∂ν∂x! = (u0,ν ) + 1ω1 ( 1Xk=1 p1 f,ν ).
+Takingν = u1 and Schwarz inequality, we have
+∥u1∥H1(Ω)≤∥ u0∥L2(Ω) + 1ω1
+1X
+k=1
+pk∥ f∥L2(Ω). (3.6)
+Now for the following inequality to hold
+∥u j∥H1(Ω)≤∥ u0∥L2(Ω) + 1ω1
+jX
+k=1
+pk∥ f∥L2(Ω), j = 1, 2,··· , n− 1. (3.7)
+We must prove that∥un∥H1(Ω)≤∥ u0∥L2(Ω) + 1ω1 Pnk=1 pk∥ f∥L2(Ω). Taking ν = un in Eq (3.5) and by using
+Eq (3.7), we have
+∥un∥H1(Ω)≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥un−k∥L2(Ω) + ωnω1∥u0∥L2(Ω) + 1ω1∥ f∥L2(Ω)pn
+≤
+ n−1X
+k=1
+ωk−ωk+1
+ω1
++ ωn
+ω1
+∥u0∥L2(Ω) + 1ω1 n−1Xk=1 pk∥ f∥L2(Ω) + 1ω1 pn∥ f∥L2(Ω). (3.8)
+Hence, we have∥un∥H1(Ω)≤∥ u0∥L2(Ω) + 1ω1 Pnk=1 pk∥ f∥L2(Ω). □
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 9
+220
+Now, we give the convergence estimate between the exact solution and the solution of the semi-
+discretized problem.
+Theorem 3.2. Let u(x, t) be the exact solution of Eq (1.1), {un}Nn=0 be the numerical solution of semi-
+discretized Eq (3.5), and u(x, t0) = u0. Then there holds the following error estimates
+∥u(x, tn)− un∥H1(Ω)≤ c2ω1Tα1∆t2−α1
+q1(1−α1)
+Γ(2−α1) + Psj=2 q jTα1−α j(1−α j)Γ(2−α j) ,
+where c2 is a constant depending on u, a j and T.
+Proof. We will verify that the following estimate
+∥u(x, t j)− u j∥H1(Ω)≤ c2ω1ω−1j ∆t2−α1, j = 1, 2,··· , N. (3.9)
+Here, we will prove it by the mathematical induction, let ˆen = u(x, tn)− un. For j = 1, we have, by
+combining Eq (1.1), Eq (3.5), Eq (3.1), the error equation
+(ˆe1,ν ) + 1ω1
+ ∂ˆe1
+∂x,∂ν∂x! = (ˆe0,ν ) + (r1,ν ) ν∈ H10(Ω). (3.10)
+Takingν = ˆe1, we have
+∥u(x, t1)− u1∥H1(Ω)≤ c2ω1ω−11 ∆t2−α1.
+Hence, Eq (3.9) is proven for the case j =1. Now, Suppose the inequality Eq (3.9) holds for all j =
+1, 2,··· , n− 1. Then we need to prove that it holds also for j = n.
+Similar to j = 1, we haveν∈ H10(Ω)
+(ˆen,ν ) + 1ω1
+ ∂ˆen
+∂x,∂ν∂x! = n−1Xk=1 ωk−ωk+1ω1 (ˆen−k,ν ) + ωnω1 (ˆe0,ν ) + (rn,ν ). (3.11)
+Takingν = ˆen, and using Eq (3.9). We have
+∥ˆen∥H1(Ω)≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥ˆen−k∥L2(Ω) + ωnω1∥ˆe0∥L2(Ω) +∥rn∥L2(Ω)
+≤
+ n−1X
+k=1
+ωk−ωk+1
+ω1
++ ωn
+ω1
+ c2ω1ω−1n ∆t2−α1.
+Then we obtain
+∥ˆen∥H1(Ω)≤ c2ω1ω−1n ∆t2−α1.
+The estimate Eq (3.9) is proved. Notice that lim k→∞ k∆t = T is clearly true. Then, we have
+∥u(x, tn)− un∥H1(Ω)≤ c2ω1ω−1n ∆t2−α1 = c2ω1n−α1ω−1n ∆t−α1Tα1∆t2−α1. (3.12)
+Then by Eq (3.12) and Lemma 2.8, we deduce that for sufficently large n, the assertion of the theorem
+is valid. □
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 10
+221
+3.2. Full discretized scheme
+First, we set
+V M = nν∈ H10(Ω)|ν∈ PM(Ω)o,
+as the space of polynomials of degree ≤ M with respect to x. Let P be the orthogonal projection
+operator from H10(Ω) into V M. Then for allψ∈ H10(Ω), we have Pψ∈ V M. Further, we have∀νM∈ V M
+such that
+(Pψ,ν M) + 1ω1
+ ∂Pψ
+∂x ,∂νM∂x ! = (ψ,ν M) + 1ω1  ∂ψ∂x,∂νM∂x !. (3.13)
+This the orthogonal projection operator satisfy the inequality [42]
+∥ψ− Pψ∥H1(Ω)≤ cM 1−m∥ψ∥Hm(Ω), (3.14)
+whereψ∈ Hm(Ω)∩ H10(Ω), m≥ 1.
+Now, we consider the Galerkin scheme as follow: find unM∈ V M, such that for all νM∈ V M
+(unM,ν M) + 1ω1
+ ∂unM
+∂x ,∂νM∂x ! = n−1Xk=1 ωk−ωk+1ω1 (un−kM ,ν M) + ωnω1 (u0M,ν M) + pnω1 ( fM,ν M). (3.15)
+Theorem 3.3. Let u(x, t)∈ H1((0, T), Hm(Ω)∩H10(Ω)), m> 1 be the exact solution of Eq (1.1),{unM}Nn=0
+be the numerical solution of full discretization Eq (3.15), and u0M = Pu0. Then there holds the following
+error estimates
+∥u(x, tn)− unM∥H1(Ω)≤ ω1Tα1(c2∆t2−α1 + cM 1−m∥u∥L∞(Hm))q1(1−α1)
+Γ(2−α1) + Psj=2 q jTα1−α j(1−α j)Γ(2−α j) ,
+where c2 is a constant depending on u, a j, T, and∥u∥L∞(Hm) := supt∈(0,T)∥u(x, t)∥Hm(Ω).
+Proof. From Eq (1.1), Eq (3.1) satisfy ∀ν∈ H10(Ω),
+(u(x, tn),ν ) + 1ω1
+ ∂u(x, tn)
+∂x ,∂ν∂x! = n−1Xk=1 ωk−ωk+1ω1 (u(x, tn−k),ν )
++ ωn
+ω1
+(u(x, t0),ν ) + (rn,ν ) + pn
+ω1
+( f,ν ).
+(3.16)
+By projecting u(x, tn) in Pu(x, tn)∈ V M, applying Eq (3.13), we obtain for all νM∈ V M
+(Pu(x, tn),ν M) + 1ω1
+ ∂Pu(x, tn)
+∂x ,∂νM∂x ! = n−1Xk=1 ωk−ωk+1ω1 (u(x, tn−k),ν M)
++ ωn
+ω1
+(u(x, t0),ν M) + (rn,ν M) + pn
+ω1
+( f,ν M).
+(3.17)
+Let ˆϵnM = Pu(x, tn)− unM, ϵnM = u(x, tn)− unM by subtracting Eq (3.15) from Eq (3.17), we have
+(ˆϵnM,ν M) + 1ω1
+ ∂ˆϵnM
+∂x ,∂νM∂x ! = n−1Xk=1 ωk−ωk+1ω1 (ϵn−kM ,ν M) + ωnω1 (ϵ0M,ν M) + (rn,ν M) (3.18)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 11
+222
+TakingνM = ˆϵnM in above equation and using the triangular inequality∥ϵnM∥H1(Ω)≤∥ ˆϵnM∥H1(Ω) +∥u(x, tn)−
+Pu(x, tn)∥H1(Ω), we obtain
+∥ϵnM∥H1(Ω)≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥ϵn−kM ∥H1(Ω) +∥rn∥H1(Ω) +∥u(x, tn)− Pu(x, tn)∥H1(Ω)
+≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥ϵn−kM ∥H1(Ω) + c2∆t2−α1 + cM 1−m∥u(x, tn)∥Hm(Ω).
+(3.19)
+Here, we use the mathematical induction, by Eq (3.19), we can easy to verify when case of n=1.
+∥ϵ1M∥H1(Ω)≤ω1ω−11 (c2∆t2−α1 + cM 1−m∥u(x, t1)∥Hm(Ω)) (3.20)
+Suppose we have proven
+∥ϵ jM∥H1(Ω)≤ω1ω−1j (c2∆t2−α1 + cM 1−m∥u(x, t j)∥Hm(Ω)) j = 1, 2,··· , n− 1. (3.21)
+And then we need prove∥ϵnM∥H1(Ω)≤ ω1ω−1n (c2∆t2−α1 + cM 1−m∥u(x, tn)∥Hm(Ω)) By Eq (3.19), Eq (3.21)
+we have
+∥ϵnM∥H1(Ω)≤
+ n−1X
+k=1
+ωk−ωk+1
+ω1
++ ωn
+ω1
+ω1ω−1n hc2∆t2−α1 + cM 1−m∥u(x, tn)∥Hm(Ω)i. (3.22)
+Finally, by lim k→∞ k∆t = T and the last equality have
+∥u(x, tn)− unM∥H1(Ω) =ω1ω−1n n−α1∆t−α1Tα1(c2∆t2−α1 + cM 1−m∥u∥L∞(Hm)). (3.23)
+Then by Eq (3.23) and Lemma 2.8, we deduce that for sufficently large n, the assertion of the theorem
+is valid. □
+Now we give error estimates for semi-discrete and full discrete problems in the following result.
+Theorem 3.4. Let{un}Nn=0∈ Hm(Ω)∩ H10(Ω), m > 1 is solution of semi-discrete problem Eq (3.5),
+{unM}Nn=0 is the solution of full discrete problem Eq (3.15), and u0M = Pu0. Then we have
+∥un− unM∥H1(Ω)≤
+cω1Tα1 M1−m max1≤ j≤n∥u j∥Hm(Ω)
+q1(1−α1)
+Γ(2−α1) + Psj=2 q jTα1−α j(1−α j)Γ(2−α j) ,
+Proof. According to the definition of P, for solution un of semi-discrete, we have
+(Pun,ν M) + 1ω1
+ ∂Pun
+∂x ,∂νM∂x ! = n−1Xk=1 ωk−ωk+1ω1 (un−k,ν M) + ωnω1 (u0,ν M) + pnω1 ( f,ν M). (3.24)
+Let ˆenM = Pun− unM, enM = un− unM, by subtracting Eq (3.15) from Eq (3.24), we have
+(ˆenM,ν M) + 1ω1 (∂ˆenM∂x ,∂νM∂x ) = n−1Xk=1 ωk−ωk+1ω1 (en−kM ,ν M) + ωnω1 (e0M,ν M). (3.25)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 12
+223
+TakingνM = ˆenM in above equation and using the triangular inequality ∥enM∥H1(Ω)≤∥ ˆenM∥H1(Ω) +∥un−
+Pun∥H1(Ω), we obtain
+∥enM∥H1(Ω)≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥en−kM ∥H1(Ω) +∥un− Pun∥H1(Ω)
+≤
+n−1X
+k=1
+ωk−ωk+1
+ω1
+∥ϵn−kM ∥H1(Ω) + cM 1−m∥un∥Hm(Ω).
+(3.26)
+Here, we use the mathematical induction similar to Theorem 3.3, and by lim k→∞ k∆t = T. We have
+follow result
+∥un− unM∥H1(Ω) =ω1ω−1n n−α1∆t−α1Tα1cM 1−m max1≤ j≤n∥u j∥Hm(Ω). (3.27)
+Then by Eq (3.27) and Lemma 2.8, we deduce that for sufficently large n, the assertion of the theorem
+is valid. □
+4. Uniqueness and ill-posedness for the inverse problem
+In this section, we discuss the uniqueness of solution and the ill-posed analysis of the unknown
+source identification problem.
+Denote the eigenvalues of the operator −L as λn and the corresponding eigenfunctions as φn ∈
+H2(Ω)∩H10(Ω), then we haveLφn =−λnφn. Without loss of generality, suppose a family of eigenvalues
+0 < λ1≤ λ2≤···≤ λn≤··· , limn→∞λn = +∞, then{φn}∞n=1 constituting an orthonormal basis in
+space L2(Ω).
+Definition 4.1. ( [43]) For anyγ> 0, define
+D((−L)γ) =
+ψ∈ L2(Ω); ∞X
+n=1
+λ2γn|(ψ,φ n)|2 <∞
+,
+where (·,·) is the inner product in L2(Ω), and define its norm
+∥ψ∥D((−L)γ) =
+ ∞X
+n=1
+λ2γn|(ψ,φ n)|2
+ 12.
+Lemma 4.2. ( [34]) For fixed α ∈ A, q ∈ Q, let f (x) ∈ Ld(0, T), p(t) ∈ D((−L)γ) with some
+d∈ [1,∞] andγ∈ [0, 1]. Then Eq (1.1) exists a unique solution u(x, t) given by
+u(x, t) =
+∞X
+n=1
+fnQn(t)φn(x), (4.1)
+where Qn(t) =
+R t
+0 p(s)(t− s)α1−1E(n)α′,α1(t− s)ds, and f n = ( f,φ n).
+From Lemma 4.2, we know there exists a unique weak solution u∈ L2((0, T); H2(Ω)∩ H10(Ω)) for
+the direct problem Eq (1.1), if we know a source function f (x)p(t)∈ L∞(0, T; L2(Ω)). And we know
+the formal solution for Eq (1.1) can be expressed by
+u(x, t) =
+∞X
+n=1
+fn
+Z t
+0
+p(s)(t− s)α1−1E(n)α′,α1(t− s)dsφn(x). (4.2)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 13
+224
+Applying u(x, T) = g(x), we have
+∞X
+n=1
+gnφn(x) = g(x) =
+∞X
+n=1
+fnQn(T)φn(x), (4.3)
+where gn = (g,φ n) and Qn(T) =
+R t
+0 p(s)(T− s)α1−1E(n)α′,α1(T− s)ds.
+Theorem 4.3. If p (t)∈ C[0, T] satisfying p (t)≥ p0 > 0 for all t ∈ [0, T] , then the solution
+u(x, t), f (x) of problem Eq (1.1) is unique.
+Proof. By Lemma 2.3, we have E(n)α′,α1(t) > 0, for t > 0. From Lemma 2.2 and Proposition 2.5, we
+know
+Qn(T)≥ p0
+Z T
+0
+(T− s)α1−1E(n)α′,α1(T− s)ds = p0Tα1E(n)α′,1+α1(T)> 0. (4.4)
+Hence, we know if g(x) = 0, we have f (x) = 0, and by Eq (4.2) we know u(x, t) = 0. The proof is
+completed. □
+In the following, we show the inverse source problem Eq (1.1) is ill-posed. Without loss of
+generality, we take a final data gk(x) = φk(x)√λk in Eq (1.1) and then know∥gk∥ = 1√λk→ 0, as k→∞ .
+The corresponding source terms are fk(x) = φk(x)Qk(T)√λk , and we have∥ fk∥ = 1Qk(T)√λk . By Lemma 2.7, wehave
+Qk(T)≤∥ p∥C[0,T]Tα1E(k)α′,1+α1(T)≤∥p∥C[0,T]λk . (4.5)
+Hence ∥ fk∥ ≥
+√λk
+∥q∥C[0,T] → ∞, as k→ ∞. Then we know the inverse source problem Eq (1.1) is
+ill-posed.
+5. Numerical algorithm
+For the sake of argument, we just talk about the one-dimensional case.
+5.1. The Galerkin spectral method
+First, let LM(x) denotes the Legendre polynomial of degree M. ξ j, j = 1, 2,··· , M, are the
+Legendre-Gauss-Lobatto points, and these points satisfy (1 − x2)L′M(x) = 0. we consider the follow
+equation (unM,ν M) + 1ω1  a∂unM∂x ,∂νM∂x !− 1ω1 (cunM,ν M) = n−1Xk=1 ωk−ωk+1ω1 (un−kM ,ν M)+ ωnω1 (u0M,ν M) + pnω1 ( fM,ν M),(uNM,ν M) = (gM,ν M). (5.1)
+We set
+unM(x) = uM(x, n∆t) =
+MX
+i=0
+δni hi(x), (5.2)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 14
+225
+Here, hi is the Lagrangian polynomial defined in Ω i.e. hi∈ V M, hi(ξ j) =εi j, withεi j : the Krinecker-
+delta symbol. Since first equation in Eq (1.1) satisfies Dirichlet boundary condition, therefore, we have
+δn0 =δnM = 0. TakeνM = h j(x), j = 1, 2,··· , M− 1, we can obtain
+M−1Xi=1 δni hi, h j + 1ω1 a M−1Xi=1 δni∂hi∂x,∂h j∂x − 1ω1 c M−1Xi=1 δni hi, h j = n−1Xk=1 ωk−ωk+1ω1 M−1Xi=1 δn−ki hi, h j+ ωnω1 M−1Xi=1 δ0i hi, h j + pnω1 ( fM, h j)M−1X
+i=1
+δNi hi, h j
+ = (gM, h j).
+Denote
+F = (( fM, h1),··· , ( fM, hM−1))T, G = ((gM, h1),··· , (gM, hM−1))T,
+and set
+δn = (δn1,··· ,δ nM−1)T,
+By above equation, we have
+Kδn = 1ω1 pnF + n−1Xk=1 ωk−ωk+1ω1 ˆKδn−kˆKδN = G, (5.3)
+where i, j = 1, 2,··· , M− 1, and
+(K)i j = (hi, h j) + 1ω1 (a∂hi∂x,∂h j∂x )− 1ω1 (chi, h j), ( ˆK)i j = (hi, h j). (5.4)
+Here, we use the Legendre Gauss-type quadratures to approximate Eq (5.4), and by the first equation
+in Eq (5.3) and Eq (5.2), we can solve the forward problem.
+For the inverse problem, by Eq (5.3), we have
+δ1 = K−1 1ω1 p1F = A1F n = 1δ2 = K−1( 1ω1 p2F + (1− ω2ω1 ) ˆKδ1) = A2F n = 2...δN−1 = AN−1F n = N− 1. (5.5)
+For n = N, we have KδN = 1ω1 pNF + N−1Xk=1 ωk−ωk+1ω1 ˆKδN−kˆKδN = G, (5.6)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 15
+226
+By Eq (5.5), Eq (5.6), we have
+AF = G. (5.7)
+And then by solving linear equation Eq (5.7), we can obtain F. Further, we recover fM as an
+approximation of the source term by using a suitable integration rule.
+In order to prove the ill-posedness of equation Eq (5.7), an upper bound of ∥A−1∥2 in Eq (5.7) is
+given below.
+Theorem 5.1. Let the orthogonal basis function{h j}M−1j=1 satisfy hj(x)∈ H1(Ω). Then the inverse matrix
+of the coefficient matrix A in Eq (5.7) have
+∥A−1∥2≤ C(M− 1)2
+max
+1≤ j≤M−1
+∥h j∥2H1(Ω)
+min
+1≤ j≤M−1
+∥h j∥2H1(Ω) (5.8)
+Proof. From the first equation of Eq (5.6), we can get
+δN = pN
+ω1
+K−1F +
+N−1X
+k=1
+ωk−ωk+1
+ω1
+K−1 ˆKδN−k. (5.9)
+Combining the second equation of Eq (5.6), we have
+pN
+ω1
+ˆKK−1F +
+N−1X
+k=1
+ωk−ωk+1
+ω1
+ˆKK−1 ˆKδN−k = G. (5.10)
+Let k
+′
+= N− k (also denote k), we have
+pN
+ω1
+ˆKK−1F +
+N−1X
+k=1
+ωN−k−ωN−k+1
+ω1
+ˆKK−1 ˆKδk = G. (5.11)
+On the other hand, by Eq (5.5) we have
+δk = ( pk
+ω1
+K−1 +
+k−1X
+m=1
+ωm−ωm+1
+ω1
+K−1 ˆKAk−m)F =: AkF, k = 1, 2,··· , N− 1. (5.12)
+By substituting Eq (5.12) into Eq (5.11), the equation AF = G is obtained, where
+A = pN
+ω1
+ˆKK−1 +
+N−1X
+k=1
+ωN−k−ωN−k+1
+ω1
+ˆKK−1 ˆKAk. (5.13)
+Sinceωk is non-negative and decreasing with respect to k, therefore we have
+ωN−k−ωN−k+1
+ω1
+< 1. (5.14)
+The definition of Ak tells us that the second part ofA is the higher order term of the first part. Therefore,
+we only need to estimate the matrix
+A≈ eA := pN
+ω1
+ˆKK−1. (5.15)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 16
+227
+Due to F≈ eA−1G, we only have to estimate the upper bound of∥eA−1∥2. According to Eq (5.4), ˆK is a
+diagonal matrix, and
+(K ˆK−1)i j = (hi, h j)∥h j∥2 + 1ω1∥h j∥2 (a∂hi∂x,∂h j∂x )− 1ω1∥h j∥2 (chi, h j). (5.16)
+Therefore, we have
+∥eA−1∥2 = ω1
+pN∥K ˆK−1∥2≤ ω1pN∥K ˆK−1∥F = ω1pN
+M−1X
+i, j=1
+(K ˆK−1)2i j
+ 12
+= ω1
+pN
+M−1X
+i, j=1
+1
+∥h j∥4
+ (hi, h j)
+∥h j∥2 + 1ω1 (a∂hi∂x,∂h j∂x )− 1ω1 (chi, h j)!2 12
+≤
+√
+3ω1
+min
+1≤ j≤M−1
+∥h j∥2H1(Ω)pN
+M−1X
+i, j=1
+(hi, h j)2 + 1ω21 (a∂hi∂x,∂h j∂x )2 + 1ω21 (chi, h j)2
+ 12
+≤ C(M− 1)2
+max
+1≤ j≤M−1
+∥h j∥2H1(Ω)
+min
+1≤ j≤M−1
+∥h j∥2H1(Ω),
+(5.17)
+where C is dependent on a, c, M, α, q j. □
+Remark 1. It can be seen from Theorem 5.1 that ∥A−1∥2 is completely determined by the projection
+dimension M− 1 of the spectral method and the maximum and minimum norm of the basis function
+h j(x). It can be seen from Eq (5.8) that as the projection dimension increases, the numerator increases
+with respect to j, while the denominator decreases with respect to j. Therefore, the projection
+dimension M− 1 can be used as regularization parameter. When the appropriate M is selected, the
+minimum value of∥A−1∥2 can be guaranteed, thus reducing the ill-posedness of the inverse problem.
+Remark 2. Here we emphasize that the Galerkin spectral method is a projection method. In the
+projection method, as long as the appropriate dimension of the projection space is selected, the
+regularization effect can be e ffectively generated for the linear ill-posed problem, and it is no longer
+necessary to adopt other regularization techniques for the problem. This phenomenon is sometimes
+called self-regularization or regularization by projection. A series of descriptions and proofs of this
+phenomenon can be found in the literature [44].
+5.2. The finite di fference method
+In order to compare the finite di fference method the and Galerkin spectral method in application
+of the multi-term time-fractional diffusion equation. We derive follow the scheme similar to reference
+[45].
+In the finite di fference algorithm, we can denote uni ≈ u(xi, tn), where xi = i∆x, i = 1,..., C. and
+tn = n∆t, n = 0, 1,..., N.
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 17
+228
+The space has the following discrete form:
+Lu(xi, tn)≈ 1(∆x)2 (ai+ 12 uni+1)− ((ai+ 12 + ai− 12 )uni + ai− 12 uni−1) + c(xi)uni,
+for i = 1,..., C− 1, n = 1,..., N where ai+ 12 = a(xi + 12) with xi + 12 = (xi + xi+1)/2. In problemEq (1.1), according to initial condition and boundary condition, we can get a numerical solution for
+forward problem Eq (1.1) from the finite difference scheme
+nX
+k=1
+ωk(un−k+1− un−k)
+= 1(∆x)2 (ai+ 12 uni+1)− ((ai+ 12 + ai− 12 )uni + ai− 12 uni−1) + c(xi)uni + f (xi)p(tn).
+(5.18)
+Denote Un = (un1, un2,..., unC−1)T, Y = ( f (x1), f (x2),..., f (xC−1))T, then the scheme Eq (5.18) leads to
+the following iterative scheme
+BU1 = U0 + 1ω1 p(t1)Y,
+BUn = c1Un−1 + c2Un−2 +... + cn−1U1 + ωn
+ω1
+U0 + 1ω1 p(tn)Y, (5.19)
+where cn = (ωn− ωn+1)/ω1 and B is a tridiagonal matrix given by Bii =
+ai+ 12 +ai− 12
+(∆x)2ω1 + 1− c(xi)ω1 for
+i = 1, 2,··· , C−1 and Bi,i−1 =−
+ai− 12
+(∆x)2ω1 for i = 2, 3,··· , C−1 and Bi,i+1 =−
+ai+ 12
+(∆x)2ω1 for i = 1, 3,··· , C−2.Inverse source problem based on finite di fference. Similar to Section 5.1, we can derive a linear
+equation.
+ZY = D, (5.20)
+where D = (g(x1), g(x2),..., g(xC−1))T, and Z is a matrix.
+6. Numerical results
+In this section, first, we verify the stability and validity of the proposed numerical methods. Without
+lose of generality, let the maximum time is T = 1. The noisy data are generated by adding random
+perturbations, i.e,
+gδ(x) = g(x) +εg(x)(2rand(size(g(x))− 1), (6.1)
+where ε is relative noise level and rand(·) generate random numbers uniformly distributed on [0 , 1].
+The corresponding noise level is calculated by δ = ∥g− gδ∥. To show the accuracy of numerical
+solution, we compute the approximate L2-norm error denoted by
+e( f,ε ) =∥ f− fδ∥, (6.2)
+and the approximate L2-norm relative error as
+er( f,ε ) =∥ f− fδ∥/∥ f∥, (6.3)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 18
+229
+10-5 10-4 10-3 10-2 10-1
+Time step 
+10-8
+10-7
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+Error 
+polynomial degree M=24
+ t1.1
+L2 Error
+L  Error
+(a) α1 = (0.9, 0.8, 0.7)
+10-5 10-4 10-3 10-2 10-1
+Time step 
+10-9
+10-8
+10-7
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+Error 
+polynomial degree M=24
+ t1.4
+ L2 Error
+L  Error (b) α2 = (0.6, 0.5, 0.3)
+10-5 10-4 10-3 10-2 10-1
+Time step 
+10-9
+10-8
+10-7
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+Error 
+polynomial degree M=24
+ t1.7
+L2 Error
+L  Error
+(c) α3 = (0.3, 0.2, 0.1)
+8 9 10 11 12 13 14 15 16
+Polynomial degree M 
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+100
+101
+ Error 
+L2 Error
+L  Error (d) α1 = (0.9, 0.8, 0.7)
+8 10 12 14 16 18 20
+Polynomial degree M 
+10-10
+10-8
+10-6
+10-4
+10-2
+100
+102
+ Error 
+L2 Error
+L  Error
+(e) α2 = (0.6, 0.5, 0.3)
+8 9 10 11 12 13 14 15 16 17 18
+Polynomial degree M 
+10-8
+10-7
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+100
+101
+ Error 
+L2 Error
+L  Error (f) α3 = (0.3, 0.2, 0.1)
+Figure 1. The result of the forward problem for Example 1.
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 19
+230
+where fδ is term reconstructed and f is the exact solution.
+In addition, for the convenience of writing, we will abbreviate the Galerkin spectral method as GSM
+and the finite difference method as FDM.
+Example 1. In this example, we firstly consider a three-term time fractional di ffusion equation
+with a exact solution. Let ΩT = (−1, 1)× (0, T) and T = 1, q j≡ 1. Take a source function p(t) =
+2
+Γ(3−α1)t2−α1 + 2Γ(3−α2)t2−α2 + 2Γ(3−α3)t2−α3 + 4π2t2, and f (x) = sin(2πx). Further more, we have exact
+analytical solution
+u(x, t) = t2 sin(2πx). (6.4)
+In the first three graphs of Figure 1, namely (a), (b) and (c), we show the errors inL2-norm and L∞-
+norm for different time step in case of α1 = (0.9, 0.8, 0.7), α2 = (0.6, 0.5, 0.3), and α3 = (0.3, 0.2, 0.1).
+Here fix the polynomial degree M = 24. In the same case, the graphs (d), (e) and (f) from Figure 1
+show the the errors in L2-norm and L∞-norm for di fferent polynomial degree M. Here we also take
+time step ∆t = 1e− 4. From Figure 1, we can find that the theoretical convergence accuracy (see
+Theorem 3.3) is in good agreement with the numerical results.
+In Table 1 and Figure 2, we make a comparison with FDM in terms of the forward problem by using
+the scheme Eq (5.1). Clearly, we observe that the scheme Eq (5.1) has higher accuracy than FDM on
+the forward problem. As a further step, we choose∆t = 1e− 4 to obtain satisfactory results in time and
+accuracy.
+Table 1. Error of two approximation methods of Example 1 for α = (0.3, 0.2, 0.1) .
+time step approximation method L2 error L∞ error run time
+∆t = 1e− 1 GSM 0.002121690 2.121690e-04 88.254s
+FDM 0.010039748 0.001419834 1.341s
+∆t = 1e− 2 GSM 4.382322e-05 4.382322e-06 90.043s
+FDM 0.0085668512 0.001211535 10.076s
+∆t = 1e− 3 GSM 8.535546e-07 8.535546e-08 90.622s
+FDM 0.008536392 0.001207228 96.931s
+∆t = 1e− 4 GSM 1.913459e-08 1.913459e-09 198.829s
+FDM 0.008535798 0.001207144 1348.549s
+∆t = 1e− 5 GSM 1.007804e-08 1.007804e-9 10834.238s
+FDM 0.008535787 0.001207142 33733.606s
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 20
+231
+10-5 10-4 10-3 10-2 10-1
+Time step 
+10-9
+10-8
+10-7
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+Error 
+  L2 Error of Galerkin spectral method
+L  Error of Galerkin spectral method
+L2 Error of  Finite difference method
+L  Error of Finite difference method
+Figure 2. Error of two approximation methods of Example 1 for α = (0.3, 0.2, 0.1) .
+Table 2. Relative error of the GSM for Example 1 for di fferent α with ε =
+5%, 1%, 0.5%, 0.1%.
+ϵ α er( f,ε )
+ε = 5% (0 .3, 0.2, 0.1) 0.082339
+(0.9, 0.8, 0.7) 0.074294
+(0.6, 0.5, 0.3) 0.059221
+ε = 1% (0 .3, 0.2, 0.1) 0.030306
+(0.9, 0.6, 0.3) 0.034862
+(0.6, 0.5, 0.3) 0.049156
+ε = 0.5% (0 .3, 0.2, 0.1) 0.014814
+(0.9, 0.8, 0.7) 0.043858
+(0.6, 0.5, 0.3) 0.043187
+ε = 0.1% (0 .3, 0.2, 0.1) 0.013495
+(0.9, 0.8, 0.7) 0.010624
+(0.6, 0.5, 0.3) 0.013953
+On the inverse source problem aspect. In order to avoid the impact of ‘inverse crime’. We takeM =
+20, ∆t = 1e− 4 to solve the direct problem by using the GSM Eq (5.1), and take M = 20, ∆t = 1e− 3
+to solve the inverse source problem by the scheme Eq (5.7). The related results are shown in (e), (f) of
+Figure 3 and Table 2. For the inverse source problem based on FDM. We take C = 100, ∆t = 5e− 3.
+Numerical result for α2 = (0.3, 0.2, 0.1) with various noise levels ε = 5%, 1%, 0.5%, 0.1% are shown
+in (c), (d) of Figure 3 .
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 21
+232
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+g(x)
+exact solution
+numerical solution
+(a) The direct problem
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-1
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+f(x) and its approximation f (x) 
+exact
+=0 (b) ε = 0 f or GS M
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+6
+8
+10
+f(x) and its approximation f (x) 
+exact
+=0.05
+=0.01
+=0.005
+=0.001
+(c) No regularization method f or FDM
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+f(x) and its approximation f (x) 
+exact
+=0.05
+=0.01
+=0.005
+=0.001 (d) Landweber iterative regularization method f or FDM
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+f(x) and its approximation f (x) 
+exact
+=0.05
+=0.01
+=0.005
+=0.001
+(e) No regularization method f or GS M
+-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+f(x) and its approximation f (x) 
+exact
+=0.05
+=0.01
+=0.005
+=0.001 (f) Landweber iterative regularization method f or GS M
+Figure 3. Result of Example 1 with α = (0.3, 0.2, 0.1).
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 22
+233
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1
+-0.5
+0
+0.5
+1
+1.5
+2
+g(x)
+10-5
+(a) The direct problem
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+f(x) and its approximation f (x) 
+10-3
+exact
+=0 (b) ε = 0 f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+4
+5
+f(x) and its approximation f (x) 
+10-3
+exact
+=0.01
+=0.005
+=0.001
+=0.0001
+(c) No regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+f(x) and its approximation f (x) 
+10-3
+exact
+=0.01
+=0.005
+=0.001
+=0.0001 (d) Landweber iterative regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+f(x) and its approximation f (x) 
+10-3
+exact
+=0.01
+=0.005
+=0.001
+=0.0001
+(e) No regularization method f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+f(x) and its approximation f (x) 
+10-3
+exact
+=0.01
+=0.005
+=0.001
+=0.0001 (f) Landweber iterative regularization method f or GS M
+Figure 4. Result of Example 2 with α = (0.3, 0.2, 0.1).
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 23
+234
+Example 2. In this example, let ΩT = (0, 1)× (0, T), s = 3, q j≡ 1, a(x) = 1, c(x) = 0. Take a
+exact source function p(t) = 1 and f (x) = x(x− 0.4)(x− 0.6)(x− 0.8)(x− 1). We first solve the direct
+problem by using the GSM Eq (5.1) to obtain the additional data g(x). Then we use the scheme Eq
+(5.7) to solve inverse source problem. Numerical result forα1 = (0.9, 0.8, 0.7), α2 = (0.3, 0.2, 0.1), and
+α3 = (0.6, 0.5, 0.3), with various noise levels ε = 1%, 0.5%, 0.1%, 0.01% are presented in (e), (f) of
+Figure 4 and Table 3. For the inverse source problem based on FDM. We take C = 100, ∆t = 5e− 3.
+Numerical result for α2 = (0.3, 0.2, 0.1) with various noise levels ε = 1%, 0.5%, 0.1%, 0.01% are
+shown in (c), (d) of Figure 4.
+Table 3. Relative error of the GSM for Example 2 for di fferent α with ε =
+1%, 0.5%, 0.1%, 0.01%.
+ε α er( f,ε )
+ε = 1% (0 .3, 0.2, 0.1) 0.085368
+(0.9, 0.8, 0.7) 0.092676
+(0.6, 0.5, 0.3) 0.088179
+ε = 0.5% (0 .3, 0.2, 0.1) 0.076024
+(0.9, 0.8, 0.7) 0.082049
+(0.6, 0.5, 0.3) 0.079423
+ε = 0.1% (0 .3, 0.2, 0.1) 0.073424
+(0.9, 0.8, 0.7) 0.0800324
+(0.6, 0.5, 0.3) 0.077136
+ε = 0.01% (0 .3, 0.2, 0.1) 0.0652520
+(0.9, 0.8, 0.7) 0.066370
+(0.6, 0.5, 0.3) 0.066352
+Table 4. Relative error of the GSM for Example 3 for di fferent α with ε =
+1%, 0.5%, 0.1%, 0.01%.
+ε α er( f,ε )
+ε = 1% (0 .3, 0.2, 0.1) 0.045909
+(0.9, 0.8, 0.7) 0.058139
+(0.6, 0.5, 0.3) 0.058454
+ε = 0.5% (0 .3, 0.2, 0.1) 0.042321
+(0.9, 0.8, 0.7) 0.048615
+(0.6, 0.5, 0.3) 0.047175
+ε = 0.1% (0 .3, 0.2, 0.1) 0.040261
+(0.9, 0.8, 0.7) 0.048302
+(0.6, 0.5, 0.3) 0.046372
+ε = 0.01% (0 .3, 0.2, 0.1) 0.012787
+(0.9, 0.8, 0.7) 0.011516
+(0.6, 0.5, 0.3) 0.011305
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 24
+235
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+0
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07g(x)
+(a) The direct problem
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+f(x) and its approximation f (x) 
+exact
+=0 (b) ε = 0 f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-20
+-15
+-10
+-5
+0
+5
+10
+15
+20
+f(x) and its approximation f (x) 
+exact
+=0.01
+=0.005
+=0.001
+=0.0001
+(c) No regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+f(x) and its approximation f (x) 
+exact
+=0.01
+=0.005
+=0.001
+=0.0001 (d) Landweber iterative regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+f(x) and its approximation f (x) 
+exact
+=0.01
+=0.005
+=0.001
+=0.0001
+(e) No regularization method f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+f(x) and its approximation f (x) 
+exact
+=0.01
+=0.005
+=0.001
+=0.0001 (f) Landweber iterative regularization method f or GS M
+Figure 5. Result of Example 3 with α = (0.3, 0.2, 0.1).
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 25
+236
+Example 3. In this example, let ΩT = (0, 1)× (0, T), s = 3, q j≡ 1, a(x) = 1, c(x) = 0. We
+consider a continuous piecewise smooth function.
+f (x) =
+2x, 0≤ x≤ 0.5,− 2x + 2, 0.5≤ x< 1. (6.5)
+We first solve the direct problem by using the GSM Eq (5.1) to obtain the additional data g(x).
+Then we use the scheme Eq (5.7) to solve inverse source problem. Numerical result for
+α1 = (0.9, 0.8, 0.7), α2 = (0.3, 0.2, 0.1), and α3 = (0.6, 0.5, 0.3), with various noise levels
+ε = 1%, 0.5%, 0.1%, 0.01% are presented in (e), (f) of Figure 5 and Table 4. For the inverse source
+problem based on FDM. We take C = 100, ∆t = 5e− 3. Numerical result for α2 = (0.3, 0.2, 0.1) with
+various noise levelsε = 1%, 0.5%, 0.1%, 0.01% are shown in (c), (d) of Figure 5.
+Example 4. Let ΩT = (0, 1)× (0, T), s = 3, q j≡ 1, a(x) = x2 + 1, c(x) =−1. Take a exact
+source function p(t) = 1 and f (x) = e−x sin(7πx). We first solve the direct problem by using the
+GSM Eq (5.1) to obtain the additional data g(x). Then we use the scheme Eq (5.7) to solve inverse
+source problem. Numerical result for α1 = (0.9, 0.8, 0.7), α2 = (0.3, 0.2, 0.1), and α3 = (0.6, 0.5, 0.3),
+with various noise levels ε = 10%, 5%, 1%, 0.1% are presented in (e), (f) of Figure 6 and Table 5.
+For the inverse source problem based on FDM. We take C = 100, ∆t = 5e− 3. Numerical result
+for α2 = (0.3, 0.2, 0.1) with various noise levels ε = 1%, 0.5%, 0.1%, 0.01% are shown in (c), (d) of
+Figure. 6.
+Table 5. Relative error of the GSM for Example 4 for di fferent α with ε =
+10%, 5%, 1%, 0.1%.
+ε α er( f,ε )
+ε = 10% (0 .3, 0.2, 0.1) 0.100485
+(0.9, 0.8, 0.7) 0.111043
+(0.6, 0.5, 0.3) 0.107902
+ε = 5% (0 .3, 0.2, 0.1) 0.093797
+(0.9, 0.8, 0.7) 0.068835
+(0.6, 0.5, 0.3) 0.064510
+ε = 1% (0 .3, 0.2, 0.1) 0.072740
+(0.9, 0.8, 0.7) 0.073513
+(0.6, 0.5, 0.3) 0.072786
+ε = 0.1% (0 .3, 0.2, 0.1) 0.034704
+(0.9, 0.8, 0.7) 0.037078
+(0.6, 0.5, 0.3) 0.035328
+By observing Figures 3–6, we can see that ( a) denotes the graph of the numerical solution of
+the forward problem, namely the input data. ( b) is the numerical approximation of the inverse source
+problem without noisy data. ( c) and (d) are results of the inverse source problem based on the FDM
+with and without regularization method, and (e) and (f ) are results of the inverse source problem based
+on the GSM under the same case.
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 26
+237
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+2
+2.5
+g(x)
+10-3
+(a) The direct problem
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+f(x) and its approximation f (x) 
+exact
+=0 (b) ε = 0 f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+4
+5
+f(x) and its approximation f (x) 
+exact
+=0.1
+=0.05
+=0.01
+=0.001
+(c) No regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+f(x) and its approximation f (x) 
+exact
+=0.1
+=0.05
+=0.001
+=0.0001 (d) Landweber iterative regularization method f or FDM
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1
+-0.5
+0
+0.5
+1
+1.5
+f(x) and its approximation f (x) 
+exact
+=0.1
+=0.05
+=0.01
+=0.001
+(e) No regularization method f or GS M
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+x
+-1
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1
+f(x) and its approximation f (x) 
+exact
+=0.1
+=0.05
+=0.01
+=0.001 (f) Landweber iterative regularization method f or GS M
+Figure 6. Result of Example 4 with α = (0.3, 0.2, 0.1).
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 27
+238
+From Tables 6–9, we show the error levels of two numerical reconstruction method with and without
+regularization method. We can find that the numerical results of the inverse problem based on FDM
+with regularization method are obviously better than those without regularization method. However,
+the numerical results of the inverse problem based on the GSM with and without regularization method
+do not show a big difference compared with the numerical results of the FDM. There may even be cases
+where regularization method is not required to get a better result. Hence, we can conclude that scheme
+Eq (5.7) itself has regularization function compared to the FDM in the inverse source problem. Next,
+we explain why scheme Eq (5.7) is not sensitive to noise level.
+Table 6. Comparison of relative error of numerical results for Example 1 for α =
+(0.3, 0.2, 0.1) with ε = 5%, 1%, 0.5%, 0.1%.
+method ε = 5% ε = 1% ε = 0.5% ε = 0.1%
+GSM (no regularization) 0.2501 0.0832 0.0290 0.0079
+GSM (regularization) 0.0823 0.0303 0.0134 0.0148
+FDM (no regularization) 4.3792 0.7871 0.4036 0.0965
+FDM (regularization) 0.0301 0.0052 0.0025 6.273e-4
+Table 7. Comparison of relative error of numerical results for Example 2 for α =
+(0.3, 0.2, 0.1) with ε = 1%, 0.5%, 0.1%, 0.01%.
+method ε = 1% ε = 0.5% ε = 0.1% ε = 0.01%
+GSM (no regularization) 0.0944 0.0635 0.0119 0.0010
+GSM (regularization) 0.0853 0.0760 0.0734 0.0652
+FDM (no regularization) 2.6407 1.220 0.2478 0.027
+FDM (regularization) 0.2043 0.0520 0.0208 0.0164
+Table 8. Comparison of relative error of numerical results for Example 3 for α =
+(0.3, 0.2, 0.1) with ε = 1%, 0.5%, 0.1%, 0.01%.
+method ε = 1% ε = 0.5% ε = 0.1% ε = 0.01%
+GSM (no regularization) 0.4327 0.2868 0.0365 0.0126
+GSM (regularization) 0.0459 0.0423 0.0402 0.0127
+FDM (no regularization) 11.808 5.0791 1.4387 0.1025
+FDM (regularization) 0.0353 0.0239 0.0116 0.0102
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 28
+239
+Table 9. Comparison of relative error of numerical results for Example 4 for α =
+(0.3, 0.2, 0.1) withε = 10%, 5%, 1%, 0.1%.
+method ε = 10% ε = 5% ε = 1% ε = 0.1%
+GSM (no regularization) 0.2924 0.0878 0.0425 0.0233
+GSM (regularization) 0.1004 0.0937 0.0727 0.0347
+FDM (no regularization) 2.79904 1.1476 0.2951 0.1435
+FDM (regularization) 0.1435 0.0846 0.0181 0.0014
+In Table 10, we show norm of matrices G, A−1 and A−1G for Example 1. Obviously, ∥A−1G∥2 is
+small and∥A−1∥2 has a reasonable size. Therefore numerical solutions are not sensitive with respect to
+the perturbation in the initial data. But, In Table 11, The numerical format of FDM is sensitive to the
+perturbation in the initial datal. Therefore, GSM has better anti-interference than FDM. On the other
+hand, in Tables 12 and 13, We can find that although GSM has better anti-interference than FMD, it
+can not completely get rid of the regularization method when the unknown source has less regularity
+and the meased data has a high noise level.
+Table 10. GSM of ill-posedness for Example 1 for differentε.
+ε ∥G∥2 ∥A−1∥2 ∥A−1G∥2
+0.05 0.356708 86.11457 0.369712
+0.01 0.360401 86.11457 0.360933
+0.005 0.360111 86.11457 0.360085
+0.001 0.360341 86.11457 0.360345
+0.0001 0.360348 86.11457 0.360348
+Table 11. FDM of ill-posedness for Example 1 for differentε.
+ε ∥D∥2 ∥Z−1∥2 ∥Z−1D∥2
+0.05 7.0881 2.322e +02 27.8227
+0.01 7.0743 2.322e +02 8.8667
+0.005 7.0809 2.322e +02 7.5734
+0.001 7.0804 2.322e +02 7.0929
+0.0001 7.0796 2.322e +02 7.0712
+Table 12. GSM of ill-posedness for Example 3 for differentε.
+ε ∥G∥2 ∥A−1∥2 ∥A−1G∥2
+0.01 0.013187 1.5104e +04 0.161897
+0.005 0.013226 1.5104e +04 0.164711
+0.001 0.013227 1.5104e +04 0.159407
+0.0001 0.013228 1.5104e +04 0.159405
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 29
+240
+Table 13. FDM of ill-posedness for Example 3 for differentε.
+ε ∥D∥2 ∥Z−1∥2 ∥Z−1D∥2
+0.01 0.459280 3.9992e +04 76.739424
+0.005 0.459857 3.9992e +04 27.761398
+0.001 0.459380 3.9992e +04 7.957420
+0.0001 0.459332 3.9992e +04 5.798087
+7. Conclusions
+In this paper, we first obtain a high accuracy numerical solution by using the GSM, and give the error
+estimates between exact solution and semi-discrete solution as well as full-discrete one, and compare
+with the FDM. It is indicate that our method has a better accuracy. Secondly, the GSM is extended to
+solve the inverse source problem. Moreover, we find that this method can e ffectively reduce the ill-
+posednes of inverse source problem compared with the traditional FDM. Thus the spectral method itself
+can play a regularization role. It should be mentioned that the estimates given in the paper are also valid
+in two and three dimensional cases. In the following work, we will continue to try to optimize the GSM
+numerical scheme so that it can better play the role of regularization method. For example, replacing
+the original basis functions with smooth periodic functions or equidistant trigonometric functions to
+avoid Runge phenomenon.
+Acknowledgments
+This work is supported by the NSF of China (grant no. 12201502), the Youth Science and
+Technology Fund of Gansu Province (grant no. 20JR10RA099), the Innovation Capacity
+Improvement Project for Colleges and Universities of Gansu Province (grant no. 2020B-088) and the
+Innovation star of Gansu Province (grant no. 2022CXZX-324).
+Conflict of interest
+The authors declare there is no conflict of interest.
+References
+1. R. Metzler, J. Klafter, The random walk’s guide to anomalous di ffusion: a fractional dynamics
+approach, Phys. Rev. E, 61 (2000), 6308–6311. https://doi.org/10.1016/s0370-1573(00)00070-3
+2. B. Berkowitz, H. Scher, S. Silliman Anomalous transport in laboratory-scale,heterogeneous porous
+media, Water Resour. Res., 36 (2000), 149–158. https://doi.org/10.1029/2000wr900026
+3. F. Mainardi, Fractional calculus and waves in linear viscoelasticity: an introduction to
+mathematical models, Singapore: World Scientific, 2010. https://doi.org/10.1142/p614
+4. Y . Hatano, N. Hatano, Dispersive transport of ions in colum experiments: an explanation of long-
+tailed profiles, Water Resour. Res., 34 (1998), 1027–1033. https://doi.org/10.1029/98WR00214
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 30
+241
+5. S. Benson, M. B. Meerschaert, Fracral mobile/immobile solute transport, Water Resour. Res., 39
+(2003), 1–12. https://doi.org/2003WR002141
+6. S. Rina, D. A. Benson, M. M. Mark, B. Boris, Fractal mobile /immobile solute transport, Water
+Resour. Res., 39 (2003), 1296. https://doi.org/10.1029/2003WR002141
+7. R. R. Nigmatullin, The realization of the generalized transfer equation in a medium with fractal
+geometry, Phys. Stat. Sol. B, 133 (1986), 425–430. https://doi.org/10.1002/pssb.2221330150
+8. A. H. Bhrawy, M. A. Zaky, Highly accurate numerical schemes for multi-dimensional space
+variable-order fractional Schr ¨odinger equations, Comput. Math. Appl. , 73 (2017), 1100–1117.
+https://doi.org/10.1016/j.camwa.2016.11.019
+9. Z. Y . Li, Y . K. Liu, M. Yamamoto, Initial-boundary value problems for multi-term time-fractional
+diffusion equations with positive constant coefficients, Appl. Math. Comput., 257 (2015), 381–397.
+https://doi.org/10.1016/j.amc.2014.11.073
+10. Y . Luchko, Initial-boundary-value problems for the generalized multi-term time-
+fractional di ffusion equation, J. Math. Anal. Appl. , 374 (2011), 538–548.
+https://doi.org/10.1016/j.jmaa.2010.08.048
+11. X. L. Ding, J. J. Nieto, Analytical solutions for multi-term time-space fractional partial
+differential equations with nonlocal damping terms, Fract. Calc. Appl. Anal., 21 (2018), 312–335.
+https://doi.org/10.1016/j.cnsns.2018.05.022
+12. C. S. Sin, G. I. Ri, M. C. Kim, Analytical solutions to multi-term time-space Caputo-Riesz
+fractional di ffusion equations on an infinite domain, Adv. Di fference Equ. , 1 (2017), 306.
+https://doi.org/10.1186/s13662-017-1369-x
+13. G. S. Li, C. L. Sun, X. Z. Jia, D. H. Du, Numerical solution to the multi-term time fractional
+diffusion equation in a finite domain, Numer. Math. Theory Methods Appl. , 9 (2016), 337–357.
+https://doi.org/10.4208/nmtma.2016.y13024
+14. M. R. Cui, Finite di fference schemes for the two-dimensional multi-term time-fractional
+diffusion equations with variable coe fficients, Comput. Appl. Math. , 40 (2021), 167.
+https://doi.org/10.1007/s40314-021-01551-11
+15. Y . L. Zhao, P. Zhu, X. M. Gu, A second-order accurate implicit di fference scheme for time
+fractional reaction-diffusion equation with variable coe fficients and time drift term, East Asian
+J. Appl. Math., 9 (2019), 723–754. https://doi.org/10.4208/eajam.200618.250319
+16. Z. Y . Li, O. Y . Imanuvilov, M. Yamamoto, Uniqueness in inverse boundary value problems for
+fractional diffusion equations, Inverse Problems, 32 (2016), 015004. https://doi.org/10.1088/0266-
+5611/32/1/015004
+17. W. P. Bu, S. Shu, X. Q. Yue, A. G. Xiao, W. Zeng, Space-time finite element method for the multi-
+term time-space fractional diffusion equation on a two-dimensional domain,Comput. Math. Appl.,
+75 (2019), 1367–1379. https://doi.org/10.1016/j.camwa.2018.11.033
+18. J. Zhou, D. Xu, H. B. Chen, A weak Galerkin finite element method for multi-
+term time-fractional di ffusion equations, East Asian J. Appl. Math. , 8 (2018), 181–193.
+https://doi.org/10.4208/eajam.260617.151117a
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 31
+242
+19. L. L. Wei, Stability and convergence of a fully discrete local discontinuous Galerkin method
+for multi-term time fractional di ffusion equations, Numer. Algorithms , 76 (2017), 695–707.
+https://doi.org/10.1007/s11075-017-0277-1
+20. S. M. Guo, L. Q. Mei, Z. Q. Zhang, Y . T. Jiang, Finite di fference/spectral-Galerkin method for a
+two-dimensional distributed-order time-space fractional reaction-di ffusion equation, Appl. Math.
+Lett., 85 (2018), 157–163. https://doi.org/10.1016/j.aml.2018.06.005
+21. R. M. Zheng, F. W. Liu, X. Y . Jiang, A Legendre spectral method on graded meshes for the two-
+dimensional multi-term time-fractional diffusion equation with non-smooth solutions, Appl. Math.
+Lett., 104 (2020), 106247. https://doi.org/10.1016/j.aml.2020.106247
+22. Y . Q. Liu, X. L. Yin, F. W. Liu, X. Y . Xin, Y . F. Shen, L. B. Feng, An alternating
+direction implicit Legendre spectral method for simulating a 2D multi-term time-fractional
+Oldroyd-B fluid type di ffusion equation, Comput. Math. Appl. , 113 (2022), 160–173.
+https://doi.org/10.1016/j.camwa.2022.03.020
+23. M. Zheng, F. Liu, V . Anh, I. Turner, A high-order spectral method for the multi-
+term time-fractional di ffusion equations, Appl. Math. Model. , 40 (2016), 4970–4985.
+https://doi.org/10.1016/j.apm.2015.12.011
+24. M. A. Zaky, A Legendre spectral quadrature tau method for the multi-term time-fractional
+diffusion equations, Comput. Appl. Math., 37 (2018), 3525–3538. https://doi.org/10.1007/S40314-
+017-0530-1
+25. Y . Zhang, X. Xu, Inverse source problem for a fractional di ffusion equation, Inverse Probl, 27
+(2011), 538–548. https://doi.org/10.1088/0266-5611/27/3/035010
+26. T. Wei, L. L. Sun, Y . S. Li, Uniqueness for an inverse space-dependent source term in a
+multi-dimensional time-fractional di ffusion equation, Appl. Math. Lett. , 61 (2016), 108–113.
+https://doi.org/10.1016/j.aml.2016.05.004
+27. X. B. Yan, T. Wei, Determine a space-dependent source term in a time fractional di ffusion-wave
+equation, Acta Appl. Math., 165 (2020), 163–181. https://doi.org/10.1007/s10440-019-00248-2
+28. L. L. Sun, X. B. Yan, K. Liao, Simultaneous inversion of a fractional order and a space
+source term in an anomalous di ffusion model, J Inverse Ill Posed Probl , 30 (2022), 791–805.
+https://doi.org/10.1515/jiip-2021-0027
+29. S. Yeganeh, R. Mokhtari, J. S. Hesthaven, Space-dependent source determination in a time-
+fractional diffusion equation using a local discontinuous Galerkin method, BIT Numer. Math., 57
+(2017), 685–707. https://doi.org/10.1007/s10543-017-0648-y
+30. D. J. Jiang, Z. Y . Li, Y . K. Liu, M. Yamamoto, Weak unique continuation property and a related
+inverse source problem for time-fractional di ffusion-advection equations, Inverse Problems, 33
+(2017), 055013. https://doi.org/10.1088/1361-6420/aa58d1
+31. Y . S. Li, L. L. Sun, Z. Q. Zhang, T. Wei, Identification of the time-dependent source term
+in a multi-term time-fractional di ffusion equation, Numer. Algorithms, 82 (2019), 1279–1301.
+https://doi.org/10.1007/s11075-019-00654-5
+32. L. L. Sun, X. B. Yan, An inverse source problem for distributed order time-fractional di ffusion
+equation, Adv. Math. Phys., 2020 (2020), 1825235. https://doi.org/10.1155/2020/1825235
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.
+PAGE 32
+243
+33. S. A. Malik, A. Ilyas, A. Samreen, Simultaneous determination of a source term and di ffusion
+concentration for a multi-term space-time fractional di ffusion equation, Math. Model. Anal. , 26
+(2021), 411–431. https://doi.org/10.3846/mma.2021.11911
+34. L. L. Sun, Y . S. Li, Y . Zhang, Simultaneous inversion of the potential term and the fractional
+orders in a multi-term time-fractional di ffusion equation, Inverse Probl, 37 (2021), 055007.
+https://doi.org/10.1088/1361-6420/abf162
+35. Y . H. Lin, H. Y . Liu, X. Liu, S. Zhang, Simultaneous recoveries for semilinear parabolic systems,
+Inverse Probl, 38 (2022), 115006. https://doi.org/10.1088/1361-6420/ac91ee
+36. H. Y . Liu, G. Uhlmann, Determining both sound speed and internal source in thermo-and
+photo-acoustic tomography, Inverse Probl , 31 (2015), 105005. https: //doi.org/10.1088/0266-
+5611/31/10/105005
+37. X. L. Cao, H. Y . Liu, Determining a fractional Helmholtz equation with unknown
+source and scattering potential, Commun. Math. Sci. , 17 (2019), 1861–1876.
+https://doi.org/110.4310/CMS.2019.v17.n7.a5
+38. L. L. Sun, Y . Zhang, T. Wei, Recovering the time-dependent potential function in a
+multi-term time-fractional di ffusion equation, Appl. Numer. Math. , 135 (2019), 228–245.
+https://doi.org/10.1016/j.apnum.2018.09.001
+39. E. Bazhlekova, Properties of the fundamental and the impulse-response solutions of multi-term
+fractional differential equations, Complex Analysis and Applications, 2 (2013), 55–64.
+40. C. L. Sun, G. S. Li, X. Z. Jia, Numerical inversion for the initial distribution in the multi-term time-
+fractional diffusion equation using final observations, Adv. Appl. Math. Mech. , 9 (2017), 1525–
+1546. https://doi.org/10.4208/aamm.OA-2016-0170
+41. Y . M. Lin, C. J. Xu, Finite di fference/spectral approximations for the time-fractional di ffusion
+equation, J. Comput. Phys., 225 (2007), 1533–1552. https://doi.org/10.1016/j.jcp.2007.02.001
+42. C. Bernardi, Y . Maday, Approximations spectrales de probl` emes Aux Limites Elliptiques, Paris:
+Springer-Verlag, 1992.
+43. K. Sakamoto, M. Yamamoto, Initial value /boundary value problems for fractional diffusion-wave
+equations and applications to some inverse problems, J. Math. Anal. Appl., 382 (2011), 538–548.
+https://doi.org/10.1016/j.jmaa.2011.04.058
+44. N. Frank, Regularisierung schlecht gestellter Probleme durch Projektionsverfahren, Numer. Math.,
+28 (1977), 329–341. https://doi.org/10.1007/BF01389972
+45. T. Wei, J. G. Wang, A modified quasi-boundary value method for the backward time-
+fractional di ffusion problem, ESAIM Math. Model. Numer. Anal. , 48 (2014), 603–621.
+https://doi.org/10.1051/m2an/2013107
+© 2023 the Author(s), licensee AIMS Press. This
+is an open access article distributed under the
+terms of the Creative Commons Attribution License
+(http://creativecommons.org/licenses/by/4.0)
+Networks and Heterogeneous Media V olume 18, Issue 1, 212–243.

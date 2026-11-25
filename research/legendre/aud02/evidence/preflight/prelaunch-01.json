@@ -1,0 +1,8 @@
+{
+  "status": "blocked before workload launch",
+  "cause": "controller computed original workspace path one parent too high",
+  "source_drift": false,
+  "correction": "correct original base path; no acceptance criterion changed",
+  "source_snapshot": "Reconstructed from the recorded source edit before correcting the path; not a contemporaneous automatic capsule.",
+  "raw_output": "Original tool output was truncated; the guard failure and no-launch status are retained. No numerical evidence resulted."
+}

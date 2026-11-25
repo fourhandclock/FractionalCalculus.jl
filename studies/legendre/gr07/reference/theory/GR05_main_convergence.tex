@@ -1,0 +1,183 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\D}{\mathcal D_\tau^\alpha}
+\newcommand{\ip}[2]{(#1,#2)}
+\title{GR-05: Main convergence theorem\\\large Alikhanov--product integration with Legendre spectral diffusion}
+\author{Research working notes}
+\date{26 November 2026}
+\setlength{\emergencystretch}{1.5em}
+\begin{document}
+\maketitle
+\noindent\textbf{Scope.} This note continues GR-01--04, keeping AUD-01 and the original production method unchanged. The results are for fixed fractional orders, uniform time grids, a fixed nonnegative self-adjoint diffusion operator, sufficiently regular solutions, and bounded memory coefficients. The fully discrete estimate uses a derivative Ritz projection and actual GLL nodal bounds. No novelty claim, graded-grid estimate, independent audit or Lean certification is made.
+\section{Stability in the diffusion energy norm}
+Set $r=1-\beta$, $\theta=\alpha/2$, $\sigma=1-\theta$, $t_n=n\tau$, $t_*=t_{n-1}+\sigma\tau$, $v_*^n=\sigma v^n+\theta v^{n-1}$. Let $A$ be nonnegative self-adjoint on a real Hilbert space $H$, and let $K_n$ be uniformly bounded operators. Use either normalized shifted memory rule $Q_X^n[v]=\sum_{k=0}^n W^X_{nk}v^k$, $X=L,Q$, from GR-03. Write $L_L=1,L_Q=5/4$ and $J_X=L_X T^r/\Gamma(1+r)$, so $\sum_k|W^X_{nk}|\le J_X$. Consider
+\begin{equation}\label{eq:scheme}
+ (\D v)^{n-\theta}+Av_*^n+\lambda\Gamma(r)K_n Q_X^n[v]=g_n.
+\end{equation}
+Let $\mu=|\lambda|\Gamma(r)\sup_n\norm{K_n}$. GR-04 establishes unique solutions in $D(A)$ for $v^0\in D(A)$ and sufficiently small $\tau$, and the Hilbert-norm estimate
+\begin{equation}\label{eq:l2stab}
+ \max_n\norm{v^n}\le C_T(\norm{v^0}+G),\qquad G=\max_n\norm{g_n}.
+\end{equation}
+The constants are independent of the dimension or spectrum of $A$. Here and below all constants may depend on fixed orders, $T$, and the uniform memory bound, but not on $\tau$ or spatial degree. The GR-02 complementary weights satisfy $P_{nj}\ge0$, $P\D v=v^n-v^0$ in row $n$, and $\sum_{j=1}^nP_{nj}\le T^\alpha/d_\alpha$ with $d_\alpha=(2\Gamma(1-\alpha))^{-1}$.
+\begin{theorem}[Unweighted diffusion energy stability]\label{thm:energy}
+Under the hypotheses of GR-04, with $v^0\in D(A)$,
+\[
+ \max_n\big(\norm{v^n}+\norm{A^{1/2}v^n}\big)
+ \le C_T(\norm{v^0}+\norm{A^{1/2}v^0}+G).
+\]
+For each row $n$, one also controls the nonnegative dissipation $\sum_{j=1}^nP_{nj}\norm{Av_*^j}^2$ by a constant times the square of the same data norm.
+\end{theorem}
+\begin{proof}
+Write $h_n=g_n-\lambda\Gamma(r)K_n Q_X^n[v]$, so $\D v+Av_*=h_n$. From \eqref{eq:l2stab}, $\norm{h_n}\le G+\mu J_X\max_k\norm{v^k}\le C_T(\norm{v^0}+G)$. Test with $2Av_*^n$. Since $A$ is fixed and $v^j\in D(A)$,
+\begin{align*}
+ 2\ip{(\D v)^{n-\theta}}{Av_*^n}
+ &=2\ip{(\D A^{1/2}v)^{n-\theta}}{A^{1/2}v_*^n}\\
+ &\ge (\D\norm{A^{1/2}v}^2)^{n-\theta}
+\end{align*}
+by the GR-02 energy identity. Young's inequality gives
+\[
+ (\D\norm{A^{1/2}v}^2)^{n-\theta}+\norm{Av_*^n}^2\le\norm{h_n}^2.
+\]
+Apply $P$ in row $n$ to obtain
+\begin{equation}\label{eq:dissipation}
+ \norm{A^{1/2}v^n}^2+\sum_{j=1}^nP_{nj}\norm{Av_*^j}^2
+ \le \norm{A^{1/2}v^0}^2+\frac{T^\alpha}{d_\alpha}\max_j\norm{h_j}^2.
+\end{equation}
+Combine with \eqref{eq:l2stab}. No spatial differentiability or commutation of $K_n$ is required for this energy step. A varying $A_n$ would not give the displayed identity without further work.
+\end{proof}
+For $A=-\partial_{xx}$ with homogeneous Dirichlet boundary conditions on $(-1,1)$, $D(A^{1/2})=H_0^1$ and $\norm{A^{1/2}v}=\norm{v_x}_{L^2}$. This is ordinary, not timestep-weighted, $H^1$ stability. The complementary-weighted dissipation is not a claim of a uniform pointwise $\norm{Av^n}$ bound.
+\section{Temporal consistency and convergence}
+Suppose the exact equation is
+\[
+ {}^CD_t^\alpha u(t)+Au(t)+\lambda\Gamma(r)K(t)I^ru(t)=f(t).
+\]
+Assume $u\in C^3([0,T];H)\cap C^2([0,T];D(A))$ (graph norm), with compatible initial data, bounded $K$ and an equation valid at shifted evaluation points. The discrete residual on exact samples is
+\begin{align*}
+ R_n={}&(\D u)^{n-\theta}-{}^CD_t^\alpha u(t_*)
+ +A(\sigma u(t_n)+\theta u(t_{n-1})-u(t_*))\\
+ &+\lambda\Gamma(r)K(t_*)[Q_X^n[u]-I^ru(t_*)].
+\end{align*}
+GR-02 bounds the first term by $C_\alpha\tau^{3-\alpha}\max_t\norm{u'''(t)}$. Linear interpolation in the graph norm bounds the diffusion error by
+\[
+ \tfrac12\sigma\theta\tau^2\max_t\norm{Au''(t)}.
+\]
+By GR-03, the memory error is $C\tau^2\max\norm{u''}$ for PI-L and $C(\tau^3\max\norm{u'''}+\tau^{2+r}\max\norm{u''})$ for PI-Q (including its startup). Both residuals are $O(\tau^2)$ for $\tau\le1$.
+\begin{theorem}[Smooth temporal convergence]\label{thm:time}
+Under these hypotheses and with $U^0=u(0)$, for $X=L,Q$ and sufficiently small $\tau$,
+\[
+ \max_n\big(\norm{U^n-u(t_n)}+\norm{A^{1/2}(U^n-u(t_n))}\big)\le C\tau^2.
+\]
+\end{theorem}
+\begin{proof}
+The error satisfies \eqref{eq:scheme} with $g_n=-R_n$ and initial error zero. Apply Theorem \ref{thm:energy}. The constants depend on the stated smoothness norms, not on mesh parameters.
+\end{proof}
+\begin{proposition}[Sharpness of second order]\label{prop:sharp}
+For each fixed $0<\alpha,\beta<1$, take an exact scalar diffusion mode $u(t)=t^2$ on $[0,T]$, diffusion eigenvalue $a>0$, $K=1$, $\lambda\ge0$ and consistent forcing $f={}^CD_t^\alpha u+au+\lambda\Gamma(r)I^ru$. For both PI-L and PI-Q,
+\[\max_n|U^n-t_n^2|=\Theta(\tau^2).\]
+\end{proposition}
+\begin{proof}
+The Alikhanov derivative is exact on quadratics, including the first step. The shifted diffusion error is exactly $a\sigma\theta\tau^2$. The linear memory interpolation of the convex quadratic lies above it; the quadratic memory rule has that same sign at startup and is exact thereafter. Therefore $R_n\ge a\sigma\theta\tau^2$ for all $n$. Write $e=U-u$, $E=\max|e|$. Apply the last row of $P$ to the scalar error equation with $e^0=0$:
+\[
+ a\sigma\theta\tau^2\sum_{j=1}^NP_{Nj}
+ \le \left|\sum_{j=1}^NP_{Nj}R_j\right|
+ \le E\left[1+(a+\lambda\Gamma(r)J_X)\sum_{j=1}^NP_{Nj}\right].
+\]
+The exact derivative of the linear function $t$ is $t_*^{1-\alpha}/\Gamma(2-\alpha)$. Its complementary identity gives $T=\sum_j P_{Nj}t_*^{1-\alpha}/\Gamma(2-\alpha)$, hence $\sum_jP_{Nj}\ge\Gamma(2-\alpha)T^\alpha$. Together with the upper bound $T^\alpha/d_\alpha$, this implies $E\ge c\tau^2$ independent of $\tau$. Theorem \ref{thm:time} gives the matching upper bound. The manufactured forcing is continuous but need not have bounded higher classical time derivatives at zero; the theorem does not require those derivatives.
+\end{proof}
+Thus a third-order memory operator alone cannot produce a higher-order full scheme: shifted diffusion interpolation is a genuine obstruction for this discretization, even though the Caputo approximation is exact on $t^2$.
+\section{Legendre--Gauss--Lobatto spatial setting}
+Let $\Omega=(-1,1)$ and $V_M=\mathbb P_M\cap H_0^1(\Omega)$, $M\ge2$. Use the $M+1$ GLL nodes and positive weights $\omega_i$ with exactness through degree $2M-1$ and $\sum_i\omega_i=2$. Write
+\[
+ (g,v)_M=\sum_{i=0}^M\omega_i g(x_i)v(x_i),\qquad \norm{g}_M^2=(g,g)_M.
+\]
+All nonpolynomial nodal evaluations refer to continuous representatives. Define $A_M:V_M\to V_M$ and $K_{M,n}$ by
+\[
+ (A_Mv,w)_M=(v_x,w_x),\qquad (K_{M,n}v,w)_M=(K(\cdot,t_*)v,w)_M.
+\]
+The derivative product is polynomial of degree at most $2M-2$; thus its GLL evaluation is also exact. $A_M$ is nonnegative self-adjoint in the GLL Hilbert space and $\norm{A_M^{1/2}v}_M=\norm{v_x}_{L^2}$. Moreover $\norm{K_{M,n}}\le\sup_{x,t}|K(x,t)|$ by nodal Cauchy--Schwarz. The discrete forcing $f_{M,n}\in V_M$ is the Riesz representative of $(f(t_*),w)_M$. The scheme is
+\begin{equation}\label{eq:full}
+ ((\D U_M)^{n-\theta},w)_M+(\partial_x (U_M)_*^n,w_x)
+ +\lambda\Gamma(r)(K(t_*)Q_X^n[U_M],w)_M=(f(t_*),w)_M.
+\end{equation}
+The GR-04 stepwise invertibility threshold and Theorem \ref{thm:energy} therefore hold uniformly in $M$.
+\subsection*{Projection and quadrature estimates}
+Let $\mathcal R_M:H_0^1\to V_M$ be the derivative Ritz projection, $(\partial_x\mathcal R_M z,w_x)=(z_x,w_x)$ for every $w\in V_M$. It can be constructed by integrating the Legendre $L^2$ projection of $z_x$ onto $\mathbb P_{M-1}$ from $-1$: the integral of the projected derivative is zero since constants are retained. For integer $m\ge2$, the standard Legendre $L^2$ polynomial approximation estimate \cite{cq}, followed by Poincar\'e, gives
+\begin{equation}\label{eq:proj}
+ \norm{z-\mathcal R_M z}_{H^1}+\norm{z-\mathcal R_M z}_M\le C M^{1-m}\norm{z}_{H^m},\quad z\in H^m\cap H_0^1.
+\end{equation}
+The nodal part follows from $H^1(-1,1)\hookrightarrow C[-1,1]$ and the total quadrature mass. We also need a quadrature estimate not restricted to polynomial coefficients. For $g\in H^m$, choose $p\in\mathbb P_{M-1}$ by integrating the $L^2$ projection of $g_x$ onto $\mathbb P_{M-2}$ with matching value at $-1$. The same approximation argument gives $\norm{g-p}_{H^1}\le C M^{1-m}\norm{g}_{H^m}$. As $pw$ has degree at most $2M-1$, $(p,w)_M=(p,w)$. Cauchy--Schwarz and the embedding then imply
+\begin{equation}\label{eq:quad}
+ |(g,w)_M-(g,w)|\le C M^{1-m}\norm{g}_{H^m}\norm{w}_M,\qquad w\in V_M.
+\end{equation}
+Here $\norm{w}_{L^2}\le\norm{w}_M$ is the standard GLL mass inequality (by Legendre orthogonality, all modal products are exact except the squared top mode, whose quadrature norm is $2/M$ instead of $2/(2M+1)$). No exactness of the variable-coefficient mass product is assumed.
+\section{Direct fully discrete error equation}
+Assume $m\ge2$ integer, $u\in C^3([0,T];H^m\cap H_0^1)$, $K$ has continuous spatial representatives uniformly bounded as multipliers of $H^m$ (e.g., uniformly $W^{m,\infty}$), $f\in C([0,T];H^m)$, and the exact weak PDE holds at each $t_*$. These strong sufficient hypotheses include $u''\in C([0,T];H^2)$, ensuring that the shifted diffusion residual is in $L^2$. Set $z^k=\mathcal R_M u(t_k)$, $\eta^k=z^k-u(t_k)$, $e^k=U_M^k-z^k$ and initialize $U_M^0=z^0$. More generally an initial approximation with $\norm{e^0}_M+\norm{\partial_xe^0}\le C M^{1-m}$ is sufficient. No time-discrete intermediate solution is used.
+
+Let $g_n={}^CD_t^\alpha u(t_*)+\lambda\Gamma(r)K(t_*)I^ru(t_*)-f(t_*)$. We have $\sup_n\norm{g_n}_{H^m}<\infty$ because $I^r$ and $I^{1-\alpha}\partial_t$ are bounded on the relevant continuous time data and $K$ is a multiplier. The weak identity is $(g_n,w)+(u_x(t_*),w_x)=0$. Inserting $z$ into \eqref{eq:full}, the residual $\mathcal R_n(w)$ is exactly
+\begin{align}
+ \mathcal R_n(w)={}&(g_n,w)_M-(g_n,w)\notag\\
+ &+((\D\eta)^{n-\theta},w)_M
+ +((\D u)^{n-\theta}-{}^CD_t^\alpha u(t_*),w)_M\notag\\
+ &+\lambda\Gamma(r)(K(t_*) Q_X^n[\eta],w)_M\notag\\
+ &+\lambda\Gamma(r)(K(t_*)[Q_X^n[u]-I^ru(t_*)],w)_M\notag\\
+ &+(\partial_x[u_*^n-u(t_*)],w_x),\label{eq:res}
+\end{align}
+where $u_*^n=\sigma u(t_n)+\theta u(t_{n-1})$. The stiffness projection error cancels exactly by the definition of $\mathcal R_M$, not by a variable-coefficient quadrature claim.
+
+The first term in \eqref{eq:res} is $O(M^{1-m})\norm{w}_M$ by \eqref{eq:quad}. For the derivative projection term, the fixed linear Ritz map commutes with the temporal operator, so
+\[
+ (\D\eta)^{n-\theta}=(\mathcal R_M-I)(\D u)^{n-\theta}.
+\]
+GR-02's consistency in $H^m$ gives $\sup_n\norm{(\D u)^{n-\theta}}_{H^m}\le C$ via the bounded exact Caputo derivative. By \eqref{eq:proj} this contribution is $O(M^{1-m})\norm{w}_M$, without a factor $\tau^{-\alpha}$. The temporal derivative residual is $O(\tau^{3-\alpha})\norm{w}_M$ by the same $H^m$ consistency and embedding. The memory projection contribution is bounded by $\sup|K|\,J_X\max_k\norm{\eta^k}_M\norm{w}_M$ before the factor $|\lambda|\Gamma(r)$; the consistency contribution is $O(\tau^2)\norm{w}_M$ by GR-03 in $H^m$ and embedding. Finally integrate by parts in the exact stiffness term (the test vanishes on the boundary):
+\[
+ |(\partial_x[u_*^n-u(t_*)],w_x)|
+ \le\tfrac12\sigma\theta\tau^2\max_t\norm{\partial_{xx}u''(t)}\norm{w}_M.
+\]
+Hence
+\begin{equation}\label{eq:finalres}
+ |\mathcal R_n(w)|\le C(\tau^2+M^{1-m})\norm{w}_M.
+\end{equation}
+The GLL Riesz representative $R_{M,n}$ of this residual satisfies exactly the same norm bound. Subtraction of \eqref{eq:full} yields \eqref{eq:scheme} for $e$ in $V_M$ with $A=A_M$, $K_n=K_{M,n}$ and $g_n=-R_{M,n}$.
+\begin{theorem}[Main smooth fully discrete convergence theorem]\label{thm:full}
+Under the stated spatial and temporal regularity, pointwise nodal and initialization hypotheses, for each fixed $0<\alpha,\beta<1$ and sufficiently small uniform timestep independently of $M$, both PI-L and PI-Q have a unique fully discrete solution and satisfy
+\[
+ \max_{0\le n\le N}\norm{u(t_n)-U_M^n}_{H^1(-1,1)}
+ \le C(\tau^2+M^{1-m}).
+\]
+In particular this holds also in $L^2$; no coupling condition between $M$ and $\tau$ is imposed.
+\end{theorem}
+\begin{proof}
+Apply Theorem \ref{thm:energy} to $e$ using \eqref{eq:finalres} and the initialization bound. Then $\norm{e^n}_M+\norm{\partial_x e^n}_{L^2}\le C(\tau^2+M^{1-m})$. The continuous $H^1$ error follows by GLL norm domination and the triangle inequality with \eqref{eq:proj}. Solvability follows from GR-04 as discussed after \eqref{eq:full}.
+\end{proof}
+The rate $M^{1-m}$ is a sufficient Sobolev-based rate, not a sharp $L^2$ spatial claim. For analytic examples the actual spectral decay may be much faster. Constants may depend on $m$, the solution regularity, and the coefficient and forcing norms. A fractional initial layer falls outside the smooth assumptions, even though the scheme is defined for it.
+\section{Numerical diagnostic}
+The script \texttt{verify\_gr05.py} uses the unchanged GR-03 memory module, independent Gauss--Legendre integration of the Caputo increment weights, exact manufactured forcing, and full-row residual checks. The scalar experiment uses $u=t^2$, $a=\pi^2/4$, $K=1$, $\lambda=0.1$. Last-doubling rates ($N=128$ to $256$) are:
+\begin{center}\begin{tabular}{ccrr}\toprule
+$\alpha$&$\beta$&PI-L&PI-Q\\\midrule
+0.25&0.10&1.999998&1.999940\\
+0.75&0.50&2.000336&1.999946\\
+0.95&0.90&2.004870&2.000106\\\bottomrule
+\end{tabular}\end{center}
+The scalar checks also verify the sign of the exact-data residual and the analytical lower bound of Proposition \ref{prop:sharp}. The GLL experiment uses $u=t^2\cos(\pi x/2)$, $K=(1+0.3x)(1+0.2\sin t)$, $\lambda=0.4$, $\alpha=0.75$, $\beta=0.5$. Continuous error norms are computed by separate Gauss quadrature of the reconstructed polynomial and its derivative. For $M=16$:
+\begin{center}\small\begin{tabular}{rrrrr}\toprule
+ &\multicolumn{2}{c}{PI-L}&\multicolumn{2}{c}{PI-Q}\\
+$N$&$L^2$ error&$H^1$ error&$L^2$ error&$H^1$ error\\\midrule
+16&7.8123e-4&1.4547e-3&6.2357e-4&1.1612e-3\\
+32&1.9467e-4&3.6249e-4&1.5586e-4&2.9025e-4\\
+64&4.8561e-5&9.0426e-5&3.8965e-5&7.2561e-5\\
+128&1.2122e-5&2.2572e-5&9.7413e-6&1.8140e-5\\
+256&3.0273e-6&5.6371e-6&2.4353e-6&4.5351e-6\\\bottomrule
+\end{tabular}\end{center}
+At fixed $N=256$, increasing $M$ through $3,5,7,9,12$ reduces the PI-L $H^1$ error from $1.94\times10^{-1}$ to $5.64\times10^{-6}$ and PI-Q from $1.94\times10^{-1}$ to $4.54\times10^{-6}$, after which the temporal error dominates. This analytic spatial example does not test a sharp finite-Sobolev-regularity exponent. All 44 configurations pass; maximum scaled full-equation residual $9.940\times10^{-15}$. No full independent proof audit, Lean compilation, or production integration has been performed.
+\section{Next steps}
+GR-06 should relax temporal smoothness and derive residual propagation for initial layers and graded meshes; GR-02/04 cannot be transferred to a nonuniform grid without re-establishing their kernel and comparison assumptions. PI-Q improves memory consistency but both complete schemes have sharp second-order temporal accuracy; higher-order shifted diffusion would be a separate design problem. A dedicated literature and novelty audit should precede publication.
+\begin{thebibliography}{9}
+\bibitem{cq} C. Canuto and A. Quarteroni, Approximation results for orthogonal polynomials in Sobolev spaces, Math. Comp. 38 (1982), 67--86, \href{https://doi.org/10.1090/S0025-5718-1982-0637287-3}{doi:10.1090/S0025-5718-1982-0637287-3}.
+\bibitem{gr} GR-01--04, preceding research working notes: continuous comparison, shifted Caputo weights, shifted product integration, and discrete two-kernel stability.
+\end{thebibliography}
+\end{document}

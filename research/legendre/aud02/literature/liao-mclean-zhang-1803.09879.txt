@@ -1,0 +1,1246 @@
+PAGE 1
+A DISCRETE GR ¨ONW ALL INEQUALITY WITH APPLICA TION TO
+NUMERICAL SCHEMES FOR SUBDIFFUSION PROBLEMS ∗
+HONG-LIN LIAO†, WILLIAM MCLEAN ‡, AND JIWEI ZHANG§
+Abstract. We consider a class of numerical approximations to the Caputo fractional derivative.
+Our assumptions permit the use of nonuniform time steps, such as is appropriate for accurately
+resolving the behavior of a solution whose temporal derivatives are singular at t = 0. The main
+result is a type of fractional Gr¨ onwall inequality and we illustrate its use by outlining some stability
+and convergence estimates of schemes for fractional reaction-subdiﬀusion problems. This approach
+extends earlier work that used the familiar L1 approximation to the Caputo fractional derivative,
+and will facilitate the analysis of higher order and linearized fast schemes.
+Key words. fractional subdiﬀusion equations, nonuniform time mesh, discrete Caputo deriva-
+tive, discrete Gr¨ onwall inequality.
+AMS subject classiﬁcations. 65M06, 35B65
+1. Introduction. This paper builds on earlier results [14] for the nonuniform
+L1 method applied to the time discretization of a fractional reaction-subdiﬀusion
+problem [21] in a spatial domain Ω,
+(1.1)
+Dαtu +Lu =f(x,t,u ) for x∈ Ω and 0 <t ≤T ,
+u =u0(x) for x∈ Ω when t = 0,
+u = 0 for x∈∂Ω and 0 <t<T .
+Here,Dαt = C0Dαt denotes the Caputo fractional derivative of order α with respect
+to time t, with 0 < α <1, and L is a linear, second-order, strongly-elliptic partial
+diﬀerential operator in the spatial variable(s) x. We establish a discrete Gr¨ onwall
+inequality intended for the error analysis of higher-order time discretizations [15] and
+linearized fast algorithms [16] for solving (1.1) that employ nonuniform step sizes.
+In any numerical methods for solving the reaction-subdiﬀusion problem (1.1), a
+key consideration is that the solution u(x,t ) is typically less regular than would be
+the case for a classical parabolic PDE (which arises as the limiting case when α→ 1).
+For example, in the simplest casef(x,t,u )≡ 0 when (1.1) is linear and homogeneous,
+let ϕL be a Dirichlet eigenfunction of L on Ω, with eigenvalue λL > 0, so that
+LϕL =λLϕL. Let Eα denote the Mittag–Leﬄer function,
+(1.2) Eα(z) :=
+∞∑
+k=0
+zk
+Γ(1 +kα),
+and choose as the initial data u0(x) = ϕL(x). Term-by-term diﬀerentiation shows
+that the solution is u(x,t ) = Eα(−λLtα)ϕL(x), and so ∂u/∂t = O(tα−1) as t→ 0,
+∗Submitted to the editors DATE.
+Funding: This work was funded by a grant 1008-56SYAH18037 from NUAA Scientiﬁc Research
+Starting Fund of Introduced Talent and a grant DRA2015518 from 333 High-level Personal Train-
+ing Project of Jiangsu Province; Australian Research Council grant DP140101193; NSFC grants
+11771035, 91430216, U1530401.
+†Department of Mathematics, Nanjing University of Aeronautics and Astronautics, Nanjing,
+211106, P. R. China. (liaohl@csrc.ac.cn).
+‡School of Mathematics and Statistics, University of New South Wales, Sydney 2052, Australia.
+(w.mclean@unsw.edu.au).
+§Beijing Computational Science Research Center, Beijing, 100094, P. R. China.
+(jwzhang@csrc.ac.cn).
+1
+arXiv:1803.09879v3  [math.NA]  22 Nov 2018
+PAGE 2
+whereas the solution of the classical parabolic equation, u(x,t ) = e−λLtϕL(x), is a
+smooth function of t. Sakamoto and Yamamoto [22] study the (lack of) regularity
+of u for more general initial data u0 and a linear source term f =f(x,t ). In fact, u
+can only be a smooth function of t if the initial data and source term satisfy some
+restrictive compatibility conditions [23].
+The nature of polynomial interpolation means that the convergence rate of the L1
+or similar approximations to Dαtu is limited by the smoothness of the solution u. In
+the presence of a ﬁxed singularity at t = 0 of the type described above, an established
+technique to restore an optimal convergence rate is to employ a graded mesh
+(1.3) tn := (n/N)γT for 0≤n≤N,
+where the parameterγ≥ 1 must be adapted to the strength of the singularity. Choos-
+ing γ = 1 results in a uniform mesh, and the larger the value of γ the more strongly
+the grid points are concentrated neart = 0. For example, such meshes have long been
+used in the numerical solution of Fredholm [8] and Volterra [4] integral equations, and
+their use for time-fractional PDEs [19] is now well established.
+Early papers on L1 schemes [17, 25] assumed a uniform step size τ, and showed
+that if u is smooth then the time discretization error is O(τ 2−α). Recently, Jin,
+Lazarov and Zhou [10] presented a new analysis, based on generating functions, that
+permitted nonsmooth initial datau0. They showed that iff≡ 0 andu0∈L2(Ω), then
+the error in the norm of L2(Ω) due to the time discretization is O(τt−1n ). Thus, for tn
+bounded away from zero, the method achieves ﬁrst-order accuracy in time. Yan, Khan
+and Ford [27] proposed a modiﬁed L1 scheme and obtained error estimates for smooth
+and nonsmooth initial data. It was shown that the modiﬁed L1 scheme on a uniform
+mesh has a convergence rate ofO(τ 2−α). Aliknanov [2] introduced the L2-1σ formula,
+a modiﬁcation of the L1 method that uses piecewise-quadratic instead of piecewise-
+linear interpolation, and approximates Dαtu at an oﬀset grid point tj+σ = (j +σ)τ.
+He showed that if u is suﬃciently smooth then the time discretization error is O(τ 2)
+for the special choice σ = 1−α/2.
+Although nonuniform meshes are ﬂexible and reasonably convenient for practical
+implementation, they can signiﬁcantly complicate the numerical analysis of schemes,
+both with respect to stability and consistency. Stynes, O’Riordan and Gracia [24]
+considered the L1 method on a graded mesh of the form (1.3) applied to (1.1) for
+the case Lu =−uxx and a linear reaction term f(x,t,u ) =−c(x)u +g(x,t ). They
+showed that, given the typical singular behavior ofu, the maximum error in the fully-
+discrete solution is of order N− min{2−α,γα}. (Here we ignore the additional error
+due to the spatial discretization.) Thus, for a uniform mesh the error is O(N−α),
+but if γ = (2−α)/α then the error is O(Nα−2). Their stability analysis requires
+c(x)≥ 0, which prevents extending the approach to deal with a reaction term that is
+nonlinear but uniformly Lipschitz in u. This limitation was overcome recently in the
+precursor [14] to the present work by exploiting a novel discrete fractional Gr¨ onwall
+inequality for the L1 method.
+Nonetheless, practical applications of the discrete Gr¨ onwall inequality in its basic
+form [14] are still limited because it does not apply to other numerical approximation
+schemes for the Caputo derivative and excludes certain adaptive time meshes required
+to resolve complex behaviors (physical oscillations, blowup and so on) in nonlinear
+fractional diﬀerential equations. Also, the proof relies on speciﬁc properties of the
+L1 kernels a(n)n−k and their complementary discrete kernels P (n)n−k, with a key step [14,
+Lemma 2.1] employing rough estimates of the truncation error that, to a large extent,
+2
+PAGE 3
+rely on the simple form of the a(n)n−k. In summary, the main novel contributions of the
+present work are threefold:
+(i) to generalize the discrete Gronwall inequality, permitting its use with a variety
+of discretizations of the Caputo derivative, not just the L1 scheme;
+(ii) to provide a concise proof based on two simple assumptions on the discrete
+kernels, independent of their precise form;
+(iii) to permit a more general class of nonuniform meshes or adaptive time grids,
+not just the graded meshes for resolving the initial singularity.
+In more detail, section 2 deﬁnes a discrete fractional derivative (2.2) having the form of
+the classical L1 approximation but with general discrete kernels. We formulate three
+assumptions required for our theory. The ﬁrst two impose a monotonicity property
+(A1) and a lower bound (A2) on the discrete kernels, and the third (A3) places a mild
+restriction on the local step-size ratio. We give some examples of schemes satisfying
+these assumptions, and deﬁne a family of complementary discrete kernels, generalizing
+those introduced in the earlier paper [14]. Lemma 2.3 establishes a key estimate
+involving the discrete kernels and the Mittag–Leﬄer function (1.2). In section 3, we
+prove our main result, a discrete fractional Gr¨ onwall inequality stated as Theorem 3.1,
+and provide, in Remark 6, a strategy to treat cases where the monotonicity assumption
+breaks down. Section 4 illustrates the use of the Gronwall inequality in conjunction
+with an abstract Galerkin method for the spatial discretization. Finally, a short
+appendix proves two technical inequalities needed for the stability analysis of section 4.
+The generalized results proved below will allow us to show, in two companion
+papers [15,16], that Alikhanov’s L2-1 σ formula can achieve second-order accuracy on
+certain nonuniform time grids and that a linearized fast algorithm is unconditionally
+convergent for nonlinear subdiﬀusion equations.
+2. Discrete fractional derivative. Recall that the Riemann–Liouville frac-
+tional integral operator of order β >0 is deﬁned by [20,21]
+(Iβv)(t) :=
+∫ t
+0
+ωβ(t−s)v(s) ds for t> 0, where ωβ(t) := tβ−1Γ(β),
+and, in turn, the Caputo fractional derivative is deﬁned by
+(2.1) ( Dαtv)(t) := (I1−αv′)(t) =
+∫ t
+0
+ω1−α(t−s)v′(s) ds for t> 0.
+For (possibly nonuniform) time levels 0 = t0 < t1 < t2 <··· < tN = T , we denote
+the nth step size by τn :=tn−tn−1, ﬁx an oﬀset parameter θ∈ [0, 1) and deﬁne
+tn−θ :=θtn−1 + (1−θ)tn and vn−θ :=θvn−1 + (1−θ)vn,
+where vk may be any sequence. Letting vk ≈ v(tk) and ▽τvk := vk−vk−1, we
+consider a discrete Caputo derivative (not necessarily a direct approximation of (2.1),
+see Remark 5) given by a convolution-like sum, as follows,
+(2.2) ( Dατv)n−θ :=
+n∑
+k=1
+A(n)n−k▽τvk for 1≤n≤N.
+Here, the corresponding discrete convolution kernels are written as A(n)n−k instead
+of Ank to reﬂect the convolution structure of the fractional derivative. Our theory
+requires the following three assumptions:
+3
+PAGE 4
+A1. The discrete kernels are positive and monotone, that is,
+A(n)0 ≥A(n)1 ≥A(n)2 ≥··· A(n)n−1 > 0 for 1 ≤n≤N.
+A2. There is a constantπA > 0 such that the discrete kernels satisfy the lower bound
+A(n)n−k≥ 1πAτk
+∫ tk
+tk−1
+ω1−α(tn−s) ds for 1≤k≤n≤N.
+A3. There is a constant ρ> 0 such that the step size ratios ρk :=τk/τk+1 satisfy
+ρk≤ρ for 1≤k≤N− 1.
+The boundedness and monotonicity assumptions A1 and A2 on the discrete con-
+volution kernelsA(n)n−k are valid for several frequently-used discrete Caputo derivatives,
+at least if assumption A3 is satisﬁed for appropriate ρ. Included are the well-known
+L1 formula [14, 17, 20, 24, 25], the fast L1 formula [16], the Alikhanov approxima-
+tion [2, 12, 15], and their applications for multi-term and distributed-order Caputo
+derivatives (see Remark 5). Here we list three examples on nonuniform grids. Note
+that, the local mesh parameterρ from A3 will always appear in our discrete fractional
+Gr¨ onwall inequality and our stability estimates.
+Example 1 (nonuniform L1 formula). The widespread L1 formula [20, p. 140]
+uses θ = 0 and v′(s)≈ ▽τvk/τk (linear interpolation) to obtain
+(Dατv)n :=
+n∑
+k=1
+a(n)n−k▽τvk with a(n)n−k := 1τk
+∫ tk
+tk−1
+ω1−α(tn−s) ds.
+This sum has the desired form (2.2) where (using the integral mean value theorem),
+(2.3) A(n)n−k :=a(n)n−k =ω1−α(tn−snk) for some snk∈ [tk−1,tk].
+It follows that assumption A1 is satisﬁed, and A2 holds with πA = 1.
+Example 2 (fast L1 formula). In the two-level fast L1 approximation [16], the
+sum-of-exponentials technique is applied to approximate the weakly singular kernel
+ω1−α(t−s). That is, for a user-given absolute tolerance error ϵ≪ 1 and a cut-oﬀ
+time ∆t> 0, one determines a positive integer Nq, positive quadrature nodes θ𝓁 and
+positive weights ϖ𝓁 (1≤𝓁≤Nq) such that
+⏐⏐⏐ω1−α(tk−s)− Nq∑
+𝓁=1
+ϖ𝓁e−θ𝓁(tk−s)⏐⏐⏐≤ϵ ∀tk∈ [s + ∆t,T ].
+Then we use θ = 0 and v′(s)≈ ▽τvk/τk (linear interpolation) to obtain
+(Dαfu)n :=a(n)0 ∇τun +
+Nq∑
+𝓁=1
+ϖ𝓁e−θ𝓁τnH𝓁(tn−1), n ≥ 1,
+whereH𝓁(tk) satisﬁes H𝓁(t0) = 0 and the recurrence relationship
+H𝓁(tk) =e−θ𝓁τkH𝓁(tk−1) + 1τk
+∫ tk
+tk−1
+e−θ𝓁(tk−s)∇τuk ds, k ≥ 1, 1≤𝓁≤Nq.
+4
+PAGE 5
+This approximation also has the form (2.2) with θ = 0,
+A(n)0 :=a(n)0 and A(n)n−k := 1τk
+∫ tk
+tk−1
+Nq∑
+𝓁=1
+ϖ𝓁e−θ𝓁(tn−s) ds for 1≤k≤n− 1.
+If the tolerance error ϵ is small enough such that ϵ≤ min
+{ 1
+3ω1−α(T ),αω 2−α(1)
+}
+,
+then [16, Lemma 2.5] ensures that A1-A2 hold true with πA = 3/2.
+Example 3 (nonuniform Alikhanov formula). Let Π1,kv be the linear interpolant
+of a functionv with respect to the nodestk−1 andtk, and let Π2,kv denote the quadratic
+interpolant with respect to tk−1, tk and tk+1. Taking a special choice θ = α/2, and
+applying the linear and quadratic polynomial interpolations, we have the nonuniform
+Alikhanov formula [12, 15]
+(Dατv)n−θ :=
+n−1∑
+k=1
+∫ tk
+tk−1
+ω1−α(tn−θ−s) (Π2,kv)′ (s) ds
++
+∫ tn−θ
+tn−1
+ω1−α(tn−θ−s) (Π1,nv)′ (s) ds for n≥ 1.
+This formula can be written as the form (2.2) with A(1)0 := ˆa(1)0 for n = 1 and, for
+n≥ 2,
+A(n)n−k :=
+
+
+
+ˆa(n)0 +ρn−1ˆb(n)1 , for k =n,
+ˆa(n)n−k +ρk−1ˆb(n)n−k+1− ˆb(n)n−k, for 2≤k≤n− 1,
+ˆa(n)n−1− ˆb(n)n−1, for k = 1,
+where the discrete coeﬃcients ˆa(n)n−k and ˆb(n)n−k are deﬁned by
+ˆa(n)0 := 1τn
+∫ tn−θ
+tn−1
+ω1−α(tn−θ−s) ds,
+ˆa(n)n−k := 1τk
+∫ tk
+tk−1
+ω1−α(tn−θ−s) ds for 1≤k≤n− 1,
+ˆb(n)n−k := 2τk(τk +τk+1)∫ tktk−1(s−tk− 12 )ω1−α(tn−θ−s) ds for 1≤k≤n− 1.
+The theoretical properties in [15, Theorem 2.2] assure A1–A2 with πA = 11/4 pro-
+vided the local mesh assumption A3 holds with the maximum step size ratio ρ = 7/4.
+We now continue to introduce an important tool: the complementary discrete
+convolution kernels. The semigroup property of the fractional integral,IαIβ =Iα+β,
+holds because the integral kernels satisfy ωα∗ωβ =ωα+β. It follows that
+(2.4)
+∫ t
+s
+ωα(t−µ)ω1−α(µ−s) dµ =ω1(t−s) = 1 for all 0 <s<t< ∞,
+and it motives us to seek a family of complementary discrete convolution kernelsP (n)n−j
+having the identical property
+(2.5)
+n∑
+j=m
+P (n)n−jA(j)j−m≡ 1 for 1 ≤m≤n≤N.
+5
+PAGE 6
+In fact, by taking m =k and m =k + 1,
+P (n)n−kA(k)0 +
+n∑
+j=k+1
+P (n)n−jA(j)j−k = 1 =
+n∑
+j=k+1
+P (n)n−jA(j)j−(k+1) , 1≤k≤n− 1,
+we see that
+P (n)n−k = 1A(k)0
+n∑
+j=k+1
+P (n)n−j
+(
+A(j)j−k−1−A(j)j−k
+)
+, 1≤k≤n− 1,
+and the complementary discrete kernels may be deﬁned via the recursion [14]
+(2.6) P (n)0 := 1A(n)0 , P(n)j := 1A(n−j)0
+j−1∑
+k=0
+(
+A(n−k)j−k−1−A(n−k)j−k
+)
+P (n)k for 1≤j≤n− 1.
+Example 4 (Pictures of A(n)j andP (n)j of L1 formula). Consider the widespread
+L1 approximation in Example 1. Figure 2.1 plots the L1 discrete kernels A(n)j and the
+complementary discrete kernels P (n)j when T = 1 and n = 30 for three graded meshes
+of the form (1.3).
+As a consequence of the identity (2.4), we ﬁnd that
+∫ t
+0
+ωα(t−s)(Dαtv)(s) ds =
+∫ t
+0
+v′(s) ds,
+which provides the inspiration for the second part of the next lemma.
+Lemma 2.1. Let the assumptions A1 and A2 hold.
+1. The discrete kernels P (n)j in (2.6) having the property (2.5) satisfy
+0≤P (n)n−j≤πAΓ(2−α)ταn for 1≤j≤n≤N,
+and
+n∑
+j=1
+P (n)n−jω1−α(tj)≤πA for 1≤n≤N.(2.7)
+2. If v : [0,T ]→ R is any continuous, piecewise- C1 function such that v′ is
+non-negative and monotone decreasing, then
+n∑
+j=1
+P (n)n−j(Dαtv)(tj)≤πA
+∫ tn
+0
+v′(s) ds for 1≤n≤N.(2.8)
+Proof. It follows at once from the monotonicity assumptionA1 thatA(n)0 > 0 and
+A(n−k)j−k−1−A(n−k)j−k ≥ 0 for 0≤k≤j− 1. The lower bound P (n)j ≥ 0 is then clear from
+the recursion (2.6). Since all the discrete kernels are non-negative, we have
+P (n)n−kA(k)0 ≤
+n∑
+j=k
+P (n)n−jA(j)j−k = 1
+6
+PAGE 7
+Fig. 2.1. Top: the L1 discrete kernel (2.3) for three diﬀerent meshes of the form (1.3) in the
+case T = 1 and n = 30. Bottom: the complementary discrete kernels P (n)j .
+0 5 10 15 20 25 30
+j
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+A (n)j
+γ = 1.0
+γ = 2.0
+γ = 3.0
+0 5 10 15 20 25 30
+j
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+P (n)j
+γ = 1.0
+γ = 2.0
+γ = 3.0
+and taking n =k in the assumption A2 gives
+A(k)0 ≥ 1πAτk
+∫ tk
+tk−1
+ω1−α(tk−s) ds = ω2−α(τk)πAτk = 1Γ(2−α)πAταk ,
+so the complementary discrete convolution kernels P (n)n−k are well-deﬁned and satisfy
+the upper bound P (n)n−k≤ 1/A(k)0 ≤ Γ(2−α)πAταk . Furthermore, the assumption A2
+and the identity (2.5) imply that ω1−α(tj)≤πAA(j)j−1 and
+n∑
+j=1
+P (n)n−jω1−α(tj)≤πA
+n∑
+j=1
+P (n)n−jA(j)j−1 =πA for n≥ 1,
+which completes the proof of part 1.
+Recall Chebyshev’s sorting inequality [9, p. 168, item 236.]: if f is monotone
+increasing and g is monotone decreasing on the interval [ a,b ], and if both functions
+7
+PAGE 8
+are integrable, then
+(b−a)
+∫ b
+a
+f(s)g(s) ds≤
+∫ b
+a
+f(t) dt
+∫ b
+a
+g(s) ds.
+Taking [a,b ] = [tk−1,tk],f(s) =ω1−α(tj−s) and g(s) =v′(s)≥ 0, and using A2, we
+see that
+(Dαtv)(tj) =
+j∑
+k=1
+∫ tk
+tk−1
+ω1−α(tj−s)v′(s) ds
+≤
+j∑
+k=1
+1
+τk
+∫ tk
+tk−1
+ω1−α(tj−t) dt
+∫ tk
+tk−1
+v′(s) ds≤πA
+j∑
+k=1
+A(j)j−k
+∫ tk
+tk−1
+v′(s) ds.
+Thus, from the identical property (2.5) of the discrete kernels P (n)n−j, we conclude that
+n∑
+j=1
+P (n)n−j(Dαtv)(tj)≤
+n∑
+j=1
+P (n)n−jπA
+j∑
+k=1
+A(j)j−k
+∫ tk
+tk−1
+v′(s) ds
+=πA
+n∑
+k=1
+∫ tk
+tk−1
+v′(s) ds
+n∑
+j=k
+P (n)n−jA(j)j−k =πA
+n∑
+k=1
+∫ tk
+tk−1
+v′(s) ds,
+and part 2 follows.
+When A3 also holds, we have a variant of the second part of Lemma 2.1.
+Lemma 2.2. Let the assumptions A1–A3 hold. If v : [0,T ]→ R is any continu-
+ous, piecewise-C1 function such that v′ is non-negative and monotone, then
+n−1∑
+j=1
+P (n)n−j(Dαtv)(tj)≤ max(1,ρ )πA
+∫ tn
+0
+v′(s) ds for 1≤n≤N.
+Proof. If v′ is non-negative and monotone decreasing, thenDαtv(tj)≥ 0 and the
+results of Lemma 2.1 imply that
+n−1∑
+j=1
+P (n)n−j(Dαtv)(tj)≤
+n∑
+j=1
+P (n)n−j(Dαtv)(tj)≤πA
+∫ tn
+0
+v′(s) ds.
+Otherwise, if v′ is monotonely increasing, then
+n−1∑
+j=1
+P (n)n−j(Dαtv)(tj) =
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+∫ tk
+tk−1
+ω1−α(tj−s)v′(s) ds
+≤
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+v′(tk)
+∫ tk
+tk−1
+ω1−α(tj−s) ds
+≤πA
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+v′(tk)τkA(j)j−k
+=πA
+n−1∑
+k=1
+v′(tk)τk
+n−1∑
+j=k
+P (n)n−jA(j)j−k≤πA
+n−1∑
+k=1
+v′(tk)τk
+≤πA
+n−1∑
+k=1
+v′(tk)ρkτk+1≤ρπA
+n−1∑
+k=1
+∫ tk+1
+tk
+v′(s) ds,
+8
+PAGE 9
+and the desired estimate again holds.
+We can use Lemma 2.2 to prove the following property of the Mittag–Leﬄer
+function (1.2).
+Lemma 2.3. Let the assumptions A1–A3 hold. For any real µ> 0,
+n−1∑
+j=1
+P (n)n−jEα(µtαj )≤πA max(1,ρ )Eα(µtαn)− 1µ for 1≤n≤N.
+Proof. The series deﬁnition (1.2) shows that
+Eα(µtα) = 1 +
+∞∑
+k=1
+µktkα
+Γ(1 +kα) = 1 +
+∞∑
+k=1
+µkvk(t),
+wherevk(t) =ω1+kα(t) and we have v′k(t) =ωkα(t)> 0 for all k≥ 1. If 1≤k≤ 1/α,
+then−1≤kα− 1≤ 0 and v′′k(t) =ωkα−1(t)≤ 0 for all t> 0. Otherwise, if k >1/α,
+then kα− 1 > 0 and v′′k(t) > 0 for all t >0. Thus, v′k is always non-negative and
+monotone, so we may apply Lemma 2.2 and deduce that
+n−1∑
+j=1
+P (n)n−j(Dαtvk)(tj)≤ max(1,ρ )πA
+∫ tn
+0
+v′k(s) ds = max(1,ρ )πAvk(tn) for k≥ 1.
+Multiplying both sides of this inequality by µk, summing over the index k, and using
+the fact that
+Dαtvk(t) =
+∫ t
+0
+ω1−α(t−s)ωkα(s) ds =ω1+(k−1)α(t) =vk−1(t) for all k≥ 1,
+we have
+m∑
+k=1
+µk
+n−1∑
+j=1
+P (n)n−jvk−1(t)≤ max(1,ρ )πA
+m∑
+k=1
+µkvk(tn).
+Because the series ∑∞k=1µkvk(t) is absolutely convergent and ω1(t) = 1, the desired
+inequality follows after interchanging the sums on the left-hand side and then sending
+m→∞ . The proof is completed.
+3. Discrete fractional Gr¨ onwall inequality .Our main result is stated in the
+next theorem. The proof is similar to that of [14, Lemma 2.2], but we include it here
+to incorporate the nonuniform mesh parameter ρ in A3, which does not appear in
+discrete Gr¨ onwall inequalities for classical parabolic equations.
+Theorem 3.1. Let the assumptions A1–A3 hold, let 0≤θ <1, and let (gn)Nn=1
+and (λl)N−1l=0 be given non-negative sequences. Assume further that there exists a
+constant Λ (independent of the step sizes) such that Λ ≥ ∑N−1l=0 λl, and that the
+maximum step size satisﬁes
+max
+1≤n≤N
+τn≤ 1α√2πAΓ(2−α)Λ.
+Then, for any non-negative sequence (vk)Nk=0 such that
+(3.1)
+n∑
+k=1
+A(n)n−k▽τ(vk)2≤ n∑
+k=1
+λn−k
+(
+vk−θ)2 +vn−θgn for 1≤n≤N,
+9
+PAGE 10
+it holds that
+(3.2) vn≤ 2Eα(2 max(1,ρ )πAΛtαn)(v0 + max1≤k≤n k∑j=1P (k)k−jgj) for 1≤n≤N.
+Proof. We replace the index n with j in (3.1), then multiply by P (n)n−j and sum
+overj to obtain
+(3.3)
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+A(j)j−k▽τ(vk)2≤ n∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−k
+(
+vk−θ)2 + n∑
+j=1
+P (n)n−jvj−θgj.
+On the left-hand side, we exchange the order of summation and use the identity (2.5)
+to get
+(3.4)
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+A(j)j−k▽τ(vk)2 = n∑
+k=1
+▽τ
+(
+vk)2 n∑
+j=k
+P (n)n−jA(j)j−k
+=
+n∑
+k=1
+▽τ
+(
+vk)2 = (vn)2− (v0)2.
+Thus, it follows from (3.3) that
+(3.5)
+(
+vn)2≤(v0)2 + n∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−k
+(
+vk−θ)2 + n∑
+j=1
+P (n)n−jvj−θgj,
+For brevity, let us write the claimed estimate (3.2) as vn≤FnGn where
+Fn := 2Eα
+(
+2 max(1,ρ )πAΛtαn) and Gn :=v0 + max1≤k≤n k∑j=1P (k)k−jgj.
+We will use complete induction, noting that the Mittag–Leﬄer function (1.2) satisﬁes
+Eα(0) = 1 and E′α(z)> 0 for all real z >0, so Fn≥Fn−1≥ 2 for n≥ 2.
+If v1 ≤ v0, then v1 ≤ G1 ≤ F1G1, as required. Otherwise, if v1 > v0, then
+v1−θ≤v1. One deduces from (3.5) that
+(
+v1)2≤(v0)2 +P (1)0 v1−θg1 +P (1)0 λ0(v1−θ)2
+≤v1(v0 +P (1)0 g1) +P (1)0 λ0(v1)2 =v1G1 +P (1)0 λ0(v1)2.
+Part 1 of Lemma 2.1 and the given restriction on the maximum time-step imply that
+(3.6) P (1)0 λ0≤πAΓ(2−α)τα1 Λ≤ 1/2.
+Thus, (v1)2 ≤ 2v1G1 and so v1 ≤ 2G1 ≤ F1G1, which implies that the desired
+estimate holds for n = 1.
+For the inductive step, let 2≤n≤N and assume that
+(3.7) vk≤FkGk for 1≤k≤n− 1.
+Choose some k(n) such that vk(n) = max0≤j≤n−1vj. If vn≤vk(n) then, since Fk and
+Gk are monotone increasing in k,
+vn≤vk(n)≤Fk(n)Gk(n)≤FnGn,
+10
+PAGE 11
+as required. Otherwise, if vn >v k(n), then vj−θ≤ max(vj−1,vj)≤vn for 1≤j≤n.
+We deduce from (3.5) that
+(3.8)
+(
+vn)2≤vnv0+vn n∑
+j=1
+P (n)n−jgj+vn
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ+(vn)2P (n)0 n∑
+k=1
+λn−k.
+Using part 1 of Lemma 2.1,
+(3.9) P (n)0
+n∑
+k=1
+λn−k≤πAΓ(2−α)Λταn,
+so the limitation on the maximum step size implies that
+(3.10) ( vn)2≤vn
+(
+Gn +
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ
+)
++ 12 (vn)2.
+Thus, applying the induction hypothesis (3.7), we deduce from (3.10) that
+vn≤ 2Gn + 2
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−k
+[
+θvk−1 + (1−θ)vk]
+≤ 2Gn + 2
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−k
+[
+θFk−1Gk−1 + (1−θ)FkGk
+]
+≤ 2Gn + 2
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kFkGk≤ 2Gn + 2
+n−1∑
+j=1
+P (n)n−jFjGj
+j∑
+k=1
+λj−k
+≤ 2Gn + 4ΛGn−1
+n−1∑
+j=1
+P (n)n−jEα(2 max(1,ρ )πAΛtαj).
+Finally, by Lemma 2.3 with µ = 2 max(1,ρ )πAΛ,
+vn≤ 2Gn + 2 max(1,ρ )πAΛGn Eα
+(
+2 max(1,ρ )πAΛtαn)− 1
+max(1,ρ )πAΛ =FnGn,
+which completes the inductive step and the proof.
+Remark 1. One may use the inequality (2.7) in part 1 of Lemma 2.1 to bound
+the convolutional summation ∑kj=1P (k)k−jgj, that is,
+k∑
+j=1
+P (k)k−jgj≤
+k∑
+j=1
+P (k)k−jω1−α(tj) max1≤j≤k gjω1−α(tj)≤πA max1≤j≤k gjω1−α(tj)
+So the discrete solution of (3.1) can also be bounded by
+vn≤ 2Eα(2 max(1,ρ )πAΛtαn)(v0 +πAΓ(1−α) max1≤j≤n{tαjgj}) for 1≤n≤N.
+On the other hand, if the given sequence (λl)N−1l=0 is non-positive and the constant
+Λ ≤ 0, a similar argument will show that the discrete inequality (3.2) holds in a
+simpler form, requiring only the assumptions A1-A2 but no restrictions on time steps,
+(3.11) vn≤v0 + max
+1≤k≤n
+k∑
+j=1
+P (k)k−jgj≤v0 +πAΓ(1−α) max1≤j≤n{tαjgj} for 1≤n≤N.
+11
+PAGE 12
+Remark 2. By including the non-negative sequence (λl)N−1l=0 in (3.1), we are able
+to treat various numerical approaches to solving linear and nonlinear subdiﬀusion
+problems. Typically, the sequence takes only a few nonzero values. Recent examples
+include λl = 0 for l≥ 1 in the time-weighted method from section 4, and λl = 0
+forl≥ 2 in the one-step linearized scheme [16] for a semilinear subdiﬀusion equation.
+Thus, the constant Λ is always not very large and the maximum time-step restriction
+max1≤n≤Nτn≤ 1/ α
+√
+2πAΓ(2−α)Λ is also not stringent in practical applications.
+Remark 3. The Mittag–Leﬄer functionEα also arises naturally in other discrete
+and continuous Gr¨ onwall inequalities for fractional diﬀusion and wave equations [1,
+Lemma 2], and for weakly singular Volterra equations [5, Theorems 1.3 and 1.6].
+The presence of the nonuniform mesh parameter ρ in the argument of Eα indicates
+that sudden, drastic reductions of the time-step should be avoided. Nevertheless, our
+discrete Gr¨ onwall inequality does not restrict the heterogeneous degree of time mesh,
+this is, ﬁts for general nonuniform mesh.
+We also have an alternative version of the above theorem.
+Theorem 3.2. Theorem 3.1 remains valid if the condition (3.1) is replaced by
+(3.12)
+n∑
+k=1
+A(n)n−k▽τvk≤
+n∑
+k=1
+λn−kvk−θ +gn for 1≤n≤N.
+Moreover, if the given sequence (λl)N−1l=0 is non-positive and the constant Λ≤ 0,
+(3.13) vn≤v0 +
+n∑
+j=1
+P (n)n−jgj≤v0 +πAΓ(1−α) max1≤j≤n{tαjgj} for 1≤n≤N.
+Proof. The structure of proof is as before. However, instead of (3.3) and (3.4),
+we now have
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+A(j)j−k▽τvk≤
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ +
+n∑
+j=1
+P (n)n−jgj
+and
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+A(j)j−k▽τvk =
+n∑
+k=1
+▽τvk
+n∑
+j=k
+P (n)n−jA(j)j−k =
+n∑
+k=1
+▽τvk =vn−v0,
+respectively, so that instead of (3.5) we obtain
+vn≤v0 +
+n∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ +
+n∑
+j=1
+P (n)n−jgj.
+As before, if v1≤v0 then v1≤G1. For the alternative case v1 > v0, we again have
+v1−θ≤v1 which now yields
+v1≤v0 +P (1)0 g1 +P (1)0 λ0v1−θ =G1 +P (1)0 λ0v1−θ≤G1 + 12v1,
+where the ﬁnal step again relies on the step size assumption to ensure (3.6). Thus,
+once again, v1≤ 2G1. In the inductive step, (3.8) is replaced by
+vn≤v0 +
+n∑
+j=1
+P (n)n−jgj +
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ +vnP (n)0
+n∑
+k=1
+λn−k,
+12
+PAGE 13
+and by again using (3.9) together with the limitation on the maximum step size, we
+see that
+vn≤
+(
+Gn +
+n−1∑
+j=1
+P (n)n−j
+j∑
+k=1
+λj−kvk−θ
+)
++ vn
+2 ,
+which is equivalent to (3.10) so the remainder of the proof is unchanged.
+Remark 4. The discrete fractional Gr¨ onwall inequalities in Theorems3.1 and 3.2
+are valid on very general nonuniform time meshes and diﬀer substantially from the
+discrete fractional Gr¨ onwall inequality of Jin et al. [11, Theorem 2.8], which is built on
+the uniform mesh for both the L1 scheme and the convolution quadratures generated
+by backward diﬀerence formulas.
+Remark 5 (Multi-term and distributed-order Caputo derivatives). Note that
+our theory starts only from the discrete convolution form (2.2) and the three assump-
+tions A1–A3, but not the continuous counterpart (2.1). Correspondingly, the comple-
+mentary discrete kernels P (n)n−j deﬁned in (2.5) are also independent of (2.1). In other
+words, the fractional order α of Caputo’s derivativeDαtv in Lemmas 2.1 and 2.2, and
+the fractional exponent α in the Mittag–Leﬄer function Eα in Lemma 2.3 and Theo-
+rems 3.1 and 3.2, are determined only by the integrand function ω1−α(tn−s) of the
+lower bound in A2, but are independent of the continuous counterpart of (2.2).
+To explain this point more clearly, suppose that the discrete convolution form (2.2)
+arises from some numerical formula for a multi-term Caputo derivative ∑mi=1wiDαit v
+with 0<α i < 1 and the weights wi > 0, see [21]. Then all of the fractional exponents
+αi or the maximum order max1≤i≤mαi can determine a single fractional exponent
+α for A2 and the Mittag–Leﬄer function Eα in Theorems 3.1 and 3.2. Hence, the
+presented results would be also useful for studying numerical approximations of multi-
+term Caputo derivatives and distributed-order Caputo derivatives, since the latter can
+be approximated by certain multi-term derivatives via a proper quadrature rule [13].
+Remark 6 (Caputo BDF2-like formula and an open problem). There are other
+practically important formulas, such as the Caputo BDF2-like approach [7, 13, 18].
+To start the time-stepping process, one computes the ﬁrst-level solution by the L1
+approach in Example 1, (Dατv)1 :=a(1)0 ▽τv1, or the Alikhanov formula in Example 3,
+(Dατv)1 := ˆa(1)0 ▽τv1. For any time-level tn with n≥ 2, taking θ = 0 and applying the
+quadratic polynomial interpolation Π2,kv, we have a Caputo BDF2-like formula [18]
+(Dατv)n :=
+n−1∑
+k=1
+∫ tk
+tk−1
+ω1−α(tn−s) (Π2,kv)′ (s) ds
++
+∫ tn
+tn−1
+ω1−α(tn−s) (Π2,n−1v)′ (s) ds for n≥ 2.
+One can obtain the compact form (2.2) with the discrete kernels A(n)n−k,
+A(n)n−k :=
+
+
+
+a(n)0 +ρn−1(b(n)1 +b(n)0 ), for k =n,
+a(n)1 +ρn−2b(n)2 −(b(n)1 +b(n)0 ), for k =n− 1,
+a(n)n−k +ρk−1b(n)n−k+1−b(n)n−k, for 2≤k≤n− 2,
+a(n)n−1−b(n)n−1, for k = 1.
+13
+PAGE 14
+where the coeﬃcients a(n)n−k are deﬁned in Example 1, and the b(n)n−k are deﬁned by
+b(n)0 := 2τn−1(τn−1 +τn)∫ tntn−1(s−tn− 12 )ω1−α(tn−s) ds,
+b(n)n−k := 2τk(τk +τk+1)∫ tktk−1(s−tk− 12 )ω1−α(tn−s) ds for 1≤k≤n− 1.
+Notice that if the fractional order α→ 1, then ω3−α(t)→ t, ω2−α(t)→ 1 and
+ω1−α(t)→ 0, uniformly for t> 0. Thus, we have a(n)0 =ω2−α(τn)/τn→ 1/τn and
+b(n)0 = 2τn−1(τn−1 +τn)[ω3−α(τn)− τn2 ω2−α(τn)]→ τnτn−1(τn−1 +τn),
+whereasa(n)n−k→ 0 and b(n)n−k→ 0 for k≥ 1. So, when the fractional order α→ 1,
+(Dατv)n→D2vn :=( 1τn + 1τn−1 +τn)▽τvn− τnτn−1(τn−1 +τn) ▽τvn−1
+which is the second-order BDF2 scheme for the classical diﬀusion equations. We see
+that the second kernel A(n)1 can be negative, at least, when α is close to 1 (whereas the
+Caupto BDF2 scheme is shown in [13] to preserve the discrete maximum principle
+and nonnegativity property when α is close to 0).
+The Caputo BDF2 formula may not meet our a priori assumptions A1–A2, which
+results in that our Gr¨ onwall inequality would be not applicable directly. It is not
+surprising because, for a classical parabolic equation, the standard discrete Gr¨ onwall
+inequality can also not be applied directly to the second-order BDF2 scheme. How-
+ever, a weighted recombination technique works well; see the detailed analysis by
+Thom´ ee [26, Theorem 1.7] for a uniform time mesh, and a similar technique for
+nonuniform meshes [3, 6]. For the Caputo BDF2 formula, Theorems 3.1 and 3.2
+would be also useful for the stability and convergence analysis if it can be rearranged
+to meet the positive and monotone assumptions A1–A2. On the uniform mesh with
+τn =τ, Lv and Xu [18] developed a new technique of variable-weights recombination
+and achieved a new form of (Dατv)n with a new variable ¯vk :=vk−ηvk−1 and ¯v0 :=v0;
+in our notations,
+(3.14) ( Dατv)n =
+n∑
+k=1
+¯A(n)n−k▽τ ¯vk +v0
+n∑
+j=1
+A(n)n−jηj
+where the combination parameter η := 12(1−A(n)1 /A(n)0 ). From the substitution for-
+mulas
+vk =
+k∑
+𝓁=0
+ηk−𝓁¯v𝓁 and ▽τvk =
+k∑
+𝓁=1
+ηk−𝓁▽τ ¯v𝓁 +ηkv0,
+one has a new series of discrete convolution weights
+¯A(n)n−k :=
+n∑
+j=k
+A(n)n−jηj−k for 1≤k≤n.
+14
+PAGE 15
+The results of [18, Lemma 3.2] imply that 0 < η < 2/3 and the new convolution
+kernels ¯A(n)n−k are positive and monotone,
+¯A(n)0 > ¯A(n)1 >··· > ¯A(n)n−1 > 0 for 1≤k≤n.
+Thus, our discrete Gr¨ onwall inequalities (and the complementary discrete convolution
+kernels P (n)n−j as well) could be applied for this new form (3.14) directly once a proper
+constantπA in A2 is determined by a more careful examination.
+Nonetheless, we do not know whether the variable-weights recombination tech-
+nique [18] works on nonuniform time grids. More precisely, it has yet to be determined
+what constraints must be imposed on a nonuniform mesh so that the new discrete form
+(3.14) satisﬁes the a priori assumptions A1-A3 required by Theorems 3.1 and 3.2.
+This problem could be very challenging, at least technically, and remains open to us.
+4. Stability and consistency . We will now outline how the results of Section 3
+can be applied to study a numerical solution of problem (1.1). For simplicity, we
+restrict our attention to the case of a linear reaction term f(x,t,u ) := κu +ψ(x,t )
+with a constant κ≥ 0. By applying the ﬁrst Green identity, the fractional PDE (1.1)
+is written in a weak form as
+(4.1) ⟨Dαtu,v⟩ +B(u,v ) =κ⟨u,v⟩ +⟨ψ(t),v⟩ for all v∈H10(Ω) and for 0 <t ≤T ,
+where⟨u,v⟩ denotes the inner product in L2(Ω), andB(u,v ) =⟨Lu,v⟩ is the bilinear
+form induced by the elliptic operator L. Since the latter is strongly elliptic, by in-
+creasing κ if necessary, we may assume that the bilinear form is coercive: there is a
+constantc> 0 such that
+(4.2) B(v,v )≥c‖v‖2H 10(Ω) for all v∈H10(Ω).
+Let Xh be a ﬁnite dimensional subspace of H10(Ω); for example, a (conforming)
+ﬁnite element space based on a triangulation of Ω with the mesh size h. Galerkin’s
+method yields a spatially-discrete approximate solution uh : [0,T ]→Xh satisfying
+(4.3)
+⟨
+Dαtuh,χ⟩ +B(uh,χ ) =κ⟨uh,χ⟩ +⟨ψ(t),χ⟩ for all χ∈Xh and 0 <t ≤T ,
+withuh(0) =uh0≈u0 for a suitableuh0∈Xh. To compute a fully-discrete numerical
+solutionunh∈Xh, whereu(tn)≈unh for 1≤n≤N, we apply the approximation (2.2)
+to the fractional derivative term in (4.3) so that
+(4.4)
+⟨
+(Dατuh)n−θ,χ⟩ +B(un−θh ,χ) =κ⟨un−θh ,χ⟩ +⟨ψ(tn−θ),χ⟩
+for all χ∈Xh and for 1≤n≤N.
+The next lemma is a discrete analogue of the inequality [1, Lemma 1]
+(
+Dαt‖v‖2)(t)≤ 2⟨(Dαtv)(t),v (t)⟩ for 0≤t≤T and 0 <α< 1,
+and helps set the stage for applying our discrete fractional Gr¨ onwall inequality.
+Lemma 4.1. Let the assumption A1 hold and ﬁx the parameter θ∈ [0, 1). Then
+every sequence (vn)Nn=0 in L2(Ω) satisﬁes
+n∑
+k=1
+A(n)n−k▽τ(‖vk‖2)≤ 2⟨(Dατv)n−θ,vn−θ⟩−dn(θ(n)−θ)‖‖(Dατv)n−θ‖‖2,
+15
+PAGE 16
+for 1≤n≤N, where 0<d n < 1/A(n)0 and 0<θ (n) < 1/2 are given by
+dn := 2A(n)0 −A(n)1
+A(n)0 (A(n)0 −A(n)1 ) > 0 and θ(n) := A(n)0 −A(n)12A(n)0 −A(n)1 < 12.
+Proof. By Lemma A.1 (see appendix A),
+2
+⟨
+(Dατv)n−θ,vn−θ⟩ = 2θ⟨Dατv)n−θ,vn−1⟩ + 2(1−θ)⟨Dατv)n−θ,vn⟩
+≥
+n∑
+k=1
+A(n)n−k
+(‖‖vk‖‖2−‖‖vk−1‖‖2) +(1−θ
+A(n)0 − θA(n)0 −A(n)1
+)‖‖(Dατv)n−θ‖‖2,
+and the second term on the right side equals dn(θ(n)−θ)‖(Dατv)n−θ‖2.
+Theorem 4.2. Let the assumption A1 hold and 0≤ θ≤ θ(n) for 1≤ n≤ N.
+Then the fully-discrete solution unh∈Xh, deﬁned by (4.4), satisﬁes
+n∑
+k=1
+A(n)n−k▽τ(‖‖ukh‖‖2)≤ 2κ‖‖un−θh ‖‖2 + 2‖‖un−θh ‖‖‖‖ψ(tn−θ)‖‖ for 1≤n≤N.
+Proof. Put χ = 2un−θh in the Galerkin discrete equation (4.4), apply Lemma 4.1
+with vn =unh, and use positive-deﬁniteness (4.2) of the bilinear form.
+Applying the discrete fractional Gr¨ onwall inequality from Theorem 3.1 with
+vn :=‖‖unh‖‖, g n := 2‖‖ψ(tn−θ)‖‖, λ 0 := 2κ and λj := 0 for 1≤j≤N− 1,
+we see from Theorem 4.2 that the scheme (4.4) is stable in L2(Ω),
+‖‖unh‖‖≤ 2Eα(4 max(1,ρ )πAκtαn)(‖‖u0h‖‖ + 2 max1≤k≤n k∑j=1P (k)k−j‖‖ψ(tj−θ)‖‖),
+providedθ≤θ(n) for 1≤n≤N. The inequality from Remark 1 yields a weaker but
+simpler stability estimate,
+‖‖unh‖‖≤ 2Eα(4 max(1,ρ )πAκtαn)(‖‖u0h‖‖ + 2πAΓ(1−α) max1≤k≤ntαk‖‖ψ(tk−θ)‖‖).
+To bound the error in unh, we introduce the Ritz projector Rh : H10(Ω)→ Xh,
+which is well-deﬁned by
+(4.5) B(Rhv,χ ) =B(v,χ ) for all v∈H10(Ω) and χ∈Xh,
+because the bilinear form satisﬁes (4.2). Put enh =unh−Rhun∈Xh whereun =u(tn),
+so that ‖‖unh−un‖‖≤‖‖un−Rhun‖‖ +‖‖enh‖‖.
+The error in the Ritz projection Rhun is estimated in the usual way from a study of
+the elliptic problem, so it suﬃces to deal with
+‖‖enh‖‖. Using the weak form (4.1) at
+t =tn−θ, with v =χ, we see that
+(4.6)
+⟨
+(Dαtu)(tn−θ),χ⟩ +B(u(tn−θ),χ ) =κ⟨u(tn−θ),χ⟩ +⟨ψ(tn−θ),χ⟩.
+16
+PAGE 17
+It follows from (4.4) that
+⟨
+(Dατeh)n−θ,χ⟩ +B(en−θh ,χ ) =κ⟨un−θh ,χ⟩ +⟨ψ(tn−θ),χ⟩
+−
+⟨
+(DατRhu)n−θ,χ⟩−B (Rhun−θ,χ ).
+Therefore, since (4.5) and (4.6) imply
+B(Rhun−θ,χ ) =B(un−θ−u(tn−θ),χ ) +B(u(tn−θ),χ )
+=−
+⟨
+∆(un−θ−u(tn−θ)),χ⟩ +κ⟨u(tn−θ),χ⟩
++
+⟨
+ψ(tn−θ),χ
+⟩
+−
+⟨
+(Dαtu)(tn−θ),χ⟩,
+we have
+⟨
+(Dατeh)n−θ,χ⟩ +B(en−θh ,χ ) =κ⟨en−θh ,χ⟩ +⟨Rn,χ⟩ for all χ∈Xh,
+where
+Rn = (Dαtu)(tn−θ)− (DατRhu)n−θ−κ(u(tn−θ)−Rhun−θ) +∆(un−θ−u(tn−θ)).
+Choosing χ = 2en−θh and arguing as before, but now with vn := ‖‖enh‖‖ and gn :=
+2
+‖‖Rn‖‖, we see that (for appropriate θ)
+‖‖enh‖‖≤ 2Eα(4 max(1,ρ )πAκtαn)(‖u0h−u0‖ + 2 max1≤k≤n k∑j=1P (k)k−j‖Rj‖)
+for 1≤ n≤ N. A complete error analysis would typically proceed by applying the
+triangle inequality to obtain
+‖‖Rj‖‖≤‖‖(Dαtu)(tj−θ)− (Dατu)j−θ‖‖ +‖‖(Dατ (u−Rhu))j−θ‖‖
++κ
+‖‖(u−Rhu)j−θ‖‖ +‖‖(κ +∆)(uj−θ−u(tj−θ))‖‖,
+and estimating separately the resulting convolutional sums over j, refer to a new
+technique of global consistency error analysis developed in recent works [14–16]. The
+details would depend on the choice of the discrete kernels A(n)n−j and of the space Xh,
+and would rely on some a priori estimates for the partial derivatives of u.
+A similar approach works if ﬁnite diﬀerences are used for the space discretiza-
+tion [14], by introducing an appropriate discrete 𝓁2 inner product in place of the inner
+product⟨u,v⟩.
+Acknowledgements. Hong-lin Liao and Jiwei Zhang would like to thank Prof.
+Ying Zhao, Prof. Weiwei Sun, Prof. Martin Stynes and Dr. Yonggui Yan for their
+valuable discussions and fruitful suggestions. Hong-lin Liao thanks for the hospitality
+of Beijing Computational Science Research Center during the period of his visit.
+Appendix A. Two technical inequalities. The proof of Lemma 4.1 relies
+on the following result, essentially due to Alikhanov [2, Lemma 1].
+Lemma A.1. If the assumption A1 holds, then every sequence (vn)Nn=0 in L2(Ω)
+satisﬁes
+2
+⟨
+(Dατv)n−θ,vn⟩≥ n∑
+k=1
+A(n)n−k
+(‖‖vk‖‖2−‖‖vk−1‖‖2) +‖‖(Dατv)n−θ‖‖2
+A(n)0
+and
+2
+⟨
+(Dατv)n−θ,vn−1⟩≥ n∑
+k=1
+A(n)n−k
+(‖‖vk‖‖2−‖‖vk−1‖‖2)−‖‖(Dατv)n−θ‖‖2
+A(n)0 −A(n)1
+for 1≤n≤N, provided we set A(1)1 = 0 in the case n = 1.
+17
+PAGE 18
+Proof. Fix n and consider the diﬀerence
+Jn := 2
+⟨
+(Dατv)n−θ,vn⟩− n∑
+k=1
+A(n)n−k
+(‖‖vk‖‖2−‖‖vk−1‖‖2).
+We have
+Jn =
+n∑
+k=1
+A(n)n−k(2⟨vk−vk−1,vn⟩−⟨vk−vk−1,vk +vk−1⟩)
+=
+n∑
+k=1
+A(n)n−k⟨vk−vk−1, 2vn− (vk +vk−1)⟩
+and, using the identity 2vn− (vk +vk−1) =vk−vk−1 + 2∑nj=k+1(vj−vj−1),
+Jn =
+n∑
+k=1
+A(n)n−k‖‖vk−vk−1‖‖2 + 2 n∑
+k=1
+A(n)n−k
+n∑
+j=k+1
+⟨
+vk−vk−1,vj−vj−1⟩
+=
+n∑
+k=1
+A(n)n−k‖‖vk−vk−1‖‖2 + 2 n∑
+j=2
+j−1∑
+k=1
+A(n)n−k⟨vk−vk−1,vj−vj−1⟩.
+To continue the proof, it is convenient to introduce
+wj :=
+j∑
+k=1
+A(n)n−k(vk−vk−1) and Qj := 1A(n)n−j for 1≤j≤n.
+Notice that vj−vj−1 =Qj(wj−wj−1) for 2≤j≤n, and that the assumption A1
+implies Q1≥Q2≥···≥ Qn. Thus, one deduces that
+Jn =Q1
+‖‖w1‖‖2 + n∑
+j=2
+Qj
+‖‖wj−wj−1‖‖2 + 2 n∑
+j=2
+Qj
+⟨
+wj−1,wj−wj−1⟩
+=Q1
+‖‖w1‖‖2 + n∑
+j=2
+Qj
+(‖‖wj‖‖2−‖‖wj−1‖‖2)
+=Qn
+‖‖wn‖‖2 +n−1∑
+j=1
+(Qj−Qj+1)
+‖‖wj‖‖2≥Qn‖‖wn‖‖2.
+The ﬁrst inequality now follows by noting that wn = (Dατv)n−θ and Qn = 1/A(n)0 .
+Furthermore, by using the identity vn−1 =vn− (vn−vn−1) =vn−Qn(wn−wn−1),
+we have
+2⟨(Dατv)n−θ,vn−1⟩−
+n∑
+k=1
+A(n)n−k
+(‖‖vk‖‖2−‖‖vk−1‖‖2) =Jn− 2Qn⟨wn,wn−wn−1⟩
+≥Qn
+‖‖wn‖‖2 + (Qn−1−Qn)‖‖wn−1‖‖2− 2Qn⟨wn,wn−wn−1⟩
+=−Qn
+‖‖wn‖‖2 + 2Qn⟨wn,wn−1⟩ + (Qn−1−Qn)‖‖wn−1‖‖2
+= 1Qn−1−Qn(‖‖Qnwn + (Qn−1−Qn)wn−1‖‖2−QnQn−1‖wn‖2)
+≥− QnQn−1
+Qn−1−Qn
+‖wn‖2 = −‖wn‖2
+A(n)0 −A(n)1 .
+Therefore the claimed second inequality follows and the proof is complete.
+18
+PAGE 19
+REFERENCES
+[1] A. A. Alikhanov, A priori estimates for solutions of boundary value problems for fractional-
+order equations, Diﬀerential Equations, 46 (2010), pp. 660–666.
+[2] A. A. Alikhanov , A new diﬀerence scheme for the time fractional diﬀusion equation , J.
+Comput. Phys., 280 (2015), pp. 424–438.
+[3] J. Becker , A second order backward diﬀerence method with variable steps for a parabolic
+problem, BIT, 38(4) (1998), pp. 644–662.
+[4] H. Brunner, The numerical solution of weakly singular Volterra integral equations by collo-
+cation on graded meshes , Math. Comp., 45 (1985), pp. 417–437.
+[5] J. Dixon and S. McKee , Weakly singular Gronwall inequalities , ZAMM Z. Angew. Math.
+Mech., 66 (1986).
+[6] E. Emmrich, Convergence of the variable two-step BDF time discretisation of nonlinear evo-
+lution problems governed by a monotone potential operator , BIT Numer. Math., 49 (2009),
+pp. 297–323.
+[7] G. Gao, Z. Sun and H. Zhang, A new fractional numerical diﬀerentiation formula to approx-
+imate the Caputo fractional derivative and its applications , J. Comput. Phys., 259 (2014),
+pp. 33–50.
+[8] I. G. Graham , Galerkin methods for second kind integral equations with singularities , Math.
+Comp., 39 (1982), pp. 519–533.
+[9] G. H. Hardy, J. E. Littlewood, and G. P ´olya, Inequalities, Cambridge University Press,
+1934.
+[10] B. Jin, R. Lazarov, and Z. Zhou, An analysis of the L1 scheme for the subdiﬀusion equation
+with nonsmooth data , IMA J. Numer. Anal., 36 (2016), pp. 197–221.
+[11] B. Jin, B. Li, and Z. Zhou , Numerical analysis of nonlinear subdiﬀusion equations , SIAM J.
+Numer. Anal., 56 (2018), pp. 1–23.
+[12] H.-L. Liao, Y. Zhao, and X. Teng , A weighted ADI scheme for subdiﬀusion equations , J.
+Sci. Comput., 69 (2016), pp. 1144–1164.
+[13] H.-L. Liao, P. Lyu, S. W. Vong and Y. Zhao , Stability of fully discrete schemes with
+interpolation-type fractional formulas for distributed-order subdiﬀusion equations , Numer.
+Algor., 75 (2017), pp. 845–878.
+[14] H.-L. Liao, D. Li, J. Zhang , Sharp error estimate of a nonuniform L1 formula for time-
+fractional reaction-subdiﬀusion equations, SIAM J. Numer. Anal., 56 (2018), 1112–1133.
+[15] H.-L. Liao, W. McLean, J. Zhang , A second-order scheme with nonuniform time steps for a
+linear reaction-subdiﬀusion equation, arXiv:1803.09873v2, 2018. Submitted to this journal.
+[16] H.-L. Liao, Y. Yan, and J. Zhang , Unconditional convergence of a two-level linearized fast
+algorithm for nonlinear subdiﬀusion equations , arXiv:1803.09858v2, 2018. Submitted.
+[17] Y. Lin and C. Xu , Finite diﬀerence/spectral approximations for the time-fractional diﬀusion
+equation, J. Comput. Phys., 225 (2007), pp. 1533–1552.
+[18] C. Lv and C. Xu, Error analysis of a high order method for time-fractional diﬀusion equations,
+SIAM J. Sci. Comput., 38 (2016), A2699–A2724.
+[19] W. McLean and K. Mustapha , A second-order accurate numerical method for a fractional
+wave equation, Numer. Math., 105 (2007), pp. 481–510.
+[20] K. B. Oldham and J. Spanier , The Fractional Calculus, Academic Press, 1974.
+[21] I. Podlubny, Fractional diﬀerential equations, Academic Press, New York, 1999.
+[22] K. Sakamoto and M. Yamamoto , Initial value/boundary value problems for fractional
+diﬀusion-wave equations and applications to some inverse problems , J. Math. Anal. &
+Appl., 382 (2011), pp. 426–447.
+[23] M. Stynes, Too much regularity may force too much uniqueness , Frac. Calc. Appl. Anal., 19
+(2016), pp. 1554–1562.
+[24] M. Stynes, E. O’Riordan, and J. L. Gracia , Error analysis of a ﬁnite diﬀerence method on
+graded meshes for a time-fractional diﬀusion equation , SIAM J. Numer. Anal., 55 (2017),
+pp. 1057–1079.
+[25] Z. Sun and X. Wu , A fully discrete diﬀerence scheme for a diﬀusion-wave system , Appl.
+Numer. Math., 56 (2006), pp. 193–209.
+[26] V. Thom ´ee, Galerkin Finite Element Methods for Parabolic Problems , Second Edition,
+Springer-Verlag, Berlin Heidelberg, 2006.
+[27] Y. Yan, M. Khan and N. J. Ford, An analysis of the modiﬁed L1 scheme for time fractional
+partial diﬀerential equations with nonsmooth data , SIAM J. Numer. Anal., 56 (2018),
+pp. 210–227.
+19

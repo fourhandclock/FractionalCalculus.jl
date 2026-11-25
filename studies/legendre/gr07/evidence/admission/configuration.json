@@ -1,0 +1,20 @@
+{
+  "files": {
+    "evidence/PLAN.md": "5e76eb56292844bec1b2d2b1722605cb14dfaff0b52a5c609ae4a92d75b5b9e8"
+  },
+  "precision": "Float64; high-precision local oracle 120/180 decimal digits",
+  "time_steps": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "performance_steps": [
+    64,
+    128,
+    256
+  ],
+  "initialization": "derivative Ritz",
+  "T": 1.0,
+  "lambda_value": 0.4
+}

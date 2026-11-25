@@ -1,0 +1,66 @@
+"""Seal a GR-07 correctness admission from successful retained evidence.
+
+Task-specific controller metadata, not a numerical acceptance shortcut. It binds
+all method/benchmark/test sources before timings and refuses changed executed
+source identities, failed required runs, or unverified namespace cleanup.
+"""
+import csv,hashlib,json,os,sys
+from pathlib import Path
+from datetime import datetime,timezone
+
+STUDY=Path(__file__).resolve().parents[1]
+ROOT=STUDY.parents[2]
+
+
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def main(result_dir=None,prefix=''):
+    result=Path(result_dir) if result_dir else STUDY/'results'
+    ev=STUDY/'evidence'; bundle=ev/'admission';bundle.mkdir(exist_ok=False)
+    labels=['baseline-regression-01','local-oracle-02','julia-unit-02','environment-01',
+            'python-environment-01','python-gr02-01','python-gr03-01','python-gr04-01',
+            'python-gr05-01','python-gr06-01','python-reference-01',
+            'reference-replay-comparison-01','julia-matrix-01','julia-reference-comparison-01','final-regression-01']
+    evidence={}
+    for label in labels:
+        name=prefix+label; p=ev/'runs'/(name+'.json');r=json.loads(p.read_text())
+        assert r['returncode']==0,(name,'required run failed')
+        cleanup=json.loads((ev/'runs'/(name+'.namespace.json')).read_text())
+        assert cleanup['namespace_cleanup_verified'],(name,'cleanup unknown')
+        for output,item in r['output'].items():assert sha(p.parent/output)==item['sha256']
+        for source,digest in r['source_sha256'].items():
+            candidate=Path(source.replace('$WORKSPACE',str(ROOT)))
+            if candidate.exists():assert sha(candidate)==digest,('executed source changed',candidate)
+        evidence[str(p.relative_to(STUDY))]=sha(p)
+    comparison=json.loads((result/'julia_reference_comparison.json').read_text());assert comparison['passed'] and comparison['rows']==156
+    code=[STUDY/f for f in ['GR07.jl','run.jl','benchmark.jl','test/runtests.jl','scripts/compare.py','scripts/make_oracles.py','scripts/execution.py','scripts/isolate.py']]
+    code += [ROOT/'src'/f for f in ['FractionalCalculus.jl','TimeDiscretization.jl','Legendre.jl','Solver.jl']]
+    def manifest(name,paths,**extra):
+        obj={'files':{os.path.relpath(p,STUDY):sha(p) for p in paths},**extra};p=bundle/(name+'.json');p.write_text(json.dumps(obj,indent=2)+'\n');return sha(p)
+    identities={
+        'source_sha256':manifest('source',code),
+        'configuration_sha256':manifest('configuration',[ev/'PLAN.md'],precision='Float64; high-precision local oracle 120/180 decimal digits',time_steps=[32,64,128,256],performance_steps=[64,128,256],initialization='derivative Ritz',T=1.0,lambda_value=.4),
+        'inputs_sha256':manifest('inputs',[result/'python_reference.csv',result/'julia_results.csv',ev/'supplied-inputs.json'],scientific_cases=156),
+        'environment_sha256':manifest('environment',[ev/'environment.json',ROOT/'Project.toml',ROOT/'Manifest.toml',ev/'execution-policy.json']),
+        'oracles_sha256':manifest('oracles',[STUDY/'reference/benchmark_gr07.py',STUDY/'reference/verify_gr06_graded.py',STUDY/'reference/results.csv',STUDY/'scripts/make_oracles.py',ev/'oracles/moments.csv']),
+        'criteria_sha256':manifest('criteria',[ev/'PLAN.md',STUDY/'scripts/compare.py',STUDY/'test/runtests.jl']),
+        'suite_sha256':manifest('suite',[STUDY/'test/runtests.jl',ROOT/'test/runtests.jl',ROOT/'studies/legendre/test/runtests.jl'])}
+    p=bundle/'evidence.json';p.write_text(json.dumps(evidence,indent=2)+'\n');evidence_hash=sha(p)
+    for kind,domain in [('baseline','Actual-library endpoint controls with explicitly matched Ritz initialization; endpoint PI-L is a separate experimental control.'),('candidate','Uniform and nondecreasing graded Alikhanov PI-L/Q on the declared 156-case matrix and unit tests.')]:
+        obj={'schema_version':1,'admission_id':'gr07-'+kind+'-01','created_at_utc':datetime.now(timezone.utc).isoformat(),'admission_status':'admitted','subject_kind':kind,'baseline_seal_sha256':sha(ev/'baseline.json'),'identities':identities,'scope':{'domain':domain,'exclusions':['2D','complete theorem certification','invalid initial GR07 evidence','all-mesh/order-uniform claims','cross-language timing speedups']},'cases':[{'case_id':prefix+x,'required':True,'correctness_status':'passed','run_ids':[prefix+x],'evidence_refs':['runs/'+prefix+x+'.json']} for x in labels],'evidence_manifest_sha256':evidence_hash,'decision_reason':'All required numerical/independent reference/regression gates pass unchanged, executed-source identities agree and namespace cleanup is verified. User-approved bounded-process policy; no aggregate cgroup claim.'}
+        (bundle/(kind+'.json')).write_text(json.dumps(obj,indent=2)+'\n')
+    # The measured wrapper checks this immutable manifest before and after timing.
+    files={os.path.relpath(p,STUDY):sha(p) for p in code+[ev/'PLAN.md',ev/'environment.json',ROOT/'Project.toml',ROOT/'Manifest.toml',result/'julia_results.csv',result/'python_reference.csv']}
+    lines=['status = "admitted"','baseline_id = "gr07-baseline-01"','candidate_id = "gr07-candidate-01"','','[files]']
+    lines += [json.dumps(k)+' = '+json.dumps(v) for k,v in files.items()]
+    with (result/'julia_results.csv').open() as f:rows=list(csv.DictReader(f))
+    for row in rows:
+        if row['alpha']=='0.75' and row['beta']=='0.5' and int(row['M'])==14 and int(row['N']) in [64,128,256]:
+            selected=(row['case']=='smooth' and float(row['grading'])==1) or (row['case']=='singular' and float(row['grading'])>1)
+            if not selected:continue
+            key=row['N']+'|'+row['case']+'|'+row['variant'];lines+=['','[expected.'+json.dumps(key)+']','h1_max = '+row['h1_max'],'l2_max = '+row['l2_max']]
+    with (ev/'admission.toml').open('x') as f:f.write('\n'.join(lines)+'\n')
+    print('ADMITTED: baseline controls and candidate, exact sources/inputs/environment/criteria; performance domain is the declared 21 configurations.')
+
+if __name__=='__main__':main(*sys.argv[1:])

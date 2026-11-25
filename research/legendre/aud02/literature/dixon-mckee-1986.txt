@@ -1,0 +1,482 @@
+PAGE 1
+635 Drxo~, J. ; MCKEE, S. : Weakly __ Singiilar ___ Diwrete Gronwnll Inequalities .~ - 
+ZAMM 2. angew. Math. Me&. 68 (1986) 11, 535 -544 
+DIXON, J. ; MCKRR, S. 
+Weakly Singular Discrete Gronwall Inequalities 
+Es werden Vernllgemeinerungen der klaaaischen Gronwallaehen Ungleichung ftir den Fall angegeben, da] der Kern der zu- 
+geordneten Integralgleichung schwaeh singulcir ist. Ea wird sowohl die atdige nla auch die diakrete Veraim angegeben. Die 
+stetige wurde mit einbezogen, uieil aie eine annloge Beh.ndlunq der diakreten anregt. Die Arbeit wurde durch Konvergenz- 
+unterswhungen eon DiakreiiRierungsmethoden fur I'olterrmche Integral. und Integro- Differentialgleichungen motiviert. 
+Siimtliche Ergehnime werden in finer For~n. gegeben, dk 8eh.r bmuchbnr jiir NppPzinlinten in. Nunieriwhsr Ann1yai.q id. 
+Cenerdizntions of the clnasical Gronwall inequality wh.en th.e kernel oj Ih.e msocinted .integm 1 equalion. is menkly singular 
+itre pre.sented. The continuous and discrete versions are both given; the form.er is included &nce it suggests the latter by 
+analogy. This work ia motivated by convergence studies oJiiiscretizntion rn.eth.d.4 for Volterra intsgrnl nnd integro-diJJrentinl 
+equations. The reaults we nll given in n fm-m deaigned to hc of niozt u.se to n.umrricn1 nn.al?/zts. 
+I~pCnCTaRJlRtOTCR ofio6ureHm KnaccwiecKoro tiepaRetrcTRa rpoiryanna R cnyliae 'ITO ~npo CooTHeceMHoro 
+BHTM ; trenpepmwmti RapnaaT RKniowieTcn. ~IOTOMY VTO oir npennaraeT aHanorwiiIyn) 06pafiOTKy. 3Ta 
+MHTerpanbHMx H uifferpo-nlrTerpanhlri,ix ypaBiretrHH THIM 13nnrsTeppa. Rce pe3ynLTaThI OnHChlRRIOTCR 
+HHTeI'paJIbHOrO ypaBlreHHfl HRJIHeTCR Cna60-CHHrynRplIi~lM. ,&LiOTCR H liellpepblRHb1ii H JIHCKpeTHhlfi Ba1)H- 
+pabOTa llO6y>H&aeTCR HCCJle~ORai~HRMH IT0 CXOj(HM0CTH OTtIOCHTeJII,IIO MeTOnOB nUCKpeTU3aUHK AJIH 
+R TaKOM BHAe YTO OHH fil3JlIllOTCH O'ICHh ITOJIe3HldMH nnIl ('ITeIIHaJlWCTOR ll~MC~)~lleCHO~O AHaJlH3a. 
+1. Introdiiction 
+In 1919 C~~NWAI.I. [ 121 introduced the following result: 
+Lemma 1.1 : Let the function x br continwnis cind non-nrgntir-e on the intaroal [0, TI. If 
+1 
+r(t) 5 n + b r(s) d.s , 0 t 5 T , (1.1) 
+x(t) 5 a elJt, (1.2) 
+0 
+where n, h NTC positiw ctn,strinte, then 
+0 5 t 5 T . 
+This lemma, which provides a bound on the solution of (1.1) in terms of the solution of the related integra 
+equation 
+t 
+y(t) = + bSy(s) ds, 0 5 t 5 T, (1.3) 
+0 
+is one of the basic tools in the theory of differential equations. It has been extended and used considerably in 
+various contexts, and Gronwall inequalities has now become a generic term for the many variants of this lemma. 
+A reasonably comprehensive account of Qronwall inequalities is given by BEESACK [3]. 
+In the Picard-Cauchy type of iteration for establishing the existence and uniqueness of solutions of differential 
+and integral equations lemma 1.1 and its variants play a significant role. This is demonstrated by, for example, 
+WALTER [29]. Inequalities of the type (1.1) are also encountered frequently in the perturbation and stability theory 
+of ordinary differential equations, for instance, see BELLMAN [ 11. 
+Recurrent inequalities involving sequences of real numhers, which may he regarded as discrete Gronwall 
+ineqiialities, have been extensively applied in the analysis of finite difference equations. 1 n numerical analysis the 
+following discrete analogue of lemma 1.1 is widely used. 
+Lemma 1.2: Zf x,, i = 0, 1, ... , N, is a sequence of non-negrrtire rrnl niimhers antisfying 
+where b > 0 nnd M > 0 is hmmded independently of h (Nh 5 T) then 
+xi 0 exp (Mill), 0 5 i 5 N . (1.5) 
+The main value of this lemma is that it can be used to demonstrate convergence of the solution of some dis- 
+cretization to that of the corresponding operator equation. This necessarily requires that the difference between the 
+discrete solution and its associated operator equation, that is, the seqiience { xi}:=o, he uniformly bounded with 
+respect to Nand h where Nand k are such that Nh remains constant as N 4 00 and h + 0. InNz [20] and HOLYHEAD, 
+MCKEE and TAYLOR [17], for example, consider linear first kind Volterra integral equations, and HENRICI [ 131 
+provides an elementary introduction to the application of this result to ordinary differential equations. 
+More recently discrete generalizations of Gronwall's inequality have been diwussed by several authors, 
+notably PACHPATTE [23] and POPENDA and WERBOWSKI [24], and since the completion of thiR manuscript the atkn- 
+tion of the authors has been brought to a paper by BEESACK [4]. 
+The piirpose of this paper is to derive generalized discrete (:ronwall inequalities in a form which may be 
+directly applied by numerical analysts when proving convergence of product integration methods for weakly 
+singular Volterra integral and integro-differential equations. It is anticipated that in a numerical scheme as the 
+PAGE 2
+XAhIhZ . X. nngew. hlnth. Mcrh. 88 (1986) 11 
+- 530 
+stepsize h is decreased to zero the discretization will in some sense tend to the underlying integral equation. It 
+therefore seems natural to expect that any analysis for the integral equation will have a parallel in the discrete 
+problem. Following this view a continuous generalization of Gronwall's inequality is first presented and then dis- 
+crete manipulative steps, analogous to those employed to derive the continuous inequality, are used to obtain the 
+main result of this paper, a generalized discrete Gronwall inequality. 
+Illustrative examples of the application of these generalized Gronwall inequalities are given ; further examples 
+of the use of these inequalities in deriving convergence results for Volterra type equations may be foiind in RRIJWNRR 
+151, CAMERON and MCKEE [6], DIXON and McKm 191, TE RIELE [26] and Scow (261. 
+-~ ___ ._ 
+2. A linear generalizat,ion of aronwall'R ineqiialit,y 
+The following standard reRolt from fiinctional annlyRiR will be required. 
+Lemma 2.1: Let X be n Bannch. npm with nnrm 11.11.~. n,nd let L(X) denote the Bn.nach spa oflinen,r oppmtnrs jroar .K into 
+If K E L(X) is 8mh. that llKrll < 1 jor .qome r E &'then C Kn conrwrp nnd is the inverse of (I - K). 
+The above lemma may be used t.o obt,nin the following elementary exiAtmce result for linear second kind Volterra integral 
+Theorem 2.1 : For each t E Q := [0, T] let the Volterra kernel k(t, a) be integrable over (0, t) n,s n junction of 8. Suppose that for 
+itnelf. m 
+fl=O 
+equations. 
+aome p E N the pth iterated kernel k'(")(t, 8) ia continuous on D := { (t, n) : 0 5 8 5 t 5 T). 
+Then for each y E C(0) the integral equation 
+Y = Y + KY, (2.1) 
+t 
+where (Ky)(t) = 1 k(t, 8) y(8) d8, t E Q, ha8 a unique solution y E c(n) given by 
+0 
+a 
+n=o y = K"y . (2.2) 
+Y= CY" (2.3) 
+Equiirdently 
+W 
+n=1 
+where the sequence {y"}~~, is defined by yl = y, y" = Ky-', n 2 2. 
+Furtherwe, there exiets a conatant C, independent of y, such thd 
+Note that the series at (2.2) is the resolvent series and that at (2.3) is the Neumann series. 
+The theorem is proved by showing that llKrll < 1 for all r sufficiently hrge and then employing lemma 2.1. 
+Lemma 2.2: Let the Volterra kernel k(t, 8) eati8fy 
+IlYllm S Cllyllm. (2.4) 
+(CI) k(t, 8) is non-negative; 
+k(t, 8) i8 integrable over (0, t) as a, junction oj 8 for each t E Q; 
+there exid8 }i E A' such. 1h.n.t /he 11th. itern.ted kernel p(t, 8) is continuous in t, 8. 
+(CW (CIII) 
+Ilejine F E L(C(0)) by 
+Fy == y - Ky (2.5) 
+t 
+where (Ky)(t) = J k(t, 8) y(s) d8, t E R. Wen E'y 2 0 implie8 y 2 0. 
+The proof follows that of theorem 5 of BEESACK 123. 
+The following linear generalization of Oronwall's inequality is a direct conaequence of lemma 2.2. 
+Theorem 2.2: Let the Volterra kernel k(t, 8) sntinfy CI-CIII. For any y E c(0) ifx E c(a) aatiafiea the integral inequality 
+0 
+xsy+Kir'r (2.6) 
+t 
+where (Kx) (t) = j- &(t, 8) 48) ds, 1 E Q, then 
+0 
+XSY (2.7) 
+Y =Y fKy. (2.8) 
+II4b 5 Cllr~llm. (2.9) 
+where y is the unique C(Q) nolution nj the integra.1 equation 
+Furthermore, if x 2 0 and y 2 0, there exieta C, independent of y. azleh that 
+The bound (2.7) is the beat possible result since equality in (2.6) implies equality in (2.7). For the cam p = 1 the inequ8lit.y 
+The results stated in this section are ementially well-known ([2], [3], [la], [IS], [27], [28]). They have been included since it is 
+felt that a numerical analyst may not be particularly familiar with them and, more importantly, to emphasise the Rtrong similarit.iefi 
+between t'he continuous rrsnlta given hem and the analogous discrete results which will be derived in section 4. 
+(2.7) wns first given by CHU nnd RfETCALF [a]. 
+3. A weakly singular integro-differential equation arising from the diffusion of discrete particles 
+in a turbulent fluid 
+Consider the weakly singular integro-differential equation 
+I 
+(3.1) 
+PAGE 3
+DIXON, J.; Mc*lCb:~, S.: M'cskly Siiigulsr Discrctc Gronwall Ineqirnlities 637 
+with y(0) given, c a constant and 0 5 (Y < 1. It is assumed that f(t, y) and q(t) are continuous on D x R and D 
+respectively, and that f(t, y) is (uniformly) Lipschitz continuous in ?/. When (Y = f (3.1) models the motion of 
+a particle in a turbulent fluid; further details are given in MCKEE [21]. 
+Equation (3.1) will be used to illustrate the results of the previous section, and in section 6 convergence of a 
+numerical method for solving (3.1) will be proved using a discrete analogue of theorem 2.2. 
+Tntegrating (3.1) over (0, t), interchanging the order of integration and integrating by parts yields 
+~________ _______ 
+(3.2) 
+Jnvestigating the effect of the perturbation 011 the solution motivates the following result. 
+Theorem 3.1 : ht r(/) be continiroits and nmz-nPqntive on [0, 7'1. If 
+1 
+(3.3) 
+where 0 
+stant, thm 
+IY < 1, y(t) is a non-negative, monotonic increasilig continiious function on [0, TI and M is a positive con- 
+r(t) 5 y(t) E~-~(filT(l - a) tl-a) , 0 5 t 5 T , (3.4) 
+whwe El "(e) iR thP Mittag-Leffler functimz defined for all IY < 1 hg 
+The Mittag-lleffler function, which is a generalization of the exponential function to which it reduces when 
+IX = 0, has been discussed in the literature and references may be found in ERD~ELYI [lo] (see also FRIEDMAN [Ill 
+and KERSHAW [18]). 
+This result follows by showing that the solution of the related integral equation 
+t 
+y(1) = y(t) + M/*ds, (t - s)" 0 5 t 5 T, 
+n 
+(3.5) 
+satisfies 
+?/(t) y(t) ICI..m(Mr(l -a) 1'. ") , 
+end invoking theorem 2.2 with p = e + 1 where e E Bv is chosen such that (e - l)/e < u 5 e/(e + 1). 
+rily monotonic) the best po~~sihle result is given by 
+If y(t) E y, 0 5 t 5 T, (3.4) is the best possible result. For a more general function y(t) (which is not necessa- 
+t 
+(5.6) 
+where t,he right hand sidr of the inequality (3.6) is the exact solrit>ion of the integral equation (3.5). 
+4. A discrete existence rcrJiilt 
+Discrete manipulative steps, arralogoiis to those wed in the continmiis proidem, are employed to derive a discrete 
+version of theorem 2.1 and, in the next section, of theorem 2.2. 
+A discrete version of thr space C(Q) is required. Let I&,,, T be given with 0 < I),, 5 7' and T/h, = No, a, positive 
+integer. Define J := {h: k = TIN, N E M, N 2 No} and for ?A E J set Dh = { 0, 1, ... , N). Define the discrete space 
+C(Szh) := {?/" : ?p =: (yo, ?/I, ... , ?/N)T , ?/I E 8 , 0 5 i 5 X} 
+with the maximiim norm 
+The idea of discrete Volterra kernels and discrete iterated kernels will be required (cf. DIXON and MCKEE [9] and 
+SCOTT [26]). 
+PAGE 4
+ZAMM Z. nngew. hlnth. Merh. 88 (1086) 11 ___ -- -____ ~ ___________ - 638 
+Definition 4.1: Let the discrete function kij defined on the integers i, j, 0 5 i, j 5 N, satisfy kij = 0 for 
+j 2 i. The discrete iternted kernel8 k($, n. = 1, 2, ... , of the discrete Volterra kernel kij are defined to he 
+i-I .. 
+/$y = k... ];(??) = 11 kjp-l), 7) 2 3 
+l=ji-l 
+(Here and elsewhere it is assumed that 
+2 2.) 
+rf 'I' 1) 
+D, = 0 and n B, = 1 if 0 is the empty set; thus kj?, = 0 is assumed for 
+jsL3 j€fl 
+-I 
+A discrete version of theorem 2.1 is now presented. i-1 
+Theorem 4.1 : Let k,, be n disrretr Voltcrrci kernel nnd for enrh 1: E Qh let h 
+Then fm each 11 E J nwl yh E C(Q'') the discrete opercitor cpntion 
+k,, be holcnnled indrpmdrntly oJ h. 
+j=O 
+Swppw that for some p E 9 the pth discrete itcwtd kerd k$) is bmritdcd in i, j, independently of Ii. 
+!IA = th + Kh!!/' , (4.1) 
+11 
+tohew ( Kh!jA)), = h 2' kVyj. i E QA, Ittis ri iiniqiie solirtion !Ih c C(0") fjt*rn h?j 
+J-0 
+m - 
+= c (y")" , 
+fl=l 
+whrre the seqwiice { (yh)"}r71 is defined by (yh)l = yh; (y'))" = Kh(y")"- , n 2 2. 
+Furthermore, there exi.sts (1 constant C, independent of yh nnd h, swh thnt 
+(4.2) 
+(4.3) 
+ll?Alm s CIlyhIIcc * (4.4) 
+The scrim at, (4.2) is the nnnlopue of the resolvent series while that, at (4.3) is the analogue of t,he Neumann 
+Proof: By repented s~ihst~ili~t~inns for yh in the right hand side of (4.1) it iH straightfnrward t.o show thnt, 
+series. 
+yh = @h + khyh 
+I' - I i-1 
+where $" = C (KA)"$' E C(Qh) nnd (k''yL)i = h z kyj)yj, i E Qh. For n 2 1 
+n=n j-0 
+where ~Ikh('')/~m := max lk$)[ < 11.1, with A1 independent of h. This is trivially true for n = I ; assume inductively thnt it is true for 
+some n 2 1. i,j 
+It cnn be demonstrated that for any integers p, q 
+and thus 
+which completes the induction. 
+i-1 
+.;=o 
+Since ((k*)" y*)i = A z kp)yj, i E Rh, it follows thnt ' 
+1 
+Rounding t.he summation hy the integral f (i - s)"-' ds nnd using ih 5 Nh 5 T then givw 
+0 
+T" II(i*)"II = II(K*)"/qI 5 llk*(qlk 
+yh = ; (ih)" ip . 
+Therefore for r sufficiently large II(kh)'ll < 1 nnd applying lemma 2.1 with X = C(f2") yields 
+n =o 
+Substituting for kh, yields the discreta resolvent Rolntion 
+W 
+yh = z (K')" yh . 
+n=u 
+(4.5) 
+PAGE 5
+DIXON, J. ; MCREE, 8. : Weakly Singular Discrete Qronwall Inequalities 
+- 539 
+The equivalent discrete Neurnann series (4.3) can be derived by using induction to prove t,hat for n 2 1 
+(v')' = (Kh)n-l y" 
+To obtnin (4.4), taking norms at (4.5) 
+jr- 1 
+It = n 
+IlPIlm 5 Z Il~LII" ll~Jhll~ 9 
+i-1 
+j=o 
+nnd J(K"(1 in lmtnded independently of k, since h z kij is bounded independently of h for each i E Oh. The requiredresultfollows. 
+Obmv* tlint. (1.1) is mcrcly n strictly lower trinngiilnr system of equations so that (4.2) is eqiiivrtlent to the 
+= 2 (Kh),' yh (4.2') 
+finite slim 
+'V 
+n-n 
+and (4.3) is cqiiivalfwt to 
+N+l 
+n-1 
+= c (y")" (4.3') 
+since (Kh))"+' = 0. This apparently suggests that the above analysis, which showed that under the hypothesis of 
+the theorem 2 (Kh)n and 2 (yh))" converged, was unneceasary. However discrete Gronwall inequalities are to be 
+derived to be employed in convergence analysis for numerical schemes; the parameter h will then represent the 
+steplerigth and to prove convergence it will be necessary to let h + 0 while N + 00 with Nh fixed. It will therefore 
+he more useful when considering convergence to use (4.2) and (4.3) in place of (4.2') and (4.3'), respectively; the 
+nsaiimptions h kij 5 M and ~~k'~(~t)~~OO 5 M', with M, &I' independent of h, will then ensiire that the constant C 
+in (4.4) is independent of h and N. 
+00 m 
+n-0 n -1 
+i- 1 
+J '1 
+5. A generalized discrete Gronwall inequality 
+The following lemma and theorem are analogous to lemma 2.2 and theorem 2.3. 
+Lemma 5.1 : Let the discrete J'olterra kernel ki, satisfy 
+(DI) k;j b non-negative ; 
+(DTI) 
+r1 
+h C kij is bminded independently of h for each i E Oh; 
+j=O 
+there exists p E h' mcch that the pth discrete iterated kernel k$) is bounded in i, j, independently 
+of h. 
+(DI11) 
+Define Fh E L(C(OA)) by 
+Fh?jA = y" - KhIJ" (5.1) 
+1-1 
+where (Khyh)( = h 2 kl,yj, i E Oh. Then Fhgh 2 0 implies ?/" 2 0. 
+8ati.qfieR the discrete integral ineqicnlity 
+j=o 
+Theorem 5.1 : Let the discrete Volterm kernel kiJ satisfy IIJ-DTTI. For h E J and any yh E C(O"), if xh E C(Gh) 
+d' 5 yh + Khxh, (5.2) 
+a-1 
+where (K'x'), = h 2 k,xj, i E Oh, then 
+j=n 
+2" 5 ?? (5.3) 
+2/" = yh + Khyh. (5.4) 
+llz"ll00 5 CIIyhllOO * (5.5) 
+where fl is the unique C(Gh) sollition of the discrete integral equntimz 
+Furthermore, if r" 2 0 and yh 2 0, there exists C, independent of yh and h, such that 
+The importance of C being independent of h is that when the above result is employed to prove convergence of 
+some discrete algorithm the bound (5.6) will imply the order of convergence depends only upon the order of the 
+consistency error yh. 
+PAGE 6
+640 ZAhlhl . %. angrw. Math. Mcch. 66 (1980) 11 
+6. A discrete Ahel's singularity 
+.. ~ __- ..- 
+In this section the results of section 5 are used to derive a particular discrete Gronwall inequality which may be 
+employed to prove convergence of product integration methode for ~olving Volterra integral equatione with weakly 
+singular kernels. 
+Lrmmrt 6.1: LetO<ar < 1, y< 1,/? 2 1. Then for0 5 j 5 i - 1 
+initere n(u, h) is the Bdn function dpfincd for Re (n) > 0, Re (h) 0 h!y 
+1 
+Proof: 'i'hr summnticin iH rompnrrd with tho integral 
+trented as nn area under a curvr. Let, 
+If 0 < n < 1, y 5 0 and /3 2 1, f is the prodiict of three nondecreaeing functions, RO that 
+i -1 kp-1 i-1 k+1 +l 
+~ -< J ---- . ~- .& 
+/,--j+i (rfi - LJ)- (kp -jp)7' k:j+l k (ip - $))" (2 -jS)v 
+and t'hc required bound follows by evaluating the integral ueing the change of variuble ap = jp -1 (ip - jp) w. 
+Snppose 0 < a < 1, y > 0 nnd p 2 1. The dcrivat,ive off vaniehes when 
+s')@(1 - /I - ap -1. lip) -1- 
+This is a quadratic in -9'. Since f is positively infinite at s = j and s = i the quadratic must have at least one real root in (j, i) and 
+consequently both roots must be real. 
+This implies thatf'(s) vanishes at at most four real points, of which at most two can lie in the interval (j, i). It follows that 
+t.here exists only one turning point in (j, i) and that t,his point is a minimum. Let the minimum occur at a = a* E (j, i) and let 1 be 
+the largest integer such that 1 5 s*. Splitting the summation over k = j + 1 to k = i - 1 into two summations 
+- jP) (p - 1) -- mpjP - yfijp) - iPj"(fi - I) = o . 
+I kp-1 i-1 kb-1 z- + c .. 
+k=j+l (is - ap))" (kp -jfi)l' k =I+1 (ip - p))" (kp - jp)? 
+and interpreting the first sum as the forward rectangular rule and the second ns t.hr backward rect,angolar rule, it may he men that 
+(see fig. 1 whcre t,ho dinding repre.sents tlic clummnth). 
+I\ I 
+,T 
+1 heorem 6.1 : Let xt, 0 5 i 5 N, he n sequence of nun-nepttine real numhers satisfyiy 
+w?&ere 0 < OL < 1, M > 0 is bounded independedg of h, and yi, 0 5 i 5 N, is n monotonic increasing sequence of 
+non-negative real numbers. Then 
+ri 5 ~,lC1-~(Ml'(l - a) (ih)*-)"), 0 5 i 5 N . (6.2) 
+PAGE 7
+541 _______ ._~ ~ . ._ __ -. DIXON, J. ; MeKisis, S. : Weakly Singular Discrete Gronwall luequalities ~. .. -. 
+i-l 
+j=o 
+where Nh 5 1'. Therefore h kij is bouiided iiidepeiidently of h for each 4, 0 5 i N. 
+Let Q E N be chosen so that e* 5 a I ~ . It can be shown by induction wing lemma 6.1 with /l = 1 that the discrete e -e+l 
+iterated kernels of kjj where k.. = M(h(i -j))-a satisfy tl 
+where dl' ie a positive constant bounded independently of Is. Thus DI-DIII are satisfied with p = e $- 1, and invoking theorem 8.1 
+wlicrc 
+~isyi, OsisN, 
+Prom tlicorem 4.1 
+m 
+11 - 1 
+yi =i z ((v")")i, 0 5 i 5 N , 
+auid usiiig induction it is atruightforward to demonetrate that for all 91 2 1 
+Helice 
+xi 5 ~&'l-u(dfI'(l -a) (ih)'.-&), 0 2 i 5 N. 
+Notc t1lBt 
+IlE'qlw 5 ClIW"JJU, 
+whew C -- PI. ,(ilrl'(I - a) Y" .") is Louitdud iiidepiidciitIy of /G. 
+MuKm 1221 has alvo considered inequalities of the forin (6.1). The Hame inequality lies bee11 coilsidered liere 
+not olily because it shall be employed to prove coiivergeiiee of product integration methods but also because it 
+provides a useful example of the more general discrete Gronwall inequality derived in section 5. Moreover the bound 
+(6.2) is both sharper arid more elegant than that derived by MCKEE. 
+Exam plc G.1: Consider the wuakly singular integro-differentia1 equation discussed ili ecction 3, iiunicly 
+1 
+y'(1) - y(t) -k J(t, y(L)) -1 c J(t")a -- __- dY, 0 t 1', (6.3) 
+0 
+whereOsa< 1. 
+An Euler-type method combined with the simpleet product integration method yields the following approximating equation 
+&yh) = 0, yh: C(@) 4 C(J2") 
+wliorc 
+Summing the equation 
+i -1 
+j=O 
+Yi - li-1 = hY(l,) -1- Ilj(ti, Yi) -1- ch z qj(yj+l - Yj) 
+over i = I tu 1 and interchanging the order of summatiou 
+which is the discrete analogue of equation (3.2). 
+The true solution y(tt) satbfies the perturbed equation 
+h 
+(6.4) 
+PAGE 8
+- -- - -~~ - - - __ __ ._ XAMM. Z. nngew. Math. Mecli. (iG (1986) 11 - 542 
+That is 
+In general the solution y(t) of (8.3) will have a discontinuous second derivative at thc origin, but will possess continuous 
+dcrivutives away from the origin (see BRUNNER [5]). It can then be shown that 
+for some Y independent of h. Details may be found in SWTT [26]. 
+lTil 5 Mh'-' + O(h) 
+Letting xi = ly(tf) - ytI it follows, assuming the starting value is accurate of order 1, that 
+for somc C, M independent of h. 
+It is straightforward to show tliut for 1 sj 5 i 
+(h(i - j))-u 
+(1 -a) 
+0 < Wij- 5 - ~- , (0-a = 1). 
+Tliercforc 
+CAA A 
+wlicrc C' = (:/(I - h), AI' = M/(I - LI~), Ai' = M/(L - LIL) are i.mrndcd indcpcnctciitly A. 
+liivokiiig tlicorein ti. I wiLh yi = C'h -1 N'h' 
+xi 5 (C'h 4- M'hPu) E,_a(h'l'(l ~ .x) 1; ") , IJ 5 - i 5 N . 
+'rl~is proves convergence of order at lcast I - a. 
+If y E U2[0, T] then ITil 5 Cih, I 5 i 5 A'. and the luctllod is the11 convergent of order at lcast 1. 
+Exaniplc ti.2: As u. further cxamplc to illustrutc un applicution of theorem 6.1 consider the secoiid kind Volterra iiit.cgral 
+equation 
+I 
+(6.5) 
+It van again be sliown that for Runit: ill, indepciidcnt of L, 
+(J :< wij '=: Af (h(i - j))-' , 0 5 J 5: i 5 N , 
+where 3 1. 
+Tlic true solution y satislies the perturlrd equation 
+That is, 
+Provided Q(t, s, y) is (uniformly) Lipschitz continuoua in y 
+lTtl 5 Cih' + O(h8+l) 
+PAGE 9
+543 
+~ 
+DULON, J. ; MCKEE, S.: Weakly Singular Discrete Gronwall Inequalities ___ -___ 
+where 
+if y has discontinuous derivatives at the origin 
+is smooth on [O, TI . 
+Therefore, zi = I&,) - yj( satisfies 
+and for h sufficiently small 
+where L', 6'' are independent of h. 
+Convcrgence of order 9 followli on applying theorem 6.1. 
+The above convergence analysis of the discretization method (6.5) is more straightforward than that given 
+by KE~slrAw [ 181. Furthermore, it is clear that the analysis may be extended to general product integration methods. 
+7. Furthor generalization of Gronwall's inequality 
+(:eiieralizations of theorems 3.1 and 6.1 arc given for Volterra integral equations with a11 Abel's type singularity 
+of the form 
+t 
+wlicre 0 < n < 1, @ 2 1 atid C(/, s, y) satisfies tlic Lipacliitz coiiditioii 
+IW, 8, yd - w, 8, y,)l d wy, - y,l 
+for 80111~: iioii-iicgativc cotivtaiitv L, a with a 2 /l - 1. 
+where IX = f, /I = + and a = 1. 
+11 practical exit~nph of equation (8.1) with /j # 1 ia give11 hy ~lIUllTIIILL [19] and by (k4MUHh Wid ACR~VVH [7] 
+Theoren1 7.1: Let iiic functioa x be cwitiimous uiid ?ton-negutive ON [0, 2'1. If 
+1 
+(7.2) 
+wlicrc 0 < R: < 1, 1 5 @ 5 a + 1, a 2 0, M is a positive cwietunt und y(t) is u cvntiwous, nmt-ucyutive nionotonic 
+iiicreusiiiy furtclioii 071 [0, TI, thcri 
+In the speciul cuse a + 1 - /I = 0 (7.3) red.zices to 
+Theorem 7.2: Let xi, 0 5 i 5 N, be u sequmce of nw-?ieyutiue recll numbers. If 
+(7.3) 
+(7.5) 
+(7.ti) 
+where 0 < n < 1, 1 5 /j 5 a + 1, a 2 0, M is u positive constunt, und Vi, 0 
+seguerice of ~ioii-neyutive reul numbers, then 
+i 4 N, is a monotonic increusirtg 
+When a + 1 - = 0, 
+O$isN. 
+The proofs of theorems 7.1 and 7.2 employ similar arguments to thoee already presented and 80 are omitted 
+(SCOTT [26]). 
+PAGE 10
+1 hLLRl AN, It., 8t;ibility ‘I’heory in Ordiilnry 1hffcreiit.iiiI h~yual~ioiis, I\.lcGriiw-Hill 1953. 
+2 UEICYACK, 1’. It., Coiiiprisou tlieorema and intugrul incyiidities for Voltcrrn irit.cgr;ll ccl~ial.iulls, .Pruc. Amer. Blath. Soc. 20 
+3 BEESACK, 1’. It., Uronwall Inequalities, Curleton Math. Lecture Notes No. 11, May 1975. 
+4 BEESACK, P. H., More generalized discrete Gronwall inequalities. ZAMM 86 (1985) 12, 589-595. 
+5 BRUNNER, H., The approximate solution of Volterra equations with nonsmooth solutions, SIAM J. Numer. Anal., to appear. 
+6 CAMERON, R. F.; MCKEE, S., Product integration methods for second-kind Abel equations, J. Comp. Appl. Math. 11 (1984), 
+7 CHAMBIIE, P. L.; Acxivos, A., On chcmical surface reactions in laminar boundary layer flows, J. Appl. Phys. 37 (1956), 1322 
+8 CHU, S. C.; METCALF, F. T., On Gronwall’s inequality, Pror. Amer. Math. Soc. 18 (1967), 439-440. 
+9 Drxo~, J. A. ; MCKEE. S., A unified approach t,o convergence analysis of disc!ret,iziit.ion met,liods for Volterra type ecluatioiis, 1MA 
+(1969), 61 -66. 
+1-10. 
+to 1328. 
+J. Numer. Anal. 6 (1985), 41-57 
+10 P~IJ~LYI, A. (ed.), Higher Trunsccndential Functions. Yol. 111, McChw-Hill 1956. 
+11 FRIEDMAN, A., On integral equations of Volterra type. J. Anulyse Math. JI (1973), 481 -415. 
+12 GRONWALL, T. H., Note on t,he derivatives with respect to a parameter of the solutions of a system of ordinary differential equa- 
+13 HENBICI, P., Discrete Variable Methods in Ordinury Diiierrntial Equation#, John Wiley 1962. 
+14 HILLE, E., Lectures on Ordinary Different,ial Equations, Reading, Mass. 1969. 
+19 HILLE, E., Methods in Classical and Functional Analysis, Reading, Moss. 1972. 
+I6 HOCHYTADT, H., Integral Equations, Wiley - Interscience 1972. 
+17 HOLYHEAD, P. A. W.; MCKEE, s.; TAYLOR, P. J., Multistep methods for solving liiiear Voltcrru iiitcgral cqiuttions of the first, 
+18 KERSHAW, I)., Some results for Abel-Volterra intcgrul eyuatione of t,hc second kind. 111: UAKEI~, C. T. H.; MILL”, G. b’. (eds.): 
+19 LIQHTHILL, M. J., Contributions to the theory of heat t.ransfer through a laminar boundary layer, Proc. Roy. Soc. Ifindon, Her. A 
+20 IJNZ, P., Numerical methods for Volterra int.egral equations of thc first kind, Coinpiit. J. 12 (19tiY), 3’93-397. 
+21 McKxu, S., The analysis of u variablc step, variable coefficient linear multistep method for solviiig a singular integro-differential 
+22 MCKEE, S., Gonera.lised discrete Gronwall lemmas, ZAMM 62 (1D82), 429-434. 
+23 PACHPATTE, B., On the discrete generalizat.ion of Gronwall’s inequality, J. Indian Math. Soc. 37 (1973), 147- 1.56. 
+24 YOPENIJA, J.; WERHOWSKI, J., On the discrete analogue of Gronwall’s lemma, Faseiculi Matliematici 11 (1Y71)), 143-154. 
+25 RIELE, H. J. J. TI., Collocation nictliods for wcukly tlingiilar secoiid-kind Voltcrra integral equations with iion-smooth solution 
+26 Smm, J. A. (n6c DLXON), A Unified Analysis of Diacretizatioii Melliodu. 1). l’liil. thesis, lliiiversity of Oxford 1984. 
+27 TIIICOMI, F. G., lntcgral Equations, Wilcy-Int’crscicncc 1957. 
+28 J’USIII~JA, K,, l~~*turcs 011 Diffcrcnt ial and Integral Eyuations, Wilcy - liitersciencc 19tiO. 
+2!) \VAi;rm, W., Diflerciil.ial iiiitl I nl(*griil Inccliiulitic~s, S11riiigcr-Vcrliig, ~(.rliii-Hcidclbcrbr-Nc.w York 1970. 
+ltcccivotl AiigiisL 2, IW4, ill i.ovixcd foriii I~IJ~II:L~Y 25, 1986 
+;Iddrcna: 1)r. J ENNIYKII DIWN. NaLioid ltadiological Protectioii Board, Chiltoii, Uidcot, OXON, England; 
+tions, Ann. of Math., Ser. 2, 20 (1919), 292-296. 
+kind, SIAM J. Numer. Anal. 15 (1975). 698-711. 
+Treatment of Integral EquatioiLs by Numerical Methods, Acudcmic Press 1982. 
+905 (1950), 359-377. 
+equation arising from the diffusion of discrete particles in a turbulent fluid, J. Inst. Math. Applics. 28 (1079), 373-388. 
+IMA J. Nu1nc.r. And f (198!), 137-449. 
+Professor SEAN MuK EY, 1)cpartmeiit of Matlicmatics, Univeraity of Strath clydc, Glasgow, Scotlitiid 

@@ -1,0 +1,1 @@
+PASS: 24 panels, 96 independent polynomial integrals; 120/180-digit stabilization <1e-45 relative for nonzero values; exact-zero integrals <1e-100 times panel mass.

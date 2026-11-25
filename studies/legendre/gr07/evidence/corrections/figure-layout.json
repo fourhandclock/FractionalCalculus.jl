@@ -1,0 +1,7 @@
+{
+  "initial_review": "Initial singular plot legend crossed the curves; N-axis showed only one power-of-ten tick.",
+  "correction": "Move legend below axes and label the actual N/M sample coordinates; runtime min/max bars retained.",
+  "scientific_input_changed": false,
+  "initial_raw_outputs": "retained in ignored .checkpoint-tools/runs/figures-01/figures; exact initial source snapshot retained in evidence/runs",
+  "final_run": "figures-02"
+}

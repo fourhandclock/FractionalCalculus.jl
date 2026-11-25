@@ -1,0 +1,25 @@
+{
+  "arithmetic": "fractions.Fraction, exact",
+  "seed": 20261126,
+  "counts": {
+    "words": 1134,
+    "ordered_vectors": 18,
+    "simplex_bounds": 4914,
+    "resolvents": 9
+  },
+  "witnesses": {
+    "noncommuting_originals": true,
+    "no_entrywise_domination": true,
+    "monotonicity_is_essential": {
+      "Bv": [
+        "0",
+        "2"
+      ],
+      "Dv": [
+        "1",
+        "1"
+      ]
+    }
+  },
+  "result": "all required finite comparisons passed"
+}

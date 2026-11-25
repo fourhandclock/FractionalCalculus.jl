@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+<rect width="100%" height="100%" fill="white"/>
+<text x="320.0" y="23" text-anchor="middle" font-family="sans-serif" font-size="15">α=0.75, β=0.5, singular; M=14</text>
+<path d="M82.0,43 V345" stroke="#dddddd"/>
+<text x="82.0" y="364" text-anchor="middle" font-size="11">32</text>
+<path d="M261.33333333333326,43 V345" stroke="#dddddd"/>
+<text x="261.33333333333326" y="364" text-anchor="middle" font-size="11">64</text>
+<path d="M440.66666666666663,43 V345" stroke="#dddddd"/>
+<text x="440.66666666666663" y="364" text-anchor="middle" font-size="11">128</text>
+<path d="M620.0,43 V345" stroke="#dddddd"/>
+<text x="620.0" y="364" text-anchor="middle" font-size="11">256</text>
+<path d="M82,303.08753310282145 H620" stroke="#dddddd"/>
+<text x="73" y="307.08753310282145" text-anchor="end" font-size="11">10^-5</text>
+<path d="M82,229.02514815786634 H620" stroke="#dddddd"/>
+<text x="73" y="233.02514815786634" text-anchor="end" font-size="11">10^-4</text>
+<path d="M82,154.96276321291128 H620" stroke="#dddddd"/>
+<text x="73" y="158.96276321291128" text-anchor="end" font-size="11">10^-3</text>
+<path d="M82,80.90037826795623 H620" stroke="#dddddd"/>
+<text x="73" y="84.90037826795623" text-anchor="end" font-size="11">10^-2</text>
+<path d="M82,43 V345 H620" fill="none" stroke="black"/>
+<text x="351.0" y="465" text-anchor="middle" font-size="13">N (log scale)</text>
+<text transform="translate(18 194.0) rotate(-90)" text-anchor="middle" font-size="13">max continuous H1 error (log scale)</text>
+<polyline points="82.0000,59.4449 261.3333,73.9417 440.6667,89.3363 620.0000,104.8505" fill="none" stroke="#0072b2" stroke-width="1.8" stroke-dasharray=""/>
+<circle cx="82.0" cy="59.44488428591927" r="2.7" fill="#0072b2"/>
+<circle cx="261.33333333333326" cy="73.94167854055519" r="2.7" fill="#0072b2"/>
+<circle cx="440.66666666666663" cy="89.3363195860654" r="2.7" fill="#0072b2"/>
+<circle cx="620.0" cy="104.85046752759422" r="2.7" fill="#0072b2"/>
+<path d="M91.0,390 h20" stroke="#0072b2" stroke-width="2" stroke-dasharray=""/>
+<text x="117.0" y="394" font-size="10" font-family="sans-serif">L1-printed</text>
+<polyline points="82.0000,59.4449 261.3333,73.9417 440.6667,89.3363 620.0000,105.2696" fill="none" stroke="#d55e00" stroke-width="1.8" stroke-dasharray=""/>
+<circle cx="82.0" cy="59.44488428591927" r="2.7" fill="#d55e00"/>
+<circle cx="261.33333333333326" cy="73.94167854055519" r="2.7" fill="#d55e00"/>
+<circle cx="440.66666666666663" cy="89.3363195860654" r="2.7" fill="#d55e00"/>
+<circle cx="620.0" cy="105.26959842919649" r="2.7" fill="#d55e00"/>
+<path d="M360.0,390 h20" stroke="#d55e00" stroke-width="2" stroke-dasharray=""/>
+<text x="386.0" y="394" font-size="10" font-family="sans-serif">L12-printed</text>
+<polyline points="82.0000,59.1786 261.3333,73.8318 440.6667,89.2906 620.0000,105.2505" fill="none" stroke="#009e73" stroke-width="1.8" stroke-dasharray=""/>
+<circle cx="82.0" cy="59.178571428571445" r="2.7" fill="#009e73"/>
+<circle cx="261.33333333333326" cy="73.83181175992507" r="2.7" fill="#009e73"/>
+<circle cx="440.66666666666663" cy="89.29061919052631" r="2.7" fill="#009e73"/>
+<circle cx="620.0" cy="105.25050066055425" r="2.7" fill="#009e73"/>
+<path d="M91.0,406 h20" stroke="#009e73" stroke-width="2" stroke-dasharray=""/>
+<text x="117.0" y="410" font-size="10" font-family="sans-serif">L12-PI-L</text>
+<polyline points="82.0000,97.8651 261.3333,109.1248 440.6667,122.8376 620.0000,137.8437" fill="none" stroke="#cc79a7" stroke-width="1.8" stroke-dasharray=""/>
+<circle cx="82.0" cy="97.86509881254617" r="2.7" fill="#cc79a7"/>
+<circle cx="261.33333333333326" cy="109.12483723301906" r="2.7" fill="#cc79a7"/>
+<circle cx="440.66666666666663" cy="122.83763425361767" r="2.7" fill="#cc79a7"/>
+<circle cx="620.0" cy="137.84368601469" r="2.7" fill="#cc79a7"/>
+<path d="M360.0,406 h20" stroke="#cc79a7" stroke-width="2" stroke-dasharray=""/>
+<text x="386.0" y="410" font-size="10" font-family="sans-serif">Alikhanov-PI-L</text>
+<polyline points="82.0000,201.7786 261.3333,242.4631 440.6667,285.0959 620.0000,328.8214" fill="none" stroke="#cc79a7" stroke-width="1.8" stroke-dasharray="6,3"/>
+<circle cx="82.0" cy="201.77861098679352" r="2.7" fill="#cc79a7"/>
+<circle cx="261.33333333333326" cy="242.46308024524842" r="2.7" fill="#cc79a7"/>
+<circle cx="440.66666666666663" cy="285.09587540079633" r="2.7" fill="#cc79a7"/>
+<circle cx="620.0" cy="328.82142857142856" r="2.7" fill="#cc79a7"/>
+<path d="M91.0,422 h20" stroke="#cc79a7" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="117.0" y="426" font-size="10" font-family="sans-serif">Alikhanov-PI-L graded</text>
+<polyline points="82.0000,97.8651 261.3333,109.1248 440.6667,122.8376 620.0000,137.8437" fill="none" stroke="#e69f00" stroke-width="1.8" stroke-dasharray=""/>
+<circle cx="82.0" cy="97.86509881254617" r="2.7" fill="#e69f00"/>
+<circle cx="261.33333333333326" cy="109.12483723301906" r="2.7" fill="#e69f00"/>
+<circle cx="440.66666666666663" cy="122.83763425361767" r="2.7" fill="#e69f00"/>
+<circle cx="620.0" cy="137.84368601469" r="2.7" fill="#e69f00"/>
+<path d="M360.0,422 h20" stroke="#e69f00" stroke-width="2" stroke-dasharray=""/>
+<text x="386.0" y="426" font-size="10" font-family="sans-serif">Alikhanov-PI-Q</text>
+<polyline points="82.0000,201.7293 261.3333,242.4515 440.6667,285.0926 620.0000,328.8209" fill="none" stroke="#e69f00" stroke-width="1.8" stroke-dasharray="6,3"/>
+<circle cx="82.0" cy="201.72934815926047" r="2.7" fill="#e69f00"/>
+<circle cx="261.33333333333326" cy="242.451464325816" r="2.7" fill="#e69f00"/>
+<circle cx="440.66666666666663" cy="285.092614885915" r="2.7" fill="#e69f00"/>
+<circle cx="620.0" cy="328.8208643958959" r="2.7" fill="#e69f00"/>
+<path d="M91.0,438 h20" stroke="#e69f00" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="117.0" y="442" font-size="10" font-family="sans-serif">Alikhanov-PI-Q graded</text>
+</svg>

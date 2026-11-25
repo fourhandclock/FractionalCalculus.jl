@@ -4,6 +4,10 @@ This study reproduces and independently audits Sabawi et al. (2025), *H¹ stabil
 
 The problems combine diffusion with a fractional Caputo time derivative and a Volterra integral over the preceding solution history. The examples include smooth and weakly singular memory kernels. The implementation supports homogeneous Dirichlet conditions on `(-1,1)` and `(-1,1)²`, using L1/L1-2 time discretization and Legendre–Gauss–Lobatto (GLL) spatial quadrature. Examples 6.1–6.4 cover spatial regularity, singular memory, an initial time layer, and a tensor-product 2D problem.
 
+## Post-reproduction analysis and research methods
+
+Start with [AUD-02 revision 01](../../research/legendre/aud02/revision-01/README.md) for the closed GR-01–07 programme: six revised manuscripts, the separate [Alikhanov–PI-L/PI-Q module](gr07/revision-01/README.md), 54 finite Lean certificates and reproducible evidence. These shifted methods are research alternatives; they do not replace the production reproduction or establish full agreement with Sabawi’s tables. The AUD-01 summary below retains its original scope.
+
 ## Reproduction and verification status
 
 The current AUD-01 checkpoint has verdict **ACCEPT WITH LIMITATIONS**, an accepted 37-page manuscript, and **42 named Lean certificates / 41 nonduplicate identity groups**. The [clean-tree validation report](../../research/legendre/verification/results/checkpoint-aud01/VALIDATION.md) records actual Julia, Python, Lean and LaTeX executions. The earlier [ST-04 record](../../research/legendre/verification/results/VALIDATION.md) remains historical evidence.
@@ -24,7 +28,7 @@ The mathematical audit distinguishes **confirmed coefficient and Volterra-order 
 | Library tests and mathematical regressions | [study test runner](test/runtests.jl), [proof_audit.jl](test/proof_audit.jl) |
 | Figures and their parameters/data | [figures/](figures/), [export_figures.jl](export_figures.jl), [plot_results.py](plot_results.py) |
 
-L1-2 follows the interpolation definition where the printed recurrence disagrees; its first step is L1. Singular memory retains the paper's printed quadrature. The numerical error definitions and graded-grid reconstruction choices are documented in the [implementation audit](../../research/legendre/verification/ST04_PROVENANCE.md#implementation-inspected-before-release). Product integration appears only in the independent ST-04 control experiment.
+L1-2 follows the interpolation definition where the printed recurrence disagrees; its first step is L1. Singular memory retains the paper's printed quadrature. The numerical error definitions and graded-grid reconstruction choices are documented in the [implementation audit](../../research/legendre/verification/ST04_PROVENANCE.md#implementation-inspected-before-release). Product integration is separate from this production reproduction: it appears in the independent ST-04 control and the explicitly separate GR-07 research methods.
 
 ## Reproduce or investigate
 

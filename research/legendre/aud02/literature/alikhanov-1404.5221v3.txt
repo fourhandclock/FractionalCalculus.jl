@@ -1,0 +1,1076 @@
+PAGE 1
+arXiv:1404.5221v3  [math.NA]  2 Aug 2014
+A new diﬀerence scheme for the time fractional diﬀusion
+equation
+Anatoly A. Alikhanov
+Kabardino-Balkarian State University, ul. Chernyshevsko go 173, Nalchik, 360004, Russia
+Abstract
+In this paper we construct a new diﬀerence analog of the Caputo fr actional
+derivative (called the L2-1σ formula). The basic properties of this diﬀerence
+operator are investigated and on its basis some diﬀerence schemes generating
+approximations of the second and fourth order in space and the se cond order
+in time for the time fractional diﬀusion equation with variable coeﬃcien ts are
+considered. Stability of the suggested schemes and also their conv ergence in
+the gridL2 - norm with the rate equal to the order of the approximation error
+are proved. The obtained results are supported by the numerical calculations
+carried out for some test problems.
+Keywords: fractional diﬀusion equation, ﬁnite diﬀerence method, stability,
+convergence
+1. Introduction
+Recently a noticeable growth of the attention of researches to th e frac-
+tional diﬀerential equations has been observed. It is caused by nu merous
+eﬀective applications of fractional calculation to various areas of s cience and
+engineering [1, 2, 3, 4, 5, 6]. For example, mathematical language of frac-
+tional derivatives is irreplaceable for the description of the physica l process
+of statistical transfer and, as it is known, leads to diﬀusion equatio ns of
+fractional orders [7, 8].
+Consider the time fractional diﬀusion equation with variable coeﬃcien ts
+∂α0tu(x,t ) = Lu(x,t ) +f (x,t ), 0<x<l, 0<t ≤T, (1)
+Email address: aaalikhanov@gmail.com ()
+Preprint submitted to Elsevier July 29, 2018
+PAGE 2
+u(0,t ) = 0, u (l,t ) = 0, 0 ≤t ≤T, u (x, 0) = u0(x), 0 ≤x ≤l, (2)
+where
+∂α0tu(x,t ) = 1Γ(1 −α)
+t∫
+0
+∂u(x,η )
+∂η (t −η)−αdη, 0<α< 1 (3)
+is the Caputo derivative of the order α,
+Lu(x,t ) = ∂∂x(k(x,t )∂u∂x) −q(x,t )u,
+k(x,t ) ≥c1 > 0, q(x,t ) ≥ 0 and f (x,t ) are suﬃciently smooth functions.
+The time fractional diﬀusion equation represents a linear integro - d iﬀer-
+ential equation. Its solution not always can be found analytically; th erefore
+it is necessary to use numerical methods. However, unlike the class ical case,
+we require information about all the previous time layers, when nume rically
+approximating a time fractional diﬀusion equation on a certain time lay er.
+For that reason algorithms for solving the time fractional diﬀusion e quations
+are rather time-consuming even in one - dimensional case. Upon tra nsition
+to two - dimensional and three - dimensional problems their complexit y con-
+siderably increases. In this regard constructing stable diﬀerentia l schemes of
+higher order approximation is a very important task.
+A widespread diﬀerence approximation of fractional derivative (3) is the
+so-called L1 method [2, 9] which is deﬁned as follows
+∂α0tj+1u(x,t ) = 1Γ(1 −α)
+j∑
+s=0
+u(x,t s+1) −u(x,t s)
+ts+1 −ts
+ts+1∫
+ts
+dη
+(tj+1 −η)α +rj+1, (4)
+where 0 = t0 < t1 < ... < tj+1, and rj+1 is the local truncation error. In
+the case of the uniform mesh, τ =ts+1 −ts, for all s = 0, 1,...,j + 1, it was
+proved that rj+1 = O(τ 2−α) [10, 11, 12]. The L1 method has been widely
+used for solving the fractional diﬀerential equations with Caputo d erivatives
+[10, 11, 12, 13, 14, 15, 16].
+Diﬀerence schemes of the increased order of approximation such a s the
+compact diﬀerence scheme [14, 17, 18, 19] and spectral method [11, 20, 21]
+were applied to improve the spatial accuracy of fractional diﬀusion equations.
+However, it is rather diﬃcult to get a high-order time approximation d ue to
+the singularity of fractional derivatives.
+2
+PAGE 3
+A good approximation of the L1 method is observed in case of a nonuni-
+form mesh, when it is reﬁned in a neighborhood of the point tj+1 [9]. Though
+the nonuniform mesh turns out to be more eﬀective in comparison wit h the
+uniform one, it will not generate the second order of approximation in all
+points of the mesh.
+In [22] a new diﬀerence analog of the Caputo fractional derivative w ith
+the order of approximation O(τ 3−α), called L1 − 2 formula, is constructed.
+On the basis of this formula calculations of diﬀerence schemes for th e time-
+fractional sub-diﬀusion equations in bounded and unbounded spat ial domains
+and the fractional ODEs are carried out. If the stability and conve rgence of
+diﬀerence schemes from [22] will be strictly proved, then this will und oubtedly
+be a signiﬁcant progress in computing the time-fractional partial d iﬀerential
+equations.
+Using the energy inequality method, a priori estimates for the solut ion
+of the Dirichlet and Robin boundary value problems for the diﬀusion-w ave
+equation with Caputo fractional derivative have been obtained in [15 , 23].
+In this paper a new diﬀerence analog of the fractional Caputo deriv ative
+with the order of approximation O(τ 3−α) for each α ∈ (0, 1) is constructed.
+Properties of the obtained diﬀerence operator are studied. Diﬀer ence schemes
+of the second and fourth order of approximation in space and the s econd or-
+der in time for the time fractional diﬀusion equation with variable coeﬃ cients
+are constructed. Using the method of energy inequalities, the sta bility and
+convergence of these schemes in the mesh L2 - norm are proved. Numeri-
+cal calculations of some test problems conﬁrming reliability of the obt ained
+results are carried out.
+2. Family of diﬀerence schemes. Stability and convergence
+In this section, families of diﬀerence schemes in a general form set o n
+a non-uniform time mesh are investigated. A criterion of the stability of
+the diﬀerence schemes in the mesh L2 - norm is obtained. The convergence
+of solutions of the diﬀerence schemes to the solution of the corres ponding
+diﬀerential problem with the rate equal to the order of the approx imation
+error is proved.
+2.1. Family of diﬀerence schemes
+In the rectangle QT = {(x,t ) : 0 ≤ x ≤ l, 0 ≤ t ≤ T } we introduce
+the mesh ωhτ = ωh ×ωτ , where ωh = {xi = ih, i= 0, 1,...,N ; hN = l},
+3
+PAGE 4
+ωτ = {tj : 0 = t0 <t 1 <t 2 <...<t M −1 <t M =T }.
+Basically the family of diﬀerence schemes, approximating problem (1) –(2)
+on the mesh ωhτ , has the form
+g∆α0tj+1yi = Λy(σj+1)i +ϕj+1i , i = 1, 2,...,N − 1, j = 0, 1,...,M − 1, (5)
+y(0,t ) = 0, y (l,t ) = 0, t ∈ωτ, y (x, 0) = u0(x), x ∈ωh, (6)
+where
+g∆α0tj+1yi =
+j∑
+s=0
+(
+ys+1i −ysi)gj+1s , g j+1s > 0, (7)
+is a diﬀerence analog of the Caputo derivative of the order α (0 < α <1),
+Λ is a diﬀerence operator approximating the continuous operator L, such
+that the operator −Λ preserves its positive deﬁniteness (( −Λy,y ) ≥ κ‖y‖2,
+κ> 0), for example
+(Λy)i = ((ay¯x)x −dy)i = ai+1yi+1 − (ai+1 +ai)yi +aiyi−1h2 −diyi, (8)
+a, d and ϕ are the mesh functions approximating k, q and f , respectively,
+y(σj+1) = σj+1yj+1 + (1 −σj+1)yj, 0 ≤ σj+1 ≤ 1, at j = 0, 1,...,M − 1,
+y¯x,i = (yi −yi−1)/h, yx,i = (yi+1 −yi)/h.
+2.2. Stability and convergence
+Lemma 1. If gj+1j >g j+1j−1 >...>g j+10 > 0, j = 0, 1,...,M − 1 then for
+any function v(t) deﬁned on the mesh ωτ one has the inequalities
+vj+1 (g∆α0tv) ≥ 12 g∆α0t(v2) + 12gj+1j (g∆α0tv)2, (9)
+vj g∆α0tv ≥ 12 g∆α0t(v2) − 12(gj+1j −gj+1j−1) (g∆α0tv)2, (10)
+where g1−1 = 0.
+Proof. Let us consider the diﬀerence
+vj+1g∆α0tv − 12 g∆α0t(v2)
+4
+PAGE 5
+=vj+1
+j∑
+s=0
+gj+1s (vs+1 −vs) −
+j∑
+s=0
+gj+1s (vs+1 −vs)
+(vs+1 +vs
+2
+)
+=
+j∑
+s=0
+gj+1s (vs+1 −vs)
+(
+vj+1 − vs+1 +vs
+2
+)
+=
+j∑
+s=0
+gj+1s (vs+1 −vs)
+(
+1
+2(vs+1 −vs) +
+j∑
+k=s+1
+(vk+1 −vk)
+)
+= 12
+j∑
+s=0
+gj+1s (vs+1 −vs)2 +
+j∑
+k=1
+(vk+1 −vk)
+k−1∑
+s=0
+gj+1s (vs+1 −vs). (11)
+Here we consider the sums to be equal to zero if the upper summatio n index
+is less than the lower one.
+Let us introduce the following notation: ∑ks=0gj+1s (vs+1 −vs) = wk+1,
+thenv1 −v0 =(gj+10 )−1w1,vk+1 −vk =(gj+1k )−1 (wk+1 −wk),k = 1, 2,...,j
+and rewrite the equality (11) as
+1
+2
+(
+gj+10 )−1 (w1)2 + 12 j∑k=1(gj+1k )−1 (wk+1 −wk)2 + j∑k=1(gj+1k )−1 (wk+1 −wk)wk
+= 12(gj+10 )−1 (w1)2 + 12 j∑k=1(gj+1k )−1((wk+1)2 − (wk)2)
+= 12(gj+1j )−1 (wj+1)2 + 12 j−1∑k=0 gj+1k+1 −gj+1kgj+1k+1gj+1k (wk+1)2 ≥ 12(gj+1j )−1 (wj+1)2,
+which is valid since gj+1k+1 −gj+1k > 0, k = 0, 1,...,j − 1.
+Let us prove now the inequality (10). Since vj =vj+1 − (vj+1 −vj), one
+obtains
+vj∆α0tv − 12 ∆α0t(v2) + 12(gj+1j −gj+1j−1)(∆α0tv)2
+=vj+1∆α0tv − 12 ∆α0t(v2) + 12(gj+1j −gj+1j−1) (∆α0tv)2 − (vj+1 −vj)∆α0tv
+= 12(gj+1j )−1 (wj+1)2 + 12 j−1∑k=0 gj+1k+1 −gj+1kgj+1k+1gj+1k (wk+1)2
+5
+PAGE 6
++ 1
+2
+(
+gj+1j −gj+1j−1) (wj+1)2 −(gj+1j )−1 (wj+1 −wj)wj+1
+= gj+1j−1
+2gj+1j (gj+1j −gj+1j−1)
+(
+wj+1 + gj+1j −gj+1j−1
+gj+1j−1 wj
+)2
++ 12
+j−2∑
+k=0
+gj+1k+1 −gj+1k
+gj+1k+1gj+1k (wk+1)2 ≥ 0.
+The proof of the Lemma 1 is completed.
+Corollary 1. If gj+1j >g j+1j−1 >...>g j+10 > 0 and gj+1j2gj+1j −gj+1j−1 ≤σj+1 ≤ 1,
+wherej = 0, 1,...,M − 1,g1−1 = 0, then for any function v(t) deﬁned on the
+mesh ωτ one has the inequality
+(σj+1vj+1 + (1 −σj+1)vj)g∆α0tv ≥ 12 g∆α0t(v2). (12)
+Theorem 1. If
+gj+1j >g j+1j−1 >...>g j+10 ≥c2 > 0, gj+1j
+2gj+1j −gj+1j−1 ≤σj+1 ≤ 1,
+where j = 0, 1,...,M − 1, g1−1 = 0, then the diﬀerence scheme (5)–(6) is
+unconditionally stable and its solution satisﬁes the following a priori es timate:
+‖yj+1‖20 ≤ ‖y0‖20 + 12κc2 max0≤j≤M ‖ϕj‖20, (13)
+where (y,v ) =∑N −1i=1 yivih, ‖y‖20 = (y,y ).
+Proof. Taking the inner product of the equation (5) with y(σj+1), we have
+(
+y(σj+1), g∆α0ty) −(y(σj+1), Λy(σj+1)) =(y(σj+1),ϕ j+1). (14)
+Using inequality (12) and the positive deﬁniteness of operator A = −Λ
+from identity (14) one obtains
+1
+2 g∆α0t‖y‖20 + κ‖y(σj+1)‖20 ≤ε‖y(σj+1)‖20 + 14ε ‖ϕj+1‖20, ε> 0. (15)
+From (15), at ε = κ we get
+g∆α0t‖y‖20 ≤ 12κ ‖ϕj+1‖20. (16)
+6
+PAGE 7
+Let us rewrite inequality (16) in the form
+gj+1j ‖yj+1‖20 ≤
+j∑
+s=1
+(
+gj+1s −gj+1s−1) ‖ys‖20 +gj+10 ‖y0‖20 + 12κ ‖ϕj+1‖20. (17)
+Noticing that gj+10 ≥c2 > 0, we get
+gj+1j ‖yj+1‖20 ≤
+j∑
+s=1
+(
+gj+1s −gj+1s−1) ‖ys‖20+gj+10
+(
+‖y0‖20 + 12κc2 ‖ϕj+1‖20
+)
+. (18)
+Denote
+E = ‖y0‖20 + 12κc2 max0≤j≤M ‖ϕj‖20.
+The inequality (18) is reduced to
+gj+1j ‖yj+1‖20 ≤
+j∑
+s=1
+(
+gj+1s −gj+1s−1) ‖ys‖20 +gj+10 E. (19)
+It is obvious that at j = 0 the a priori estimate (13) follows from (19). Let
+us prove that (13) holds for j = 1, 2,... by using the mathematical induction
+method. For this purpose, let us assume that the a priori estimate (13) takes
+place for all j = 0, 1,...,k − 1:
+‖yj+1‖20 ≤E, j = 0, 1,...,k − 1.
+From (19) at j =k one has
+gk+1k ‖yk+1‖20 ≤
+k∑
+s=1
+(
+gk+1s −gk+1s−1) ‖ys‖20 +gk+10 E
+≤
+k∑
+s=1
+(
+gk+1s −gk+1s−1)E +gk+10 E =gk+1k E. (20)
+The proof of Theorem 1 is completed.
+A priori estimate (13) implies the stability of diﬀerence scheme (5)–( 6).
+Theorem 2. If the conditions of Theorem 1 are satisﬁed and diﬀerence
+scheme (5)–(6) has the approximation order O(N −r1 +M −r2), wherer1 andr2
+7
+PAGE 8
+are some known positive numbers, then the solution of diﬀerence sc heme (5)–
+(6) converges to the solution of diﬀerential problem (1)–(2) in the meshL2 -
+norm with the rate equal to the order of the approximation error O(N −r1 +
+M −r2).
+Proof. Let us introduce the error z =y −u and substitute it into (5)–(6).
+Then we obtain the problem for the error
+g∆α0tzi = Λz(σj+1)i +ψj+1i , i = 1,...,N − 1, j = 0, 1,...,M − 1, (21)
+z(0,t ) = 0, z (l,t ) = 0, t ∈ωτ, z (x, 0) = 0, x ∈ωh, (22)
+where ψj+1i = Λu(σj+1)i − g∆α0tui +ϕj+1i , ψj+1i = O(N −r1 +M −r2).
+Since the conditions of Theorem 1 are fulﬁlled, then a priori estimate (13)
+holds true for the solution of problem (21)–(22) and, therefore, the following
+inequality takes place
+‖z‖0 ≤ 1√2κc2 max0≤j≤M ‖ψj‖0 = O(N −r1 +M −r2),
+which implies the convergence in the mesh L2 - norm with the rate O(N −r1 +
+M −r2).
+3. A new L2 − 1σ fractional numerical diﬀerentiation formula
+In this section a diﬀerence analog of the Caputo fractional derivat ive with
+the approximation order O(τ 3−α) is constructed and its basic properties are
+investigated.
+Let us consider the uniform mesh ¯ ωτ = {tj = jτ, j = 0, 1,...,M ; T =
+τM }. Let σ = 1 − α2 , then for the Caputo fractional derivative of the order
+α, 0 < α <1, of the function u(t) ∈ C 3[0,T ] at the ﬁxed point tj+σ, j ∈
+{0, 1,...,M − 1} the following equalities hold
+∂α0tj+σu(η) = 1Γ(1 −α)
+tj+σ∫
+0
+u′(η)dη
+(tj+σ −η)α
+= 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+u′(η)dη
+(tj+σ −η)α + 1Γ(1 −α)
+tj+σ∫
+tj
+u′(η)dη
+(tj+σ −η)α. (23)
+8
+PAGE 9
+As in [22], on each interval [ ts−1,t s] (1 ≤s ≤j), denoting the quadratic
+interpolation Π 2,su(t) of u(t) using three points ( ts−1,u (ts−1)), (ts,u (ts)) and
+(ts+1,u (ts+1)), we get
+Π2,su(t) = u(ts−1) (t −ts)(t −ts+1)2τ 2
+−u(ts) (t −ts−1)(t −ts+1)τ 2 +u(ts+1) (t −ts−1)(t −ts)2τ 2 ,
+(Π2,su(t))′ =ut,s +u¯tt,s(t −ts+1/2) = ut,s−1 +u¯tt,s(t −ts−1/2), (24)
+and
+u(t) − Π2,su(t) = u′′′( ¯ξs)6 (t −ts−1)(t −ts)(t −ts+1), (25)
+where t ∈ [ts−1,t s+1], ¯ξs ∈ (ts−1,t s+1), ut,s = (u(ts+1) −u(ts))/τ , u¯t,s =
+(u(ts) −u(ts−1))/τ .
+In (23), we use Π 2,su(t) to approximate u(t) on the interval [ts−1,t s] (1 ≤
+s ≤j). Taking into account the equality
+ts∫
+ts−1
+(η −ts−1/2)(tj+σ −η)−αdη = τ 2−α1 −αb(α,σ)j−s+1, 1 ≤s ≤j (26)
+with
+b(α,σ)l = 12 −α[(l +σ)2−α − (l − 1 +σ)2−α]−12[(l +σ)1−α + (l − 1 +σ)1−α],
+l ≥ 1, from (23) and (24) we obtain the diﬀerence analog of the Caputo
+fractional derivative of the order α (0 < α <1) for the function u(t) in the
+following form:
+∂α0tj+σu(η) = 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+u′(η)dη
+(tj+σ −η)α + 1Γ(1 −α)
+tj+σ∫
+tj
+u′(η)dη
+(tj+σ −η)α
+≈ 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+(Π2,su(η))′dη
+(tj+σ −η)α + ut,jΓ(1 −α)
+tj+σ∫
+tj
+dη
+(tj+σ −η)α
+9
+PAGE 10
+= 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+ut,s−1 +u¯tt,s(η −ts−1/2)dη
+(tj+σ −η)α + ut,jΓ(1 −α)
+tj+σ∫
+tj
+dη
+(tj+σ −η)α
+= τ 1−α
+Γ(2 −α)
+( j∑
+s=1
+(
+a(α,σ)j−s+1ut,s−1 +b(α,σ)j−s+1u¯tt,sτ) +a(α,σ)0 ut,j
+)
+= τ 1−α
+Γ(2 −α)
+( j∑
+s=1
+(
+a(α,σ)j−s+1ut,s−1 +b(α,σ)j−s+1(ut,s −ut,s−1)) +a(α,σ)0 ut,j
+)
+= τ 1−α
+Γ(2 −α)
+j∑
+s=0
+c(α,σ)j−s ut,s = ∆ α0tj+σu, (27)
+where
+a(α,σ)0 =σ1−α, a (α,σ)l = (l +σ)1−α − (l − 1 +σ)1−α, l ≥ 1;
+c(α,σ)0 =a(α,σ)0 , for j = 0; and for j ≥ 1,
+c(α,σ)s =
+
+
+
+a(α,σ)0 +b(α,σ)1 , s = 0,
+a(α,σ)s +b(α,σ)s+1 −b(α,σ)s , 1 ≤s ≤j − 1,
+a(α,σ)j −b(α,σ)j , s =j.
+(28)
+We call the fractional numerical diﬀerentiation formula (27) for th e Ca-
+puto fractional derivative of order α (0<α< 1) the L2-1σ formula.
+Lemma 2. For any α ∈ (0, 1) and u(t) ∈ C 3[0,t j+1]
+|∂α0tj+σu − ∆α0tj+σu| = O(τ 3−α). (29)
+Proof. Let ∂α0tj+σu − ∆α0tj+σu =Rj1 +Rj+σj , where
+Rj1 = 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+u′(η)dη
+(tj+σ −η)α − 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+(Π2,su(η))′dη
+(tj+σ −η)α
+= 1Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+(u(η) − Π2,su(η))′ (tj+σ −η)−αdη
+10
+PAGE 11
+= − αΓ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+(u(η) − Π2,su(η)) (tj+σ −η)−α−1dη
+= − α6Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+u′′′( ¯ξs)(η −ts−1)(η −ts)(η −ts+1)(tj+σ −η)−α−1dη,
+Rj+σj = 1Γ(1 −α)
+tj+σ∫
+tj
+u′(η)dη
+(tj+σ −η)α − ut,jΓ(1 −α)
+tj+σ∫
+tj
+dη
+(tj+σ −η)α
+= 1Γ(1 −α)
+tj+σ∫
+tj
+(u′(η) −ut,j)dη
+(tj+σ −η)α = 1Γ(1 −α)
+tj+σ∫
+tj
+(u′(tj+1/2) −ut,j)dη
+(tj+σ −η)α +
++u′′(tj+1/2)Γ(1 −α)
+tj+σ∫
+tj
+(η −tj+1/2)dη
+(tj+σ −η)α + O(τ 3−α)
+= u′′(tj+1/2)Γ(1 −α)
+tj+σ∫
+tj
+(η −tj+1/2)dη
+(tj+σ −η)α + O(τ 3−α).
+We estimate the error Rj1 similarly to [22]:
+|Rj1| ≤ α|u′′′(ξ)|6Γ(1 −α) j∑s=1 ts∫ts−1 (η −ts−1)(ts −η)(ts+1 −η)(tj+σ −η)−α−1dη
+≤ α|u′′′(ξ)|τ 3
+3Γ(1 −α)
+j∑
+s=1
+ts∫
+ts−1
+(tj+σ −η)−α−1dη = α|u′′′(ξ)|τ 33Γ(1 −α)
+tj∫
+0
+(tj+σ −η)−α−1dη
+= |u′′′(ξ)|τ 3
+3Γ(1 −α)
+( 1
+σατ α − 1(j +σ)ατ α
+)
+≤ |u′′′(ξ)|3σαΓ(1 −α)τ 3−α, ξ ∈ (0,t j).
+Since
+tj+σ∫
+tj
+(η −tj+1/2)dη
+(tj+σ −η)α = τt 1−ασ (2σ +α − 2)2(1 −α)(2 −α) = 0
+the error |Rj+σj | = O(τ 3−α). Lemma 2 is proved.
+11
+PAGE 12
+3.1. Basic properties of the new L2 − 1σ fractional numerical diﬀerentiation
+formula.
+Lemma 3. For all s = 1, 2,... and 0 < α <1 the following inequalities
+hold 1
+2 < κs < 12 −α,
+where
+κs = (s +σ)2−α − (s − 1 +σ)2−α − (2 −α)(s − 1 +σ)1−α
+(2 −α)((s +σ)1−α − (s − 1 +σ)1−α) .
+Proof. Let us consider two functions
+fα(x) = (x + 1)2−α −x2−α − (2 −α)x1−α(2 −α)((x + 1)1−α −x1−α) =∫ 10 (z +x)1−α −x1−α(1 +x)1−α −x1−αdz, x> 0
+and
+gα(z,x ) = (z +x)1−α −x1−α(1 +x)1−α −x1−α = z
+1∫
+0
+dξ
+(x+zξ)α
+1∫
+0
+dξ
+(x+ξ)α
+, 0<z < 1, x> 0.
+For all x> 0 and 0 <z < 1 the following inequalities hold
+1∫
+0
+dξ
+(x +ξ)α <
+1∫
+0
+dξ
+(x +zξ)α <
+1∫
+0
+dξ
+(zx +zξ)α =z−α
+1∫
+0
+dξ
+(x +ξ)α.
+Therefore, for the functiongα(z,x ) for allx> 0 and 0 <z < 1 the inequalities
+z <gα(z,x )<z 1−α (30)
+are valid.
+Integrating (30) with respect to z from 0 to 1, we get the inequalities
+1
+2 <f α(x)< 12 −α,
+which hold for all x> 0. Lemma 3 is proved.
+Corollary 2. For any α (0<α< 1), it holds b(α,σ)s > 0, s ≥ 1.
+12
+PAGE 13
+The latter follows from the equality
+b(α,σ)s =[(s +σ)1−α − (s − 1 +σ)1−α](κs − 12).
+Lemma 4. For any α (0< α <1) and c(α,σ)s (0 ≤s ≤j,j ≥ 1) deﬁned
+in (28), it holds
+c(α,σ)j > 1 −α2 (j +σ)−α, (31)
+c(α,σ)0 >c (α,σ)1 >c (α,σ)2 >...>c (α,σ)j−1 >c (α,σ)j , (32)
+(2σ − 1)c(α,σ)0 −σc(α,σ)1 > 0, (33)
+where σ = 1 −α/2.
+Proof. Forj ≥ 1 we get
+c(α,σ)j =a(α,σ)j −b(α,σ)j =((j +σ)1−α − (j − 1 +σ)1−α)(32 − κj)
+>
+(
+(j +σ)1−α − (j − 1 +σ)1−α)(32 − 12 −α)
+> 1 −α2
+1∫
+0
+dη
+(j +σ −η)α > 1 −α2 (j +σ)−α.
+Inequality (31) is proved. Let us prove inequality (32).
+For 1 ≤s ≤j − 2 (j ≥ 3) we have
+c(α,σ)s −c(α,σ)s+1 =a(α,σ)s −a(α,σ)s+1 + 2b(α,σ)s+1 −b(α,σ)s −b(α,σ)s+2
+= 12((s + 2 +σ)1−α − 3(s + 1 +σ)1−α + 3(s +σ)1−α − (s − 1 +σ)1−α)
++ 12 −α(−(s + 2 +σ)2−α + 3(s + 1 +σ)2−α − 3(s +σ)2−α + (s − 1 +σ)2−α)
+= α(1 −α)(1 +α)2
+1∫
+0
+dz1
+1∫
+0
+dz2
+1∫
+0
+dz3
+(s − 1 +σ +z1 +z2 +z3)α+2
++α(1 −α)
+1∫
+0
+dz1
+1∫
+0
+dz2
+1∫
+0
+dz3
+(s − 1 +σ +z1 +z2 +z3)α+1
+13
+PAGE 14
+> α(1 −α)(1 +α)2 (s + 2 +σ)−α−2 +α(1 −α)(s + 2 +σ)−α−1 > 0.
+Fors =j − 1 (j ≥ 2) we get
+c(α,σ)s −c(α,σ)s+1 =c(α,σ)j−1 −c(α,σ)j =a(α,σ)j−1 −a(α,σ)j + 2b(α,σ)j −b(α,σ)j−1
+>a (α,σ)j−1 −a(α,σ)j + 2b(α,σ)j −b(α,σ)j−1 −b(α,σ)j+1
+> α(1 −α)(1 +α)2 (j + 1 +σ)−α−2 +α(1 −α)(j + 1 +σ)−α−1 > 0.
+For inequality (32) it remains to prove the case s = 0, that is c(α,σ)0 >c (α,σ)1
+which obviously follows from (33). It is enough to prove inequality (33 ).
+Forj = 1 we get
+(2σ − 1)c(α,σ)0 −σc(α,σ)1 = (2σ − 1)(a(α,σ)0 +b(α,σ)1 ) −σ(a(α,σ)1 −b(α,σ)1 )
+=
+( 2σ − 1
+2σ − 2σ − 12 ) (1 +σ)1−α = (2σ − 1)(1 −σ)2σ (1 +σ)1−α > 0.
+Forj ≥ 2 we get
+(2σ − 1)c(α,σ)0 −σc(α,σ)1 = (2σ − 1)(a(α,σ)0 +b(α,σ)1 ) −σ(a(α,σ)1 +b(α,σ)2 −b(α,σ)1 )
+= 4σ − 12σ (1 +σ)1−α − (2 +σ)1−α = (1 +σ)1−α
+(
+4σ − 1
+2σ −
+(
+1 + 11 +σ)1−α)
+> (1 +σ)1−α
+( 4σ − 1
+2σ − 1 − 1 −α1 +σ) = (2σ − 1)(1 −σ)2σ(1 +σ)α > 0.
+Here we used the inequality (1 + t)γ < 1 +γt which is valid for all t> 0 and
+0<γ < 1. Lemma 4 is proved.
+3.2. Test example
+In this subsection, the validity and numerical accuracy of the new p re-
+sentedL2-1σ formula (27) are demonstrated by a test example.
+Let us take a positive integer M, let τ = 1/(M − 1 +σ) and denote
+EML2−1σ (τ ) = |∂α0tM −1+σf (t) − ∆α0tM −1+σf (t)|.
+Example. Let f (t) = t4+α, 0 < α <1. Compute the α-order Caputo
+fractional derivative of f (t) at t =tM −1+σ = 1 numerically.
+14
+PAGE 15
+The exact solution is given by
+∂α0tt4+α⏐⏐t=1 = Γ(5 +α)24 .
+Taking diﬀerent temporal stepsizes M = 10, 20, 40, 80, 160,
+320, 640, 1280, 2560, 5120, we compute the example using L2 − 1σ
+formula (27) and compare the results with those obtained with the h elp of the
+L1 − 2 formula in [22]. Table 1 lists the computational errors and numerical
+convergence order ( CO ) at tM −1+σ = 1 with diﬀerent parameters α = 0.9,
+0.5, 0.1.
+15
+PAGE 16
+Table 1.
+Computational errors and convergence order with diﬀerent
+temporal stepsizes
+α M E ML1−2(τ )[22] CO EML1−2 EML2−1σ (τ ) CO EML2−1σ
+0.9 10 1 .070471e − 1 1 .922978e − 2
+20 2 .699702e − 2 1 .99 4 .368964e − 3 2 .07
+40 6 .545547e − 3 2 .04 1 .009364e − 3 2 .08
+80 1 .556707e − 3 2 .07 2 .347614e − 4 2 .09
+160 3 .666902e − 4 2 .09 5 .473732e − 5 2 .09
+320 8 .595963e − 5 2 .09 1 .277246e − 5 2 .10
+640 2 .010152e − 5 2 .10 2 .980723e − 6 2 .10
+1280 4 .694884e − 6 2 .10 6 .955612e − 7 2 .10
+2560 1 .095840e − 6 2 .10 1 .622925e − 7 2 .10
+5120 2 .556990e − 7 2 .10 3 .786340e − 8 2 .10
+0.5 10 1 .350657e − 2 3 .756950e − 3
+20 2 .612085e − 3 2 .37 7 .231988e − 4 2 .33
+40 4 .861786e − 4 2 .43 1 .367574e − 4 2 .38
+80 8 .864502e − 5 2 .46 2 .544814e − 5 2 .42
+160 1 .597499e − 5 2 .47 4 .673501e − 6 2 .44
+320 2 .859085e − 6 2 .48 8 .495470e − 7 2 .46
+640 5 .095342e − 7 2 .49 1 .532461e − 7 2 .47
+1280 9 .056389e − 8 2 .49 2 .748687e − 8 2 .48
+2560 1 .606869e − 8 2 .49 4 .909831e − 9 2 .48
+5120 2 .847764e − 9 2 .50 8 .743961e − 10 2 .49
+0.1 10 6 .238229e − 4 2 .686107e − 4
+20 9 .663202e − 5 2 .69 4 .492624e − 5 2 .57
+40 1 .444281e − 5 2 .74 7 .204745e − 6 2 .64
+80 2 .111896e − 6 2 .77 1 .119177e − 6 2 .68
+160 3 .043133e − 7 2 .79 1 .696376e − 7 2 .72
+320 4 .338827e − 8 2 .81 2 .522442e − 8 2 .75
+640 6 .136347e − 9 2 .82 3 .694254e − 9 2 .77
+1280 8 .622698e − 10 2 .83 5 .344856e − 10 2 .79
+2560 1 .205229e − 10 2 .84 7 .656497e − 11 2 .80
+5120 1 .676992e − 11 2 .85 1 .087796e − 11 2 .82
+16
+PAGE 17
+4. A second order diﬀerence scheme for the time fractional di ﬀu-
+sion equation
+In this section for problem (1)–(2) a diﬀerence scheme with the app rox-
+imation order O(h2 +τ 2) is constructed. The stability of the constructed
+diﬀerence scheme as well as its convergence in the mesh L2 - norm with the
+rate equal to the order of the approximation error is proved. The obtained
+results are supported with numerical calculations carried out for a test ex-
+ample.
+4.1. Derivation of the diﬀerence scheme
+Lemma 5. For any functions k1(x) ∈ C 3x and v(x) ∈ C 4x the following
+equality is valid:
+d
+dx
+(
+k1(x) ddxv(x))⏐⏐⏐⏐x=xi
+= k1(xi+1/2)v(xi+1) − (k1(xi+1/2) +k1(xi−1/2))v(xi) +k1(xi−1/2)v(xi−1)h2 +O(h2).
+(34)
+Let u(x,t ) ∈ C 4,3x,t be a solution of the problem (1)–(2). Let us consider
+equation (1) for (x,t ) = (xi,t j+σ) ∈QT , i = 1, 2,...,N −1, j = 0, 1,...,M −
+1, σ = 1 −α/2:
+∂α0tj+σu = ∂∂x(k(x,t )∂u∂x)⏐⏐⏐⏐(xi,tj+σ) −q(xi,t j+σ)u(xi,t j+σ) +f (xi,t j+σ). (35)
+Since
+∂
+∂x
+(
+k(x,t )∂u∂x)⏐⏐⏐⏐(xi,tj+σ) =k(xi,t j+σ)∂2u∂x2 (xi,t j+σ) +∂k∂x (xi,t j+σ)∂u∂x (xi,t j+σ)
+=k(xi,t j+σ)
+(
+σ∂2u∂x2 (xi,t j+1) + (1 −σ)∂2u∂x2 (xi,t j))
++∂k∂x (xi,t j+σ)(σ∂u∂x (xi,t j+1) + (1 −σ)∂u∂x (xi,t j)) + O(τ 2)
+=σ
+(
+k(xi,t j+σ)∂2u∂x2 (xi,t j+1) + ∂k∂x (xi,t j+σ)∂u∂x (xi,t j+1))
++(1 −σ)
+(
+k(xi,t j+σ)∂2u∂x2 (xi,t j) + ∂k∂x (xi,t j+σ)∂u∂x (xi,t j)) + O(τ 2)
+17
+PAGE 18
+=σ ∂∂x(k(x,t j+σ) ∂∂xu(x,t j+1))⏐⏐⏐⏐x=xi
++(1 −σ) ∂∂x(k(x,t j+σ) ∂∂xu(x,t j))⏐⏐⏐⏐x=xi + O(τ 2),
+q(xi,t j+σ)u(xi,t j+σ) = q(xi,t j+σ) (σu(xi,t j+1) + (1 −σ)u(xi,t j)) + O(τ 2),
+by virtue of Lemma 5 we have
+Lu(x,t )|(xi,tj+σ) =σΛu(xi,t j+1) + (1 −σ)Λu(xi,t j) + O(h2 +τ 2),
+where the diﬀerence operator Λ is deﬁned by formula (8) with the co eﬃcients
+aj+1i = k(xi−1/2,t j+σ), dj+1i = q(xi,t j+σ). Let ϕj+1i = f (xi,t j+σ), then with
+regard to Lemma 2 we get the diﬀerence scheme with the approximat ion
+order O(h2 +τ 2):
+∆α0tj+σyi = Λy(σ)i +ϕj+1i , i = 1, 2,...,N − 1, j = 0, 1,...,M − 1, (36)
+y(0,t ) = 0, y (l,t ) = 0, t ∈ωτ, y (x, 0) = u0(x), x ∈ωh, (37)
+It is interesting to note that for α → 1 we obtain the Crank–Nicolson
+diﬀerence scheme.
+4.2. Stability and convergence
+Theorem 3. The diﬀerence scheme (36)–(37) is unconditionally stable
+and its solution satisﬁes the following a priori estimate:
+‖yj+1‖20 ≤ ‖y0‖20 + l2T αΓ(1 −α)4c1 max0≤j≤M ‖ϕj‖20. (38)
+Proof. For the diﬀerence operator Λ using Green’s ﬁrst diﬀerence formula
+and the embedding theorem [24] for the functions vanishing at x = 0 and
+x = l, we get ( −Λy,y ) ≥ 4c1l2 ‖y‖20, that is for this operator it is possible to
+take κ = 4c1l2 .
+Since diﬀerence scheme (36)–(37) has the form (5)–(6), where gj+1s =
+c(α,β)j−s
+τ αΓ(2−α) , then lemma 4 implies validity of the following inequalities:
+gj+10 = c(α,β)jτ αΓ(2 −α) > 12tαj+σΓ(1 −α) > 12T αΓ(1 −α),
+18
+PAGE 19
+gj+1j >g j+1j−1 >...>g j+10 ,
+gj+1j
+2gj+1j −gj+1j−1 <σ < 1.
+Therefore, validity of theorem 3 follows from theorem 1. Theorem 3 is proved.
+From theorem 2 it follows that if the solution and input data of problem
+(1)–(2) are suﬃciently smooth, the solution of diﬀerence scheme ( 36)–(37)
+converges to the solution of the diﬀerential problem with the rate e qual to
+the order of the approximation error O(h2 +τ 2).
+4.3. Numerical results
+Numerical calculations are performed for a test problem when the f unc-
+tion
+u(x,t ) = sin(πx)
+(
+t3 + 3t2 + 1)
+is the exact solution of the problem (1)–(2) with the coeﬃcients k(x,t ) =
+2 − sin(xt), q(x,t ) = 1 − cos(xt) and l = 1, T = 1.
+The errors ( z = y −u) and convergence order (CO) in the norms ‖ · ‖ 0
+and ‖ · ‖C(¯ωhτ ), where ‖y‖C(¯ωhτ ) = max(xi,tj)∈¯ωhτ |y|, are given in Table 2.
+Table 2 shows that as the number of the spatial subintervals and time
+steps is increased keeping h = τ , a reduction in the maximum error takes
+place, as expected and the convergence order of the approximat e scheme
+is O(h2) = O(τ 2), where the convergence order is given by the formula:
+CO= log h1
+h2
+‖z1‖
+‖z2‖ (zi is the error corresponding to hi).
+Table 3 shows that if h = 1/1000, then as the number of time steps
+of our approximate scheme is increased, a reduction in the maximum e rror
+takes place, as expected and the convergence order of time is O(τ 2), where
+the convergence order is given by the following formula: CO= log τ1
+τ2
+‖z1‖
+‖z2‖ .
+19
+PAGE 20
+Table 2.
+L2 - norm and maximum norm error behavior versus grid size reduction
+when τ =h.
+α h max
+0≤n≤M
+‖zn‖0 CO in ‖ · ‖0 ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ )
+0.10 1/160 1 .0224e − 4 1 .4518e − 4
+1/320 2 .5558e − 5 2.0001 3 .6294e − 5 2.0000
+1/640 6 .3894e − 6 2.0000 9 .0733e − 6 2.0000
+0.50 1/160 7 .8417e − 5 1 .1153e − 4
+1/320 1 .9604e − 5 2.0000 2 .7882e − 5 2.0000
+1/640 4 .9009e − 6 2.0000 6 .9705e − 6 2.0000
+0.90 1/160 6 .6666e − 5 9 .4949e − 5
+1/320 1 .6669e − 5 1.9998 2 .3740e − 5 1.9999
+1/640 4 .1678e − 6 1.9998 5 .9360e − 6 1.9998
+0.99 1/160 6 .5660e − 5 9 .3532e − 5
+1/320 1 .6415e − 5 2.0000 2 .3384e − 5 1.9999
+1/640 4 .1039e − 6 1.9999 5 .8460e − 6 2.0000
+20
+PAGE 21
+Table 3.
+L2 - norm and maximum norm error behavior versus τ -grid size reduction
+when h = 1/1000.
+α τ max
+0≤n≤M
+‖zn‖0 CO in ‖ · ‖0 ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ )
+0.10 1/10 1 .9062e − 3 2 .6962e − 3
+1/20 4 .7789e − 4 1.9959 6 .7593e − 4 1.9960
+1/40 1 .1779e − 4 2.0205 1 .6659e − 4 2.0206
+0.50 1/10 7 .6326e − 3 1 .0795e − 2
+1/20 1 .9130e − 3 1.9963 2 .7058e − 3 1.9962
+1/40 4 .7697e − 4 2.0039 6 .7461e − 4 2.0039
+0.90 1/10 1 .0286e − 2 1 .4547e − 2
+1/20 2 .5706e − 3 2.0005 3 .6357e − 3 2.0004
+1/40 6 .4066e − 4 2.0045 9 .0608e − 4 2.0045
+0.99 1/10 1 .0449e − 2 1 .4777e − 2
+1/20 2 .6102e − 3 2.0011 3 .6915e − 3 2.0011
+1/40 6 .5050e − 4 2.0045 9 .1998e − 4 2.0045
+5. A higher order diﬀerence scheme for the time fractional di ﬀusion
+equation
+In this section for problem (1)–(2), we construct a diﬀerence sch eme with
+the approximation order O(h4 +τ 2) in the case when k =k(t) and q =q(t).
+The stability and convergence of the constructed diﬀerence sche me in the
+mesh L2 - norm with the rate equal to the order of the approximation error
+are proved. The obtained results are supported by the numerical calculations
+carried out for a test example.
+5.1. Derivation of the diﬀerence scheme
+Let us assign a diﬀerence scheme to diﬀerential problem (1)–(2) in t he
+case when k =k(t) and q =q(t):
+∆α0tj+σ Hhyi =aj+1y(σ)¯xx,i−dj+1Hhy(σ)i +Hhϕj+1i , i= 1,...,N −1, j= 0, 1,...,M −1,
+(39)
+y(0,t ) = 0, y (l,t ) = 0, t ∈ωτ, y (x, 0) = u0(x), x ∈ωh, (40)
+21
+PAGE 22
+where Hhvi =vi+h2v¯xx,i/12,i = 1,...,N −1,aj+1 =k(tj+σ),dj+1 =q(tj+σ),
+ϕj+1i =f (xi,t j+σ), σ = 1 −α/2.
+From [9] and Lemma 2 it follows that if u ∈ C 6,3x,t , then the diﬀerence
+scheme has the approximation order O(τ 2 +h4).
+5.2. Stability and convergence
+The diﬀerence scheme (39)–(40) diﬀers from (5)–(6) due to the p resence
+of the operator Hh. However, deriving an a priori estimate for the solu-
+tion of diﬀerence scheme (39)–(40) does not diﬀer signiﬁcantly fro m proving
+Theorem 1.
+Theorem 4. The diﬀerence scheme (39)–(40) is unconditionally stable
+and its solution satisﬁes the following a priori estimate:
+‖Hhyj+1‖20 ≤ ‖H hy0‖20 + l2T αΓ(1 −α)c1 max0≤j≤M ‖Hhϕj‖20, (41)
+Proof. Taking the inner product of the equation (39) with Hhy(σ) =
+(Hhy)(σ), we have
+(Hhy(σ), ∆α0tj+σ Hhy) −aj+1(Hhy(σ),y (σ)¯xx )
++dj+1(Hhy(σ), Hhy(σ)) = ( Hhy(σ), Hhϕj+1), (42)
+Let us transform the terms in identity (42) as
+(Hhy(σ), ∆α0tj+σ Hhy) ≥ 12 ∆α0tj+σ ‖Hhy‖20,
+−(Hhy(σ),y (σ)¯xx ) = −(y(σ),y (σ)¯xx ) −h212‖y(σ)¯xx ‖20 = ‖y(σ)¯x ]|20 − 112 N −1∑i=1 (y(σ)¯x,i+1 −y(σ)¯x,i )2h
+≥ ‖y(σ)¯x ]|20 − 13 ‖y(σ)¯x ]|20 = 23‖y(σ)¯x ]|20 ≥ 83l2 ‖y(σ)‖20, where ‖y]|20 =
+N∑
+i=1
+y2ih,
+(Hhy(σ), Hhϕj+1) ≤ε‖Hhy(σ)‖20 + 14ε ‖Hhϕj+1‖20
+=ε
+N −1∑
+i=1
+(
+y(σ)i−1 + 10y(σ)i +y(σ)i+1
+12
+)2
+h+ 14ε‖Hhϕj+1‖20 ≤ε‖y(σ)‖20+ 14ε‖Hhϕj+1‖20.
+22
+PAGE 23
+Taking into account the above-performed transformations, fro m identity (42)
+at ε = 8c13l2 one arrives at the inequality
+∆α0tj+σ ‖Hhy‖20 ≤ l28c1 ‖Hhϕj+1‖20.
+The following process is similar to the proof of theorem 1, and it is omitt ed.
+The norm ‖Hhy‖0 is equivalent to the norm ‖y‖0, which follows from the
+inequalities
+5
+12‖y‖20 ≤ ‖H hy‖20 ≤ ‖y‖20.
+Similarly to theorem 2, we obtain the convergence result.
+Theorem 5. Assume that u(x,t ) ∈ C 6,3x,t is the solution of the problem
+(1)–(2) in the case k = k(t), q = q(t), and let {yji | 0 ≤i ≤ N, 1 ≤ j ≤ M}
+be the solution of the diﬀerence scheme (39)–(40). Then it holds th at
+‖u(·,t j) −yj‖0 ≤CR(τ 2 +h4), 1 ≤j ≤M,
+where CR is a positive constant independent of τ and h.
+5.3. Numerical results
+In this subsection we present a test example for a numerical invest igation
+of diﬀerence scheme (39)–(40).
+Consider the following problem:
+∂α0tu(x,t ) = k(t)∂2u∂x2 (x,t ) −q(t)u(x,t ) +f (x,t ), 0<x< 1, 0<t ≤ 1, (43)
+u(0,t ) = 0, u (1,t ) = 0, 0 ≤t ≤ 1, u (x, 0) = 0, 0 ≤x ≤ 1, (44)
+where k(t) = et, q(t) = 1 − sin (2t),
+f (x) =
+[
+π2t2et +t2(1 − sin (2t)) + 2t2−α
+Γ(3 −α)
+]
+sin(πx),
+whose exact analytical solution reads u(x,t ) = t2 sin(πx).
+Table 4 presents the L2 - norm, the maximum norm errors and the
+temporal convergence order for α = 0.75, 0.85, 0.95. Here we can see that the
+order of convergence in time is two.
+Table 5 shows that if τ = 1/20000 is kept ﬁxed, while h varies, then one
+obtains the expected fourth-order spatial accuracy.
+23
+PAGE 24
+Table 6 shows that as the number of spatial subintervals and time steps
+is increased keeping h2 = τ , a reduction in the maximum error takes place,
+as expected and the convergence order of the approximate of th e scheme is
+O(h4).
+In Table 7 for the case N = ⌈
+√
+M ⌉ the maximum error, the convergence
+order and CPU time (seconds) are given. For this case we obtain the expected
+rate of convergence O(τ 2).
+Table 4.
+L2 - norm and maximum norm error behavior versus τ -grid size reduction
+when h = 1/100.
+α τ max
+0≤n≤M
+‖zn‖0 CO in ‖ · ‖0 ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ )
+0.75 1/10 1 .6336e − 3 2 .3103e − 3
+1/20 4 .0889e − 4 1.9983 5 .7826e − 4 1.9983
+1/40 1 .0229e − 4 1.9990 1 .4466e − 4 1.9990
+1/80 2 .5581e − 5 1.9995 3 .6177e − 5 1.9995
+0.85 1/10 1 .7130e − 3 2 .4225e − 3
+1/20 4 .2856e − 4 1.9989 6 .0607e − 4 1.9989
+1/40 1 .0718e − 4 1.9994 1 .5158e − 4 1.9994
+1/80 2 .6801e − 5 1.9997 3 .7902e − 5 1.9997
+0.95 1/10 1 .7582e − 3 2 .4865e − 3
+1/20 4 .3967e − 4 1.9996 6 .2179e − 4 1.9996
+1/40 1 .0993e − 4 1.9998 1 .5547e − 4 1.9998
+1/80 2 .7484e − 5 1.9999 3 .8868e − 5 1.9999
+24
+PAGE 25
+Table 5.
+L2 - norm and maximum norm error behavior versus h-grid size reduction
+when τ = 1/20000.
+α h max
+0≤n≤M
+‖zn‖0 CO in ‖ · ‖0 ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ )
+0.10 1/4 1 .1004e − 3 1 .5562e − 3
+1/8 6 .7512e − 5 4.0267 9 .5476e − 5 4.0267
+1/16 4 .2000e − 6 4.0067 5 .9397e − 6 4.0067
+1/32 2 .6213e − 7 4.0021 3 .7070e − 7 4.0021
+0.50 1/4 1 .0836e − 3 1 .5325e − 3
+1/8 6 .6485e − 5 4.0267 9 .4024e − 5 4.0267
+1/16 4 .1360e − 6 4.0067 5 .8491e − 6 4.0067
+1/32 2 .5790e − 7 4.0034 3 .6472e − 7 4.0034
+0.90 1/4 1 .0654e − 3 1 .5067e − 3
+1/8 6 .5371e − 5 4.0266 9 .2449e − 5 4.0266
+1/16 4 .0665e − 6 4.0068 5 .7510e − 6 4.0068
+1/32 2 .5346e − 7 4.0040 3 .5844e − 7 4.0040
+Table 6.
+L2 - norm and maximum norm error behavior versus grid size reduction
+when h2 =τ .
+α h max
+0≤n≤M
+‖zn‖0 CO in ‖ · ‖0 ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ )
+0.10 1/10 2 .4349e − 5 3 .4434e − 5
+1/20 1 .5166e − 6 4.0049 2 .1448e − 6 4.0049
+1/40 9 .4708e − 8 4.0012 1 .3394e − 7 4.0012
+1/80 5 .9180e − 9 4.0003 8 .3693e − 9 4.0003
+0.50 1/10 1 .4211e − 5 2 .0097e − 5
+1/20 8 .8285e − 7 4.0087 1 .2485e − 6 4.0087
+1/40 5 .5094e − 8 4.0022 7 .7914e − 8 4.0022
+1/80 3 .4420e − 9 4.0006 4 .8677e − 9 4.0006
+0.90 1/10 1 .5119e − 5 2 .1381e − 5
+1/20 9 .5080e − 7 3.9910 1 .3446e − 6 3.9911
+1/40 5 .9571e − 8 3.9965 8 .4247e − 8 3.9964
+1/80 3 .7274e − 9 3.9984 5 .2714e − 9 3.9984
+25
+PAGE 26
+Table 7.
+Maximum norm error behavior versus grid size reduction
+when N = ⌈
+√
+M⌉ and CPU time (seconds).
+α M ‖z‖C(¯ωhτ ) CO in || · ||C(¯ωhτ ) CPU(s)
+0.70 10 2 .0986e − 3 0.0156
+30 2 .1085e − 4 2.0916 0.0468
+90 2 .3672e − 5 1.9905 0.1404
+270 2 .6359e − 6 1.9980 0.5460
+810 2 .9428e − 7 1.9956 3.0108
+2430 3 .2802e − 8 1.9971 22.2925
+0.80 10 2 .1403e − 3 0.0156
+30 2 .2690e − 4 2.0427 0.0468
+90 2 .5342e − 5 1.9953 0.1716
+270 2 .8146e − 6 2.0004 0.5616
+810 3 .1383e − 7 1.9968 3.2604
+2430 3 .4962e − 8 1.9976 23.3065
+0.90 10 2 .2549e − 3 0.0156
+30 2 .4088e − 4 2.0358 0.0468
+90 2 .6745e − 5 2.0007 0.1404
+270 2 .9607e − 6 2.0033 0.5460
+810 3 .2949e − 7 1.9986 3.6670
+2430 3 .6670e − 8 1.9985 22.7605
+6. Conclusion
+In this paper, the stability and convergence of a family of diﬀerence
+schemes approximating the time fractional diﬀusion equation of a ge neral
+form is studied. Suﬃcient conditions for the unconditional stability o f such
+diﬀerence schemes are obtained. For proving the stability of a wide c lass of
+diﬀerence schemes approximating the time fractional diﬀusion equa tion, it
+is simple enough to check the stability conditions obtained in this paper . A
+new diﬀerence approximation of the Caputo fractional derivative w ith the
+approximation order O(τ 3−α) is constructed. The basic properties of this
+diﬀerence operator are investigated. New diﬀerence schemes of t he second
+and fourth approximation order in space and the second approxima tion or-
+der in time for the time fractional diﬀusion equation with variable coeﬃ cients
+26
+PAGE 27
+are constructed as well. The stability and convergence of these sc hemes in
+the mesh L2 - norm with the rate equal to the order of the approximation
+error are proved. The method can be easily extended to other time fractional
+partial diﬀerential equations with other boundary conditions.
+Numerical tests completely conﬁrming the obtained theoretical re sults are
+carried out. In all the calculations MATLAB is used.
+7. Acknowledgment
+This work was supported by the Russian Foundation for Basic Resea rch
+(project 14-01-31246).
+References
+[1] A. M. Nakhushev, Fractional Calculus and its Application, FIZMAT LIT,
+Moscow, 2003 (in Russian).
+[2] K. B. Oldham, J. Spanier, The Fractional Calculus, Academic Pres s, New
+York, 1974.
+[3] I. Podlubny, Fractional Diﬀerential Equations, Academic Press , San
+Diego, 1999.
+[4] R. Hilfer (Ed.), Applications of Fractional Calculus in Physics, World
+Scientiﬁc, Singapore, 2000.
+[5] A. A. Kilbas, H. M. Srivastava, J. J. Trujillo, Theory and Applicatio ns
+of Fractional Diﬀerential Equation, Elsevier, Amsterdam, 2006.
+[6] V. V. Uchaikin, Method of Fractional Derivatives, Artishok, Ul’ja novsk,
+2008 (in Russian).
+[7] R. R. Nigmatullin, Realization of the generalized transfer equation in a
+medium with fractal geometry, Physica Status (B): Basic Res. 133 (1)
+(1986) 425430.
+[8] K. V. Chukbar, Stochastic transport and fractional derivativ es, Zh. Eksp.
+Teor. Fiz. 108 (1995), 1875- 1884
+27
+PAGE 28
+[9] Y. N. Zhang, Z. Z. Sun, H. L. Liao, Finite diﬀerence methods for t he time
+fractional diﬀusion equation on non-uniform meshs, J. Comput. Ph ys. 265
+(2014) 195–210.
+[10] Z. Z. Sun, X. N. Wu, A fuly discrete diﬀerence scheme for a diﬀus ion-
+wave system, Appl. Numer. Math. 56 (2006) 193–209.
+[11] Y. Lin, C. Xu, Finite diﬀerence/spectral approximations for th e time-
+fractional diﬀusion equation, J. Comput. Phys. 225 (2007) 1553– 1552.
+[12] A.A. Alikhanov, Numerical methods of solutions of boundary valu e
+problems for the multi-term variable-distributed order diﬀusion equ ation,
+arXiv preprint arXiv:1311.2035, 2013
+[13] M. Kh. Shkhanukov-Laﬁshev, F.I. Taukenova, Diﬀerence met hods for
+solving boundary value problems for fractional diﬀerential equatio ns,
+Comput. Math. Math. Phys. 46(10) (2006) 1785–1795.
+[14] C. Chen, F. Liu, V. Anh, I. Turner, Numerical schemes with high spatial
+accuracy for a variable-order anomalous subdiﬀusion equations, S IAM J.
+Scien. Comput. 32(4) (2010) 1740–1760.
+[15] A.A. Alikhanov, Boundary value problems for the diﬀusion equatio n
+of the variable order in diﬀerential and diﬀerence settings, Appl. Ma th.
+Comput. 219 (2012) 3938–3946.
+[16] A. Delic , B.S. Jovanovic, Numerical approximation of an interfac e prob-
+lem for fractional in time diﬀusion equation, Appl. Math. Comput. 229
+(2014) 467–479.
+[17] R. Du, W. R. Cao, Z. Z. Sun, A compact diﬀerence scheme for th e
+fractional diﬀusion-wave equation, Appl. Math. Model. 34 (2010) 2 998–
+3007.
+[18] G. H. Gao, Z. Z. Sun, A compact diﬀerence scheme for the frac tional
+subdiﬀusion equations, J. Comput. Phys. 230 (2011) 586–595.
+[19] Y. N. Zhang, Z. Z. Sun, H. W. Wu, Error estimates of Crank-Nic olson-
+type diﬀerence schemes for the subdiﬀusion equation, SIAM J. Num er.
+Anal. 49 (2011) 2302–2322.
+28
+PAGE 29
+[20] Y. Lin, X. Li, C. Xu, Finite diﬀerence/spectral approximations f or the
+fractional cable equation, Math. Comput. 80 (2011) 1369–1396.
+[21] X. Li, C. Xu, A space-time spectral method for the time fractio nal
+diﬀusion equation, SIAM J. Numer. Anal. 47 (2009) 2108–2131.
+[22] G. H. Gao, Z. Z. Sun, H. W. Zhang, A new fractional numerical d iﬀer-
+entiation formula to approximate the Caputo fractional derivative and its
+applications, J. Comput. Phys. 259 (2014) 33–50.
+[23] A.A. Alikhanov, A priori estimates for solutions of boundary valu e prob-
+lems for fractional-order equations, Diﬀer. Equ. 46(5) (2010) 66 0–666.
+[24] A. A. Samarskii, V. B. Andreev, Diﬀerence Methods for Elliptic Equa-
+tion, Nauka, Moscow, 1976. (in Russian)
+29

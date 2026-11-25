@@ -1,0 +1,505 @@
+{
+  "toolchain": "leanprover/lean4:v4.19.0",
+  "mathlib_revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "preserved_named": 42,
+  "preserved_identity_groups": 41,
+  "new_named": 12,
+  "total_named": 54,
+  "new_identity_independence_claim": false,
+  "sources": {
+    "research/legendre/verification/lean/Coefficients.lean": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+    "research/legendre/verification/lean/Quadrature.lean": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+    "research/legendre/verification/lean/AuditConstants.lean": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+    "research/legendre/verification/lean/Aud01FiniteSums.lean": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6",
+    "research/legendre/verification/lean/Aud01Oscillator.lean": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+    "research/legendre/aud02/lean/Aud02Finite.lean": "bf7b3070fe5028dbb37f5371567af65e1491e18c4df27b9397fa839128fcec1f"
+  },
+  "theorems": [
+    {
+      "name": "LegendreAudit.bStarZero_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.leading_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.leading_gt_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.leading_three_quarters",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.fourthRootTwo_fourth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.fourthRootTwo_lt_thirteen_tenths",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.oldestSecond_three_quarters",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.oldestSecond_three_quarters_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.history_abs_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.signedHistory_triangle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.signed_sum_bound_false",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.l12_assigned_state_counterexample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.telescoping_history",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.telescoping_not_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.normalized_history",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.no_uniform_weighted_energy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.volterra_half_near_panel_positive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-coefficientsaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.mass_polynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.gll3_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.mass_hasDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.mass_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.positive_mass_coefficient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.gll3_variable_coefficient_counterexample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-quadratureaxioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.symbol_numerator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.symbol_bracket",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_denominator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_amplitude",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.smoothing_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.weighted_contraction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.homogeneous_contraction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.fractional_parameter_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.fractional_parameter_admissibility",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.finite_summation_by_parts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.quadratic_history_collection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.reversed_difference_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.pre_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.critical_position",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.critical_velocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.post_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.quarter_velocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.st05_endpoint_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD01.oscillator_energy_algebra",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud01axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.row_tail_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.ordered_vector_domination",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.increment_reconstruction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.finite_word_domination",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.cumulative_weights",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.shifted_energy_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.linear_absolute_basis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.quadratic_absolute_basis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.quadratic_negative_weight",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.forward_moment_identities",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.backward_moment_identities",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    },
+    {
+      "name": "LegendreAudit.AUD02.complementary_composition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_output": "evidence/runs/aud02-lean-aud02axioms-01.stdout.log"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "fresh_cases": {
+    "julia_results.csv": {
+      "rows": 156,
+      "unique_keys": 156,
+      "maximum_scaled_residual": 4.1747833680964675e-13
+    },
+    "python_reference.csv": {
+      "rows": 156,
+      "unique_keys": 156,
+      "maximum_scaled_residual": 4.3710194689557106e-13
+    }
+  },
+  "preserved_timing_rows": 420,
+  "preserved_warmup_rows": 84,
+  "timing_phase_groups": 84,
+  "all_groups_have_five_distinct_repetitions": true,
+  "measured_compilation_seconds": 0,
+  "performance_remeasured": false,
+  "invalid_initial_reference_used": false
+}

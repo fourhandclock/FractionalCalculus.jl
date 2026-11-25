@@ -1,0 +1,175 @@
+{
+  "provenance": "Exact copy of supplied GR07_reference_and_Julia_handoff/GR07_reference",
+  "files": {
+    "invalid_initial_execution.log": {
+      "bytes": 2432,
+      "sha256": "60677c8aa2638e5d8df77ba4f3573591cc695c581996f45d1101465c90e2d198"
+    },
+    "benchmark_gr07_initial.py": {
+      "bytes": 5562,
+      "sha256": "e817e85aa7b82ee1f53fbe081c45d73bb4540173efd9dfe50e9bd4a22505707b"
+    },
+    "timing_repeats.csv": {
+      "bytes": 6875,
+      "sha256": "28e060a74a825a9a3e8616206587bab2cee159fce7903dcf7895f2db15601972"
+    },
+    "invalid_initial_results.csv": {
+      "bytes": 31169,
+      "sha256": "bd585d060198e71a43774ccb63156f0cf24156e99cb5612c559d4f6477cc36a0"
+    },
+    "execution.log": {
+      "bytes": 2473,
+      "sha256": "dfd429e117dd61c28b2a624d45e0514607a670b882b29ad9aa82f5322dfa11f5"
+    },
+    "environment.txt": {
+      "bytes": 305,
+      "sha256": "0031ac19d95f6e18873b8cf142c9c78be8b0c0048ef1c1c0f9ad4a7be6061298"
+    },
+    "README.md": {
+      "bytes": 3899,
+      "sha256": "e20864cc62f41376295357ef3a1bcc0be745d539003eb25fd2516470c9a65996"
+    },
+    "verify_gr06_graded.py": {
+      "bytes": 3998,
+      "sha256": "c99e053cfd41f0b0849e271ee2123cdd34b9a49f66b5b469b5233e5638dbd716"
+    },
+    "benchmark_gr07.py": {
+      "bytes": 6745,
+      "sha256": "efaebd2250c2ce0b3e888d45ddca2e4c1b932abf3d5e5e03a16758f198185d8a"
+    },
+    "results.csv": {
+      "bytes": 31413,
+      "sha256": "9db7b8d067a27fc2c668fd72e20b031ee18707e5ed256f0e71b461a5e3d0f8b0"
+    },
+    "SHA256SUMS": {
+      "bytes": 4136,
+      "sha256": "b05e4fec8ad22fe8625e04be7217fa1d3dfc13499e5bc5bf1a2f4d8988f73dde"
+    },
+    "GR07_JULIA_HANDOFF.md": {
+      "bytes": 8318,
+      "sha256": "c71af4c846bb54dda4f300d904a0f544cec4fca5a8a74318c68c3def21381947"
+    },
+    "benchmark_timings.py": {
+      "bytes": 918,
+      "sha256": "bf087eccc1bf976bff593d2d93dfb7867830c17e4377dd2aa5cb720388588458"
+    },
+    "theory/GR02_alikhanov_kernels.pdf": {
+      "bytes": 208321,
+      "sha256": "4e3c3630b38f7cfc9acc79232c59dcd31527dca3b8ab022c4c43e4b494cd2b78"
+    },
+    "theory/GR04_discrete_two_kernel_gronwall.tex": {
+      "bytes": 15087,
+      "sha256": "705ebd84f376d8659b7021a939738a33caf9d1b548c70f9461e6d8e6a37f4a25"
+    },
+    "theory/GR03_shifted_product_integration.pdf": {
+      "bytes": 205657,
+      "sha256": "efa244ff88be2e2f00cd29a1022199f4d4e96da76ec0c6f795797a93c95f20a4"
+    },
+    "theory/GR04_discrete_two_kernel_gronwall.pdf": {
+      "bytes": 251294,
+      "sha256": "f91e2dca4b7481a0cd4b0c3d5d5b539de28003f151348d1ba12de49225f7b962"
+    },
+    "theory/GR05_main_convergence.pdf": {
+      "bytes": 234414,
+      "sha256": "8d65417cba5276c3c59de713d31b43dbb16f85fc5a98df3045dd4ab793a526d4"
+    },
+    "theory/GR05_main_convergence.tex": {
+      "bytes": 16613,
+      "sha256": "66e985ca50a5801e05704ce7a409a14b5742e85b9dd8741bdc1e1c84224eb2a7"
+    },
+    "theory/GR06_graded_convergence.tex": {
+      "bytes": 11825,
+      "sha256": "c4403484fedd3bfae1e22f7979c44d9b6a76d73436953e7647961dcc08587fb0"
+    },
+    "theory/GR01_two_kernel_gronwall.pdf": {
+      "bytes": 203386,
+      "sha256": "f556554195173adda17b263fd4b45911e494f71459767c79f6e2cb119ab428a1"
+    },
+    "theory/GR02_alikhanov_kernels.tex": {
+      "bytes": 9531,
+      "sha256": "99b6d033f11866c1eb547dbe712abf5643e5fb8bd78089090b1f60cfe554e9f3"
+    },
+    "theory/GR01_two_kernel_gronwall.tex": {
+      "bytes": 11116,
+      "sha256": "e855cb390034e58b2033f84c0d88e1dedf996fdfb91d7d040d3a6a4cb68734ed"
+    },
+    "theory/GR03_shifted_product_integration.tex": {
+      "bytes": 12342,
+      "sha256": "3e288c6de6dd2d0836e7b10615b72faf5e47b704ef2191ea2032984b65d0d59c"
+    },
+    "theory/GR06_graded_convergence.pdf": {
+      "bytes": 200845,
+      "sha256": "9257471b5a954b0f207ce4fe9fd70a06b3d7f67772e962836fed4bf6013ab53e"
+    },
+    "reference_diagnostics/gr03_numerical_results.txt": {
+      "bytes": 799,
+      "sha256": "aa36043f2afa3221105e1ecf2c0dd66b95046372e89144b5ab697a69cb5d85c5"
+    },
+    "reference_diagnostics/gr02_numerical_results.txt": {
+      "bytes": 691,
+      "sha256": "77fa9fb488b7e26727db9ed0eac45ee7f94e030c956079dc04824d95dfd84b33"
+    },
+    "reference_diagnostics/gr04_numerical_results.txt": {
+      "bytes": 850,
+      "sha256": "d9c08ece2d594f26367594e3908a5cec497fa8dd780315c8bbeaeafd450d9939"
+    },
+    "reference_diagnostics/gr03_initial_results.txt": {
+      "bytes": 736,
+      "sha256": "6d336eeaf89d6607ba81c8a7cc252d4b49a136416f2d627aeac87d4d7c550a09"
+    },
+    "reference_diagnostics/verify_gr02.py": {
+      "bytes": 3593,
+      "sha256": "3d28bdef8177f085697762e8029eed4021221ca924620dd1bdb62ef217d9dbe4"
+    },
+    "reference_diagnostics/verify_gr06_graded_initial.py": {
+      "bytes": 3987,
+      "sha256": "258108fdac7ae4cd3775381397ce3d56561912e28aa8da6108098d42bc394219"
+    },
+    "reference_diagnostics/verify_gr03_initial.py": {
+      "bytes": 6153,
+      "sha256": "124aaf8f52cdb6f4bcde67ee5a41ae2b2bfeb3e4d993c92a1c26c96e8dac4904"
+    },
+    "reference_diagnostics/verify_gr03.py": {
+      "bytes": 6158,
+      "sha256": "5dcca151309bfad756a8257c19e208ba8e55ee56314de0351b910619be037071"
+    },
+    "reference_diagnostics/gr06_graded_results.txt": {
+      "bytes": 4746,
+      "sha256": "4ff6af1804019f351527bbaaa3de38525723aa1b8bb0ba2a7af15a4d4402cf55"
+    },
+    "reference_diagnostics/verify_gr05.py": {
+      "bytes": 5482,
+      "sha256": "b646cd6422183db0877961f001dc5d142bac0c73fdec3e2486ce3b11be7c43c5"
+    },
+    "reference_diagnostics/verify_gr06_graded.py": {
+      "bytes": 3998,
+      "sha256": "c99e053cfd41f0b0849e271ee2123cdd34b9a49f66b5b469b5233e5638dbd716"
+    },
+    "reference_diagnostics/verify_gr04_initial.py": {
+      "bytes": 6763,
+      "sha256": "2ca786d49049613bf04ebfe448b517d074bfc63907bfdaaca9481d87c7cf6ff0"
+    },
+    "reference_diagnostics/gr04_initial_results.txt": {
+      "bytes": 706,
+      "sha256": "bc70e8da55105dce4bc73227d706203714720f1960d9e19fb2f51df1cf27491e"
+    },
+    "reference_diagnostics/gr05_numerical_results.txt": {
+      "bytes": 1806,
+      "sha256": "77757c3d1f9e4b68716255669c3a8e29f850a9a2c56ecb5b09e9562ffcceea67"
+    },
+    "reference_diagnostics/verify_gr04.py": {
+      "bytes": 6771,
+      "sha256": "c247330dd18e38ba5f4313ae8453b050582fea3b4436f721c5d5f10c631c816c"
+    },
+    "reference_diagnostics/gr06_graded_initial_results.txt": {
+      "bytes": 2387,
+      "sha256": "f549dda0afc87f6e16541d8b1a9f0bff3d387218f7a2656dc13de7f29f56a584"
+    }
+  },
+  "invalid_evidence": [
+    "benchmark_gr07_initial.py",
+    "invalid_initial_results.csv",
+    "invalid_initial_execution.log"
+  ],
+  "use_invalid_initial_for_science": false
+}

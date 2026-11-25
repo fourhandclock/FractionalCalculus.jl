@@ -1,0 +1,10 @@
+36 scheme/order/grid configurations; direct adaptive quadrature check
+max absolute direct/assembled discrepancy: 6.661e-16
+max constant mass discrepancy: 3.331e-16
+max exact polynomial discrepancy (excluding quadratic startup): 5.551e-16
+max absolute W tail bound ratio: 0.99936760
+max P|W| tail bound ratio: 0.35917033
+negative assembled PI-Q weight witness (alpha,beta,N,n,k,value): (0.99, 0.98, 8, np.int64(2), np.int64(0), np.float64(-0.11142146510495475))
+Convergence on [0,1]: linear t^2, quadratic t^2 startup, quadratic t^3 post-startup
+
+Initial run failed during convergence loop: global L (linear basis array) overwritten by assembled matrix; ValueError in matrix multiplication (size 3 vs 33). Corrected variable names only.

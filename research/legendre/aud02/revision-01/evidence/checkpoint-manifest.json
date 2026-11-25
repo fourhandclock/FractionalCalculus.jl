@@ -1,0 +1,3706 @@
+{
+  "purpose": "Validated checkpoint source/artifact inventory; Git publication recorded separately",
+  "full_tree_files": 2004,
+  "bytes": 30700924,
+  "intended_delta_files": 616,
+  "changes": [
+    {
+      "path": ".gitignore",
+      "sha256": "b20f06bbe723548aa519504bba761968e314aa91d6fd8f9ee626161afd965d6b",
+      "bytes": 1219,
+      "change": "modified"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5a0708c99dba693dfbe5a549ebcf1564851c310ed1ae375cb469a50412da7fe0",
+      "bytes": 11439,
+      "change": "modified"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/LITERATURE.md",
+      "sha256": "c72e1b92d885b02abec70d67c71bab4ef17fcfcbce2ae94c9efe5cf7efb95ffd",
+      "bytes": 3874,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/PLAN.md",
+      "sha256": "2778ac3741940b8c181f1621e59a4a4013ccd2af6d5583696820615d70b228f6",
+      "bytes": 2542,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/README.md",
+      "sha256": "4f1d9d866de1c3eb0e665faa7a497c9229ca02b34e626412413b661153bcd6a8",
+      "bytes": 5160,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/REPAIRS.md",
+      "sha256": "215a839ff7158f700681cf04c027c1750460712c9513c156d64d8cbbb2715d08",
+      "bytes": 7512,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/VALIDATION.md",
+      "sha256": "4bf59b79ba8eb2b221fdb19ac36ec2ff09b62d70e6647f1348f6f8ec6b3986d8",
+      "bytes": 11064,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-02.json",
+      "sha256": "8932ad915c8495a73ff19ae9327fb4847c63ec6a1d07e052a074bdc405e61893",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-03.json",
+      "sha256": "a753ccafe84eee3c4d70a270e0f9cd1d3f95b06f7350017418fe66d2d6fc0a6d",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-04.json",
+      "sha256": "a753ccafe84eee3c4d70a270e0f9cd1d3f95b06f7350017418fe66d2d6fc0a6d",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-05.json",
+      "sha256": "52ae0de256075b2f8d9d4a0721bfce2207d5485d26e1a40676ea2e5c61437897",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-final.json",
+      "sha256": "2fc681eccaecfa3c487941255bc369ab4638d35bb21e840dca53b8c1fc872ceb",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-checks-publication.json",
+      "sha256": "05709b29800eae690826871cc29b519921500a469bc16caf269e1ee1d0a240cb",
+      "bytes": 1747,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/documentation-prelaunch-01.json",
+      "sha256": "13fd80302eb7a27095d50534a47b182b8cee8cd3660605a7b5817c6ba9d2fc44",
+      "bytes": 210,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/failed-offline-logs.json",
+      "sha256": "179904e7269361648135e0fefc312a959bb77bb7c27421cc834467dcc03efc51",
+      "bytes": 765,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/final-manuscript-validation.json",
+      "sha256": "9bd5ad43514622ca635bb0f749f71731019df44063440e0ee64aa119d0083f48",
+      "bytes": 4882,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/implementation.diff",
+      "sha256": "83814d6cd00e7cbfa589056bdba6e1448d90717d89dc9ddeb9b8896017564946",
+      "bytes": 6754,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/input-manifest.json",
+      "sha256": "832658ed2d2405caffd0c9a4aa460633bc84e5c2c55cb5f0d2d9653e2339c712",
+      "bytes": 275418,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/integrated-study-links.json",
+      "sha256": "d6b5665a37ba83146671a37eac33af5002a8e99ba617994e07f7d8f60250bc27",
+      "bytes": 3030,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/integrity.json",
+      "sha256": "8a4f457ee912b490b9b9a0228c336e0cd82c6a5f75e129ef11c2bde5ec9a4a39",
+      "bytes": 673,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/literature-acquisition.json",
+      "sha256": "fcab6b38fe51ec3b38775d902db3c383caeb195791a780f8665155e78233de43",
+      "bytes": 1349,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/manuscript-preservation.json",
+      "sha256": "596d6048a8728dfcfabbf25c399488bb3c48fd5d10c38ea5504a57ee4323efa3",
+      "bytes": 1195,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/pdf-render-record.json",
+      "sha256": "266d02d94aaeb43e144d3a69e3ab1c3a73cd0964d36a59276ea302ee9b27f364",
+      "bytes": 1640,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/preflight-input.txt",
+      "sha256": "20e3426af540c723a1fbe7dc63305c4ce57d0b6825f2d4dfc257696aeec4f11f",
+      "bytes": 30,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/prelaunch-01.execution.py.source.txt",
+      "sha256": "695da68cf5ccffcd0e3b5d9a79656076716aa53af1be89fb3fdf4a2e460ba2c4",
+      "bytes": 4043,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/prelaunch-01.json",
+      "sha256": "762bf0ca2a04a8322d66b2ad90ab51c2c330045a5c18cb4567a1d381b188253c",
+      "bytes": 271,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/publication-baseline-comparison.json",
+      "sha256": "cf23a81baf351d57c86e5c0b267b54e60169f6f00c4b1179ae37a5a7e59a5b23",
+      "bytes": 299,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/publication-existing-worktrees-guard.json",
+      "sha256": "14190dc8f34392ee738d67213e8f62e5aa400a82bc804943bea67c4a30b188a2",
+      "bytes": 316881,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/publication-file-review.json",
+      "sha256": "7b6b3b71470211ee21cd7721616108e7471b016670ade15d73e43adfa3a17a6f",
+      "bytes": 573,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/boundary.csv",
+      "sha256": "4769909cbab060cbc05c6eaa93cba7c4ab641d465fc74ac8fc39166ad1d02abe",
+      "bytes": 944,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/failed-offline/r01-final-latex-gr01/GR01_two_kernel_gronwall.log",
+      "sha256": "0ebae093e4f677e0c53ca9d08060ee2715d439efb5912427ae4ca8ac786ed0aa",
+      "bytes": 327,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/failed-offline/r01-typeset-latex-gr01/GR01_two_kernel_gronwall.log",
+      "sha256": "20a63cd5fbe024b5ea05666abb0a754afbec075f0a2ca3b5d991f132f517eee0",
+      "bytes": 13876,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/failed-offline/r01-typeset02-latex-gr01/GR01_two_kernel_gronwall.log",
+      "sha256": "8aecc72d557bd51976b590686ce97ac2a1110b26d4c20d233e090dd6fba02131",
+      "bytes": 14467,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/final/julia_results.csv",
+      "sha256": "0270e3dcb91430b75d6e0405c806cc477baa2b73f0b4962af09061cb2867f75e",
+      "bytes": 32692,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/final/moments.csv",
+      "sha256": "75539bfdd1ec1c0875954bb32bb6a0e21f2e33a6310ad418a6a2ec45918709c5",
+      "bytes": 6759,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/final/python_reference.csv",
+      "sha256": "2c6c20c9ecdf38b43dfeee3a9a8c8562126081fa4a2f522dec059c5984d83841",
+      "bytes": 31435,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/final/repaired-extremes.csv",
+      "sha256": "822905ede0a66bede922eaf0e7c717ec35652d8d4ec6e810ff94791cab2ac902",
+      "bytes": 336,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/final/rows.csv",
+      "sha256": "5f96ac4aebb4ef19b0d0d5ac90a7068686d08e5c270d26d811a3d8b96e606750",
+      "bytes": 8056,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR01_two_kernel_gronwall.aux",
+      "sha256": "93a45be9e0de3fe0fd75bff5bc6c057e0b71fd3c72033c90329672c42aa313c0",
+      "bytes": 1903,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR01_two_kernel_gronwall.log",
+      "sha256": "700daae9d4d49a2149a8579c3e8e426ebd9caae1c4350609ce2c0b8ee8a67eb7",
+      "bytes": 14451,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR01_two_kernel_gronwall.out",
+      "sha256": "7218a16922aa0eeff6499a41ecadcda253b3608b45ee498a26b2cdb4802659c0",
+      "bytes": 881,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR01_two_kernel_gronwall.pdf",
+      "sha256": "81c0f99077c200ba7cad9f536f672ad976d958807d28f2157c1f2061eebbbc70",
+      "bytes": 77548,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR02_alikhanov_kernels.aux",
+      "sha256": "28c12185d59a618fdd2c0f56837a13acb5f06d425e54e22095f012a5d3d35831",
+      "bytes": 1529,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR02_alikhanov_kernels.log",
+      "sha256": "ec77c90224ba29fde1964af09a2fb5bdf137015d59d461eb3206a52a5838c277",
+      "bytes": 15191,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR02_alikhanov_kernels.out",
+      "sha256": "a62ec50b3f7852c73e1ae36c0f756c0fb068a578f422346f63e6eca1de11d20a",
+      "bytes": 1494,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR02_alikhanov_kernels.pdf",
+      "sha256": "d5dba1a77d5df87da2e00bc91e53b8c6f34a17980a02c7ea2bdc90b9e0b1374b",
+      "bytes": 73289,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR03_shifted_product_integration.aux",
+      "sha256": "d305b1e2718be43cee226a0994aeb1117f6c458f3f08c305ee48f36ff3c763d9",
+      "bytes": 1450,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR03_shifted_product_integration.log",
+      "sha256": "e0158cb5ee209ded707ff84475084f3a12dc794377900d2481de5e6aa7e44131",
+      "bytes": 15290,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR03_shifted_product_integration.out",
+      "sha256": "c15e2a199675ba688cc9b5c057657d5e670c8970bd20b753ee173b0851dcde84",
+      "bytes": 1410,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR03_shifted_product_integration.pdf",
+      "sha256": "99e559f3ea2068dacf9b3f3cd47597622a8d60ed7e890f189241249af0315488",
+      "bytes": 83221,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR04_discrete_two_kernel_gronwall.aux",
+      "sha256": "3844e2e71dd73037d33ac44b1637e47195d4cb1304769e749a5683141bcde700",
+      "bytes": 2139,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR04_discrete_two_kernel_gronwall.log",
+      "sha256": "6102c1ebf790999cae5892f64d3bca27eba0191670898bbdbbd31d2374b83a42",
+      "bytes": 15319,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR04_discrete_two_kernel_gronwall.out",
+      "sha256": "d2936228f421be64c891d95711a14a10ba18ed441f91295b2407b79f22822637",
+      "bytes": 1222,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR04_discrete_two_kernel_gronwall.pdf",
+      "sha256": "472dc1746cd921b6fcfa8360a34f1b1c3f7fabfbbb40c683ec64c0e0d90a34a6",
+      "bytes": 96461,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR05_main_convergence.aux",
+      "sha256": "254522bcb74bc89690d296b5c126acfb2069c8c52e1a8a1938f2150034999d34",
+      "bytes": 2466,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR05_main_convergence.log",
+      "sha256": "f32928a73c233a28c8f687e73dbcfd0c404adb433ef1eea122c603e951fdaf93",
+      "bytes": 15214,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR05_main_convergence.out",
+      "sha256": "238ddf20f7773144d09e4ade5c54b07abb4d951ade50ae6dabc64c22b515803b",
+      "bytes": 1316,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR05_main_convergence.pdf",
+      "sha256": "7a00c144edd71f6fd2793a2b7d76f45b857823d7433a0518460b30120780d3da",
+      "bytes": 96060,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR06_graded_convergence.aux",
+      "sha256": "70565006bd940a989d5cacfd5cff29cb5e87840d68b89ed5b29c2000e4d2e246",
+      "bytes": 1364,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR06_graded_convergence.log",
+      "sha256": "e1c24eb30ef7439b3ca945d94ec949ffc43e3964795509a635946ba7587ae591",
+      "bytes": 13545,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR06_graded_convergence.out",
+      "sha256": "8a4c8eb42e32af68961b611f3616dd9f08d36b5cdda2544b3b3e44e5264de473",
+      "bytes": 972,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/offline-final/GR06_graded_convergence.pdf",
+      "sha256": "d42c2cb64dac3637d84f9df2b020857aa0cf9febffac15b2f49aff2c5c67bbe8",
+      "bytes": 84639,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/results/original-extremes.csv",
+      "sha256": "89e27548751d530ed6504ad950d37ef2b6f676cfc9e677fe577a5e5c6df41e70",
+      "bytes": 380,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/run-summary.json",
+      "sha256": "d2092bd7a3ecc642c28869fa435f894973f85c0ad39a21995c44b667bfdbbfc5",
+      "bytes": 6366,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.boundary_oracle.py.source.txt",
+      "sha256": "b1d94e0a4347a61dec3b5c7fbb6dbf426a37a13d5632445a93e5a05c2c31ef1b",
+      "bytes": 1480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.execution.py.source.txt",
+      "sha256": "ac4705c7e37186a2ca41149f2c997b6c75e8fe1549258aeec652e54df7ae42ad",
+      "bytes": 3917,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.json",
+      "sha256": "a526bb737c5886102a5e5acc9e0e4b7d6982cd5292c39723119b4b243f5950d3",
+      "bytes": 2710,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-boundary-oracle-01.stdout.log",
+      "sha256": "d9152bce596903536cf2b02f19b479cb4455911c92e703100debcb34114a6678",
+      "bytes": 1498,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.Manifest.toml.source.txt",
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d",
+      "bytes": 3339,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.Project.toml.source.txt",
+      "sha256": "c4b8e4772fc55eb6c7ba69ac897296d581e00ef860ab3401bec8ee43d9c4cca4",
+      "bytes": 407,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.json",
+      "sha256": "02625ad2ea7ba29ca8d41f26f22d777f687b86d062c026d8fbae370b2a856461",
+      "bytes": 2998,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.runtests.jl.source.txt",
+      "sha256": "392eb501b464c4768d752aa22b41f9a324df4f653a33557444ff977f9b09a7ea",
+      "bytes": 433,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.stderr.log",
+      "sha256": "3c1fb2043072c8d5e03c009955a81e978565e8fdfa4b19e0cfe96eb0ffdb08b5",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.stdout.log",
+      "sha256": "05976d7b651c50cc48207733c4b8679e548c3536bcd4a45c7bb4b5962ca66d53",
+      "bytes": 70,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-baseline.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.export_rows.jl.source.txt",
+      "sha256": "3899029343ac06dcd58ca73e2c2f3434f9a8b529384a8f3322e192a4a0ba3c95",
+      "bytes": 800,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.json",
+      "sha256": "658a146045885011cf04f32deecffba2b5830914730b0d25fbf7e045161c09cd",
+      "bytes": 3039,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.stderr.log",
+      "sha256": "04774d7a20f9b8f33e1e994da74b6ed535e54ad03b681b754fc8c570cdcfe4bc",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.stdout.log",
+      "sha256": "e4aa10355cfa9dd903b593688e6a01d5043079a4ef7580519416eadfd5b1b8ab",
+      "bytes": 57,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-export.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.independent_rows.py.source.txt",
+      "sha256": "cf4759f4e1f6ca399f090634a4c3f9ee85ca65cab50271d28d5385d21822c5b5",
+      "bytes": 3837,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.json",
+      "sha256": "c2f802a91261d48bdb816b316a187ea2b568e14f02fad62ca057822e1290110a",
+      "bytes": 3155,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.rows.csv.source.txt",
+      "sha256": "5f96ac4aebb4ef19b0d0d5ac90a7068686d08e5c270d26d811a3d8b96e606750",
+      "bytes": 8056,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.stdout.log",
+      "sha256": "429f9e8fcb7fc3ebb112616bfe42b9b40b068a7e516f4f12f3c3439063a7169e",
+      "bytes": 1032,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-independent-rows.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.environment.jl.source.txt",
+      "sha256": "89df2caeb282d2419125d152f681deffe6d75ffbbc5f724c204fe57e71129031",
+      "bytes": 945,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.json",
+      "sha256": "e8f8802c2ca497e3af7bdc7647320e88a3fbcb4f8392170f6d6b9836a6eb9107",
+      "bytes": 2898,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.stdout.log",
+      "sha256": "cd246054c53966ba172e55df0d2a0590e5f590a74a128f8e2f95570f96f5fa07",
+      "bytes": 1270,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-environment.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.Manifest.toml.source.txt",
+      "sha256": "3e158ef8b4813e5d7f2ea57626ab6a1a2e2bba984dec983af6d2fd21d2e4de4d",
+      "bytes": 3339,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.json",
+      "sha256": "e1b1003ce8d157e5d0ae490f4997c8423c673a89e44278f0501d99f536d8883b",
+      "bytes": 3144,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.run.jl.source.txt",
+      "sha256": "184ab4e335b2c1f6d7e1536e2310e0ce7d72b6557ee9dff70bd26d9bea6d26b2",
+      "bytes": 1750,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.stderr.log",
+      "sha256": "9392489b9ad00118f6d0531f541abf14d4b5d2a279d9747d1abaf221bf4b4dc4",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.stdout.log",
+      "sha256": "c1e0f4c5572e37d66ffdecb0845da006574a683855e10c655873a8a89dd26d87",
+      "bytes": 13925,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-matrix.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.compare.py.source.txt",
+      "sha256": "52ee6911755597f4b2e162a31252ebb6398a3518beb99e8a260f8bdff33af4bb",
+      "bytes": 1485,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.json",
+      "sha256": "649f88b6a4dde976fef27e6a3e15a9d789770db67e8c890806a54591cccb4183",
+      "bytes": 2980,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.stdout.log",
+      "sha256": "9428a404f88fc68be7f554855e342a84e70454991f64d7421956dc2eb57c4733",
+      "bytes": 342,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-julia-python.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.GR01_two_kernel_gronwall.tex.source.txt",
+      "sha256": "19f1bc0489cd2b00db7b6671eb09880cfb930e617876a29ee0f00bb1315391cf",
+      "bytes": 13007,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.json",
+      "sha256": "745fa75d22e85fea28a7243f92a0c7cb4f2c6ad7f96377581cb57f20185cd509",
+      "bytes": 2952,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.stderr.log",
+      "sha256": "be4f77b80bbddb6b239dc3700ccad350f03e0d5bbb42b5f6edd672d1fde83396",
+      "bytes": 144,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.stdout.log",
+      "sha256": "804e087acc4b12aa22c68375db7c19c40f88a4af43263a51542b546333000974",
+      "bytes": 123,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-latex-gr01.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.Aud01Axioms.lean.source.txt",
+      "sha256": "d47d07ae368fb6f9b1255cd65c5f34c6f3fcb152c072e973e3bfdc5f5090002e",
+      "bytes": 1129,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.json",
+      "sha256": "e68e56f6e7a707ab3a7417941fddca7b1ecddbdf70e6ad134db6a994e92bb4ce",
+      "bytes": 3226,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.stdout.log",
+      "sha256": "4f0de6e25cf7dfdaf86722163209311e6175b4277bf28da559a8a730494f6502",
+      "bytes": 1953,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01axioms.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.Aud01FiniteSums.lean.source.txt",
+      "sha256": "89b6711aaab1ee66a7e0b000aa5e4c4c3734f82705b3ee975407e4116f271ab6",
+      "bytes": 2091,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.json",
+      "sha256": "65f0f898ef673705454add8cb6271246b4f441c9ebabf2942ede66ffda7a71d5",
+      "bytes": 3266,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.stdout.log",
+      "sha256": "d4b7fd160dc01c013ef34be6463e46fc15f1daaa86cc4e4b20277af168cc0cec",
+      "bytes": 338,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01finitesums.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.Aud01Oscillator.lean.source.txt",
+      "sha256": "8e7d7961364582cb31a34d635c282f8b113559f004a9867515004b250cae39bd",
+      "bytes": 2916,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.json",
+      "sha256": "a845594e2c091913d775fbd6693b77f0b679b0b55b21c1acd4721f87dfad959e",
+      "bytes": 3267,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.stdout.log",
+      "sha256": "6a7b5481fa4b2f65999193ed8d555b36bc638a81b8c056f6a3fe641da69d977a",
+      "bytes": 3928,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud01oscillator.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.Aud02Axioms.lean.source.txt",
+      "sha256": "8cddc630fe95bd1cb85dda0f691cdbf0a8f3e8b65859926e8e3f7b081b438d37",
+      "bytes": 715,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.json",
+      "sha256": "ff3b61fd40299220067f3bdff9c3cf7b1d9885cd6d6194c860b8f981fe3836cf",
+      "bytes": 3240,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.stdout.log",
+      "sha256": "ab55ade5eff7fb41ec6f2a7d91d8e77f29d7207deed7ba980a19f3fbf0156548",
+      "bytes": 1259,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02axioms.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.Aud02Finite.lean.source.txt",
+      "sha256": "bf7b3070fe5028dbb37f5371567af65e1491e18c4df27b9397fa839128fcec1f",
+      "bytes": 5949,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.json",
+      "sha256": "6f51126dc5c797bfb5a338ff68071f532deff01c1f5e8a0da9608eeb8bbbc83e",
+      "bytes": 3238,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.stdout.log",
+      "sha256": "f55894c4d9c068a07703a224777940d51054c88eb79fadd983ae227011c793ed",
+      "bytes": 670,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-aud02finite.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.AuditConstants.lean.source.txt",
+      "sha256": "257f16ba2c440a61275abfb41177eda0a78e5561a707e74bf197d4e28a4d9080",
+      "bytes": 1737,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.json",
+      "sha256": "111a9618f3b7bc6be3619d29cbf184cbef8eb2f08a482ec5ed79bfcbaa2ddf33",
+      "bytes": 3271,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.stdout.log",
+      "sha256": "fe7ef5d6d6cafd335be589baa729aab6b61127db38c064d9bd36b33b237cfbec",
+      "bytes": 298,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-auditconstants.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.Coefficients.lean.source.txt",
+      "sha256": "737642969135bf8420d8de7fb09a2eb0862cfeb545153c0cdb855c8d29be2d46",
+      "bytes": 5689,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.json",
+      "sha256": "e28bb70ef3f76469f347dbef3c818968709e2389f409188901d31e24493f0e62",
+      "bytes": 3245,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.stdout.log",
+      "sha256": "8a52a0c14d1b090004f061b04afdfdc94c8844ad5a7ea16bd4224b66feea7e9c",
+      "bytes": 1678,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficients.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.CoefficientsAxioms.lean.source.txt",
+      "sha256": "d41e33d8b73bc800d8653e7c93de1ac98811facd68fbad0c9c898a6178d313b5",
+      "bytes": 910,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.json",
+      "sha256": "d91ac60ffb502f6ef7e8ba6222e43eca2c1f5a5170f19ef153cc152af340d9c3",
+      "bytes": 3287,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.stdout.log",
+      "sha256": "aeb1a2965025dce91c07615640746f9c653688b2c974a48dd6e1d114b5e3ce50",
+      "bytes": 1688,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-coefficientsaxioms.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.Quadrature.lean.source.txt",
+      "sha256": "5c22ec6955a58c266808dabcc4b3629c056148f9077f652b521067ac53252323",
+      "bytes": 3213,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.json",
+      "sha256": "e95936ea981d790c0bd2e40252467ba545f9e6fd5231a56e77b2215b740e62dd",
+      "bytes": 3220,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.stdout.log",
+      "sha256": "b4973f10a4b4fd9b0923a2960c56fd15d198b0a1b9386acc7ea30f2d4cafa43e",
+      "bytes": 1589,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadrature.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.QuadratureAxioms.lean.source.txt",
+      "sha256": "02870ba8a56304c7a6fdb77a87697bfc59d3b23b69034709d655f4eb60b13c88",
+      "bytes": 310,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.json",
+      "sha256": "1fb5c0c157b268f3b3b557d7ae1419e7fb8669a78fe4d15dc25f468784e0b215",
+      "bytes": 3273,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.lake-manifest.json.source.txt",
+      "sha256": "269bcefe552f9c7c60e5c90abfd77f08cf8c788ba0591da72055d3a933622bbf",
+      "bytes": 3540,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.lean-toolchain.source.txt",
+      "sha256": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "bytes": 25,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.stdout.log",
+      "sha256": "68ff812fce3ef66d837dae1e0112dd3b0afe18ed0499cb0ac2f1c0c275a4e095",
+      "bytes": 573,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-lean-quadratureaxioms.validate_checkpoint.py.source.txt",
+      "sha256": "3572897b1d5dc77f8958136633fdcf4c2c4b04f5b3ac5ad598ef1417520a0a90",
+      "bytes": 5480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.json",
+      "sha256": "ff75ebd958ce9020ea5d97986250c4fabcf2368be7e8102be404504b094b6359",
+      "bytes": 2809,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.make_oracles.py.source.txt",
+      "sha256": "f0ead4965e0c39f41029af0d5a1c9b39f4a1c8a24c4cf97b282586a9a503f70a",
+      "bytes": 2711,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.stdout.log",
+      "sha256": "378fdd7f692247b835a42e8de34fbe590fa5fdfd8a676a027afbc7f3fb1256c9",
+      "bytes": 165,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-moments.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR01_two_kernel_gronwall.pdf.source.txt",
+      "sha256": "81c0f99077c200ba7cad9f536f672ad976d958807d28f2157c1f2061eebbbc70",
+      "bytes": 77548,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR02_alikhanov_kernels.pdf.source.txt",
+      "sha256": "d5dba1a77d5df87da2e00bc91e53b8c6f34a17980a02c7ea2bdc90b9e0b1374b",
+      "bytes": 73289,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR03_shifted_product_integration.pdf.source.txt",
+      "sha256": "99e559f3ea2068dacf9b3f3cd47597622a8d60ed7e890f189241249af0315488",
+      "bytes": 83221,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR04_discrete_two_kernel_gronwall.pdf.source.txt",
+      "sha256": "472dc1746cd921b6fcfa8360a34f1b1c3f7fabfbbb40c683ec64c0e0d90a34a6",
+      "bytes": 96461,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR05_main_convergence.pdf.source.txt",
+      "sha256": "7a00c144edd71f6fd2793a2b7d76f45b857823d7433a0518460b30120780d3da",
+      "bytes": 96060,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.GR06_graded_convergence.pdf.source.txt",
+      "sha256": "d42c2cb64dac3637d84f9df2b020857aa0cf9febffac15b2f49aff2c5c67bbe8",
+      "bytes": 84639,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.json",
+      "sha256": "4599f16750e6fb4681a6ac1c301f8239d28341124e5f9ff557d9c0abc7605b66",
+      "bytes": 3680,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.pdf_inspection.py.source.txt",
+      "sha256": "cc49d2e7d748683d06247689b923c7b15e898e1b8067845bb021f47d3a5ef083",
+      "bytes": 2688,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-pdf-render.stdout.log",
+      "sha256": "266d02d94aaeb43e144d3a69e3ab1c3a73cd0964d36a59276ea302ee9b27f364",
+      "bytes": 1640,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.compare.py.source.txt",
+      "sha256": "52ee6911755597f4b2e162a31252ebb6398a3518beb99e8a260f8bdff33af4bb",
+      "bytes": 1485,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.json",
+      "sha256": "caa99ec56a2645c48b9d6ceb9116b673bd8ff75a561959427dfd6720e33b05e8",
+      "bytes": 2961,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.stdout.log",
+      "sha256": "89c935b6a09291e6cdff39adc8453f9f490c91d5fd23f54bc0571ff1a0477931",
+      "bytes": 344,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-preserved-julia.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.json",
+      "sha256": "b0e0dd98d6084a448e0bb2f42cdf872b0587ca3a48961f0d11e636ce954d4430",
+      "bytes": 2833,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.python_environment.py.source.txt",
+      "sha256": "75c6c6687cb905ef36fe7085dfc32eede9f4c73f32709280408f57ad993d4181",
+      "bytes": 691,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.stdout.log",
+      "sha256": "1b4311f82f70ff55d5b51e7343c06fa471b17098acdb994b493da31ddea1af97",
+      "bytes": 940,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-environment.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.benchmark_gr07.py.source.txt",
+      "sha256": "efaebd2250c2ce0b3e888d45ddca2e4c1b932abf3d5e5e03a16758f198185d8a",
+      "bytes": 6745,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.json",
+      "sha256": "323b40c7030e9bc165b8255025ad5b96022bcf1c584b2bc5b1a40fd42255c4fd",
+      "bytes": 2984,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.stdout.log",
+      "sha256": "dfd429e117dd61c28b2a624d45e0514607a670b882b29ad9aa82f5322dfa11f5",
+      "bytes": 2473,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-python-reference.verify_gr06_graded.py.source.txt",
+      "sha256": "c99e053cfd41f0b0849e271ee2123cdd34b9a49f66b5b469b5233e5638dbd716",
+      "bytes": 3998,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.boundary.csv.source.txt",
+      "sha256": "4769909cbab060cbc05c6eaa93cba7c4ab641d465fc74ac8fc39166ad1d02abe",
+      "bytes": 944,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.json",
+      "sha256": "c50900d1a7d84a7bdc38806ebe9c399d84cc5b83bdb4cd702eccf2392f777cd2",
+      "bytes": 3514,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.moments.csv.source.txt",
+      "sha256": "75539bfdd1ec1c0875954bb32bb6a0e21f2e33a6310ad418a6a2ec45918709c5",
+      "bytes": 6759,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.runtests.jl.source.txt",
+      "sha256": "632abd307fdd6ace8e3a1ff8c54910169f8b72c8603aaab9448e37f4f9d0f84d",
+      "bytes": 14256,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.stderr.log",
+      "sha256": "c88e0d4cab95b21b4e2223d8c5d11fb2b3cb1db447fbe791de281ef4090c8efe",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.stdout.log",
+      "sha256": "ac868c4427a4c408ca0ebc1aad15c252ddd67133fe7a597eb47d2d8b6d15f50a",
+      "bytes": 1356,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-unit.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.json",
+      "sha256": "76ee886f5f037e8d5d93f93067ae123791bd55dddbcb708691af68e36e95a940",
+      "bytes": 2830,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.stdout.log",
+      "sha256": "77fa9fb488b7e26727db9ed0eac45ee7f94e030c956079dc04824d95dfd84b33",
+      "bytes": 691,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr02.verify_gr02.py.source.txt",
+      "sha256": "3d28bdef8177f085697762e8029eed4021221ca924620dd1bdb62ef217d9dbe4",
+      "bytes": 3593,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.json",
+      "sha256": "59f0f382964b229b92d2e5130646596fc6821629c4cbf70c566f0119d79057ec",
+      "bytes": 2843,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.stdout.log",
+      "sha256": "aa36043f2afa3221105e1ecf2c0dd66b95046372e89144b5ab697a69cb5d85c5",
+      "bytes": 799,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr03.verify_gr03.py.source.txt",
+      "sha256": "5dcca151309bfad756a8257c19e208ba8e55ee56314de0351b910619be037071",
+      "bytes": 6158,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.json",
+      "sha256": "51bcfd698f5053569e7a52206d18324ac48699b5878d0c1f06f843cb367b9571",
+      "bytes": 2981,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.stdout.log",
+      "sha256": "d9c08ece2d594f26367594e3908a5cec497fa8dd780315c8bbeaeafd450d9939",
+      "bytes": 850,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.verify_gr03.py.source.txt",
+      "sha256": "5dcca151309bfad756a8257c19e208ba8e55ee56314de0351b910619be037071",
+      "bytes": 6158,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr04.verify_gr04.py.source.txt",
+      "sha256": "c247330dd18e38ba5f4313ae8453b050582fea3b4436f721c5d5f10c631c816c",
+      "bytes": 6771,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.json",
+      "sha256": "2366e34e424ee17d61067ff53de0f127022a2612a138e3ec272c739bd06d6ca5",
+      "bytes": 2999,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.stdout.log",
+      "sha256": "6ae5ff9ff1e84bda6c82de0a7cc8835b483b8c0eef6f81b15616b68e4e8f021a",
+      "bytes": 1806,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.verify_gr03.py.source.txt",
+      "sha256": "5dcca151309bfad756a8257c19e208ba8e55ee56314de0351b910619be037071",
+      "bytes": 6158,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr05.verify_gr05.py.source.txt",
+      "sha256": "b646cd6422183db0877961f001dc5d142bac0c73fdec3e2486ce3b11be7c43c5",
+      "bytes": 5482,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.json",
+      "sha256": "6c934efe82eb3fd013b0727c049f67dda57e1ebb501a43a368e4e1bf0df98b06",
+      "bytes": 2899,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.stdout.log",
+      "sha256": "11716ad28d74e121954c16a68c28e9c3ff9dc52a9746854d140f3672ddca8296",
+      "bytes": 4746,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.validate_checkpoint.py.source.txt",
+      "sha256": "c9df22603bdf828cb195494d48c418e31e020e1e22bc28abdbf594aad58aa28c",
+      "bytes": 5544,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-final-verify_gr06_graded.verify_gr06_graded.py.source.txt",
+      "sha256": "c99e053cfd41f0b0849e271ee2123cdd34b9a49f66b5b469b5233e5638dbd716",
+      "bytes": 3998,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.boundary.csv.source.txt",
+      "sha256": "4769909cbab060cbc05c6eaa93cba7c4ab641d465fc74ac8fc39166ad1d02abe",
+      "bytes": 944,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.execution.py.source.txt",
+      "sha256": "ac4705c7e37186a2ca41149f2c997b6c75e8fe1549258aeec652e54df7ae42ad",
+      "bytes": 3917,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.json",
+      "sha256": "b014c6040ff34a9bd394b669dbda4f656a5f563b7f1e236a2f8ea47fe28ee1d6",
+      "bytes": 3106,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.runtests.jl.source.txt",
+      "sha256": "98993cbd345f01ba28e3a58089219fe25f6865103ddb19156812c20b269374af",
+      "bytes": 14150,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.stderr.log",
+      "sha256": "24220e0b1741f18ad8cd265b73fadfcbc54a5f79bd2459e05fafb6105b29cafb",
+      "bytes": 429,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-01.stdout.log",
+      "sha256": "85ac22577035bd00b95e238cdb38b048abdb1ad63b60f6108bf1b6e11731f444",
+      "bytes": 3741,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.boundary.csv.source.txt",
+      "sha256": "4769909cbab060cbc05c6eaa93cba7c4ab641d465fc74ac8fc39166ad1d02abe",
+      "bytes": 944,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.execution.py.source.txt",
+      "sha256": "ac4705c7e37186a2ca41149f2c997b6c75e8fe1549258aeec652e54df7ae42ad",
+      "bytes": 3917,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.json",
+      "sha256": "f2198ffe61f194fe747d1800f3ce11884defccd511001365b343c77b58140faa",
+      "bytes": 3092,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.runtests.jl.source.txt",
+      "sha256": "632abd307fdd6ace8e3a1ff8c54910169f8b72c8603aaab9448e37f4f9d0f84d",
+      "bytes": 14256,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.stderr.log",
+      "sha256": "61989faf96eeac3825eec7a195bd4333898dc3eaeff9b030e307f715ef36404f",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-julia-unit-02.stdout.log",
+      "sha256": "9b64196b790d9a4c6ec308997c05c879725c9caef045cbdf326ce38e60923bbe",
+      "bytes": 1356,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.json",
+      "sha256": "df073531315633f67bf76cb79759b73a2438a860e7270deaad390351c720398c",
+      "bytes": 2768,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.render_pdf.py.source.txt",
+      "sha256": "cd742b53b29d7a9b424785d3c8ea67b9693131617f8ec3d13c3d20ebf3b18c3e",
+      "bytes": 1697,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-literature-render-01.stdout.log",
+      "sha256": "fe49c6a39e2d92e4b5c10335a556ec7cd82dc1a9213e465032c1bab871b5bd68",
+      "bytes": 56,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.GR01_two_kernel_gronwall.tex.source.txt",
+      "sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "bytes": 13020,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.json",
+      "sha256": "263b921718a0c9ddba1830015dd09521fc82d8142b9649a8c59fa1903b0e135d",
+      "bytes": 2973,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.stdout.log",
+      "sha256": "512563167e98015a9549f697c876e3de86f38c5281cf58a36719c3cbfa8bde84",
+      "bytes": 419,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr01.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.GR02_alikhanov_kernels.tex.source.txt",
+      "sha256": "4bfa15baba9a4ffef8d996aacd8db13669161875fbabb293cd93be23d17a74d8",
+      "bytes": 11457,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.json",
+      "sha256": "b2c2be1c1dea468561ba620ed923e89a825602fff9c8d7851ca5e6e385be997d",
+      "bytes": 2958,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.stdout.log",
+      "sha256": "302551d4149b906cfe43dd0a847a42c879486bfaafe158f46a9ac8f688da5393",
+      "bytes": 412,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr02.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.GR03_shifted_product_integration.tex.source.txt",
+      "sha256": "07f942a2d6070bc5f49f320346c6a1ebb7b1d6c543b94265566d61b76596f732",
+      "bytes": 14393,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.json",
+      "sha256": "f2733578f2ff8782fd2b78aa5816365799de095fac0faeac190c07f58277e775",
+      "bytes": 2990,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.stdout.log",
+      "sha256": "d96ccd3e61ef7f1b1418e570ebcbaafe276d752536d5c99d011f5df7ee8665bb",
+      "bytes": 462,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr03.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.GR04_discrete_two_kernel_gronwall.tex.source.txt",
+      "sha256": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+      "bytes": 18493,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.json",
+      "sha256": "cfabb7698a68d75625f67213422dd2492bffa7837f3f823f8e823cded01dcba3",
+      "bytes": 2992,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.stdout.log",
+      "sha256": "d6a5cc70334106f87bab56fabddaff1b3b7091f79001f873581d3fd0aa0cf77c",
+      "bytes": 467,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr04.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.GR05_main_convergence.tex.source.txt",
+      "sha256": "434483cab8a7ebfbc6f14e7eaeefb18a3d86a8e1780ffdb3bb5302c18f76a5df",
+      "bytes": 19953,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.json",
+      "sha256": "9e22964380f16a8acc39bd5fa8882f0f057e92c4852f0ae553e8a90e973fc18d",
+      "bytes": 2967,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.stdout.log",
+      "sha256": "9bef0388ca9e3d14a4304ab0ffe59e9234eb4c6fe58fa5fa7692cd1b15e8ad80",
+      "bytes": 407,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr05.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.GR06_graded_convergence.tex.source.txt",
+      "sha256": "a422873375fa1edb79d476cb67ddd358be2b788ecc84ebfd87322bf9696ce735",
+      "bytes": 15836,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.json",
+      "sha256": "20d83a7207a8d040d7a461dbe9e4d6f49bb66fd9e4313c92d0f9a64f4716e8fb",
+      "bytes": 2960,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.stdout.log",
+      "sha256": "c9dbaf0d42b34d8d37463cd5429f811d7643d2d9dacced4cd93fce6a33737d48",
+      "bytes": 414,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-offline-final-latex-gr06.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.GR07.jl.source.txt",
+      "sha256": "1ddabb9c10064fadf8eea87d15e0f083cf98fa5d3c4e7989a322b81feca01f15",
+      "bytes": 12684,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.execution.py.source.txt",
+      "sha256": "ac4705c7e37186a2ca41149f2c997b6c75e8fe1549258aeec652e54df7ae42ad",
+      "bytes": 3917,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.export_rows.jl.source.txt",
+      "sha256": "f67414a0bba9c197ce7ed515c809ad23c5657bc291722e329b2d422ce23de869",
+      "bytes": 1455,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.json",
+      "sha256": "11475259c526150b1b9d0c521adf8fed0b7a7767a632c3ccd108cfe3b454bab1",
+      "bytes": 2925,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.stderr.log",
+      "sha256": "8cad501c7ea32e3b7f92c4b94731ca7dc2647fb2797fde56cfa5d3274ef415a5",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-original-boundaries-01.stdout.log",
+      "sha256": "00a4ecce7cd7bd8023a7846424c01736fe61e66dcc774db96d9f87f2beaf2f6f",
+      "bytes": 127,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.execution.py.source.txt",
+      "sha256": "ac4705c7e37186a2ca41149f2c997b6c75e8fe1549258aeec652e54df7ae42ad",
+      "bytes": 3917,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.json",
+      "sha256": "126117a79488130ef9f143ac44ebf5ef6927f03234616c9fb253713c0853f30e",
+      "bytes": 2557,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.preflight.py.source.txt",
+      "sha256": "dc9c0ac714fc72bfb199e27594c7d7d4633f825d3a65f8b8e07a7ea365df1263",
+      "bytes": 635,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-preflight-01.stdout.log",
+      "sha256": "54702f67b81ee01e2070dd692bfcc785a91a1d2e3a20818f51f7749b9e14ce4d",
+      "bytes": 203,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.GR07.jl.source.txt",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.export_rows.jl.source.txt",
+      "sha256": "74878629256ebf64c5076cde88fa18f1f4393ca50f5373416aae083fedf39d78",
+      "bytes": 1536,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.json",
+      "sha256": "f846369c1317fbd3c3a82df0c2cd54aca93eb003a06bbe9224cb1c3fc9f1c9a2",
+      "bytes": 2949,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.stderr.log",
+      "sha256": "56f2275d5d6f4f65ca2a00692436635da5d3a53c46aea826c224419d0bee7a8d",
+      "bytes": 140,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-export-01.stdout.log",
+      "sha256": "e4aa10355cfa9dd903b593688e6a01d5043079a4ef7580519416eadfd5b1b8ab",
+      "bytes": 57,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.execution.py.source.txt",
+      "sha256": "6bf4a44de92ab79149a7a003c633f81bfb8bc1dbd5dd570a337658c9241fd9a8",
+      "bytes": 4045,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.independent_rows.py.source.txt",
+      "sha256": "cf4759f4e1f6ca399f090634a4c3f9ee85ca65cab50271d28d5385d21822c5b5",
+      "bytes": 3837,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.json",
+      "sha256": "61d9bd68c2406f6a2c651677ce11ad691a5fe176c4e3082296dec4717b7d8976",
+      "bytes": 3197,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.repaired-extremes.csv.source.txt",
+      "sha256": "822905ede0a66bede922eaf0e7c717ec35652d8d4ec6e810ff94791cab2ac902",
+      "bytes": 336,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.rows.csv.source.txt",
+      "sha256": "5f96ac4aebb4ef19b0d0d5ac90a7068686d08e5c270d26d811a3d8b96e606750",
+      "bytes": 8056,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-repaired-independent-01.stdout.log",
+      "sha256": "3b1ebc55186fb32b42012b2956354e67cc7aed64c2c9e83c304fc4a44740f6c2",
+      "bytes": 877,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.acquire_tex.py.source.txt",
+      "sha256": "07bb863132b3eb83c37a9af41444573e360629f67fdf5895aa8837b7bfa805cd",
+      "bytes": 2461,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.json",
+      "sha256": "08792a2dd3ad47f11d1b95ff576ae7a34811d3c97d279eb5d28a9559cdeae004",
+      "bytes": 2912,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.stdout.log",
+      "sha256": "d7cae3025fa833c9126b001207d2dede35f57c2f98396839b3d088531dd7da19",
+      "bytes": 858,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-01.tex-resource-fixture.tex.source.txt",
+      "sha256": "fcd94b2bb62ade69e03afe9979be3fc5e3709e59a0903c9d8b36e4bcedab230b",
+      "bytes": 321,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.acquire_tex_02.py.source.txt",
+      "sha256": "58d5dda8008a2092b6561157868accd699f89a4cdc4e0a8b2968506e4c81d2bb",
+      "bytes": 3054,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.json",
+      "sha256": "f287437e05d4f93012a94bf3cd1d1dc5ca900afcb4d190c4116c4ce37002be5a",
+      "bytes": 2920,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.stdout.log",
+      "sha256": "9020ce54319a41930ad75d12bb61447c958ab0adb4fcba8993982ea03891ebfe",
+      "bytes": 688,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-02.tex-resource-fixture-02.tex.source.txt",
+      "sha256": "99f1eac1092c7b79a3c4144925f232ee2579adef6835445443838b34ebf60463",
+      "bytes": 636,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.GR01_two_kernel_gronwall.tex.source.txt",
+      "sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "bytes": 13020,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.json",
+      "sha256": "406fb38bfcf5c1f75b487aee65333f728f952bf99e30f68fcf5501fac570e55f",
+      "bytes": 2945,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.stderr.log",
+      "sha256": "2d9666022eec5e6070a7130c714f50769b4aadcedd8f02a3734e9158996b498a",
+      "bytes": 4641,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr01.stdout.log",
+      "sha256": "7f656df780ccce389f634edffe6821f124cd63a080168187f1d6aac86b541253",
+      "bytes": 577,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.GR02_alikhanov_kernels.tex.source.txt",
+      "sha256": "4bfa15baba9a4ffef8d996aacd8db13669161875fbabb293cd93be23d17a74d8",
+      "bytes": 11457,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.json",
+      "sha256": "3223b5fe0e31361c795ebdd975fdb3d43a950eb302afc85691521efbc0d5b713",
+      "bytes": 2930,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr02.stdout.log",
+      "sha256": "f956cb7e9e9e3b1f7c96a31252f73306ddc2024e0956449bf83c419e2926dbfc",
+      "bytes": 467,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.GR03_shifted_product_integration.tex.source.txt",
+      "sha256": "07f942a2d6070bc5f49f320346c6a1ebb7b1d6c543b94265566d61b76596f732",
+      "bytes": 14393,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.json",
+      "sha256": "2b83e72b4f9c4a9e73f74ff8fba7f367dfceaade52683ec12ec4c80ad980c04b",
+      "bytes": 2975,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr03.stdout.log",
+      "sha256": "8192b15bf3454417b52b6ac6c0f2162f0904fa839bc7f7407fddcba925024563",
+      "bytes": 648,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.GR04_discrete_two_kernel_gronwall.tex.source.txt",
+      "sha256": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+      "bytes": 18493,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.json",
+      "sha256": "c8853be0c589e40ff14b86dc184106cf938e4d65ccc1514e717715fab86519d7",
+      "bytes": 2977,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr04.stdout.log",
+      "sha256": "ccdc3ca5135d1353aee40bab4636b8db7d71005b2394fba799b16059a8ca4e60",
+      "bytes": 484,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.GR05_main_convergence.tex.source.txt",
+      "sha256": "434483cab8a7ebfbc6f14e7eaeefb18a3d86a8e1780ffdb3bb5302c18f76a5df",
+      "bytes": 19953,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.json",
+      "sha256": "25729623ff32498b1bda30172d2743fc1626d09a90db003402aaa0d258de2d6c",
+      "bytes": 2928,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr05.stdout.log",
+      "sha256": "84b01c2c8181290e5416800e07d68ed42de6b3a08b779ff503f48bc4f9bf4a00",
+      "bytes": 368,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.GR06_graded_convergence.tex.source.txt",
+      "sha256": "a422873375fa1edb79d476cb67ddd358be2b788ecc84ebfd87322bf9696ce735",
+      "bytes": 15836,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.acquire_manuscript_resources.py.source.txt",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.json",
+      "sha256": "5a53baed31b6ad33bec6c70c5db88671627a7becf5631105d64a22b26baf3a37",
+      "bytes": 2932,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.stderr.log",
+      "sha256": "b04a182b7745f56a6ca5aeee2564fc1a18f65cda0ff94b08aa61bb2b95070997",
+      "bytes": 4476,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-tex-acquisition-gr06.stdout.log",
+      "sha256": "8db08e272c8c18e72d3f4aed44006e2fa2d9f327b2a616e1276c90aa9995cbb0",
+      "bytes": 375,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.GR01_two_kernel_gronwall.tex.source.txt",
+      "sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "bytes": 13020,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.json",
+      "sha256": "12cd6cfd301b6e52d38b9462a28f8485e94080ff11e72f78014cff7ec47fa8bc",
+      "bytes": 2936,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.stderr.log",
+      "sha256": "9d33ef14fcd4a70b4531a54865501e296c9fe4fafb5af2b1ec493df96acfeb82",
+      "bytes": 4707,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.stdout.log",
+      "sha256": "41faed8b505e2f98054db415c76e9419f01bfe067d0ca41d74875ee564dceada",
+      "bytes": 127,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset-latex-gr01.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.GR01_two_kernel_gronwall.tex.source.txt",
+      "sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "bytes": 13020,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.execution.py.source.txt",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.isolate.py.source.txt",
+      "sha256": "6367164b6022858e5523eb654afb8a94ab7a14c426c0d54f8be1bf02d4419108",
+      "bytes": 1138,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.json",
+      "sha256": "a6e659c3dfbebb1b745e63fe454f1d95abdc6c49725d7c389f1fe66c28c869a7",
+      "bytes": 2945,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.namespace.json",
+      "sha256": "e0bf43dab78d6ae5be6c800a353cca05deb16493aa3535248dc3f051e9329672",
+      "bytes": 219,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.payload.py.source.txt",
+      "sha256": "bbf1e6b231256aa24322b9d11669c7aa03b4e9aa89b6fe5a81e52d57725b9388",
+      "bytes": 186,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.stderr.log",
+      "sha256": "4a87ba0a3dc1f56baa51440e44b9f2851c8ce519ca97a119373b73aeaccc07a7",
+      "bytes": 4705,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.stdout.log",
+      "sha256": "0ec2ab89e9a66bafb347030388892b6f707e652095fd7c4da6b498feca44fddd",
+      "bytes": 127,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/runs/r01-typeset02-latex-gr01.validate_checkpoint.py.source.txt",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/summary.json",
+      "sha256": "fa7b13803e544d8e927157ef3209b7910849996a8864c300138a718361067d51",
+      "bytes": 1256,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-acquisition-02.json",
+      "sha256": "7ca8f6b5e7e85ae1c7d482327f6291acc2c60f90fd23dbe41df4055a856b2113",
+      "bytes": 1997,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-acquisition.json",
+      "sha256": "9fc82c892b784bcee21ba01b9c7ceecb69b84d29f8bb23a92492d9b31df34a1b",
+      "bytes": 3026,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-cache-promotion.json",
+      "sha256": "246e365f35f692c8559c747a321c6d0d9980fe12710affbc330a74f411abf519",
+      "bytes": 2706,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-final-resources.json",
+      "sha256": "f94b770c08d1e3e2ae22ca51b6cd5648b6dcf606edbab5721a14b67eb86e3980",
+      "bytes": 6193,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-manuscript-resource-acquisition.json",
+      "sha256": "79e240058c3cd68039da11d3c8945269efc59d92ba09046a7c5bb9726e8d5738",
+      "bytes": 3760,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-resource-fixture-02.tex",
+      "sha256": "99f1eac1092c7b79a3c4144925f232ee2579adef6835445443838b34ebf60463",
+      "bytes": 636,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-resource-fixture.tex",
+      "sha256": "fcd94b2bb62ade69e03afe9979be3fc5e3709e59a0903c9d8b36e4bcedab230b",
+      "bytes": 321,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-resources-before-acquisition-02.json",
+      "sha256": "63e14b7e15d4ef3a5eeaf61ef77c44013d36af4d1108524d312dfc41f1094ee5",
+      "bytes": 422,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-resources-before-acquisition-03.json",
+      "sha256": "502fa4f2b147b46652ede5057c405b24a0bc055a5281515ba0b23d10b364d095",
+      "bytes": 92287,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/tex-resources-before-acquisition.json",
+      "sha256": "3bd8c8515987e9fe13824ff92912f5efef9782da6ac6846181730113b6e9784d",
+      "bytes": 1080,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/evidence/theorem-catalogue.json",
+      "sha256": "3fe9ca47d1246cb7356daeac258d968c6401fdf610e4c4dfbd715e12604f6e0a",
+      "bytes": 35238,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/acquire_manuscript_resources.py",
+      "sha256": "7d8d54e930c4183544835eebf91e37e1f5a31ddafe743e6befb63ed7b5532bf6",
+      "bytes": 2209,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/acquire_tex.py",
+      "sha256": "cf9f915415505a2c927f301e66ea951187fb730e6f118c74fdcaaf67f6fb0ea0",
+      "bytes": 2733,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/acquire_tex_02.py",
+      "sha256": "58d5dda8008a2092b6561157868accd699f89a4cdc4e0a8b2968506e4c81d2bb",
+      "bytes": 3054,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/assess_records.py",
+      "sha256": "a2bf69672468ceb9cb55e8dd3e423b8758d8d143259cd1a0e944d2f0b858bfd0",
+      "bytes": 6887,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/boundary_oracle.py",
+      "sha256": "b1d94e0a4347a61dec3b5c7fbb6dbf426a37a13d5632445a93e5a05c2c31ef1b",
+      "bytes": 1480,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/checkpoint_manifest.py",
+      "sha256": "0493afa280107e7309cae737e93d8d8ffe0acf5d239376d754258920de194079",
+      "bytes": 2452,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/documentation_checks.py",
+      "sha256": "bee04ac75d4788d71414f0173e47bcb030eba1f12c56f681dab2ad0014d4caf2",
+      "bytes": 3461,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/execution.py",
+      "sha256": "931db30a79c9bdef41602798593cd94042fc11974ae3bebb234eaed0e69a19f3",
+      "bytes": 4062,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/export_rows.jl",
+      "sha256": "74878629256ebf64c5076cde88fa18f1f4393ca50f5373416aae083fedf39d78",
+      "bytes": 1536,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/final_pdf_checks.py",
+      "sha256": "a75844b2422d6cc7edf64fa02f7abcb5787f1ee4fdec906b601879c53549da20",
+      "bytes": 2700,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/pdf_inspection.py",
+      "sha256": "cc49d2e7d748683d06247689b923c7b15e898e1b8067845bb021f47d3a5ef083",
+      "bytes": 2688,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/render_pdf.py",
+      "sha256": "cd742b53b29d7a9b424785d3c8ea67b9693131617f8ec3d13c3d20ebf3b18c3e",
+      "bytes": 1697,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/revise_manuscripts.py",
+      "sha256": "5ca2e588f55fdf39f126d7f9fa182a16b346cf7ef864de2522d1efcc3b4a9597",
+      "bytes": 19735,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/aud02/revision-01/scripts/validate_checkpoint.py",
+      "sha256": "44a699938529c8c6d8c1a97056dcab6fca261b6ca968cfc31d04b77cd1d5d4d5",
+      "bytes": 5488,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/verification/README.md",
+      "sha256": "ef1100c64d43fbab0926ce3faa8a146704c08e1ed8897f8b0bd02138a83dc998",
+      "bytes": 9579,
+      "change": "modified"
+    },
+    {
+      "path": "research/legendre/verification/lean/Aud02Axioms.lean",
+      "sha256": "8cddc630fe95bd1cb85dda0f691cdbf0a8f3e8b65859926e8e3f7b081b438d37",
+      "bytes": 715,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/Aud02Finite.lean",
+      "sha256": "bf7b3070fe5028dbb37f5371567af65e1491e18c4df27b9397fa839128fcec1f",
+      "bytes": 5949,
+      "change": "created"
+    },
+    {
+      "path": "research/legendre/verification/lean/lakefile.toml",
+      "sha256": "0961ff4e5a0713837492c516354930320ddc16e9dd11a218b2d4ccde4404da85",
+      "bytes": 464,
+      "change": "modified"
+    },
+    {
+      "path": "studies/legendre/README.md",
+      "sha256": "d8606a16d3036cf2165ea1a03d2a5a4198f7ce8ac33eb814e1ad6bb859be9ad7",
+      "bytes": 5997,
+      "change": "modified"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/GR07.jl",
+      "sha256": "3d0bd035ab213aaaa71b6b621f7cf202cbf93ac37495f1314fb67dbb1ebb1042",
+      "bytes": 14081,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/README.md",
+      "sha256": "ca2e39ecc5791ea99654c1998f6362b5ee2bdcd325d43d3063a8bfa66e65185e",
+      "bytes": 3744,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR01_two_kernel_gronwall.pdf",
+      "sha256": "81c0f99077c200ba7cad9f536f672ad976d958807d28f2157c1f2061eebbbc70",
+      "bytes": 77548,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR01_two_kernel_gronwall.tex",
+      "sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "bytes": 13020,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR02_alikhanov_kernels.pdf",
+      "sha256": "d5dba1a77d5df87da2e00bc91e53b8c6f34a17980a02c7ea2bdc90b9e0b1374b",
+      "bytes": 73289,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR02_alikhanov_kernels.tex",
+      "sha256": "4bfa15baba9a4ffef8d996aacd8db13669161875fbabb293cd93be23d17a74d8",
+      "bytes": 11457,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR03_shifted_product_integration.pdf",
+      "sha256": "99e559f3ea2068dacf9b3f3cd47597622a8d60ed7e890f189241249af0315488",
+      "bytes": 83221,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR03_shifted_product_integration.tex",
+      "sha256": "07f942a2d6070bc5f49f320346c6a1ebb7b1d6c543b94265566d61b76596f732",
+      "bytes": 14393,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR04_discrete_two_kernel_gronwall.pdf",
+      "sha256": "472dc1746cd921b6fcfa8360a34f1b1c3f7fabfbbb40c683ec64c0e0d90a34a6",
+      "bytes": 96461,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR04_discrete_two_kernel_gronwall.tex",
+      "sha256": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+      "bytes": 18493,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR05_main_convergence.pdf",
+      "sha256": "7a00c144edd71f6fd2793a2b7d76f45b857823d7433a0518460b30120780d3da",
+      "bytes": 96060,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR05_main_convergence.tex",
+      "sha256": "434483cab8a7ebfbc6f14e7eaeefb18a3d86a8e1780ffdb3bb5302c18f76a5df",
+      "bytes": 19953,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR06_graded_convergence.pdf",
+      "sha256": "d42c2cb64dac3637d84f9df2b020857aa0cf9febffac15b2f49aff2c5c67bbe8",
+      "bytes": 84639,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/manuscripts/GR06_graded_convergence.tex",
+      "sha256": "a422873375fa1edb79d476cb67ddd358be2b788ecc84ebfd87322bf9696ce735",
+      "bytes": 15836,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/run.jl",
+      "sha256": "184ab4e335b2c1f6d7e1536e2310e0ce7d72b6557ee9dff70bd26d9bea6d26b2",
+      "bytes": 1750,
+      "change": "created"
+    },
+    {
+      "path": "studies/legendre/gr07/revision-01/test/runtests.jl",
+      "sha256": "632abd307fdd6ace8e3a1ff8c54910169f8b72c8603aaab9448e37f4f9d0f84d",
+      "bytes": 14256,
+      "change": "created"
+    }
+  ],
+  "excluded": "Runtime/build caches, local downloaded review papers, and the three self-referential inventory outputs",
+  "preservation": "All original files checked separately by input-manifest.json and integrity.json"
+}

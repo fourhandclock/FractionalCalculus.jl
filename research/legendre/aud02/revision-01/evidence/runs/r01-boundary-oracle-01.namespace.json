@@ -1,0 +1,6 @@
+{
+  "namespace_started": true,
+  "surviving_namespace_pids": [],
+  "namespace_cleanup_verified": true,
+  "scope": "PID namespace cleanup; per-process limits and sampled descendant RSS, no aggregate cgroup isolation."
+}

@@ -1,0 +1,38 @@
+--- attempt01/make_oracles.py
++++ attempt02/make_oracles.py
+@@ -6,6 +6,7 @@
+ not rigorous interval certification. Outputs are never overwritten.
+ """
+ import csv
++from fractions import Fraction
+ from pathlib import Path
+ import sys
+ import mpmath as mp
+@@ -35,14 +36,23 @@
+             for j,name in [(0,'m0'),(1,'m1'),(2,'m2'),(-1,'center')]:
+                 lo,hi = integrate(h,r,d,H,j,120), integrate(h,r,d,H,j,180)
+                 with mp.workdps(130):
+-                    error = abs(lo-hi)/max(abs(hi),mp.mpf('1e-150'))
+-                    assert error < mp.mpf('1e-45'), (h,r,d,H,j,str(error))
+-                    row[name] = mp.nstr(hi,60)
++                    exact_zero = j == -1 and Fraction(d)==Fraction(H) and 2*Fraction(H)==1+Fraction(r)
++                    if exact_zero:
++                        # GR-02's known shifted final-panel cancellation. Relative
++                        # error is undefined at zero; both independent integrals
++                        # must be <1e-100 times the positive panel mass.
++                        mass=integrate(h,r,d,H,0,180)
++                        assert abs(lo)<mp.mpf('1e-100')*mass and abs(hi)<mp.mpf('1e-100')*mass
++                        row[name]='0'
++                    else:
++                        error = abs(lo-hi)/abs(hi)
++                        assert error < mp.mpf('1e-45'), (h,r,d,H,j,str(error))
++                        row[name] = mp.nstr(hi,60)
+             rows.append(row)
+     path.parent.mkdir(parents=True, exist_ok=True)
+     with path.open('x',newline='') as f:
+         w=csv.DictWriter(f,fieldnames=rows[0]); w.writeheader(); w.writerows(rows)
+-    print('PASS: 24 panels, 96 independent polynomial integrals; 120/180-digit stabilization <1e-45 relative.')
++    print('PASS: 24 panels, 96 independent polynomial integrals; 120/180-digit stabilization <1e-45 relative for nonzero values; exact-zero integrals <1e-100 times panel mass.')
+ 
+ if __name__=='__main__':
+     main(sys.argv[1])

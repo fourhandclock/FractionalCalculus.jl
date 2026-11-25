@@ -13,6 +13,10 @@ This repository provides reusable Julia operators for reproducing numerical-anal
 
 Start with the [Legendre study guide](studies/legendre/README.md), [mathematical verification dashboard](research/legendre/verification/README.md), and [research workflow](docs/RESEARCH_WORKFLOW.md). The audited checkpoint through AUD-01 has verdict **ACCEPT WITH LIMITATIONS**: its analytical results, finite-grid observations, and individual Lean certificates have different scopes.
 
+## Audited post-reproduction checkpoint
+
+The [AUD-02 revision-01 guide](research/legendre/aud02/revision-01/README.md) prepares the GR-01–07 closure with revised conditional analysis, a separate repaired [Alikhanov–PI research module](studies/legendre/gr07/revision-01/README.md), 54 finite Lean certificates and preserved original evidence. Its verdict and limitations are recorded independently of agreement with the published tables. The AUD-01 checkpoint and production algorithms remain unchanged.
+
 ## Study layout
 
 The numerical components stay in `src/`; each paper keeps its cases, tests, runners, and results in its own directory under `studies/`.

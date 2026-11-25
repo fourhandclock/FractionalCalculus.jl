@@ -1,0 +1,63 @@
+Test Summary:                         | Pass  Total  Time
+GR-07 parameter and convention guards |   22     22  0.2s
+Test Summary:                            | Pass  Total  Time
+Independent high-precision local moments |   97     97  0.1s
+Test Summary:                                                     | Pass  Total  Time
+Direct interpolation-integral rows, including nonuniform stencils |  192    192  0.2s
+Test Summary:                                             | Pass  Total  Time
+Independent uniform closed forms and polynomial exactness |  556    556  0.4s
+Test Summary:                                                | Pass  Total  Time
+Signs, complementary kernels, tail bounds and shifted energy | 7018   7018  1.7s
+Test Summary:                                                   | Pass  Total  Time
+GLL energy, Ritz initialization and independent equation checks |   32     32  6.9s
+Test Summary:                                              | Pass  Total  Time
+Actual production controls and independent norm quadrature |    8      8  1.5s
+Test Summary:                                                    | Pass  Total  Time
+Final-panel quadrature refinement and exact shifted cancellation |   16     16  0.1s
+AUD-02 revision 01 exact boundary regressions: Error During Test at /home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/studies/legendre/gr07/revision-01/test/runtests.jl:282
+  Got exception outside of a @test
+  ArgumentError: cannot parse "7.52252778063675022333851261612731457784542473676655324155268267916773825650638902719328081e-401" as Float64
+  Stacktrace:
+    [1] _parse_failure(T::Type, s::SubString{String}, startpos::Int64, endpos::Int64)
+      @ Base ./parse.jl:388
+    [2] #tryparse_internal#474
+      @ ./parse.jl:384 [inlined]
+    [3] tryparse_internal
+      @ ./parse.jl:381 [inlined]
+    [4] parse
+      @ ./parse.jl:394 [inlined]
+    [5] _broadcast_getindex_evalf
+      @ ./broadcast.jl:699 [inlined]
+    [6] _broadcast_getindex
+      @ ./broadcast.jl:682 [inlined]
+    [7] _getindex
+      @ ./broadcast.jl:620 [inlined]
+    [8] getindex
+      @ ./broadcast.jl:616 [inlined]
+    [9] macro expansion
+      @ ./broadcast.jl:995 [inlined]
+   [10] macro expansion
+      @ ./simdloop.jl:77 [inlined]
+   [11] copyto!
+      @ ./broadcast.jl:994 [inlined]
+   [12] copyto!
+      @ ./broadcast.jl:947 [inlined]
+   [13] copy
+      @ ./broadcast.jl:919 [inlined]
+   [14] materialize(bc::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{1}, Nothing, typeof(parse), Tuple{Base.RefValue{Type{Float64}}, Vector{SubString{String}}}})
+      @ Base.Broadcast ./broadcast.jl:894
+   [15] top-level scope
+      @ ~/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/studies/legendre/gr07/revision-01/test/runtests.jl:283
+   [16] macro expansion
+      @ ~/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/julia-1.12.6/share/julia/stdlib/v1.12/Test/src/Test.jl:1777 [inlined]
+   [17] macro expansion
+      @ ~/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-revision01-2026-11-26/workspace/studies/legendre/gr07/revision-01/test/runtests.jl:288 [inlined]
+   [18] include(mod::Module, _path::String)
+      @ Base ./Base.jl:306
+   [19] exec_options(opts::Base.JLOptions)
+      @ Base ./client.jl:317
+   [20] _start()
+      @ Base ./client.jl:550
+Test Summary:                                 | Pass  Error  Total  Time
+AUD-02 revision 01 exact boundary regressions |    1      1      2  1.0s
+RNG of the outermost testset: Xoshiro(0xeeb5a50d1894e21e, 0x59467222a1db027d, 0x35cf8200f46b61e9, 0x87940fa153a117e3, 0xbca2f2e30da67a57)

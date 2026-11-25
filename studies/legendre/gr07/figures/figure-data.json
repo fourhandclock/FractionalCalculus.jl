@@ -1,0 +1,21 @@
+{
+  "path_base": "GR07 study",
+  "scientific_csv": "results/julia_results.csv",
+  "scientific_sha256": "d460f0faf18caca8186abaec0d79535a7117c97592d2317a66ac2bc2a9603bb0",
+  "timing_csv": "results/timing_repeats.csv",
+  "timing_sha256": "228aa61b36fbe566ea5064ab5083b90351792e59425ff1b651a9ca1983ee2c42",
+  "figures": [
+    "error_N_a0.5_smooth.svg",
+    "error_N_a0.5_singular.svg",
+    "error_N_a0.75_smooth.svg",
+    "error_N_a0.75_singular.svg",
+    "error_N_a0.9_smooth.svg",
+    "error_N_a0.9_singular.svg",
+    "error_runtime_smooth.svg",
+    "error_runtime_singular.svg",
+    "stored_arrays_N.svg",
+    "spatial_refinement.svg"
+  ],
+  "axes": "Explicit log10 coordinates; no fitted or extrapolated curves",
+  "invalid_initial_input_used": false
+}

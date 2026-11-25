@@ -1,0 +1,9 @@
+{
+  "files": {
+    "reference/benchmark_gr07.py": "efaebd2250c2ce0b3e888d45ddca2e4c1b932abf3d5e5e03a16758f198185d8a",
+    "reference/verify_gr06_graded.py": "c99e053cfd41f0b0849e271ee2123cdd34b9a49f66b5b469b5233e5638dbd716",
+    "reference/results.csv": "9db7b8d067a27fc2c668fd72e20b031ee18707e5ed256f0e71b461a5e3d0f8b0",
+    "scripts/make_oracles.py": "f0ead4965e0c39f41029af0d5a1c9b39f4a1c8a24c4cf97b282586a9a503f70a",
+    "evidence/oracles/moments.csv": "75539bfdd1ec1c0875954bb32bb6a0e21f2e33a6310ad418a6a2ec45918709c5"
+  }
+}

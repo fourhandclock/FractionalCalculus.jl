@@ -1,0 +1,23 @@
+{
+  "source_files": 1041,
+  "source_bytes": 20068898,
+  "original_gr07_mismatches": [],
+  "copied_input_mismatches": [],
+  "baseline_commit": "bf43fd0e78bcbcaae94d4c95fd9e43fd562ba477",
+  "original_workspace_guard": {
+    "guard": "original GR-07 preflight workspace snapshot",
+    "guard_sha256": "fdbb664f06c20164e9dc027ee59ebbc883472f81b52d9d7a54b81d1788c67e15",
+    "files_checked": 481,
+    "mismatches": [],
+    "scope": "Existing source/navigation/metric-graph files in the original workspace; audit outputs are separate additions."
+  },
+  "scope": "Original production/GR manuscripts/source/results/evidence unchanged; new audit artifacts only.",
+  "excluded_runtime_or_control_directories": [
+    ".git",
+    ".checkpoint-tools",
+    ".lake",
+    "__pycache__"
+  ],
+  "git_commands_executed": false,
+  "publication_or_checkpoint_integration": false
+}

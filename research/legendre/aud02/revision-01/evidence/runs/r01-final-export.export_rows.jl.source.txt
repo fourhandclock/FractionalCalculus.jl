@@ -1,0 +1,21 @@
+using LinearAlgebra
+include(joinpath(@__DIR__,"../../../../../studies/legendre/gr07/revision-01/GR07.jl"))
+using .GR07
+BLAS.set_num_threads(1)
+out=ARGS[1]
+open(out,"w") do io
+    println(io,"case,alpha,beta,variant,n,k,A,W,star")
+    for (id,a,b,t) in [("irregular",.35,.82,[0.,.013,.041,.122,.379,1.]),
+                       ("graded",.85,.17,mesh(5;grading=2/.85)),
+                       ("startup",.02,.97,mesh(2;grading=7.))]
+        for variant in (:Alikhanov_PI_L,:Alikhanov_PI_Q)
+            op=time_operators(t,a,b;variant)
+            for n in 1:length(t)-1,k in 0:n
+                aa=k==0 ? 0. : op.A[n,k]
+                println(io,join((id,a,b,variant,n,k,aa,op.W[n,k+1],op.star[n]),','))
+            end
+        end
+    end
+end
+println("independent-oracle input rows written: ",out)
+

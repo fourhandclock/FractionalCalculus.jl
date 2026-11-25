@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\D}{\mathcal D_\tau^\alpha}
+\title{GR-02: Alikhanov discretization and complementary kernels\\\large Uniform-grid foundations for a two-kernel Gr\"onwall analysis}
+\author{Research working notes}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Scope.} This note continues GR-01 without altering AUD-01. It gives a uniform-grid derivation of established Alikhanov properties and verifies the hypotheses needed for the complementary-kernel tail estimate. No novelty claim is made. Full memory-scheme stability and convergence, nonuniform meshes and formal proof checking remain separate tasks.
+\section{Shifted interpolation and exact coefficients}
+Let $0<\alpha<1$, $t_k=k\tau$, $\theta=\alpha/2$, $\sigma=1-\theta$, and $t_*=t_{n-1}+\sigma\tau$. Let $v$ take values in a real Hilbert space and write $\Delta v^k=v^k-v^{k-1}$. On $[t_{k-1},t_k]$, $k<n$, use the quadratic interpolant through the nodes $k-1,k,k+1$. With $x=(s-t_{k-1})/\tau$, its derivative is
+\[
+ (\Pi_{2,k}v)'(s)=\tau^{-1}\big[\Delta v^k+(x-1/2)(\Delta v^{k+1}-\Delta v^k)\big].
+\]
+On the final partial panel $[t_{n-1},t_*]$ use the slope $\Delta v^n/\tau$. Integrate these derivatives against $(t_*-s)^{-\alpha}/\Gamma(1-\alpha)$. Define $\kappa=\Gamma(2-\alpha)\tau^\alpha$ and
+\begin{align*}
+ a_0&=\sigma^{1-\alpha},\\
+ a_l&=(l+\sigma)^{1-\alpha}-(l-1+\sigma)^{1-\alpha},\qquad l\ge1,\\
+ b_l&=\frac{(l+\sigma)^{2-\alpha}-(l-1+\sigma)^{2-\alpha}}{2-\alpha}
+ -\frac{(l+\sigma)^{1-\alpha}+(l-1+\sigma)^{1-\alpha}}2.
+\end{align*}
+Direct integration gives
+\[
+ \kappa(\D v)^{n-\theta}=a_0\Delta v^n+\sum_{k=1}^{n-1}\big[a_{n-k}\Delta v^k+b_{n-k}(\Delta v^{k+1}-\Delta v^k)\big].
+\]
+Collecting increments gives $ (\D v)^{n-\theta}=\sum_{k=1}^n A_{n-k}^{(n)}\Delta v^k$, with $A_l^{(n)}=c_l^{(n)}/\kappa$. For $n=1$, $c_0^{(1)}=a_0$; otherwise,
+\[
+ c_l^{(n)}=\begin{cases}
+ a_0+b_1,&l=0,\\
+ a_l-b_l+b_{l+1},&1\le l\le n-2,\\
+ a_l-b_l,&l=n-1.
+ \end{cases}
+\]
+The oldest and newest coefficients must be treated separately, just as in the earlier CF-02 audit. These coefficients agree with the interpolation-defined formula of Alikhanov \cite{alikhanov}.
+\section{Positivity, monotonicity and lower bounds}
+For $l\ge1$ the integral representations are
+\begin{align*}
+ a_l&=(1-\alpha)\int_0^1(l+\sigma-x)^{-\alpha}\,dx,\\
+ b_l&=(1-\alpha)\int_0^1(x-1/2)(l+\sigma-x)^{-\alpha}\,dx\\
+ &=\frac{\alpha(1-\alpha)}2\int_0^1 x(1-x)(l+\sigma-x)^{-\alpha-1}\,dx.
+\end{align*}
+The final identity follows by integration by parts. In particular $b_l>0$ and $b_l>b_{l+1}$. Also
+\[
+ a_l-b_l=(1-\alpha)\int_0^1(3/2-x)(l+\sigma-x)^{-\alpha}\,dx>\tfrac12 a_l.
+\]
+This is positive and strictly decreasing in $l$. Hence the interior weights are strictly decreasing, and the removal of the last $b_{l+1}$ preserves the inequality at the oldest weight. At the newest end, $c_1^{(n)}<a_1$ for $n\ge2$. Concavity of $x^{1-\alpha}$ gives $a_1<(1-\alpha)\sigma^{-\alpha}$, whence
+\[
+ \sigma c_1^{(n)}< (1-\alpha)a_0\le(2\sigma-1)c_0^{(n)}.
+\]
+\begin{proposition}[Kernel structure]
+For $n\ge2$, $A_0^{(n)}>A_1^{(n)}>\cdots>A_{n-1}^{(n)}>0$ and $(2\sigma-1)A_0^{(n)}>\sigma A_1^{(n)}$. For every $1\le k\le n$,
+\[
+ A_{n-k}^{(n)}\ge d_\alpha(t_n-t_{k-1})^{-\alpha},\qquad d_\alpha=\frac1{2\Gamma(1-\alpha)}.
+\]
+\end{proposition}
+\begin{proof}
+The preceding inequalities prove the ordering and the stronger newest-weight gap. For $l\ge1$, $a_l\ge(1-\alpha)(l+\sigma)^{-\alpha}$ and $c_l^{(n)}>a_l/2$. Divide by $\kappa$, using $(l+\sigma)\tau\le(l+1)\tau$. For $l=0$, use $c_0^{(n)}\ge a_0>1/2$ and $1-\alpha<1$. This also covers $n=1$.
+\end{proof}
+\section{Shifted Hilbert-space energy inequality}
+Write $v_*=\sigma v^n+\theta v^{n-1}$. The positive history form of the derivative is
+\[
+ (\D v)^{n-\theta}=\sum_{j=0}^{n-1}h_j(v^n-v^j),
+ \quad h_0=A_{n-1}^{(n)},\quad h_j=A_{n-j-1}^{(n)}-A_{n-j}^{(n)}\ (j\ge1).
+\]
+All $h_j\ge0$, and their sum is $A_0^{(n)}$.
+\begin{proposition}[Shifted energy inequality]
+For every Hilbert-space sequence,
+\[
+ 2\langle (\D v)^{n-\theta},v_*\rangle\ge (\D\norm{v}^2)^{n-\theta}.
+\]
+\end{proposition}
+\begin{proof}
+The difference between the two sides equals
+\[
+ \sum_{j=0}^{n-1}h_j\norm{v_*-v^j}^2-A_0^{(n)}\theta^2\norm{\Delta v^n}^2.
+\]
+For $n\ge2$, retain only $j=n-1$. The resulting coefficient of $\norm{\Delta v^n}^2$ is
+\[
+ \sigma^2(A_0^{(n)}-A_1^{(n)})-\theta^2 A_0^{(n)}
+ =(2\sigma-1)A_0^{(n)}-\sigma^2 A_1^{(n)}>0.
+\]
+For $n=1$, the coefficient is $(2\sigma-1)A_0^{(1)}>0$. No signed-history cancellation is used.
+\end{proof}
+\section{Complementary discrete kernels}
+Use chronological matrix notation $A_{jk}=A_{j-k}^{(j)}$ for $k\le j$, zero otherwise. Define $P_{nn}=1/A_{nn}$ and recursively
+\[
+ P_{nk}=\frac1{A_{kk}}\sum_{j=k+1}^nP_{nj}(A_{j,k+1}-A_{jk}),\qquad k=n-1,\ldots,1.
+\]
+The nonnegative weights follow by backward induction. Subtraction of consecutive column identities proves
+\[
+ (PA)_{nk}=\sum_{j=k}^nP_{nj}A_{jk}=1\quad(k\le n).
+\]
+Consequently $\sum_{j=1}^nP_{nj}(\D v)^{j-\theta}=v^n-v^0$. This is an exact discrete counterpart of $I^\alpha {}^CD^\alpha v=v-v(0)$, not a semigroup assertion.
+\begin{proposition}[Localized complementary mass]
+For every $1\le m\le n$,
+\[
+ \sum_{j=m}^nP_{nj}\le d_\alpha^{-1}(t_n-t_{m-1})^\alpha.
+\]
+\end{proposition}
+\begin{proof}
+In the column identity with $k=m$, use the kernel lower bound $A_{jm}\ge d_\alpha(t_j-t_{m-1})^{-\alpha}\ge d_\alpha(t_n-t_{m-1})^{-\alpha}$ and positivity.
+\end{proof}
+This is precisely the complementary-tail hypothesis used in GR-01. If $W$ denotes normalized linear product integration of $I^{1-\beta}$ at the shifted point, its nonnegative weights have tail sum at most $(t_j-t_{m-1})^{1-\beta}/\Gamma(2-\beta)$ for columns $k\ge m\ge1$. Thus the tail of $PW$ is bounded by $d_\alpha^{-1}(t_n-t_{m-1})^{\alpha+1-\beta}/\Gamma(2-\beta)$. The initial column $k=0$ is retained separately in a future energy estimate. No commutation of $P$ and $W$ is required. A shifted averaging matrix must also be retained when testing with $v_*$.
+\section{Smooth consistency and the reason for the shift}
+Assume $v\in C^3([0,T];H)$. On completed panels, the interpolation error vanishes at both endpoints and has norm bounded by $C\tau^3\norm{v'''}_\infty$. Integration by parts against the Caputo kernel bounds the sum of their derivative errors by
+\[
+ C\tau^3\norm{v'''}_\infty\int_0^{t_{n-1}}(t_*-s)^{-\alpha-1}\,ds
+ \le C_\alpha\tau^{3-\alpha}\norm{v'''}_\infty.
+\]
+On the final partial panel, expand $v'$ about $t_{n-1}+\tau/2$. The full-panel average slope differs from the midpoint derivative by $O(\tau^2\norm{v'''}_\infty)$. The term linear in $x-1/2$ vanishes exactly because
+\[
+ \int_0^\sigma (x-1/2)(\sigma-x)^{-\alpha}\,dx
+ =\frac{\sigma^{1-\alpha}}{1-\alpha}\left(\frac\sigma{2-\alpha}-\frac12\right)=0.
+\]
+The remaining final-panel error is $O(\tau^{3-\alpha}\norm{v'''}_\infty)$, including at $n=1$. This proves uniform smooth derivative consistency of order $3-\alpha$ and exactness for polynomials of degree at most two. It does not assert a full solution order of $3-\alpha$: shifted linear evaluation of the diffusion term typically incurs $O(\tau^2)$, assuming the corresponding spatial-operator regularity. Initial singularities require a separate proof.
+\section{Finite-grid verification and next step}
+The accompanying \texttt{verify\_gr02.py} evaluates closed forms at 50 decimal digits, assembles the double-precision increment matrix, compares against independent Gauss--Legendre integration, checks the complementary identity by triangular solution, and tests the energy gap and polynomial exactness. All assertions pass on 18 configurations ($\alpha=0.05,0.25,0.5,0.75,0.95,0.99$, $N=16,64,128$), including 180 random vector trajectories. Maximum scaled weight discrepancy: $5.416\times10^{-16}$; complementary identity discrepancy: $1.776\times10^{-15}$; linear/quadratic exactness discrepancy: $1.110\times10^{-15}$.
+\begin{center}
+\begin{tabular}{cccc}\toprule
+$\alpha$ & cubic error ($N=256$) & last doubling rate & $3-\alpha$\\\midrule
+0.25 & $4.805914\times10^{-8}$ & 2.679178 & 2.75\\
+0.50 & $2.342932\times10^{-7}$ & 2.478355 & 2.50\\
+0.75 & $9.664970\times10^{-7}$ & 2.245797 & 2.25\\\bottomrule
+\end{tabular}
+\end{center}
+These are derivative errors, not solution errors. Finite tests do not prove the uniform analytical statements. GR-03 will derive shifted product-integration weights, including the initial and final columns, and GR-04 will apply the two-kernel inequality with the shifted average and initial-data terms correctly accounted for. No production or repository modifications, independent proof audit or Lean compilation were performed.
+\begin{thebibliography}{9}
+\bibitem{alikhanov} A. A. Alikhanov, A new difference scheme for the time fractional diffusion equation, J. Comput. Phys. 280 (2015), 424--438. Preprint \href{https://arxiv.org/abs/1404.5221}{arXiv:1404.5221v3}, Lemmas 2 and 4.
+\bibitem{lmz} H.-L. Liao, W. McLean, J. Zhang, A discrete Gr\"onwall inequality with applications to numerical schemes for subdiffusion problems, SIAM J. Numer. Anal. 57 (2019), 218--237. \href{https://doi.org/10.1137/16M1175742}{DOI:10.1137/16M1175742}; \href{https://arxiv.org/abs/1803.09879}{arXiv:1803.09879}, Section 2.
+\end{thebibliography}
+\end{document}

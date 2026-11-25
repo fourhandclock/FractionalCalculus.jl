@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/gr07-2026-11-26/worktree/studies/legendre/gr07/scripts/make_oracles.py", line 48, in <module>
+    main(sys.argv[1])
+    ~~~~^^^^^^^^^^^^^
+  File "/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/gr07-2026-11-26/worktree/studies/legendre/gr07/scripts/make_oracles.py", line 39, in main
+    assert error < mp.mpf('1e-45'), (h,r,d,H,j,str(error))
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('.25', '.1', '.55', '.55', -1, '8463242013835946446086020672.701479698819812716325829337444115788715406714871788412549845577307673401036879226099783025508884271117')

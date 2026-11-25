@@ -1,0 +1,1691 @@
+PAGE 1
+arXiv:2111.06708v1  [math.NA]  12 Nov 2021
+Finite Element Analysis of Time Fractional
+Integro-diﬀerential Equations of Kirchhoﬀ type for
+Non-homogeneous Materials
+Lalit Kumar ⋆, Sivaji Ganesh Sista ⋆, and K. Sreenadh †
+⋆Department of Mathematics, Indian Institute of Technology
+Bombay, Mumbai-400076, India
+†Department of Mathematics, Indian Institute of Technology Delhi,
+New Delhi-110016, India
+Abstract
+In this paper, we study an initial-boundary value problem of Kirchhoﬀ type
+involving memory term for non-homogeneous materials ( Dα). The purpose of
+this research is threefold. First, we prove the existence an d uniqueness of weak
+solutions to the problem ( Dα) using the Galerkin method. Second, to obtain
+numerical solutions of (Dα) eﬃciently, we develop a L1 type [1] backward Euler-
+Galerkin FEM, which is O(h + k2−α) accurate, where α (0 < α < 1) is the
+order of fractional time derivative, h and k are the discretization parameters
+for space and time directions, respectively. Next, to achie ve the optimal rate
+of convergence in time, we propose a fractional Crank-Nicol son-Galerkin FEM
+based on L2-1 σ scheme [2]. We prove that the numerical solutions of this
+scheme converge to the solution of ( Dα) with accuracy O(h + k2). We also
+derive a priori bounds on numerical solutions for the propos ed schemes. Finally,
+some numerical experiments are conducted to validate our th eoretical claims.
+Keywords: Nonlocal, Finite element method (FEM), Fractional time der ivatives,
+Fractional Crank-Nicolson scheme, Integro-diﬀerential e quations.
+1 Introduction
+Let Ω be a convex and bounded subset of Rd (d ≥ 1) with smooth boundary ∂Ω
+and [0,T ] is a ﬁxed ﬁnite time interval. We consider the following int egro-diﬀerential
+1
+PAGE 2
+equation of Kirchhoﬀ type involving fractional time deriva tive of order α (0<α< 1)
+for non-homogeneous materials
+CDαtu − ∇.(M(x,t, ‖∇u‖2) ∇u) =f (x,t ) +∫ t0 b(x,t,s )u(x,s )ds in Ω × (0,T ],
+(Dα)
+with initial and boundary conditions
+u(x, 0) = u0(x) in Ω ,
+u(x,t ) = 0 on ∂Ω × [0,T ],
+whereu :=u(x,t ) : Ω ×[0,T ] → R is the unknown function,M : Ω×[0,T ]×R+ → R+,
+initial data u0, source term f are known functions and b(x,t,s ) is a memory operator
+to be deﬁned later. CDαtu in the problem ( Dα) is the fractional time derivative of
+order α in the Caputo sense, which is deﬁned in [3] as
+CDαtu := 1Γ(1 −α)∫ t0 1(t −s)α∂u(s)∂s ds, (1.1)
+where Γ( ·) denotes the gamma function. For the case α = 1, Lalit et al. [22]
+proposed linearized backward Euler-Galerkin FEM and linea rized Crank-Nicolson-
+Galerkin FEM with accuracy O(h +k) and O(h +k2), respectively.
+There are various notions of fractional derivatives other t han the Caputo derivative,
+which include Riemann-Liouville, Gr¨ unwald-Letnikov, Weyl, Marchaud, and Riesz
+fractional derivatives [3, 8]. Among these, Caputo fractio nal derivative and Riemann-
+Liouville fractional derivative are the most commonly foun d in literature [3]. These
+two fractional derivatives are related to each other by the f ollowing relation, see [3]
+CDαtu(t) = RDαt (u(t) −u(0)), (1.2)
+where RDαtu is the Riemann-Liouville fractional derivative deﬁned by
+RDαtu(t) := 1Γ(1 −α) ddt∫ t0 1(t −s)αu(s)ds. (1.3)
+It is worth noting that the fractional derivatives other tha n Caputo fractional deriva-
+tive require initial condition containing the limiting val ue of fractional derivatives at
+t = 0 [3], which has no physical interpretation. An advantage o f choosing Caputo
+fractional derivative in the problem ( Dα) is that it allows the initial and boundary
+conditions in the same way as those for integer order diﬀeren tial equations.
+There are many physical and biological processes in which th e mean-squared dis-
+placement of the particle motion grows only sublinearly wit h time t, instead of linear
+2
+PAGE 3
+growth. For instance, acoustic wave propagation in viscoel astic materials [6], cancer
+invasion system [5], anomalous diﬀusion transport [4], whi ch cannot be described
+accurately by classical models having integer order deriva tives. Therefore the study
+of fractional diﬀerential equations has evolved immensely in recent years.
+Problems involving fractional time derivatives have been studied by many researchers,
+for instance, see [7, 10, 11]. Analytical solutions of fract ional diﬀerential equations
+are expressed in terms of Fox H-functions, Green functions, and hypergeometric
+functions. Such special functions are more complex to compu te, which restricts the
+applications of fractional calculus in applied sciences. T his motivates the researchers
+to develop numerical algorithms for solving fractional diﬀ erential equations.
+There are two predominant discretization techniques in tim e for fractional diﬀerential
+equations, namely Gr¨ unwald-Letnikov approximation [12]and L1 type approximation
+[2, 13]. The second category, namely the L1 type approximati on scheme, is based on
+piecewise interpolation of the integrand in deﬁnition (1.1 ) of the Caputo fractional
+derivative. Lin and Xu [13] developed the L1 scheme based on p iecewise linear
+interpolation for Caputo fractional derivative and Legend re spectral method in space
+for the following time fractional PDE in one space dimension
+CDαtu − ∂2u∂x2 =f (x,t ) x ∈ (0,L ), t ∈ (0,T ],
+u(x, 0) = g(x) x ∈ (0,L ),
+u(0,t ) = u(L,t ) = 0 0 ≤t ≤T,
+(1.4)
+and achieved the convergence estimates of O(h2 +k2−α) for the solutions belonging
+to C 2 ([0,T ];H 2(Ω) ∩H 10 (Ω)). Recently, Alikhanov [2] proposed a modiﬁcation of
+the L1 type scheme in time direction and diﬀerence scheme in s pace direction for the
+problem (1.4). In his work, the author proved that the conver gence rate is O(h2 +k2)
+for the solutions belonging to C 3 ([0,T ];C 4(Ω)).
+On a similar note, there has been considerable attention dev oted to the nonlocal dif-
+fusion problems where diﬀusion depends on the entire domain rather than pointwise.
+Lions [14] studied the following problem
+∂2u
+∂t2 −M
+(
+x,
+∫
+Ω
+|∇u|2dx
+)
+∆u =f (x,t ) in Ω × [0,T ],
+which models transversal oscillations of an elastic string or membrane by considering
+the change in length during vibrations. Also, the nonlocal t erms appear in various
+physical and biological systems. For instance, the tempera ture in a thin region dur-
+ing friction welding [16], Kirchhoﬀ equations with magneti c ﬁeld [17], Ohmic heating
+3
+PAGE 4
+with variable thermal conductivity [15], and many more. We c ite [18, 19, 20] for
+some contemporary works related to the existence, uniquene ss, and regularity of the
+problems involving nonlocal terms.
+The models discussed above behave accurately only for a perf ectly homogeneous
+medium, but in real-life situations, a large number of heter ogeneities are present,
+which causes some memory eﬀect or feedback term. These pheno mena cannot be
+described by classical PDEs, which motivates us to study tim e fractional PDEs for
+non-homogeneous materials. We note that this class of equat ions has not been ana-
+lyzed in the literature yet, and this is the ﬁrst attempt to es tablish new results for
+the model (Dα).
+The salient feature of our problem is its doubly nonlocal nat ure due to the presence
+of Kirchhoﬀ term and fractional derivatives or memory term. The memory term
+incorporates the history of the phenomena under investigat ion, which is crucial in
+evolutionary processes. This structure induces additiona l diﬃculties in the use of
+classical methods of PDEs. In the ﬁrst part of this article, w e show the existence and
+uniqueness of weak solutions for the problem ( Dα) by applying the Galerkin method.
+Further, we discretize the domain in space direction by usin g a conforming FEM [21],
+keeping the time variable continuous. We deﬁne a new Ritz-Vo lterra type operator
+as an intermediate function and derive error estimates of O(h) for semi-discrete so-
+lutions of the problem ( Dα).
+Finally, we ﬁnd numerical solutions of ( Dα) by discretizing the domain in the time
+direction also. Qiao et al. [24] studied ( Dα) having weakly singular kernel and with-
+out Kirchhoﬀ term and derived O(h2 +k2−α) convergence rate by using diﬀerence
+schemes in space and L1 type scheme in the time direction. For the case b = 0 in
+(Dα), Manimaran et al. [33] used L1 type methods for fractional d erivative and New-
+ton methods for nonlinearity to obtain O(h2 +k2−α) accuracy for suﬃciently smooth
+solutions.
+The novelty of our work is to obtain the optimal rate of conver gence O(k2) in time
+for the numerical solutions of the problem ( Dα). For nonlinear PDEs, linearization
+techniques have the advantage over Newton’s iterations met hod in terms of compu-
+tational cost and storage. This is the motivation for us to de velop a linearized fully
+discrete formulation based on the Galerkin FEM in space and t he L1 type scheme in
+the time direction. This scheme is proved to be accurate of O(h +k2−α). Further,
+to increase the accuracy in time, we propose a new linearized numerical algorithm
+based on L2-1 σ scheme. In this scheme, we prove that numerical solutions co nverge
+4
+PAGE 5
+to the exact solution of ( Dα) with the optimal rate of accuracy O(h +k2). The
+presence of Kirchhoﬀ term makes the problem nonlinear which requires high com-
+putational eﬀorts to obtain the numerical solutions of ( Dα) at each time step. Also
+the discretization of memory term demands large computer st orage. To resolve these
+issues, we come up with a linearization techniques for appro ximation of Kirchhoﬀ
+term and memory term is approximated by modiﬁed Simpson’s ru le [23]. Further,
+some numerical experiments are carried out to conﬁrm the the oretical ﬁndings. In
+addition, we remark that to the best of our knowledge, there i s no article that has
+established convergence of O(h +k2) to the time fractional PDEs involving memory
+term.
+Turning to the layout of this paper, in Section 2, we provide s ome preliminaries and
+state the main contributions of this work. Section 3 include s the proof of the ex-
+istence and uniqueness of weak solutions for the problem ( Dα). In Section 4, the
+corresponding semi-discrete formulation is studied. A pri ori bounds and error esti-
+mates for semi-discrete solutions are derived, which are un iform in time. In Section
+5, we develop a new L1 type Galerkin FEM and derive a priori bou nds on numerical
+solutions of (Dα) and prove that our numerical algorithm has a convergence ra te of
+O(h +k2−α). In Section 6, we establish the optimal rate of convergence O(h +k2) in
+time by developing a new fractional Crank-Nicolson-Galerk in FEM. Section 7 con-
+tains numerical experiments that reveal that theoretical r esults are sharp. Finally,
+we conclude this work in Section 8.
+In this paper, for any two quantities, a andb, the symbol a ≲b means that there is a
+generic positive constant K such that a ≤Kb. Here K may vary at diﬀerent stages
+but is independent of mesh parameters h and k.
+2 Preliminaries and main results
+This section of the article is intended to provide some preli minaries for time fractional
+PDEs, which will be used in subsequent sections. Further, we state the main results
+of this article.
+Let L2(Ω) be the standard Lebesgue space of square integrable func tions with norm
+‖ · ‖, induced by the inner product ( ·, ·), and H 10 (Ω) is a standard Hilbert space. Let
+us denote
+k(t) := t−α
+Γ(1 −α), (2.1)
+and ∗ denotes the convolution of two integrable functions g andh on [0,T ] as follows
+(g ∗h)(t) =
+∫ t
+0
+g(t −s)h(s)ds for t in [0 ,T ]. (2.2)
+5
+PAGE 6
+Remark 1. Note that, l(t) deﬁned by l(t) := tα−1Γ(α) satisﬁes k ∗l = 1.
+Now using (2.1), (2.2), and (1.2), we rewrite the problem ( Dα) in Ω × (0,T ] as
+d
+dt [k ∗ (u −u0)] (t) − ∇.
+(
+M
+(
+x,t, ‖∇u‖2
+)
+∇u
+)
+=f (x,t ) +
+∫ t
+0
+b(x,t,s )u(x,s )ds,
+(Rα)
+with initial and boundary conditions
+u(x, 0) = u0(x) in Ω ,
+u(x,t ) = 0 on ∂Ω × [0,T ].
+Throughout the paper, we assume the following hypotheses on data:
+(H1) u0 ∈H 10 (Ω) and f ∈L∞ (0,T,L 2(Ω)).
+(H2) M : Ω × (0,T ] × R+ → R+ is a Lipschitz continuous function such that there
+exists a constant m0 which satisﬁes
+M(x,t,s ) ≥m0 > 0 for all ( x,t,s ) ∈ Ω × (0,T ] × R+ and(m0 − 4LM ˆK 2)> 0,
+where ˆK =
+(
+‖∇u0‖ + ‖f ‖L∞(0,T,L 2(Ω))
+)
+and LM is a Lipschitz constant.
+(H3) b(x,t,s ) is a second order partial diﬀerential operator of the form o f
+b(x,t,s )u(x,s ) = −∇ · (b2(x,t,s )∇u(x,s )) + ∇ · (b1(x,t,s )u(x,s )) +b0(x,t,s )u(x,s ),
+with b2 : Ω × (0,T ] × (0,T ] → Rd×d is a matrix with entries [ bij2 (x,t,s )], b1 : Ω ×
+(0,T ]×(0,T ] → Rd is a vector with entries [bj1(x,t,s )] and b0 : Ω ×(0,T ]×(0,T ] → R
+is a scalar function. We assume that bij2,b j1,b 0 are smooth functions in all variables
+for i,j = 1, 2,...,d .
+The notion of weak formulation for the problem ( Rα) is described as follows:
+ﬁndu inL∞ (0,T,L 2(Ω))∩L2 (0,T,H 10 (Ω)) and ddt [k ∗ (u −u0)] (t) inL2 (0,T,H −1(Ω))
+such that the following holds for all v in H 10 (Ω) and a.e. tin (0,T ](
+d
+dt [k ∗ (u −u0)] (t),v
+)
++
+(
+M
+(
+x,t, ‖∇u‖2
+)
+∇u, ∇v
+)
+= (f,v ) +
+∫ t
+0
+B(t,s,u,v )ds in Ω × (0,T ],
+(Wα)
+with initial and boundary conditions
+u(x, 0) = u0(x) in Ω ,
+u(x,t ) = 0 on ∂Ω × [0,T ],
+where
+B(t,s,u,v ) = (b2(x,t,s )∇u(s), ∇v) + (∇ · (b1(x,t,s )u(s)),v ) + (b0(x,t,s )u(s),v ),
+(b2(x,t,s )∇u(s), ∇v) =
+∫
+Ω
+b2(x,t,s )∇u(s) · ∇vdx,
+(∇ · (b1(x,t,s )u(s)),v ) =
+∫
+Ω
+(∇ · (b1(x,t,s )u(s)))vdx,
+(b0(x,t,s )u(s),v ) =
+∫
+Ω
+b0(x,t,s )u(s)vdx.
+6
+PAGE 7
+The assumptions on the coeﬃcients b0,b 1, and b2 imply that there exists a positive
+constant B0 such that for ( t,s ) in (0 ,T ) × (0,T ) and u,v in H 10 (Ω) the following
+inequality holds
+|B(t,s,u,v )| ≤ B0‖∇u‖‖∇v‖ (2.3)
+We remark that the following examples of b(x,t,s ) satisfy (H3) and (2.3).
+Example 2.1. Let Ω be a bounded domain in R2,x = (x1,x 2) in Ω and t,s in [0,T ]
+1. b2(x,t,s ) = et−s
+
+−1 0
+0 −1
+
+; b1(x,t,s ) = b0(x,t,s ) = 0.
+2. b2(x,t,s ) = et−s
+
+ 0 −x1x2
+−x1x2 0
+
+; b1(x,t,s ) = et−s (x21,x 22) ;b0(x,t,s ) = 0.
+These examples were used for numerical experiments in the co ntext of parabolic
+integro-diﬀerential equations in [25].
+We use the following version of continuous Gr¨ onwall’s inequality to derive the bounds
+on the weak solutions of ( Dα).
+Lemma 2.2. [26] Let α be such that 0 < α <1 and suppose that u and v are two
+non-negative integrable functions on [a,b ], v is nondecreasing and g is continuous
+function in [a,b ]. If
+u(t) ≤v(t) +g(t)
+∫ t
+0
+(t −s)α−1u(s)ds for all t in [a,b ],
+then
+u(t) ≤v(t)Eα [g(t)Γ(α)tα] for all t in [a,b ],
+whereEα(·) is the one parameter Mittag-Leﬄer function [3].
+Further, for the semi-discrete formulation of the problem ( Dα), we discretize the
+domain in space variable by a conforming FEM [21]. Let Th be a shape regular (non
+overlapping), quasi-uniform triangulation of Ω and h be the discretization parameter
+in the space direction. We deﬁne a ﬁnite dimensional subspac e Xh of H 10 (Ω) as
+Xh = {vh ∈C( ¯Ω) : vh|τ is a linear polynomial for all τ ∈ Th and vh = 0 on ∂Ω}.
+Now semi-discrete formulation for the problem ( Dα) is to ﬁnd uh inXh such that the
+following holds for all vh in Xh and a.e. t in (0,T ]
+(
+CDαtuh,v h
+)
++
+(
+M
+(
+xh,t, ‖∇uh‖2
+)
+∇uh, ∇vh
+)
+= (fh,v h) +
+∫ t
+0
+B(t,s,u h,v h)ds in Th × (0,T ],
+(Sα)
+7
+PAGE 8
+with initial and boundary conditions
+uh(x, 0) = Rhu0 in Ω ,
+uh = 0 on ∂Ω × [0,T ],
+wherefh =f (xh,t ) for xh in Th andRhu0 is the Ritz projection of u0 onXh deﬁned
+by
+(∇Rhu0, ∇vh) = ( ∇u0, ∇vh) for all vh in Xh. (2.4)
+Now we move to the fully discrete formulation of ( Dα), for that we divide the interval
+[0,T ] into sub intervals of uniform step size k andtn =nk forn = 1, 2, 3,...,N with
+tN =T . We approximate Caputo fractional derivative by the follow ing schemes.
+L1 Approximation Scheme [1]: In this scheme, Caputo fractional derivative is
+approximated at the point tn using linear interpolation or backward Euler diﬀerence
+method as follows
+CDαtnu = 1Γ(1 −α)∫ tn0 1(tn −s)α∂u∂sds
+= 1Γ(1 −α) n∑j=1uj −uj−1k ∫ tjtj−1 1(tn −s)α ds + Qn
+= k−α
+Γ(2 −α)
+n∑
+j=1
+an−j
+(
+uj −uj−1
+)
++ Qn
+(2.5)
+where ai = (i + 1)1−α −i1−α, i ≥ 0, uj =u(x,t j), and Qn is the truncation error.
+L2-1σ Approximation Scheme [2]: In this scheme, Caputo fractional derivative is
+approximated at the point tn− α2 using quadratic interpolation on [0 ,t n−1] and linear
+interpolation on [tn−1,t n− α2 ] as follows
+CDαtn− α2 = ˜Dαtn− α2u + ˜Qn− α2
+where
+˜Dαtn− α2u = k−αΓ(2 −α) n∑j=1 ˜c(n)n−j(uj −uj−1) (2.6)
+with weights ˜c(n)n−j satisfying ˜c(1)0 = ˜a0 for n = 1 and for n ≥ 2
+˜c(n)j =
+
+
+
+˜a0 + ˜b1, j = 0,
+˜aj + ˜bj+1 − ˜bj, 1 ≤j ≤n − 2,
+˜aj − ˜bj, j =n − 1,
+(2.7)
+where
+˜a0 =σ1−α and ˜al = (l +σ)1−α − (σ)1−α l ≥ 1,
+8
+PAGE 9
+˜bl = 1(2 −α)
+[
+(l +σ)2−α −
+(
+l −α2)2−α] − 12[(l +σ)1−α +(l − α2)1−α] l ≥ 1,
+with σ =
+(
+1 − α2
+)
+and ˜Qn− α2 is the truncation error.
+Similar to the continuous case (Remark-1), there exists a di screte kernel correspond-
+ing to above schemes which satisﬁes the following propertie s.
+Lemma 2.3. (For L1 type approximation [1]) Letpn be a sequence deﬁned by
+p0 = 1, p n =
+n∑
+j=1
+(aj−1 −aj)pn−j for n ≥ 1.
+Then pn satisﬁes
+0<p n< 1, (2.8)
+n∑
+j=k
+pn−jaj−k = 1, 1 ≤k ≤n, (2.9)
+Γ(2 −α)
+n∑
+j=1
+pn−j ≤ nα
+Γ(1 +α). (2.10)
+Lemma 2.4. (For L2-1 σ type approximation [27]) Deﬁne
+˜p(n)0 = 1˜c(n)0 , ˜p(n)j = 1˜c(n−j)0 j−1∑k=0(˜c(n−k)j−k−1 − ˜c(n−k)j−k ) ˜p(n)k for 1 ≤j ≤n − 1.
+Then ˜p(n)j satisﬁes
+0< ˜p(n)n−j < 1, (2.11)
+n∑
+j=k
+˜p(n)n−j˜c(j)j−k = 1, 1 ≤k ≤n ≤N, (2.12)
+Γ(2 −α)
+n∑
+j=1
+˜p(n)n−j ≤ nαΓ(1 +α), 1 ≤n ≤N. (2.13)
+With this background, we state the main contributions of thi s article.
+Theorem 2.5. (Well-posedness of weak formulation (W α)) Under the hy-
+potheses of (H1), (H2), and (H3), the problem (Wα) admits a unique solution which
+satisﬁes the following a priori bounds
+‖u‖2L∞(0,T,L 2(Ω)) + 1Γ(α)∫ t0 (t −s)α−1‖∇u(s)‖2ds ≲(‖∇u0‖2 + ‖f ‖2L∞(0,T,L 2(Ω))),
+‖u‖2L∞(0,T,H 10 (Ω)) + 1Γ(α)∫ t0 (t −s)α−1‖∆u(s)‖2ds ≲(‖∇u0‖2 + ‖f ‖2L∞(0,T,L 2(Ω))).
+Now we derive the error estimates of semi-discrete solution s and fully discrete solu-
+tions by assuming that the solution of ( Dα) is in C 4 ([0,T ];H 2(Ω) ∩H 10 (Ω)).
+9
+PAGE 10
+Theorem 2.6. (Error estimates for semi-discrete formulation (S α)) Sup-
+pose that the hypotheses (H1), (H2), and (H3) hold. Then we ha ve the following
+error estimates for the solution uh of the problem (Sα), which is uniform in time
+‖u −uh‖L∞(0,T,L 2(Ω)) +
+(
+1
+Γ(α)
+∫ t
+0
+(t −s)α−1‖∇u(s) − ∇uh(s)‖2ds
+)1/2
+≲h
+provided that u(t) is in H 2(Ω) ∩H 10 (Ω) for a.e. t in [0,T ] and triangulation of the
+domain is quasi-uniform.
+Next, we develop the two diﬀerent types of numerical algorit hms to ﬁnd the numerical
+solutions of the problem ( Dα).
+Backward Euler-Galerkin FEM based on L1 scheme: Findunh (n = 1, 2, 3,...,N )
+in Xh with ¯un−1h = 2un−1h −un−2h such that the following equations hold for all vh in
+Xh
+Forn ≥ 2,
+(Dαtunh,v h) +(M(xh,t n, ‖∇¯un−1h ‖2) ∇unh, ∇vh) = (f nh,v h) + n−1∑
+j=1
+wnjB
+(
+tn,t j,u jh,v h).
+(Eα)
+Forn = 1,
+(
+Dαtu1h,v h
+)
++
+(
+M
+(
+xh,t 1, ‖∇u1h‖2
+)
+∇u1h, ∇vh
+)
+=
+(
+f 1h,v h
+)
++kB
+(
+t1,t 0,u 0h,v h
+)
+,
+with initial and boundary conditions
+u0h =Rhu0 in Xh,
+unh = 0 on ∂Ω for n = 1, 2, 3,...,N.
+where Dαtunh is the approximation operator deﬁned in (2.5) as
+Dαtunh = k−αΓ(2 −α) n∑j=1an−j(ujh −uj−1h ), (2.14)
+and wnj are the quadrature weights satisfying the following modiﬁe d Simpson’s rule
+[23]. Let m1 = [k−1/2], where [ ·] denotes the greatest integer function. Set k1 =m1k
+and ¯tj = jk1. Let jn be the largest even integer such that ¯tjn < tn and introduce
+quadrature points
+¯tnj =
+
+
+
+jk1, 0 ≤j ≤jn,
+¯tnj + (j −jn)k, j n ≤j ≤Jn,
+10
+PAGE 11
+where ¯tnJn =tn−1. Then quadrature rule for any function g is given by
+∫ tn
+0
+g(s)ds =
+n−1∑
+j=0
+wnjg(tj) +qn(g)
+= k1
+3
+jn/2∑
+j=1
+[
+g(¯tn2j) + 4g(¯tn2j−1) +g(¯tn2j−2)]
++ k2 Jn∑j=jn+1[g(¯tnj ) +g(¯tnj−1)] +kg(¯tnJn) +qn(g)
+(2.15)
+where qn(g) is the quadrature error associated with the function g at tn.
+Theorem 2.7. (Convergence Estimates for the Scheme (E α)) Under the
+hypotheses of (H1), (H2), and (H3), the fully discrete solut ion unh (1 ≤ n ≤ N) of
+(Eα) converges to the solution u of (Dα) with the following rate of accuracy
+max
+1≤n≤N
+‖u(tn) −unh‖ +
+(
+kα
+N∑
+n=1
+pN −n‖∇u(tn) − ∇unh‖2
+)1/2
+≲ (h +k2−α).
+At this point we observe that the convergence rate is of O(k2−α) in temporal direction
+which is not optimal. Thus to obtain the optimal rate of conve rgence, we propose
+the following numerical scheme.
+Fractional Crank-Nicolson-Galerkin FEM based on L2-1 σ scheme: Find
+unh (n = 1, 2, 3...,N ) in Xh with ¯un−1,αh =(2 − α2)un−1h −(1 − α2)un−2h and ˆun,αh =(
+1 − α2
+)
+unh +( α2)un−1h such that the following equations hold for all vh in Xh
+Forn ≥ 2,
+(
+˜Dαtn− α2unh,v h
+)
++
+(
+M
+(
+xh,t n− α2, ‖∇¯un−1,αh ‖2) ∇ˆun,αh , ∇vh) = n−1∑
+j=1
+˜wnjB
+(
+tn− α2,t j,u jh,v h)
++
+(
+f
+n− α2
+h ,v h
+)
+.
+(Fα)
+Forn = 1,
+(
+˜Dαt1− α2u1h,v h
+)
++
+(
+M
+(
+xh,t 1− α2, ‖∇u1h‖2
+)
+∇u1h, ∇vh
+)
+=
+(
+1 − α2)kB(t1− α2,t 0,u 0h,v h)
++
+(
+f
+1− α2
+h ,v h
+)
+,
+with initial and boundary conditions
+u0h =Rhu0 in Xh,
+unh = 0 on ∂Ω for n = 1, 2, 3,...,N,
+11
+PAGE 12
+where ˜Dαtn− α2unh is the approximation operator deﬁned in (2.6) and ˜wnj is the quadra-ture weights satisfying the quadrature formula similar to ( 2.15) with small modiﬁca-
+tion as follows
+∫ tn
+0
+g(s) ds =
+n−1∑
+j=0
+˜wnjg(tj) + ˜qn− α2 (g)
+= k1
+3
+jn/2∑
+j=1
+[
+g(¯tn2j) + 4g(¯tn2j−1) +g(¯tn2j−2)]
++ k2 Jn∑j=jn+1[g(¯tnj ) +g(¯tnj−1)] +(1 − α2)kg(¯tnJn) + ˜qn− α2 (g),
+(2.16)
+where ˜qn− α2 (g) is the quadrature error associated with the function g at tn− α2 .
+Theorem 2.8. (Convergence Estimates for the Scheme (F α)) Under the
+assumptions of (H1), (H2), and (H3), the fully discrete solu tion unh (1 ≤n ≤N) of
+(Fα) satisﬁes the following convergence estimates
+max
+1≤n≤N
+‖u(tn) −unh‖ +
+(
+kα
+N∑
+n=1
+˜p(N )N −n‖∇u(tn) − ∇unh‖2
+)1/2
+≲ (h +k2).
+Remark 2. We observe that as α → 1, the schemes (Eα) and (Fα) reduces to lin-
+earized backward Euler-Galerkin FEM and linearized Crank- Nicolson-Galerkin FEM
+respectively [22].
+3 Weak solutions of ( Dα)
+In this section, we prove the existence and uniqueness of wea k solutions for the prob-
+lem (Rα) using the Galerkin method. For this, we study the variation al formulation
+of (Rα) and derive a priori bounds on every Galerkin sequence. Thes e a priori bounds
+establish the convergence of the Galerkin sequence using co mpactness lemma for time
+fractional PDEs [28]. The following lemma discusses the app roximation of the kernel
+k deﬁned in (2.1).
+Lemma 3.1. [29] Let k be the kernel deﬁned in (2.1), then there exists a sequence
+of kernels kn in W 1,1(0,T ) such that
+1. kn =nsn, with sn being the solution of scalar-valued Volterra equations
+sn(t) +n(l ∗sn)(t) = 1 t> 0, n ∈ N,
+2. kn converges to k in L1(0,T ) as n tends to inﬁnity,
+3. kn is non-negative and non-increasing in (0, ∞).
+12
+PAGE 13
+3.1 Proof of the Theorem 2.5
+Proof. (Existence) Let {λi}mi=1 be the eigenvalues and {φi}mi=1 be the correspond-
+ing eigenfunctions of the Dirichlet problem for the standar d Laplacian operator
+in H 10 (Ω). We consider the ﬁnite dimensional subspace Vm of H 10 (Ω) such that
+Vm = span{φ1,φ 2,...,φ m}. We assume that
+um(·,t ) =
+m∑
+j=1
+αmj(t)φj and um(·, 0) =
+m∑
+j=1
+(u0,φ j)φj, (3.1)
+then um(·, 0) converges to u0. Now we show that for each m there is um ∈ Vm,
+satisfying the following equation for all vm ∈ Vm and a.e. t∈ (0,T ]
+(
+d
+dt [k ∗ (um −um(0))] (t),v m
+)
++
+(
+M(x,t, ‖∇um‖2)∇um, ∇vm
+)
+= (f,v m) +
+∫ t
+0
+B(t,s,u m,v m)ds.
+(3.2)
+Put the values of um and um(0) in (3.2), we obtain a system of fractional order
+diﬀerential equations. Then by the theory of fractional ord er diﬀerential equations,
+the system (3.2) has a continuous solution um(t) on some interval [0 ,t n), 0<t n <T,
+with vanishing trace of k ∗ (um −um(0)) at t = 0 [29]. These local solutions um(t)
+are extended to the whole interval by using the following a pr iori bounds on um. Put
+vm =um(t) in (3.2), we obtain
+(
+d
+dt [k ∗ (um −um(0))] (t),u m
+)
++
+(
+M(x,t, ‖∇um‖2)∇um, ∇um
+)
+= (f,u m) +
+∫ t
+0
+B(t,s,u m,u m)ds.
+(3.3)
+Let kn,n ∈ N be the kernels deﬁned in Lemma 3.1, then equation (3.3) is rew ritten
+as
+(
+d
+dt(kn ∗um)(t),u m
+)
++
+(
+M(x,t, ‖∇um‖2)∇um, ∇um
+)
+= (f,u m) +
+∫ t
+0
+B(t,s,u m,u m)ds +kn(t)(um(0),u m) +hmn(t),
+(3.4)
+with
+hmn(t) =
+(
+d
+dt [kn ∗ (um −um(0))] (t) − ddt [k ∗ (um −um(0))] (t),u m
+)
+. (3.5)
+Using Lemma 2.1 from [29] and (H2), (H3) together with Cauchy -Schwarz and
+Young’s inequality, we get
+d
+dt
+(
+kn ∗ ‖um‖2
+)
+(t) +m0‖∇um‖2 ≤ ‖f ‖2 + ‖um‖2 +kn(t)‖um(0)‖2
++ B20Tm0 ∫ t0 ‖∇um(s)‖2ds + 2hmn(t). (3.6)
+13
+PAGE 14
+Now convolve (3.6) with the kernel l deﬁned in Remark 1 and use the fact that
+l ∗ ddt(kn ∗ ‖um‖2) (t) = ddt(kn ∗l ∗ ‖um‖2) (t) → ddt(k ∗l ∗ ‖um‖2) (t) = ‖um‖2,(3.7)
+with
+(l ∗kn)(t) → (l ∗k)(t) = 1 and ( l ∗hmn)(t) → 0 as n → ∞ in L1(0,T ), (3.8)
+we get
+‖um‖2 +(l ∗ ‖∇um‖2) (t) ≲∫ t
+0
+(t −s)α−1
+(
+‖um(s)‖2 +(l ∗ ‖∇um‖2) (s))ds
++
+(
+l ∗ ‖f ‖2
+)
+(t) + ‖u0‖2.
+Using Lemma 2.2 and Poincar´ e inequality, we conclude that
+‖um‖2L∞(0,T,L 2(Ω)) +(l ∗ ‖∇um‖2) (t) ≲(‖∇u0‖2 + ‖f ‖2L∞(0,T,L 2(Ω))). (3.9)
+Further, we introduce discrete Laplacian ∆ m : Vm → Vm as follows
+(−∆mum,v m) := ( ∇um, ∇vm) for all um,v m in Vm. (3.10)
+Now takevm = −∆mum in (3.2) and follow the same arguments as we prove estimate
+(3.9) to achieve
+‖um‖2L∞(0,T,H 10 (Ω)) +(l ∗ ‖∆mum‖2) (t) ≲(‖∇u0‖2 + ‖f ‖2L∞(0,T,L 2(Ω))) = ˆK. (3.11)
+Moreover, for any v ∈H 10 (Ω), we write v =v1 +v2 where v1 ∈ span{φj}mj=1 and v2
+satisﬁes ( ∇v2, ∇φj) = 0 for j = 1, 2, 3,...,m , as {φj}mj=1 are orthogonal in H 10 (Ω).
+So from equation (3.2) and (H2) we have
+(
+d
+dt [k ∗ (um −um(0))] (t),v 1
+)
++m0(∇um, ∇v1) ≤ (f,v 1) +
+∫ t
+0
+B(t,s,u m,v 1)ds.
+Using estimates (3.9) and (3.11), we deduce that
+‖‖‖‖‖ddt [k ∗ (um −um(0))] (t)‖‖‖‖‖L2(0,T,H −1(Ω)) ≤K. (3.12)
+Thus estimates (3.9) and (3.12) provide a subsequence of ( um) again denoted by (um)
+such thatum⇀u inL2 (0,T,H 10 (Ω)) and ddt [k ∗ (um −um(0))] (t)⇀ ddt [k ∗ (u −u0)] (t)
+in L2 (0,T,H −1(Ω)). In the light of estimates (3.11) and (3.12), we apply co mpact-
+ness lemma [28] to conclude um → u in L2 (0,T,H 10 (Ω)). Now using the fact that
+M(x,t, ‖∇um‖2) and B(t,s,u m,v m) are continuous and an application of Lebesgue
+dominated convergence theorem, we pass the limit inside (3. 2) which establishes the
+existence of weak solutions of the problem ( Dα).
+14
+PAGE 15
+(Initial Condition) Now weak solution u satisﬁes the following equation for all v
+in H 10 (Ω)
+(
+d
+dt [k ∗ (u −u0)] (t),v
+)
++
+(
+M
+(
+x,t, ‖∇u‖2
+)
+∇u, ∇v
+)
+= (f,v ) +
+∫ t
+0
+B(t,s,u,v )ds.
+(3.13)
+Letφ inC 1 ([0,T ];H 10(Ω)) with φ(T ) = 0, then multiply (3.13) with φ and integrate
+by parts, we get
+−
+∫ T
+0
+((k ∗ (u −u0))(t),v )φ′(t)dt +
+∫ T
+0
+(
+M
+(
+x,t, ‖∇u‖2
+)
+∇u, ∇v
+)
+φ(t)dt
+=
+∫ T
+0
+(f,v )φ(t)dt +
+∫ T
+0
+∫ t
+0
+B(t,s,u,v )φ(t)dsdt
++ ((k ∗ (u −u0))(0),φ (0)).
+(3.14)
+Since C 1 ([0,T ];H 10 (Ω)) is dense in L2 (0,T,H 10 (Ω)), thus using (3.2) and ( k ∗ (um −
+um(0))) has vanishing trace at t = 0, we have
+−
+∫ T
+0
+((k ∗ (um −um(0)))(t),v )φ′(t)dt +
+∫ T
+0
+(
+M
+(
+x,t, ‖∇um‖2
+)
+∇um, ∇v
+)
+φ(t)dt
+=
+∫ T
+0
+(f,v )φ(t)dt +
+∫ T
+0
+∫ t
+0
+B(t,s,u m,v )φ(t)dsdt.
+(3.15)
+Let m tend to inﬁnity in (3.15) and comparing with (3.14), we get (( k ∗ (u −
+u0))(0),φ (0)) = 0. Since φ(0) is arbitrary, so we have ( k ∗ (u −u0))(0) = 0 which
+implies u =u0 at t = 0 [29].
+(Uniqueness) Suppose that u1,u 2 are solutions of equation ( Wα), then z =u1 −u2
+satisﬁes the following equation for all v ∈H 10 (Ω) and a.e. t∈ (0,T ]
+(
+d
+dt (k ∗z)(t),v
+)
++
+(
+M
+(
+x,t, ‖∇u1‖2
+)
+∇u1, ∇v
+)
+=
+(
+M
+(
+x,t, ‖∇u2‖2
+)
+∇u2, ∇v
+)
++
+∫ t
+0
+B(t,s,z,v )ds.
+(3.16)
+Put v = z(t) in above equation and using (H2), (H3) along with Cauchy Sch warz
+and Young’s inequality, we obtain
+2
+(
+d
+dt(k ∗z)(t),z
+)
++ (m0 − 4LM ˆK 2)‖∇z‖2 ≲
+∫ t
+0
+‖∇z(s)‖2ds (3.17)
+Now following the same lines as in the proof of estimate (3.9) and using (H2) we
+conclude ‖z‖L2(0,T,H 10 (Ω)) = ‖z‖L∞(0,T,L 2(Ω)) = 0. Thus uniqueness follows.
+15
+PAGE 16
+4 Error estimates for semi-discrete solution
+In this section, we derive error estimates for semi-discret e solutions of the problem
+(Sα) by discretizing the domain in space variable while keeping the time variable
+continuous.
+The existence, uniqueness, and a priori bounds on semi-disc rete solutions is estab-
+lished on the similar lines as for the weak solutions of ( Dα), therefore omitted here.
+For the error estimates of semi-discrete solutions, we deﬁn e a new Ritz-Volterra type
+projection operator W : [0,T ] →Xh by
+(
+M
+(
+x,t, ‖∇u‖2
+)
+∇(u −W ), ∇vh
+)
+=
+∫ t
+0
+B(t,s,u −W,v h)ds for all vh inXh. (4.1)
+Ritz-Volterra type projection operator W is well deﬁned by the positivity of Kirchhoﬀ
+termM. The estimates on u −W ,W , u −Rhu are given by the following theorems.
+Theorem 4.1. [30] Under the assumption of uniform triangulation of Ω, there exists
+a positive constant C independent of h such that the following hold for any function
+u in H 2(Ω) ∩H 10 (Ω)
+‖u −Rhu‖ +h‖u −Rhu‖1 ≤Ch 2‖u‖2,
+‖Rhu‖1 ≤C‖u‖1,
+where ‖p‖1 = ‖p‖ + ‖∇p‖.
+Theorem 4.2. [31] There exists a positive constant C independent of h such that
+following estimate hold
+‖ρ(t)‖ +h‖ρ(t)‖1 ≤Ch 2
+(
+‖u(t)‖2 +
+∫ t
+0
+‖u(s)‖2ds
+)
+,
+‖ρt(t)‖ +h‖ρt(t)‖1 ≤Ch 2
+(
+‖u(t)‖2 + ‖ut‖2 +
+∫ t
+0
+‖ut(s)‖2ds
+)
+,
+whereρ =u −W and ‖p‖1 = ‖p‖ + ‖∇p‖.
+Lemma 4.3. [22] LetW be the Ritz-Volterra projection deﬁned by (4.1), then ‖∇W ‖
+is bounded for every t in [0,T ], i.e.
+‖∇W ‖ ≲ ‖∇u‖.
+4.1 Proof of the Theorem 2.6
+Proof. Put uh =W −θ in (Sα), we have
+(
+CDαt (W −θ),v h
+)
++
+(
+M
+(
+xh,t, ‖∇uh‖2
+)
+∇(W −θ), ∇vh
+)
+= (fh,v h)+
+∫ t
+0
+B(t,s,W −θ,v h)ds.
+16
+PAGE 17
+Since f in L2(Ω) thus (f,v h) = (fh,v h) for all vh in Xh, then by using (H2), ( Wα),
+and the deﬁnition (4.1) of Ritz-Volterra projection W we get
+(
+CDαtθ,v h
+)
++m0(∇θ, ∇vh) ≤LM (‖∇u‖ + ‖∇uh‖) (‖∇u − ∇uh‖) (∇W, ∇vh)
+−
+(
+CDαtρ,v h
+)
++
+∫ t
+0
+B(t,s,θ,v h)ds.
+(4.2)
+Set vh = θ in (4.2) and using (H3), estimate (3.11) together with Cauch y-Schwarz
+and Young’s inequality, we obtain
+(
+CDαtθ,v h
+)
++ (m0 − 4LM ˆK 2)‖∇θ‖2 ≲ ‖∇ρ‖2 + ‖ CDαtρ‖2
++ ‖θ‖2 +
+∫ t
+0
+‖∇θ(s)‖2ds. (4.3)
+Use (H2) and apply the same arguments as we prove estimate (3. 9), to obtain
+‖θ‖2L∞(0,T,L 2(Ω)) +(l ∗ ‖∇θ‖2) (t) ≲[l ∗(‖∇ρ‖2 + ‖ CDαtρ‖2)] (t) + ‖θ(0)‖21.
+Theorems 4.1 and 4.2 with triangle inequality concludes
+‖u −uh‖2L∞(0,T,L 2(Ω)) +(l ∗ ‖∇(u −uh)‖2) (t) ≲h2.
+5 Backward Euler-Galerkin FEM based on L1 type
+scheme
+In this section, we prove the well-posedness and derive conv ergence rate for the pro-
+posed fully discrete formulation ( Eα).
+Forn ≥ 2, the linear system is positive deﬁnite due to the non-degen eracy of diﬀu-
+sion coeﬃcient M which gives a unique solution of ( Eα) and the existence of u1h is
+established by the following variant of Br¨ ouwer ﬁxed point theorem.
+Theorem 5.1. [21] Let H be ﬁnite dimensional Hilbert space. Let G :H →H be a
+continuous map such that (G(w),w ) > 0 for all w in H with ‖w‖ = r, r >0 then
+there exists a ˜w in H such that G( ˜w) = 0 and ‖ ˜w‖ ≤ r.
+Theorem 5.2. Suppose that (H1), (H2), and (H3) holds, then there exists a u nique
+solution u1h to the problem (Eα) which satisﬁes the following a priori bound
+‖u1h‖2 +kα‖∇u1h‖2 ≲(‖f 1h‖2 + ‖∇u0h‖2) ≈ ˜K1, (5.1)
+providedk <k0 for some positive constant k0.
+17
+PAGE 18
+Proof. (Existence) Let α0 = kαΓ(2 −α) and put the deﬁnition of Dαtu1h in (Eα),
+we get
+(
+u1h −u0h,v h
+)
++α0
+(
+M
+(
+xh,t 1, ‖∇u1h‖2
+)
+∇u1h, ∇vh
+)
+=α0
+(
+f 1h,v h
+)
++α0kB
+(
+t1,t 0,u 0h,v h
+)
+.
+Deﬁne a map G :Xh →Xh by
+(
+G
+(
+u1h
+)
+,v h
+)
+=
+(
+u1h,v h
+)
+−
+(
+u0h,v h
+)
++α0
+(
+M
+(
+xh,t 1, ‖∇u1h‖2
+)
+∇u1h, ∇vh
+)
+−α0
+(
+f 1h,v h
+)
+−α0kB
+(
+t1,t 0,u 0h,v h
+)
+.
+(5.2)
+Then using (H2), (H3), and Cauchy-Schwarz inequality, we ha ve
+(
+G
+(
+u1h
+)
+,u 1h
+)
+≥
+(
+‖u1h‖ − ‖u0h‖ −α0‖f 1h‖ −α0k‖u0h‖) ‖u1h‖.
+Thus for ‖u1h‖ > ‖u0h‖ +α0‖f 1h‖ +kα0‖u0h‖, we have ( G (u1h),u 1h) > 0 and the map
+G deﬁned by (5.2) is continuous by continuity of M. Hence existence follows by
+Theorem 5.1.
+(A priori bound) Put vh = u1h for n = 1 in ( Eα) and using (H2), (H3) with
+Cauchy-Schwarz and Young’s inequality, we get
+(1 −kαΓ(2 −α))‖u1h‖2 +kα‖∇u1h‖2 ≲kα
+(
+‖f 1h‖2 +k2‖∇u0h‖2
+)
++ ‖u0h‖2,
+then for suﬃciently small k such that kα< 1Γ(2−α) , we conclude (5.1).
+(Uniqueness) Suppose that X 1h and Y 1h are the solutions of ( Eα) for n = 1, then
+Z 1h =X 1h −Y 1h satisﬁes the following equation for all vh in Xh
+(
+DαtZ 1h,v h
+)
++
+(
+M
+(
+xh,t 1, ‖∇X 1h‖2
+)
+∇Z 1h, ∇vh
+)
+=
+([
+M
+(
+xh,t 1, ‖∇Y 1h ‖2
+)
+−M
+(
+xh,t 1, ‖∇X 1h‖2
+)]
+∇Y 1h, ∇vh
+)
+.
+(5.3)
+Put vh =Z 1h in equation (5.3) and using (H2) we get
+1
+2 Dαt ‖Z 1h‖2 +m0‖∇Z 1h‖2 ≤LM ‖∇Z 1h‖(‖∇X 1h‖ + ‖∇Y 1h ‖)( ∇Y 1h, ∇Z 1h)
+Now Cauchy-Schwarz inequality and (5.1) yields
+Dαt ‖Z 1h‖2 +(2m0 − 4LM ˜K 21) ‖∇Z 1h‖2 ≤ 0.
+Then (H2) concludes the proof.
+Theorem 5.3. Under the assumption of (H1), (H2), and (H3) the solution unh (n ≥
+2) of (Eα) satisfy the following a priori bound
+max
+2≤m≤N
+‖umh ‖2 +kα
+N∑
+n=2
+pN −n‖∇unh‖2 ≲
+(
+kα
+N∑
+n=2
+pN −n‖f nh ‖2 + ‖∇u0h‖2
+)
+≈ ˜K2. (5.4)
+18
+PAGE 19
+Proof. Put vh = unh for n ≥ 2 in ( Eα) and using (H2), (H3) along with Cauchy-
+Schwarz and Young’s Inequality we get
+k−α
+Γ(2 −α)
+n∑
+j=1
+an−j
+(
+‖ujh‖2 − ‖uj−1h ‖2)+‖∇unh‖2 ≲
+
+‖f nh ‖2 + ‖unh‖2 +
+n−1∑
+j=1
+wnj‖∇ujh‖2
+
+.
+(5.5)
+Now multiply the equation (5.5) by discrete convolution Pm−n deﬁned in Lemma 2.3
+and take summation from n = 1 to m to obtain
+m∑
+n=1
+pm−n
+n∑
+j=1
+an−j
+(
+‖ujh‖2 − ‖uj−1h ‖2) +kαΓ(2 −α) m∑
+n=1
+pm−n‖∇unh‖2
+≲kαΓ(2 −α)
+
+
+m∑
+n=1
+pm−n‖f nh ‖2 +
+m∑
+n=1
+pm−n‖unh‖2 +
+m∑
+n=1
+pm−n
+n−1∑
+j=1
+wnj‖∇ujh‖2
+
+.
+Interchanging the summation and (2.9) yields
+(1 −α0)‖umh ‖2 +kα
+m∑
+n=1
+pm−n‖∇unh‖2 ≲
+m−1∑
+n=1
+
+kαpm−n‖unh‖2 +k1kα
+n∑
+j=1
+pn−j‖∇ujh‖2
+
+
++kα
+m∑
+n=1
+pm−n‖f nh ‖2 + ‖u0h‖2.
+Now for suﬃciently small kα< 1Γ(2−α) we have
+‖umh ‖2 +kα
+m∑
+n=1
+pm−n‖∇unh‖2 ≲
+m−1∑
+n=1
+(kαpm−n +k1)
+
+‖unh‖2 +kα
+n∑
+j=1
+pn−j‖∇ujh‖2
+
+
++kα
+m∑
+n=1
+pm−n‖f nh ‖2 + ‖u0h‖2.
+Now Discrete Gr¨ onwall’s inequality and (2.10) concludes the proof.
+5.1 Proof of the Theorem 2.7
+Proof. (Error Estimate for e1 = u(t1) −u1h) Substitute u1h = W 1 −θ1 for n = 1 in
+(Eα) and using weak formulation ( Wα) along with Ritz-Volterra projection W at t1
+we get
+(
+Dαtθ1,v h
+)
++
+(
+M
+(
+xh,t 1, ‖∇u1h‖2
+)
+∇θ1, ∇vh
+)
+−kB
+(
+t1,t 0,θ 0,v h
+)
+=
+(
+DαtW 1 − CDαt1u,v h
+)
+−kB
+(
+t1,t 0,W 0,v h
+)
++
+∫ t1
+0
+B(t1,s,W,v h)ds
++
+([
+M
+(
+xh,t 1, ‖∇u1h‖2
+)
+−M
+(
+xh,t 1, ‖∇u1‖2
+)]
+∇W 1, ∇vh
+)
+.
+(5.6)
+Set vh = θ1 in (5.6) and using (H2), (H3) with Cauchy-Schwarz inequalit y and
+Young’s inequality, we get
+(
+Dαtθ1,θ 1
+)
++ ‖∇θ1‖2 ≲ ‖Q1‖2 + ‖ CDαt1ρ‖2 + ‖q1(W )‖2 + ‖∇ρ1‖2. (5.7)
+19
+PAGE 20
+Where Q1 = DαtW 1 − CDαt1W is the truncation error deﬁned in (2.5) which satisﬁes
+‖Q1‖ ≲k2−α [13] and q1(W ) is quadrature error for rectangle rule on a single interval
+of length k which satisﬁes ‖q1(W )‖ ≲k2. Thus using Theorem 4.2, we conclude
+‖θ1‖2 +kα‖∇θ1‖2 ≲(k2 +h)2. (5.8)
+(Error Estimate for en =u(tn) −unh, n ≥ 2) Put unh =W n −θn in (Eα) and follow
+the same lines as for n = 1, we arrive at
+n∑
+j=1
+an−j
+[
+‖θj‖2 − ‖θj−1‖2
+]
++kα‖∇θn‖2 ≲kα
+
+‖Qn‖2 + ‖ CDαtnρ‖2 +
+n−1∑
+j=1
+wnj‖∇θj‖2
+
+
++kα
+(
+‖∇¯un−1h − ∇un‖2 + ‖qn(W )‖2
+)
+,
+(5.9)
+where qn(W ) be the quadrature error operator on H 10 (Ω), deﬁned by
+qn(W )(v) =
+∫ tn
+0
+B(tn,s,W,v ) −
+n−1∑
+j=1
+wnjB
+(
+tn,t j,W j,v)ds, (5.10)
+which satisﬁes ‖qn(W )‖ ≲k2 [23] and Qn = DαtW n − CDαtnW that satisﬁes ‖Qn‖ ≲
+k2−α[13]. Thus using Theorem 4.2, we obtain
+n∑
+j=1
+an−j
+[
+‖θj‖2 − ‖θj−1‖2
+]
++kα‖∇θn‖2 ≲kα
+(
+k2−α +h2 +h +k2 +k2
+)2
++kα‖θn‖2
++kα
+
+
+n−1∑
+j=1
+k1‖∇θj‖2 + ‖∇θn−1‖2 + ‖∇θn−2‖2
+
+.
+(5.11)
+Now follow the same arguments as we prove estimate (5.4) to co nclude the result.
+6 Fractional Crank-Nicolson-Galerkin FEM based
+on L2-1σ scheme
+In this section, we show that our proposed scheme ( Fα) achieve the optimal rate
+of convergence in time. The existence and uniqueness of solu tions for fully discrete
+formulation (Fα) is proved along the similar lines as in the proof of Theorem 5 .2,
+therefore omitted here.
+Theorem 6.1. (A priori bound ) Under the assumptions of (H1), (H2), and (H3)
+the solutions unh of (Fα) satisfy the following a priori bounds
+max
+1≤m≤N
+‖umh ‖2 +kα
+N∑
+n=1
+˜p(N )N −n‖∇unh‖2 ≲
+(
+kα
+N∑
+n=1
+˜p(N )N −n‖f n− α2h ‖2 + ‖∇u0h‖2
+)
+(6.1)
+20
+PAGE 21
+Proof. The a priori bounds for u1h is similar as in Theorem 5.2. To obtain a priori
+bounds for unh (n ≥ 2), put vh = unh for n ≥ 2 in ( Fα) and using (H2), (H3) along
+with the following identity
+‖∇unh + ∇un−1h ‖2 = ‖∇unh‖2 + ‖∇un−1h ‖2 + 2(∇unh, ∇un−1h ), (6.2)
+we arrive at
+k−α
+Γ(2 −α)
+n∑
+j=1
+˜c(n)n−j(‖ujh‖2 − ‖uj−1h ‖2) + ‖∇unh‖2 ≲ ‖f n− α2h ‖2 + n−1∑
+j=1
+˜wnj‖∇ujh‖2
++ ‖∇un−1h ‖2
+(6.3)
+Now follow the same arguments as we prove Theorem 5.3 to obtai n (6.1).
+6.1 Proof of the Theorem 2.8
+Proof. Substituteunh =W n −θn in (Fα) and the evaluation of weak formulation (Wα)
+and Ritz-Volterra projection W at tn− α2 and then put vh =θn, we get
+˜Dαtn− α2 ‖θn‖2 + ‖∇θn‖2 ≲ ‖ ˜Dαtn− α2W n − CDαtn− α2u‖2 +
+n−1∑
+j=1
+˜wnj‖∇θj‖2
++ ‖∇¯un−1,αh − ∇un− α2 ‖2 + ‖∇ ˆW n,α − ∇W n− α2 ‖2
++ ‖˜qn− α2 (W )‖2 + ‖∇θn−1‖2
+(6.4)
+where ˜qn− α2 (W ) be the quadrature error operator on H 10 (Ω), deﬁned by
+˜qn− α2 (W )(v) = ∫ tn− α2
+0
+B(tn− α2,s,W,v ) −
+n−1∑
+j=1
+˜wnjB
+(
+tn− α2,t j,W j,v)ds, (6.5)
+that satisﬁes ‖˜qn− α2 (W )‖ ≲ k2 [23] and Let ˜Qn− α2 = ˜Dαtn− α2W n − CDαtn− α2W is the
+truncation error which satisﬁes ‖ ˜Qn− α2 ‖ ≲k3−α [2]. Thus we get
+n∑
+j=1
+˜c(n)n−j[‖θj‖2 − ‖θj−1‖2] +kα‖∇θn‖2 ≲kα(h2 +k3−α +h +k2 +k2)2
++kα
+
+
+n−1∑
+j=1
+k1‖∇θj‖2 + ‖∇θn−1‖2 + ‖∇θn−2‖2
+
+.
+(6.6)
+Now follow the same arguments as we prove Theorem 2.7 and Theo rem 6.1 to obtain
+‖θm‖2 +kα
+m∑
+n=1
+˜p(m)m−n‖∇θn‖2 ≲(h +kmin{3−α,2})2
+Use the similar approach for the case n = 1 and then by triangle inequality and
+min{3 −α, 2} = 2, we obtain the required result.
+21
+PAGE 22
+7 Numerical experiments
+In this section, we implement the theoretical results obtai ned from fully discrete
+formulation for the model ( Dα). For space discretization linear hat basis functions
+say {ψ1,ψ 2,...,ψ J } forJ dimensional subspace Xh ofH 10 (Ω) is used, then numerical
+solution unh for (Dα) at any time tn in [0,T ] is written as
+unh =
+J∑
+i=1
+αniψi, (7.1)
+whereαn = (αn1,α n2,α n3,...,α nJ ) is to be determined. Let us denote the error estimates
+that we have proved in Theorems 2.7 and 2.8 by
+Error-1 = max
+1≤n≤N
+‖u(tn) −unh‖ +
+(
+kα
+N∑
+n=1
+pN −n‖∇u(tn) − ∇unh‖2
+)1/2
+,
+and
+Error-2 = max
+1≤n≤N
+‖u(tn) −unh‖ +
+(
+kα
+N∑
+n=1
+˜p(N )N −n‖∇u(tn) − ∇unh‖2
+)1/2
+,
+respectively.
+Example 7.1. We consider the problem (Dα) on Ω × [0,T ] where Ω = [0, 1] × [0, 1]
+and T = 1 with the following data
+1. M (x,y,t, ‖∇u‖2) = a(x,y ) + b(x,y )‖∇u‖2 with a(x,y ) = x2 + y2 + 1 and
+b(x,y ) = xy. This type of diﬀusion coeﬃcient M has been studied by medeiros
+et al. for numerical purpose in [32].
+2. b2(t,s,x,y ) = et−s
+
+−1 0
+0 −1
+
+ ; b1(t,s,x,y ) = b0(t,s,x,y ) = 0.
+3. Source term f (x,t ) = f1(x,t ) +f2(x,t ) +f3(x,t ) with
+f1(x,t ) = 2Γ(3 −α)t2−α(x −x2)(y −y2),
+f2(x,t ) = 2(x +y −x2 −y2)
+(
+t2x2 +t2y2 + xyt6
+45 − 2t − 2 + 2et
+)
+,
+f3(x,t ) = t2(2x − 1)(y −y2)
+(
+2x + yt4
+45
+)
++t2(2y − 1)(x −x2)
+(
+2y + xt4
+45
+)
+.
+Then the exact solution of (Dα) is u =t2 (x −x2) (y −y2).
+This example can be used to model the diﬀusion of a substance i n a domain Ω, see [25].
+22
+PAGE 23
+We obtain error and convergence rate in space direction as we ll as in time direction
+for diﬀerent values of mesh parameters h and k and diﬀerent values of α. The
+convergence rate is calculated through the following log vs . log formula
+Convergence rate =
+
+
+
+log(E(τ,h1)/E(τ,h2))
+log(h1/h2) ; In space direction
+log(E(τ1,h)/E(τ2,h))
+log(τ1/τ2) ; In time direction
+where E(τ,h ) is the error in respective norms at diﬀerent mesh points.
+Backward Euler-Galerkin FEM scheme: This numerical scheme ( Eα) provides
+the convergence rate as O(h +k2−α), see Theorem 2.7. To observe this order of
+convergence numerically, we run the MATLAB code at diﬀerent iterations by setting
+h ≃k2−α. Here h is taken as the area of the triangle in the triangulation of do main
+Ω = [0 , 1] × [0, 1]. For next iteration, we join the midpoint of each edge and m ake
+another triangulation as presented in Figures 1-3. In this w ay we collect the numer-
+ical results upto ﬁve iterations to support our theoretical estimates established in
+Theorem 2.7.
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Mesh plot
+5 nodes
+Figure 1: Iteration no 1
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Mesh plot
+13 nodes
+Figure 2: Iteration no 2
+23
+PAGE 24
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Mesh plot
+41 nodes
+Figure 3: Iteration no 3
+From Tables 1, 2, and 3, we conclude that the convergence rate is linear in space and
+(2 −α) in the time direction, as we have proved in Theorem 2.7. We al so observe
+that as α tending to 1 then convergence rate is approaching 1 in the tim e direction
+which is same as we have established in [22] for classical diﬀ usion case.
+Table 1: Error and Convergence Rates in space-time direction for α = 0.25
+Iteration No. Error-1 Rate in Space Rate in Time
+1 3.04e-02 - -
+2 1.50e-02 1.0175 1.7807
+3 7.60e-03 0.9824 1.7192
+4 3.82e-03 0.9909 1.7342
+5 1.89e-03 1.0166 1.7790
+Table 2: Error and Convergence Rates in space-time direction for α = 0.5
+Iteration No. Error-1 Rate in Space Rate in Time
+1 2.63e-02 - -
+2 1.35e-02 0.9568 1.4352
+3 6.53e-03 1.0521 1.5781
+4 3.20e-03 1.0285 1.5428
+5 1.58e-03 1.0141 1.5212
+Fractional Crank-Nicolson-Galerkin FEM scheme: This numerical scheme
+converges to the solution with accuracy O(h +k2). Here we set h ≃k2 to conclude
+the convergence rates in space-time direction. Here iterat ion numbers have the same
+meaning as the previous case ( Eα). From the Tables 4, 5, and 6, we deduce that the
+convergence rate is linear in space and quadratic in the time direction, as we have
+predicted in Theorem 2.8.
+24
+PAGE 25
+Table 3: Error and Convergence Rates in space-time direction for α = 0.75
+Iteration No. Error-1 Rate in Space Rate in Time
+1 2.23e-02 - -
+2 1.09e-02 1.0340 1.2925
+3 5.33e-03 1.0345 1.2931
+4 2.65e-03 1.0087 1.2960
+5 1.29e-03 1.0331 1.2914
+Table 4: Error and Convergence Rates in space-time direction for α = 0.25
+Iteration No. Error-2 Rate in Space Rate in Time
+1 2.32e-02 - -
+2 1.10e-02 1.0679 2.1359
+3 5.38e-03 1.0393 2.0787
+4 2.52e-03 1.0904 2.1809
+5 1.24e-03 1.0225 2.0451
+Table 5: Error and Convergence Rates in space-time direction for α = 0.5
+Iteration No. Error-2 Rate in Space Rate in Time
+1 2.42e-02 - -
+2 1.16e-02 1.0573 2.1147
+3 5.70e-03 1.0329 2.0658
+4 2.68e-03 1.0873 2.1746
+5 1.32e-03 1.0207 2.0414
+Table 6: Error and Convergence Rates in space-time direction for α = 0.75
+Iteration No. Error-2 Rate in Space Rate in Time
+1 1.97e-02 - -
+2 9.05e-03 1.1284 2.2569
+3 4.25e-03 1.0873 2.1746
+4 1.94e-03 1.1335 2.2671
+5 9.30e-04 1.0614 2.1228
+25
+PAGE 26
+Now, we plot the graph of an approximate solution as well as an exact solution in
+ﬁgure 1 using backward Euler-Galerkin FEM based on the L1 typ e scheme.
+1
+0.8
+0.6
+0.4
+0.2
+0 0
+0
+0.01
+0.02
+0.03
+0.04
+0.05
+0.4
+0.6
+1
+0.8
+0.2
+0
+1
+0.01
+0.02
+0.03
+1
+0.04
+0.6
+0.8
+0.8
+0.05
+0.4 0.6
+0.40.2 0.2
+0 0
+Figure 4: Approximate solution(L.H.S) and Exact solution( R.H.S) at T = 1 and
+α = 0.5.
+8 Conclusions
+In this work, we have established the well-posedness of weak formulation for time
+fractional integro-diﬀerential equations of Kirchhoﬀ typ e for non-homogeneous ma-
+terials. We have derived error estimates for semi-discrete formulation by discretizing
+the domain in space direction using a conforming FEM and obta ined convergence
+rate O(h) in the energy norm. Further, to obtain the numerical soluti on for this
+class of equations, we have developed and analyzed two diﬀer ent kinds of eﬃcient
+numerical schemes. First, we derived that convergence rate is (2-α) in the time di-
+rection, which is better than ﬁrst order but not optimal. Nex t, to obtain the optimal
+rate of convergence, we proposed a new Fractional Crank-Nic olson-Galerkin FEM
+based on the L2-1 σ scheme and proved that numerical solutions converge with th e
+O(h +k2) rate of accuracy. Finally, numerical experiments reveal t hat theoretical
+error estimates are sharp.
+26
+PAGE 27
+References
+[1] D. Li, H. L. Liao, W. Sun, J. Wang, and J. Zhang, Analysis of L1-Galerkin FEMs
+for time-fractional nonlinear parabolic problems, Commun ication in Computa-
+tional Physics, 24(1), 86–103, 2018.
+[2] A. A. Alikhanov, A new diﬀerence scheme for the time fract ional diﬀusion equa-
+tion, Journal of Computational Physics, 280, 424–438, 2015 .
+[3] I. Podlubny, Fractional diﬀerential equations: An intr oduction to fractional
+derivatives, fractional diﬀerential equations, to method s of their solution and
+some of their applications, Elsevier, 1998.
+[4] R. Metzler and J. Klafter, The random walk’s guide to anom alous diﬀusion: A
+fractional dynamics approach, Physics Reports, 339(1), 1– 77, 2000.
+[5] J. Manimaran, L. Shangerganesh, A. Debbouche, and V. Ant onov, Numeri-
+cal solutions for time-fractional cancer invasion system w ith nonlocal diﬀusion,
+Frontiers in Physics, 7, 93, 2019.
+[6] F. Mainardi, Fractional calculus and waves in linear vis coelasticity: An intro-
+duction to mathematical models,World Scientiﬁc, 2010.
+[7] W. R. Schneider and W. Wyss, Fractional diﬀusion and wave equations, Journal
+of Mathematical Physics, 30(1), 134–144, 1989.
+[8] K. S. Miller and B. Ross, An Introduction to the fractiona l calculus and frac-
+tional diﬀerential equations,John-Wily and Sons, Inc. New York, 1993
+[9] Z. M. Odibat, Computing eigen elements of boundary value problems with frac-
+tional derivatives, Applied Mathematics and Computation, 215(8), 3017–3028,
+2009.
+[10] F. Huang and F. Liu, The time fractional diﬀusion equati on and the advection-
+dispersion equation, The ANZIAM Journal, 46(3), 317–330, 2 005.
+[11] Y. Giga and T. Namba, Well-posedness of Hamilton-Jacob i equations with Ca-
+puto’s time fractional derivative, Communications in Part ial Diﬀerential Equa-
+tions, 42(7), 1088–1120, 2017.
+[12] Y. Dimitrov, Numerical approximations for fractional diﬀerential equations,
+Journal of Fractional Calculus and Applications, 5(22), 1– 45, 2014.
+27
+PAGE 28
+[13] Y. Lin and C. Xu, Finite diﬀerence/spectral approximat ions for the time-
+fractional diﬀusion equation, Journal of Computational Ph ysics, 225(2), 1533–
+1552, 2007.
+[14] J. L. Lions, On some questions in boundary value problem s of mathematical
+physics, North-Holland Mathematics Studies, 30, 284–346, 1978.
+[15] D. E. Tzanetis and P. M. Vlamos, A nonlocal problem model ling Ohmic heating
+with variable thermal conductivity, Nonlinear Analysis: R eal World Applica-
+tions, 2(4), 443–454, 2001.
+[16] N. I. Kavallaris, A. A. Lacey, C. V. Nikolopoulos, C. Voo ng, Behaviour of a
+nonlocal equation modelling linear friction welding, IMA J ournal of Applied
+Mathematics, 72(5), 597–616, 2007.
+[17] X. Mingqi, V. D. R˘ adulescu, and B. Zhang, A critical fra ctional Choquard–
+Kirchhoﬀ problem with magnetic ﬁeld, Communications in Con temporary Math-
+ematics, 21(4), 1850004, 2018.
+[18] P. K. Mishra and K. Sreenadh, Existence and multiplicit y results for fractional
+p-Kirchhoﬀ equation with sign changing nonlinearities, Adv ances in Pure and
+Applied Mathematics, 7(2), 97–114, 2016.
+[19] D. Goel K. Sreenadh, Kirchhoﬀ equations with Hardy–Lit tlewood–Sobolev crit-
+ical nonlinearity, Nonlinear Analysis, 186, 162–186, 2019 .
+[20] F. J. S. Correa and S. D. B. Menezes, Existence of solutio ns to nonlocal and
+singular elliptic problems via Galerkin method, Electroni c Journal of Diﬀerential
+Equations, 19, 1–10, 2004.
+[21] V. Thom´ ee, Galerkin ﬁnite element methods for parabol ic problems: Lecture
+notes in mathematics, Springer, 1984.
+[22] L. Kumar, S. G. Sista, and K. Sreenadh, Finite element an alysis of parabolic
+integro-diﬀerential equations of Kirchhoﬀ type, Mathemat ical Methods in the
+Applied Sciences, 43(15), 9129–9150, 2020.
+[23] A. K. Pani, V. Thom´ ee, and L. B. Wahlbin, Numerical meth ods for hyperbolic
+and parabolic integro-diﬀerential equations, Journal of I ntegral Equations and
+Applications, 4(4), 533–584, 1992.
+[24] L. Qiao, D. Xu, Z. Wang, An ADI diﬀerence scheme based on f ractional trape-
+zoidal rule for fractional integro-diﬀerential equation w ith a weakly singular
+kernel, Applied Mathematics and Computation, 354, 103–114 , 2019.
+28
+PAGE 29
+[25] S. Barbeiro, J. A. Ferreira, and L. Pinto, H1 second orde r convergent estimates
+for non-Fickian models, Applied Numerical Mathematics, 61 (2), 201–215, 2011.
+[26] R. Almeida, A Gr¨ onwall inequality for a general Caputo fractional operator,
+Math. Inequal. Appl., 20(4), 1089–1105, 2017.
+[27] H. L. Liao, W. McLean, and J. Zhang, A discrete Gr¨ onwall inequality with
+applications to numerical schemes for subdiﬀusion problem s, SIAM Journal on
+Numerical Analysis, 57(1), 218–237, 2019.
+[28] L. Li and J. G. Liu, Some compactness criteria for weak so lutions of time frac-
+tional PDEs, 50(4), 3963–3995, 2018.
+[29] R. Zacher, Weak solutions of abstract evolutionary int egro-diﬀerential equations
+in Hilbert spaces, Funkcialaj Ekvacioj, 52(1), 1–18, 2009.
+[30] R. Rannacher and R. Scott, Some optimal error estimates for piecewise linear
+ﬁnite element approximations, Mathematics of Computation , 38(158), 437–445,
+1982.
+[31] J. R. Cannon and Y. Lin, Non-classical H1 projection and Galerkin methods
+for non-linear parabolic integro-diﬀerential equations, Calcolo, 25(3), 187–201,
+1988.
+[32] L. A. Medeiros, T. N. Rabello, M. A. Rincon, and M. C. C. Vi eira, On pertur-
+bation of the Kirchhoﬀ operator: analysis and numerical sim ulation, Communi-
+cations in Mathematical Sciences, 10(3), 751–766, 2012.
+[33] J. Manimaran, L. Shangerganesh, and A. Debbouche, Fini te element error anal-
+ysis of a time fractional nonlocal diﬀusion equation with th e Dirichlet energy,
+Journal of Computational and Applied Mathematics, 382, 113 066, 2021.
+29

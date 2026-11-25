@@ -1,0 +1,182 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\title{GR-03: Shifted Volterra product integration\\\large Linear and quadratic rules for the two-kernel Gr\"onwall framework}
+\author{Research working notes}
+\date{26 November 2026 --- revision 01}
+\begin{document}
+\maketitle
+\noindent\textbf{Revision 01 (AUD-02 closure).}
+The independent analytical review verdict is \emph{ACCEPT WITH LIMITATIONS}.
+The results below are conditional on their stated hypotheses. Finite-grid
+diagnostics are evidence for implementations, not proofs of the analytical
+theorems. The numerical tables retain the original diagnostic values.
+Lean certificates cover the explicitly identified finite algebraic subclaims,
+not complete fractional PDE arguments. Original manuscripts and execution
+evidence are preserved separately.
+
+\noindent\textbf{Scope.} This note continues GR-01 and GR-02, independently of the frozen AUD-01 checkpoint. It derives two causal uniform-grid memory rules and proves the absolute row-tail bounds needed by the complementary-kernel comparison. The constructions are polynomial product integration; no novelty claim is made. All orders are fixed in $(0,1)$; the results do not require $\beta\le\alpha$ except where explicitly imposed in examples. No new production algorithm, nonuniform-grid theorem or full convergence theorem is claimed.
+
+\section*{Review qualifications}
+These explicit coefficients and constants are for a uniform mesh and fixed
+orders. GR-06 rederives the nonuniform stencil geometry and its
+grading-dependent absolute-basis constant; the value $5/4$ must not be
+transferred unchanged to an arbitrary backward nonuniform stencil.
+
+The rule approximates normalized $I^r$; the equation includes
+$\lambda\Gamma(r)$ exactly once. It is causal implicit: completed forward
+stencils use levels at most $n$, and the final quadratic memory stencil is
+backward. At startup both memory rules are linear. The final Caputo panel,
+the final memory panel, and the shifted diffusion average have distinct roles.
+
+The exact negative witness is the \emph{normalized factor}
+$W^Q_{20}/[t_*^r/\Gamma(1+r)]=-17/231$, not the dimensional weight itself.
+All later comparisons use $|W^Q|$, including its initial column.
+Sharpness of the startup memory error, post-startup memory error and full
+solution error are different statements. A memory estimate alone neither
+proves nor refutes a PDE convergence theorem.
+
+Nonpolynomial nodal coefficients in spatial applications require continuous
+representatives with pointwise bounds at the nodes; an essential bound on an
+arbitrarily modified equivalence class is insufficient.
+The Lean certificates check finite moment collection, the uniform basis
+bound and the rational witness. Gamma/beta integration, consistency and the
+PDE energy application remain analytical.
+
+\section{Normalized memory and common moments}
+Write $r=1-\beta$, $\theta=\alpha/2$, $\sigma=1-\theta$, $t_k=k\tau$, $t_*=t_{n-1}+\sigma\tau$, and $T=N\tau$. The original unnormalized memory $\mathcal J$ is $\Gamma(r)I^r$, where
+\[
+ I^r v(t)=\frac1{\Gamma(r)}\int_0^t(t-s)^{r-1}v(s)\,ds.
+\]
+We discretize $I^r v(t_*)$; the PDE coefficient multiplying the rule is therefore $\lambda\Gamma(r)K(t_*)$. On panel $k$ use $x=(s-t_{k-1})/\tau$, $d=n-k+\sigma$, and $h=1$ for $k<n$, $h=\sigma$ for $k=n$. Define the moments
+\begin{align*}
+ M_j(d,h)&=\frac{\tau^r}{\Gamma(r)}\int_0^h x^j(d-x)^{r-1}\,dx\\
+ &=\frac{\tau^rd^{r+j}}{\Gamma(r)}B_{h/d}(j+1,r),\\
+ &=\frac{\tau^r}{\Gamma(r)}\sum_{i=0}^j(-1)^i\binom ji d^{j-i}
+       \frac{d^{r+i}-(d-h)^{r+i}}{r+i},
+\end{align*}
+Here $j=0,1,2$ and $B_z$ is the incomplete beta function. The last expression follows by expanding $(d-y)^j$ with $y=d-x$. It is algebraically exact but may suffer cancellation at large lag. The diagnostic uses the regularized incomplete beta function and a separate adaptive quadrature oracle; neither establishes a floating-point stability theorem.
+\section{Linear and quadratic assembly}
+The linear rule PI-L integrates the interpolant $(1-x)U^{k-1}+xU^k$ on every panel, including the last partial panel. Add $M_0-M_1$ and $M_1$ to columns $k-1,k$, respectively. On the final panel $M_0=(\sigma\tau)^r/\Gamma(1+r)$ and $M_1=\sigma M_0/(1+r)$. Thus its weights are not the shifted evaluation weights $\theta,\sigma$.
+
+PI-Q uses the forward stencil $k-1,k,k+1$ on all completed panels and the backward stencil $n-2,n-1,n$ on the final partial panel ($n\ge2$). At $n=1$, PI-Q uses PI-L. In both cases all data are at levels at most $n$. The following table lists the local basis polynomials and exact contributions to the assembled row.
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+Panel/stencil & Basis & Contribution\\\midrule
+Forward: $k-1$ & $(x-1)(x-2)/2$ & $M_0-3M_1/2+M_2/2$\\
+$k$ & $x(2-x)$ & $2M_1-M_2$\\
+$k+1$ & $x(x-1)/2$ & $(M_2-M_1)/2$\\\midrule
+Backward: $n-2$ & $x(x-1)/2$ & $(M_2-M_1)/2$\\
+$n-1$ & $1-x^2$ & $M_0-M_2$\\
+$n$ & $x(x+1)/2$ & $(M_2+M_1)/2$\\\bottomrule
+\end{tabular}
+\end{center}
+Let $Q_X^n[U]=\sum_{k=0}^n W^X_{nk}U^k$ for $X=L,Q$. Both rules integrate constants and linear polynomials exactly; PI-Q integrates quadratic polynomials exactly for $n\ge2$.
+\begin{proposition}[Mass and sign]
+For both rules $\sum_{k=0}^nW^X_{nk}=t_*^r/\Gamma(1+r)$. The PI-L entries are nonnegative. PI-Q can have negative assembled entries, but
+\[
+ \sum_{k=0}^n|W^X_{nk}|\le L_X\frac{t_*^r}{\Gamma(1+r)},
+ \qquad L_L=1,\quad L_Q=5/4.
+\]
+\end{proposition}
+\begin{proof}
+Partition of unity gives the signed mass. The linear basis is nonnegative. On either quadratic stencil inside its integration interval the sum of absolute basis functions is $1+x(1-x)\le5/4$. Integrate against the positive kernel and apply the triangle inequality to assembly. The startup row obeys the stronger linear bound.
+\end{proof}
+An exact signed-weight witness is obtained at $n=2$: both quadratic pieces are the same interpolating polynomial on the nodes $0,\tau,2\tau$. Put $D=t_*/\tau=1+\sigma$. The initial-data basis is $(z-1)(z-2)/2$ with $z=s/\tau$. Integrating its three monomials gives
+\[
+ W^Q_{20}=\frac{t_*^r}{\Gamma(1+r)}\left[1-\frac{3D}{2(1+r)}+\frac{D^2}{(1+r)(2+r)}\right].
+\]
+At $\alpha=\beta=9/10$ the bracket is exactly $-17/231$. Hence positivity of the assembled quadratic rule cannot be used in a general energy proof.
+\section{Smooth consistency and sharp startup order}
+All statements below hold for Hilbert-space valued data; scalar interpolation bounds extend by duality. The standard interpolation remainder yields
+\begin{align*}
+ \norm{\Pi_1u-u}_{\infty}&\le \tau^2\norm{u''}_{\infty}/8,\\
+ \norm{\Pi_2u-u}_{\infty}&\le \tau^3\norm{u'''}_{\infty}/12.
+\end{align*}
+For the second bound the nodal product has magnitude at most $\tau^3/2$ on either stencil, since $x(1-x)\le1/4$ and the remaining factor is at most 2. Multiplying by the exact positive kernel mass proves
+\begin{proposition}[Consistency]
+For $u\in C^2([0,T];H)$,
+\[
+ \norm{Q_L^n[u]-I^ru(t_*)}\le\frac{\tau^2 t_*^r}{8\Gamma(1+r)}\norm{u''}_{\infty}.
+\]
+For $u\in C^3([0,T];H)$, PI-Q satisfies
+\[
+ \norm{Q_Q^n[u]-I^ru(t_*)}\le
+ \begin{cases}
+ \sigma^r\tau^{2+r}\norm{u''}_{\infty}/(8\Gamma(1+r)),&n=1,\\
+ \tau^3t_*^r\norm{u'''}_{\infty}/(12\Gamma(1+r)),&n\ge2.
+ \end{cases}
+\]
+In particular the uniform smooth consistency order of the linearly started PI-Q is $2+r=3-\beta$, not 3.
+\end{proposition}
+The startup bound is sharp: for $u(t)=t^2$, the first-step error equals
+\[
+ \frac{\tau^{2+r}}{\Gamma(r)}\int_0^\sigma x(1-x)(\sigma-x)^{r-1}\,dx>0,
+\]
+and all subsequent quadratic-rule errors vanish. The PI-L order is sharp at $n=N$ for $u(t)=t^2$: the error is nonnegative on every panel, and on each completed panel its kernel-weighted integral is at least $t_*^{r-1}\tau^3/(6\Gamma(r))$. Summing $N-1$ such contributions gives a positive constant times $\tau^2$ for fixed $T$ and sufficiently fine grids.
+
+The post-startup PI-Q order is also sharp for $u=t^3$ at $n=N$. On completed forward panels $u-\Pi_2u=\tau^3 x(x-1)(x-2)\ge0$. Their total integrated error has a lower bound $(N-1)t_*^{r-1}\tau^4/(4\Gamma(r))$, using $\int_0^1 x(x-1)(x-2)\,dx=1/4$. The opposite-sign final backward-panel contribution is $O(\tau^{3+r})$, so it cannot cancel the $\tau^3$ leading lower bound for sufficiently small $\tau$. These are memory consistency results, not solution convergence statements. The shifted diffusion approximation still has a second-order interpolation error.
+\section{Localized row-tail bounds}
+For $X=L,Q$, define the nonnegative majorant $H^X_{nk}=|W^X_{nk}|$, retaining the initial-data column $k=0$. Let $1\le m\le n$ and $\ell=t_n-t_{m-1}$. In the linear rule a basis with index $k\ge m$ has support only for $s\ge t_{m-1}$. In the quadratic rule the forward stencil allows one additional earlier panel, but none before $t_{\max(0,m-2)}$. The final backward stencil respects the latter restriction as well. Since $\ell\ge\tau$, the length from this earliest point to $t_*$ is at most $\ell+\tau\le2\ell$. The same pointwise absolute-basis bounds as above then yield
+\begin{proposition}[Localized memory mass]
+\[
+ \sum_{k=m}^nH^X_{nk}\le
+ \frac{C_X}{\Gamma(1+r)}(t_n-t_{m-1})^r,
+ \qquad C_L=1,\quad C_Q=\tfrac54\,2^r.
+\]
+\end{proposition}
+The factor $2^r$ is a simple uniform-grid estimate of the one-panel stencil extension; it is not asserted optimal. In particular, a linear-rule tail bound must not be applied unchanged to the quadratic stencil.
+
+Let $P$ be the nonnegative GR-02 complementary matrix, indexed by $1,\ldots,N$, satisfying
+\[
+ \sum_{j=m}^n P_{nj}\le d_\alpha^{-1}(t_n-t_{m-1})^\alpha,
+ \qquad d_\alpha=(2\Gamma(1-\alpha))^{-1}.
+\]
+In products with $P$ restrict $H^X$ to columns $1,\ldots,N$ unless the initial column is explicitly included.
+\begin{proposition}[Two fractional powers]
+\[
+ \sum_{k=m}^n(PH^X)_{nk}\le
+ \frac{C_X}{d_\alpha\Gamma(1+r)}(t_n-t_{m-1})^{\alpha+r}.
+\]
+\end{proposition}
+\begin{proof}
+Reverse the finite sums: the left side equals $\sum_{j=m}^nP_{nj}\sum_{k=m}^jH^X_{jk}$. Use the previous tail bound, $t_j-t_{m-1}\le\ell$, and the tail bound for $P$. No discrete semigroup or commutativity identity is used.
+\end{proof}
+\section{Bridge to GR-04: shifted energy and initial data}
+Consider the shifted equation with $A$ a nonnegative self-adjoint diffusion operator, $K_*$ a bounded operator, $v_*^n=\sigma U^n+\theta U^{n-1}$, and memory $\lambda\Gamma(r)K_*Q_X^n[U]$. For an existing solution in the operator domain, put $E^k=\norm{U^k}^2$, $\mu=|\lambda|\Gamma(r)\sup_n\norm{K_*}$ and $F_n=\norm{f_*^n}^2$. Testing with $2v_*^n$, using GR-02's energy inequality, convexity, and Young's inequality, gives for $\varepsilon>0$
+\begin{equation*}
+ (\mathcal D_\tau^\alpha E)^{n-\theta}\le
+ b(\sigma E^n+\theta E^{n-1})+\mu\sum_{k=0}^nH^X_{nk}E^k+\varepsilon^{-1}F_n,
+ \quad b=\varepsilon+\mu L_X T^r/\Gamma(1+r).
+\end{equation*}
+Indeed $2\sqrt{E^k}\norm{v_*}\le E^k+\norm{v_*}^2$ and $\norm{v_*}^2\le\sigma E^n+\theta E^{n-1}$. This step needs only absolute memory mass, not positive $W^Q$.
+
+Define the rectangular shift matrix $S_{nk}=\sigma\mathbf1_{k=n}+\theta\mathbf1_{k=n-1}$ for $0\le k\le N$; denote the initial column by $S_0$ and the remaining square matrix by $S_+$. Use analogous $H_0,H_+$ notation. Multiplication by $P$ gives, for $E_+=(E^1,\ldots,E^N)^\top$,
+\begin{align*}
+ E_+&\le a+B E_+,\qquad B=bPS_++\mu PH_+,\\
+ a&=E^0(\mathbf1+bPS_0+\mu PH_0)+\varepsilon^{-1}PF.
+\end{align*}
+Since $\sum_{k=m}^j(S_+)_{jk}\le1$ and is zero for $j<m$, the row tail of $PS_+$ is at most $d_\alpha^{-1}\ell^\alpha$. The previous proposition bounds $PH_+$. Thus the nonnegative matrix $B$ has tail at most
+\[
+ d_\alpha^{-1}\left(b\ell^\alpha+\frac{\mu C_X}{\Gamma(1+r)}\ell^{\alpha+r}\right).
+\]
+The initial column contributes a bounded data term:\[PS_0\le d_\alpha^{-1}T^\alpha\mathbf1,\qquad PH_0\le \frac{L_X T^{\alpha+r}}{d_\alpha\Gamma(1+r)}\mathbf1.\] The GR-01 block argument therefore yields a conditional finite-time energy bound for any existing solution of either scheme for sufficiently small $\tau$. This is the exact algebraic bridge, not yet a full GR-04 analysis: per-step solvability, a more quantitative discrete resolvent, error propagation in sharper norms, and regularity assumptions for full convergence are reserved for subsequent work.
+\section{Numerical diagnostic and limitations}
+The standalone \texttt{verify\_gr03.py} uses incomplete-beta moments, independent adaptive quadrature of Lagrange basis functions (with an algebraic endpoint weight on the final panel), and a separately assembled GR-02 complementary matrix. Six $(\alpha,\beta)$ pairs, three grid sizes and two rules give 36 configurations. All revised assertions passed. Maximum discrepancies: direct/assembled weights $6.661\times10^{-16}$, constant mass $3.331\times10^{-16}$, exact polynomials $5.551\times10^{-16}$. Maximum sampled normalized tail ratios are $0.99936760$ for $H$, $0.35917033$ for $PH$. The tests detect negative assembled quadratic entries.
+\begin{center}\small
+\begin{tabular}{ccrrr}
+\toprule
+$\alpha$ & $\beta$ & PI-L $t^2$ & PI-Q $t^2$ startup & PI-Q $t^3$, $n\ge2$\\\midrule
+0.50&0.25&2.000970&2.750000&2.970834\\
+0.75&0.50&2.005973&2.500000&2.921839\\
+0.95&0.90&2.019041&2.100000&3.100000\\\bottomrule
+\end{tabular}
+\end{center}
+Rates are last-doubling observations ($N=128$ to 256), not full PDE rates. The last quadratic rate is pre-asymptotic, with possible cancellation of signed panel contributions. The initial diagnostic failed during the convergence loop because a global basis-array name was overwritten by an assembled matrix; the original source and partial output are retained. Only variable names were corrected, and no assertion was weakened. Python packages: NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0. The later independent review and finite Lean coverage do not turn these historical diagnostics into analytical proofs.
+
+\textbf{GR-04 target:} establish existence and mesh-uniform stability of the combined scheme with a fully quantified discrete two-kernel comparison; then use that result for convergence and initial-layer analysis. PI-L remains the natural primary scheme, with PI-Q a controlled signed-weight alternative.
+\end{document}

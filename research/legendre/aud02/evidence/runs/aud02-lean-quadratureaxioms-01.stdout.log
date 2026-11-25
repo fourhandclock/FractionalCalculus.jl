@@ -1,0 +1,6 @@
+'LegendreAudit.mass_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegendreAudit.gll3_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegendreAudit.mass_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegendreAudit.mass_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegendreAudit.positive_mass_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegendreAudit.gll3_variable_coefficient_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]

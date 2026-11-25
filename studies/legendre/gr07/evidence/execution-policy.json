@@ -1,0 +1,8 @@
+{
+  "user_approved_bounded_serial_policy": true,
+  "authorization": "User explicitly selected Use the existing bounded serial runner on 2026-11-26.",
+  "required_execution": "Serial inspected local workloads, finite wall/CPU deadlines, per-process address-space/file limits, sampled descendant RSS, one Julia/BLAS thread, bounded logs, process-group cleanup.",
+  "additional_protection": "Read-only root view, single writable scratch bind, new PID/user/IPC/UTS namespaces, disabled nested user namespaces, masked service-manager sockets, inherited outer sandbox network restrictions.",
+  "unavailable": "Verified aggregate cgroup memory/CPU/task quotas and service-manager access.",
+  "claims": "Per-process and sampled controls are not aggregate resource isolation. PID-namespace cleanup is checked after every run; input hashes are checked before and after."
+}

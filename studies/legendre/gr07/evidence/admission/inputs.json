@@ -1,0 +1,8 @@
+{
+  "files": {
+    "results/python_reference.csv": "de6687b10f66514b7bf2315b4037bba1bc945026f06be6e274d6b1316a5c9391",
+    "results/julia_results.csv": "d460f0faf18caca8186abaec0d79535a7117c97592d2317a66ac2bc2a9603bb0",
+    "evidence/supplied-inputs.json": "eca19baed1f66b1917d1f10b5966131d3a7dbba5eaca1f9add9bbe699118672e"
+  },
+  "scientific_cases": 156
+}

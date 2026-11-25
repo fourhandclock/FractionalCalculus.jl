@@ -1,0 +1,10 @@
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:112:2: error: unsolved goals
+case left
+R m0 m1 m2 : ℝ
+hR : 0 < R
+h0 : R ≠ 0
+h1 : 1 + R ≠ 0
+⊢ ((m2 - (2 + R) * m1 + (1 + R) * m0) * R + ((1 + R) * m1 - m2) * (1 + R)) * (R * (1 + R)) + (m2 - m1) * ((1 + R) * R) =
+    m0 * ((1 + R) * R * (R * (1 + R)))
+/home/hardeek/newage/2nd year/Paper Framework/FractionalCalculus.jl/.checkpoint-tools/aud02-2026-11-26/workspace/research/legendre/aud02/lean/Aud02Finite.lean:125:15: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`

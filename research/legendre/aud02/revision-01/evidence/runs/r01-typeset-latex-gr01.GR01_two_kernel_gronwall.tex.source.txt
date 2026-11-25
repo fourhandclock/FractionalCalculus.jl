@@ -1,0 +1,163 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}[section]
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ML}{\mathcal E}
+\title{GR-01: Two-kernel fractional Gr\"onwall comparison\\\large Foundations for an alternative memory discretization}
+\author{Research working notes}
+\date{26 November 2026 --- revision 01}
+\begin{document}
+\maketitle
+\noindent\textbf{Revision 01 (AUD-02 closure).}
+The independent analytical review verdict is \emph{ACCEPT WITH LIMITATIONS}.
+The results below are conditional on their stated hypotheses. Finite-grid
+diagnostics are evidence for implementations, not proofs of the analytical
+theorems. The numerical tables retain the original diagnostic values.
+Lean certificates cover the explicitly identified finite algebraic subclaims,
+not complete fractional PDE arguments. Original manuscripts and execution
+evidence are preserved separately.
+
+\noindent\textbf{Scope.} This is a standalone analytical foundation for the post-AUD-01 investigation. It does not modify the audited reproduction scheme. The comparison result is a specialization of established positive-kernel resolvent theory; no novelty claim is made. The discrete statements below are conditional, not yet an analysis of an implemented Alikhanov scheme.
+
+\section*{Review qualifications}
+The orders and final time are fixed. Constants need not remain bounded as a
+fractional order approaches an endpoint. For bounded measurable equivalence
+classes, the comparison is almost everywhere; a pointwise comparison requires
+chosen representatives satisfying its hypotheses pointwise. In particular,
+the nondecreasing initial majorant is interpreted with such a representative.
+The continuous comparison and multinomial Mittag--Leffler representation are
+established positive-kernel theory, not a novelty claim of this study.
+
+The PDE estimate requires enough regularity for testing, the Caputo energy
+identity and its fractional inverse. It is an a priori Hilbert-norm estimate,
+not an ordinary $H^1$ theorem or a proof that arbitrary weak solutions have
+the required regularity. It does not replace the original endpoint L1/L1-2
+scheme by a shifted method without saying so.
+
+The preliminary discrete comparison is conditional on its stated positive
+complementary kernels and localized tails, on a possibly nonuniform mesh.
+Its fine-mesh condition is sufficient for block absorption; it is not a
+necessary stability condition. It does not assert an exact discrete semigroup.
+The sharp constant-data continuous majorant concerns the abstract comparison
+class, not a sharp energy trajectory of the PDE.
+
+\section{Continuous comparison}
+For $s>0$ write
+\[
+ I^s v(t)=\int_0^t \frac{(t-r)^{s-1}}{\Gamma(s)}v(r)\,dr,
+ \qquad I^0=\mathrm{Id}.
+\]
+The beta integral and Fubini give $I^sI^r=I^{s+r}$ on bounded functions. Let $0<p<q$, $b,c\ge0$, and let $a,y$ be nonnegative bounded measurable functions on $[0,T]$ satisfying, pointwise (or almost everywhere),
+\begin{equation}y\le a+Ly,\qquad L=bI^p+cI^q.\label{eq:comparison}\end{equation}
+\begin{proposition}[Exact positive resolvent majorant]
+Under these hypotheses,
+\[
+ y(t)\le\sum_{m,n\ge0}\binom{m+n}{m}b^m c^n I^{mp+nq}a(t).
+\]
+The series converges absolutely and uniformly in the bounded-function norm. If $a$ is nondecreasing then
+\begin{equation}
+ y(t)\le a(t)\ML_{p,q;1}(bt^p,ct^q),\quad
+ \ML_{p,q;d}(x,z)=\sum_{m,n\ge0}\frac{\binom{m+n}{m}x^mz^n}{\Gamma(d+mp+nq)}.
+ \label{eq:ML}
+\end{equation}
+For constant $a=a_0\ge0$, equality is attained by the unique bounded solution of the corresponding integral equation. Thus the constant-data comparison cannot be improved for the whole class of inequalities \eqref{eq:comparison}.
+\end{proposition}
+\begin{proof}
+Positivity gives $y\le\sum_{k=0}^{N-1}L^ka+L^Ny$. The semigroup law and commutativity give
+\[
+ L^k=\sum_{j=0}^k\binom{k}{j}b^{k-j}c^j I^{(k-j)p+jq}.
+\]
+To justify the infinite iteration, choose $\xi>0$ such that $\eta=b\xi^{-p}+c\xi^{-q}<1$. In the equivalent norm $\norm{v}_\xi=\sup_{t\in[0,T]}e^{-\xi t}|v(t)|$ (essential supremum for equivalence classes),
+\[
+ e^{-\xi t}|I^s v(t)|\le\norm{v}_\xi\int_0^t\frac{r^{s-1}e^{-\xi r}}{\Gamma(s)}dr\le \xi^{-s}\norm{v}_\xi.
+\]
+Consequently $\norm{L^N y}_\xi\le\eta^N\norm{y}_\xi\to0$, and the Neumann series converges in the weighted and ordinary supremum norms. Its terms are nonnegative. Reindexing by $m=k-j,n=j$ proves the first assertion. For nondecreasing $a$, $I^s a(t)\le a(t)t^s/\Gamma(1+s)$. For constant $a$ this is equality. The Neumann series solves the equality equation uniquely by contraction in the weighted norm.
+\end{proof}
+For general data the convolution resolvent is
+\[
+ R(t)=\sum_{m+n\ge1}\binom{m+n}{m}b^m c^n\frac{t^{mp+nq-1}}{\Gamma(mp+nq)},\qquad y\le a+R*a.
+\]
+The series is integrable on every finite interval by the preceding norm estimate applied to $1$ and Tonelli. For sufficiently large real $s>0$, its Laplace transform is
+\[
+ \widehat R(s)=\frac{bs^{-p}+cs^{-q}}{1-bs^{-p}-cs^{-q}}.
+\]
+No inverse-transform argument is required for the comparison proof.
+\paragraph{Power data.} More generally, for $a(t)=a_0+F I^p1(t)$,
+\[
+ y(t)\le a_0\ML_{p,q;1}(bt^p,ct^q)
+ +Ft^p\ML_{p,q;1+p}(bt^p,ct^q).
+\]
+This follows by applying the semigroup law separately to the two components. The $c=0$ case is the usual one-order Mittag--Leffler comparison, and $p=1,c=0$ gives the exponential comparison.
+\paragraph{One-order control.} On $[0,t]$, $I^q v\le [\Gamma(p)/\Gamma(q)]t^{q-p}I^p v$ for $v\ge0$. Hence, for constant data, a simpler but generally coarser bound is
+\[
+ \ML_{p,q;1}(bt^p,ct^q)\le E_p\left(bt^p+c\frac{\Gamma(p)}{\Gamma(q)}t^q\right).
+\]
+The two-order series retains the actual powers in the iterates.
+\section{Application to the fractional integro-PDE}
+Let $H$ be a real Hilbert space, $A$ nonnegative self-adjoint, and $K(t)$ a bounded operator with $\sup_t\norm{K(t)}\le\kappa$. Consider
+\[
+ {}^CD_t^\alpha u+Au+\lambda K(t)J_\beta u=f,\qquad
+ J_\beta u=\Gamma(1-\beta)I^{1-\beta}u,
+\]
+with $0<\alpha,\beta<1$. Assume sufficient regularity for the Caputo energy identity, testing by $u$, and $I^\alpha{}^CD^\alpha y=y-y(0)$; for example, sufficiently smooth $H$-valued solutions with $u(t)\in D(A)$. This is an a priori estimate, not a new existence or initial-layer regularity theorem.
+Set $y=\norm u^2$, $r=1-\beta$, $M=|\lambda|\kappa$, and $W_T=T^r/r$. The energy inequality and Young's inequality give, for $\varepsilon>0$,
+\begin{align*}
+ {}^CD_t^\alpha y+2\norm{A^{1/2}u}^2
+ &\le \varepsilon y+\varepsilon^{-1}\norm f^2
+       +M\int_0^t(t-s)^{-\beta}[y(t)+y(s)]\,ds\\
+ &\le (\varepsilon+MW_T)y+M\Gamma(r)I^r y+\varepsilon^{-1}\norm f^2.
+\end{align*}
+With zero forcing one may omit $\varepsilon y$ and the forcing term. If $F=\varepsilon^{-1}\sup_{s\le T}\norm{f(s)}^2$, apply the positive integral $I^\alpha$ and drop the nonnegative diffusion term. Equation \eqref{eq:comparison} follows with
+\[
+ p=\alpha,\quad q=\alpha+r,\quad b=\varepsilon+MW_T,\quad c=M\Gamma(r),\quad a=y(0)+FI^p1.
+\]
+The power-data estimate bounds $y$ pointwise, and hence $\norm{u}$ by its square root. In particular the bound is independent of the diffusion eigenvalues and does not require constant-one contractivity. If $\beta\le\alpha$, then $q\ge1$. The memory term itself need not be positive in the energy pairing; only the comparison kernels are positive. The result is an $H$-norm bound, not uniform ordinary $H^1$ control.
+\section{Discrete design criterion: a preliminary bridge}
+Let $0=t_0<t_1<\cdots<t_N=T$. Suppose a causal derivative has increment weights $A_{j-k}^{(j)}$ and complementary kernels $P_{n-j}^{(n)}\ge0$ satisfying
+\begin{equation}
+ \sum_{j=k}^n P_{n-j}^{(n)}A_{j-k}^{(j)}=1,
+ \quad A_{j-k}^{(j)}\ge d(t_j-t_{k-1})^{-p},\quad d>0.\label{eq:P}
+\end{equation}
+The second condition follows from a positive lower bound by the cell-average Caputo kernel, as in the complementary-kernel literature. For every $1\le m\le n$,
+\begin{equation}\sum_{j=m}^n P_{n-j}^{(n)}\le d^{-1}(t_n-t_{m-1})^p.\label{eq:tailP}\end{equation}
+Indeed, in \eqref{eq:P} set $k=m$ and use $t_j-t_{m-1}\le t_n-t_{m-1}$.
+
+For shifted-time linear product integration of the normalized integral $I^r$, let $t_{j-\theta}\in(t_{j-1},t_j]$ and $\ell_k$ be the usual nonnegative nodal hat functions. Define
+\[
+ W_{jk}=\int_0^{t_{j-\theta}}\frac{(t_{j-\theta}-s)^{r-1}}{\Gamma(r)}\ell_k(s)\,ds,\qquad 0\le k\le j.
+\]
+Partition of unity gives $\sum_{k=0}^j W_{jk}=t_{j-\theta}^r/\Gamma(1+r)$. Since hats with index $k\ge m$ vanish for $s<t_{m-1}$,
+\[
+ \sum_{k=m}^j W_{jk}\le (t_j-t_{m-1})^r/\Gamma(1+r).
+\]
+Use $P_{nj}=P_{n-j}^{(n)}$ in matrix notation, and restrict $W$ to columns $k\ge1$ (the initial column is data). Then
+\begin{equation}
+ \sum_{k=m}^n(PW)_{nk}
+ \le \frac{d^{-1}}{\Gamma(1+r)}(t_n-t_{m-1})^{p+r}.\label{eq:tailPW}
+\end{equation}
+This follows by reversing the finite summations, bounding the inner $W$ tail, and applying \eqref{eq:tailP}. It is the discrete analogue of the two orders $p$ and $p+r$. It does not assert an exact discrete semigroup law.
+
+\begin{proposition}[Conditional discrete comparison]
+Suppose $Y\ge0$, $a\ge0$ are vectors indexed by $1,\ldots,N$ satisfying $Y\le a+BY$, where $B=bP+cPW$ with $b,c\ge0$ and the bounds above hold uniformly. Let
+\[
+ H(s)=d^{-1}\left(bs^p+cs^{p+r}/\Gamma(1+r)\right).
+\]
+Choose $0<\ell\le T$ with $H(\ell)\le 1/2$. If $\max_j(t_j-t_{j-1})\le\ell/2$, then $\max_n Y_n\le C\max_n a_n$ with $C$ independent of the grid size.
+\end{proposition}
+\begin{proof}
+Partition the indices into consecutive blocks by greedily extending each block until adding the next node would exceed physical length $\ell$, measured from the node before the block. Each nonfinal block has length greater than or equal to $\ell/2$; the number $J$ is at most $2T/\ell+1$. For a block beginning at $m$, let $V$ denote the maximum of $Y$ on that block, and $U$ the maximum over earlier indices (zero for the first block). Positivity and the row-tail estimates give $V\le \norm a_\infty+H(T)U+H(\ell)V$. Thus $V\le 2\norm a_\infty+2H(T)U$. Iterating the bound for the cumulative maximum over at most $J$ blocks proves the result.
+\end{proof}
+This is only an abstract finite-time bound, not a sharp discrete binomial Mittag--Leffler comparison. For Alikhanov, the actual coefficient hypotheses and shifted energy inequality must be established from the formula. In the energy equation, shifted values are controlled by convexity, introducing a positive one-step averaging matrix; its contribution must be tracked, including the initial column. Quadratic product integration may have negative weights; positivity cannot be assumed. Higher-order consistency, nonuniform-grid restrictions, error propagation with singular startup data, and sharp resolvent estimates remain separate obligations.
+\section{Literature and next tasks}
+The series \eqref{eq:ML} is the binomial case of the established multinomial Mittag--Leffler function, e.g. Definition 2.1 of Sun and Chang \cite{sun}. Kalinin \cite{kalinin}, Section 2.2 and Example 2.10, treats more general sums of positive fractional kernels in resolvent inequalities. Liao, McLean and Zhang \cite{liao}, Sections 2--4, provide the relevant discrete complementary-kernel and energy framework. These references rule out a novelty claim for the elementary continuous comparison. A detailed comparison with existing Alikhanov--Volterra discretizations and their error theorems is still needed.
+
+\textbf{GR-02 target:} derive the shifted Alikhanov coefficients, verify their monotonicity and lower bounds, prove the complementary identity and the shifted energy inequality, and then apply the row-tail comparison to the actual scheme. Follow with explicit product-integration weights, consistency, and a sharper discrete resolvent analysis. Implementation validation and the exact scope of finite Lean certificates are documented separately in the AUD-02 revision-01 closure record.
+\begin{thebibliography}{9}
+\bibitem{sun} L. L. Sun and M. L. Chang, Galerkin spectral method for a multi-term time-fractional diffusion equation and an application to inverse source problem, \emph{Networks and Heterogeneous Media} 18 (2023), 212--243. \href{https://doi.org/10.3934/nhm.2023008}{doi:10.3934/nhm.2023008}.
+\bibitem{kalinin} A. Kalinin, Resolvent and Gronwall inequalities and fixed points of evolution operators, \emph{Journal of Inequalities and Applications} 2026, 107. \href{https://doi.org/10.1186/s13660-026-03543-3}{doi:10.1186/s13660-026-03543-3}.
+\bibitem{liao} H.-L. Liao, W. McLean and J. Zhang, A discrete Gr\"onwall inequality with applications to numerical schemes for subdiffusion problems, \emph{SIAM J. Numer. Anal.} 57 (2019), 218--237. \href{https://doi.org/10.1137/16M1175742}{doi:10.1137/16M1175742}; \href{https://arxiv.org/abs/1803.09879}{arXiv:1803.09879}.
+\end{thebibliography}
+\end{document}

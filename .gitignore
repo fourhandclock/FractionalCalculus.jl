@@ -33,3 +33,8 @@ studies/*/results/REPORT.md
 /research/legendre/verification/lean/.lake/
 /research/legendre/verification/results/latex-build/
 /research/legendre/verification/**/__pycache__/
+
+# Preserve the audited GR-01–07 research checkpoint without runtime caches.
+!/research/legendre/aud02/
+/research/legendre/aud02/lean/legacy-cache/
+/research/legendre/aud02/**/__pycache__/

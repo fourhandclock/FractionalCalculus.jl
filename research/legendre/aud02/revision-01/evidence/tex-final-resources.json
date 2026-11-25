@@ -1,0 +1,209 @@
+{
+  "initial_exact_missing": [
+    "article.cls",
+    "size11.clo",
+    "booktabs.sty"
+  ],
+  "resources_acquired": [
+    {
+      "name": "article.cls",
+      "bytes": 20144,
+      "sha256": "988fb3e599df7e5b545e4253829dab11f0c7bd7827b79d32c2aaadfb52db6f6c"
+    },
+    {
+      "name": "size11.clo",
+      "bytes": 8464,
+      "sha256": "efc946da03cfa55c75be27d73012ab866fcc935fd47ac4a674026bbdbdcfa9f1"
+    },
+    {
+      "name": "amsthm.sty",
+      "bytes": 12594,
+      "sha256": "8d5e2bdb117297385971927b14fe4804314133dc0027b3171249a08280894626"
+    },
+    {
+      "name": "booktabs.sty",
+      "bytes": 6078,
+      "sha256": "3fe694a5406f84847143e56ba1841385364277cfe7694a9f4bc0072ca8656abc"
+    },
+    {
+      "name": "mt-LatinModernRoman.cfg",
+      "bytes": 10002,
+      "sha256": "77ec81551b712a59b0ab55c8965ab038c898cf7c29e425624c15c37d5a983578"
+    },
+    {
+      "name": "cmr8.tfm",
+      "bytes": 1292,
+      "sha256": "4c5ae243ac0aa254e7ec7f0602cc2a4351e5011ff0cb6dc150a5f6de19585de6"
+    },
+    {
+      "name": "cmr6.tfm",
+      "bytes": 1300,
+      "sha256": "106afa9172f0c00e58b9f5cbc72b302a18aaeeaddf50caca145af9cc0b81afd2"
+    },
+    {
+      "name": "cmmi8.tfm",
+      "bytes": 1520,
+      "sha256": "65af8c1e162a952cab8e93c834fcf43ce09b508e6c16e512ebb673cd850b0d41"
+    },
+    {
+      "name": "cmmi6.tfm",
+      "bytes": 1512,
+      "sha256": "ab6ecb4aaba9ca1b4259b1d1f64309a785bbaeb09183fd79a066b7764a448a28"
+    },
+    {
+      "name": "cmsy8.tfm",
+      "bytes": 1120,
+      "sha256": "84c37f07ca360c41ad0a0fba7387d279d72457c69bdae03653208c683d8de6bc"
+    },
+    {
+      "name": "cmsy6.tfm",
+      "bytes": 1116,
+      "sha256": "137eb9f38f661c66309614066a7b5d63d8969d33aba0c9efee9f844a4ce65b50"
+    },
+    {
+      "name": "cmex8.tfm",
+      "bytes": 988,
+      "sha256": "3f56ab22f7fc6a015813976c6c6cc2fd55736bbaec4958a4562e10719fa18062"
+    },
+    {
+      "name": "cmex7.tfm",
+      "bytes": 1004,
+      "sha256": "373172fe340e4aede5129b89d65f576bfb1fe6932bd55c38f60bcaa84f3d1188"
+    },
+    {
+      "name": "cmmi10.pfb",
+      "bytes": 36299,
+      "sha256": "e3661061e8aa474d6de5ffa916edceb0e3d8b998862018c147f0357fce00bcd7"
+    },
+    {
+      "name": "cmr8.pfb",
+      "bytes": 32726,
+      "sha256": "8150cbfac5cfe53040327df171c3059f10730b32cabf2504b01713d639a11feb"
+    },
+    {
+      "name": "cmr10.pfb",
+      "bytes": 35752,
+      "sha256": "fdcede8794018df5f2b58f0905fb20a2b418ed8f67b73ee12445855dfbe5b1be"
+    },
+    {
+      "name": "lmroman17-regular.otf",
+      "bytes": 110248,
+      "sha256": "ed048c80fb4b67663b80899b89fe5fba17d7442e1286d61fd08fe5689c6b7c3c"
+    },
+    {
+      "name": "lmroman12-regular.otf",
+      "bytes": 110400,
+      "sha256": "e6be218ae83e61aa8a29990d3cdc401c678c1962188cb9a4a8b6359e4f5e5870"
+    },
+    {
+      "name": "cmr12.tfm",
+      "bytes": 1288,
+      "sha256": "1ce8af37ed38e93940829d3540e494eaaddc5201758d036b9074467e70a738dc"
+    },
+    {
+      "name": "cmmi12.tfm",
+      "bytes": 1524,
+      "sha256": "79563547084d85388e6909888f9fa7f5cad33bdda44ca6b25b362e1d301db539"
+    },
+    {
+      "name": "lmroman12-bold.otf",
+      "bytes": 110496,
+      "sha256": "28c8782ac2b6486958b5dc7610ada7800c53546ff7f36bc65909a876e1cd338e"
+    },
+    {
+      "name": "cmsy10.pfb",
+      "bytes": 32569,
+      "sha256": "62ee8cef552017551cd3e026a483e700730103eceaad959c87b7730017f59cff"
+    },
+    {
+      "name": "cmmi8.pfb",
+      "bytes": 35469,
+      "sha256": "f396f52d9ed3498c15aa7e694baef74c0a11119624fcd6db66dad4ac76972cb0"
+    },
+    {
+      "name": "cmex10.pfb",
+      "bytes": 30251,
+      "sha256": "791b31aa1db8608d0144b3a40fc0fe53383a60f6b00d0e8fd9f06ac4a11df8cb"
+    },
+    {
+      "name": "cmsy8.pfb",
+      "bytes": 32626,
+      "sha256": "2313392f0f4cd974d9da5fb54a52feae126059759edc04a4e47e33ea6027418b"
+    },
+    {
+      "name": "lmroman10-bold.otf",
+      "bytes": 111240,
+      "sha256": "102fe06c430a8b681b2bf6876b7cd967ae4d47b4b6b41d915eb7913b726d9fb1"
+    },
+    {
+      "name": "lmroman10-italic.otf",
+      "bytes": 118828,
+      "sha256": "c1fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169"
+    },
+    {
+      "name": "cmmi6.pfb",
+      "bytes": 37166,
+      "sha256": "c31dbaffb861162eadf3a7210bdf271b0dda577841aed4c0572069b0d52662b6"
+    },
+    {
+      "name": "cmsy6.pfb",
+      "bytes": 32587,
+      "sha256": "73eed8a83a07d8ef04d240da22bce1fd3646074f46179e3677f4f42a542f20b6"
+    },
+    {
+      "name": "lmmono10-regular.otf",
+      "bytes": 64684,
+      "sha256": "22deb6d3be3ffcb40b33f0e010afb256c677d97c2a2bdee1f5740cdc97751558"
+    },
+    {
+      "name": "cmr6.pfb",
+      "bytes": 32734,
+      "sha256": "9fe20cb9ef24a0f4c74d38a65d4eee5cff3165f3b8600407ceba396aeb2b7617"
+    },
+    {
+      "name": "cmbx10.tfm",
+      "bytes": 1328,
+      "sha256": "ae296e8e41b2b0f73e9a17fdc42c743b9ddcc58d23c30acaa3411206f7824780"
+    },
+    {
+      "name": "cmbx8.tfm",
+      "bytes": 1332,
+      "sha256": "6dab44c885b7cbf567771d9cfa565f3df34d0e8124132b9b6f9fdc496a1c2eda"
+    },
+    {
+      "name": "cmbx6.tfm",
+      "bytes": 1344,
+      "sha256": "38ded79d7cce07fa28921f37f6b88e67bd86951a3e5af709c219d63454786ce1"
+    },
+    {
+      "name": "cmbx7.tfm",
+      "bytes": 1336,
+      "sha256": "e7b284f0ee98b7773be9b57ca652b4bb14391370509a424b5b62b06b5cae86e4"
+    },
+    {
+      "name": "cmbx5.tfm",
+      "bytes": 1332,
+      "sha256": "a746151d8e3a521965bbfae2666e1528374a514375daa7d620e9b89ebbbfb0ae"
+    },
+    {
+      "name": "cmr7.pfb",
+      "bytes": 32762,
+      "sha256": "b37e8671820b0753c6e233eaa3230c6ab9cff04e6c4baee312d60ae261e5aba1"
+    },
+    {
+      "name": "cmbx10.pfb",
+      "bytes": 34811,
+      "sha256": "ca41102968b817bf6e8b22fd6de205ca23bf5088218511cce0c8129e1577cb70"
+    },
+    {
+      "name": "cmsy7.pfb",
+      "bytes": 32716,
+      "sha256": "583b65bd1857bffc2ab184fcb4aad4e70e12eb05c9ca9f1c58c9a00a86c8bccf"
+    }
+  ],
+  "resource_count": 39,
+  "total_resource_bytes": 1140982,
+  "engine_sha256": "4df19452c202c5bef9f7c7e4a01a3f2b9d5199f0a1f73b70b4fe1bffbc9837f6",
+  "pins_and_global_environments_unchanged": true,
+  "scope": "Only required resources fetched by the two package/font fixtures and the six manuscripts; final acceptance builds all --only-cached"
+}

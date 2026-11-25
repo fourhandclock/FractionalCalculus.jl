@@ -1,0 +1,6 @@
+{
+  "source_manifest_sha256": "dd3a62bb0d609211ded81b5d054b2cfe00f0394002659a3be58912be3198c4c4",
+  "source_files": 1041,
+  "source_bytes": 20068898,
+  "protection": "Copied audit baseline; original never executed writable. Payloads use existing read-only mount and PID namespace; trusted controller hashes before/after. Runtime caches are external existing inputs."
+}

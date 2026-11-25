@@ -1,0 +1,13 @@
+note: Running TeX ...
+note: downloading SHA256SUM
+note: download succeeded after retry
+note: downloading lmroman10-bold.otf
+note: downloading lmroman10-italic.otf
+note: Rerunning TeX because "GR01_two_kernel_gronwall.out" changed ...
+note: Running xdvipdfmx ...
+note: downloading cmmi6.pfb
+note: downloading cmsy6.pfb
+note: Writing `/var/tmp/GR01_two_kernel_gronwall.aux` (1.86 KiB)
+note: Writing `/var/tmp/GR01_two_kernel_gronwall.log` (14.11 KiB)
+note: Writing `/var/tmp/GR01_two_kernel_gronwall.out` (881 B)
+note: Writing `/var/tmp/GR01_two_kernel_gronwall.pdf` (75.73 KiB)

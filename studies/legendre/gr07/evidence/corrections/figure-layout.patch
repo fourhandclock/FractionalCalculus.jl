@@ -1,0 +1,55 @@
+--- figures01/plots.py
++++ figures02/plots.py
+@@ -16,7 +16,7 @@
+     with Path(p).open() as f:return list(csv.DictReader(f))
+ 
+ 
+-def panel(series,title,xlabel,ylabel,width=580,height=400,bars=()):
++def panel(series,title,xlabel,ylabel,width=640,height=480,bars=()):
+     points=[(float(x),float(y)) for name,rows,color,dash in series for x,y in rows if float(x)>0 and float(y)>0]
+     points += [(xlo,y) for x,y,xlo,xhi,color in bars]+[(xhi,y) for x,y,xlo,xhi,color in bars]
+     assert points, 'no positive data to plot'
+@@ -25,22 +25,20 @@
+     if hi==lo:lo-=.2;hi+=.2
+     if high==low:low-=.2;high+=.2
+     pad=.06*(high-low);low-=pad;high+=pad
+-    left,top,right,bottom=82,43,20,77
++    left,top,right,bottom=82,43,20,135
+     W,H=width-left-right,height-top-bottom
+     X=lambda x:left+(math.log10(x)-lo)/(hi-lo)*W
+     Y=lambda y:top+H-(math.log10(y)-low)/(high-low)*H
+     lines=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+            '<rect width="100%" height="100%" fill="white"/>',
+            f'<text x="{width/2}" y="23" text-anchor="middle" font-family="sans-serif" font-size="15">{escape(title)}</text>']
+-    for axis,lower,upper in [('x',lo,hi),('y',low,high)]:
+-        for power in range(math.floor(lower),math.ceil(upper)+1):
+-            if not lower<=power<=upper:continue
+-            if axis=='x':
+-                x=X(10**power)
+-                lines += [f'<path d="M{x},{top} V{top+H}" stroke="#dddddd"/>',f'<text x="{x}" y="{top+H+19}" text-anchor="middle" font-size="11">10^{power}</text>']
+-            else:
+-                y=Y(10**power)
+-                lines += [f'<path d="M{left},{y} H{left+W}" stroke="#dddddd"/>',f'<text x="{left-9}" y="{y+4}" text-anchor="end" font-size="11">10^{power}</text>']
++    xticks=sorted({x for x,y in points}) if xlabel in ('N','M') else [10**k for k in range(math.ceil(lo),math.floor(hi)+1)]
++    for value in xticks:
++        x=X(value); label=f'{value:g}'
++        lines += [f'<path d="M{x},{top} V{top+H}" stroke="#dddddd"/>',f'<text x="{x}" y="{top+H+19}" text-anchor="middle" font-size="11">{label}</text>']
++    for power in range(math.ceil(low),math.floor(high)+1):
++        y=Y(10**power)
++        lines += [f'<path d="M{left},{y} H{left+W}" stroke="#dddddd"/>',f'<text x="{left-9}" y="{y+4}" text-anchor="end" font-size="11">10^{power}</text>']
+     lines += [f'<path d="M{left},{top} V{top+H} H{left+W}" fill="none" stroke="black"/>',
+               f'<text x="{left+W/2}" y="{height-15}" text-anchor="middle" font-size="13">{escape(xlabel)} (log scale)</text>',
+               f'<text transform="translate(18 {top+H/2}) rotate(-90)" text-anchor="middle" font-size="13">{escape(ylabel)} (log scale)</text>']
+@@ -52,9 +50,9 @@
+         coords=' '.join(f'{X(x):.4f},{Y(y):.4f}' for x,y in sorted(rows))
+         lines.append(f'<polyline points="{coords}" fill="none" stroke="{color}" stroke-width="1.8" stroke-dasharray="{dash}"/>')
+         for x,y in rows:lines.append(f'<circle cx="{X(x)}" cy="{Y(y)}" r="2.7" fill="{color}"/>')
+-        yy=top+13+15*i
+-        lines += [f'<path d="M{left+9},{yy-4} h20" stroke="{color}" stroke-width="2" stroke-dasharray="{dash}"/>',
+-                  f'<text x="{left+35}" y="{yy}" font-size="10" font-family="sans-serif">{escape(name)}</text>']
++        yy=top+H+49+16*(i//2); legendx=left+(W/2)*(i%2)
++        lines += [f'<path d="M{legendx+9},{yy-4} h20" stroke="{color}" stroke-width="2" stroke-dasharray="{dash}"/>',
++                  f'<text x="{legendx+35}" y="{yy}" font-size="10" font-family="sans-serif">{escape(name)}</text>']
+     lines.append('</svg>')
+     return '\n'.join(lines)
+ 

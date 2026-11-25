@@ -1,0 +1,55 @@
+[
+  {
+    "pdf": "GR01_two_kernel_gronwall.pdf",
+    "sha256": "81c0f99077c200ba7cad9f536f672ad976d958807d28f2157c1f2061eebbbc70",
+    "pages": 5,
+    "contact_sheets": [
+      "GR01_two_kernel_gronwall-pages-1-4.png",
+      "GR01_two_kernel_gronwall-pages-5-5.png"
+    ]
+  },
+  {
+    "pdf": "GR02_alikhanov_kernels.pdf",
+    "sha256": "d5dba1a77d5df87da2e00bc91e53b8c6f34a17980a02c7ea2bdc90b9e0b1374b",
+    "pages": 4,
+    "contact_sheets": [
+      "GR02_alikhanov_kernels-pages-1-4.png"
+    ]
+  },
+  {
+    "pdf": "GR03_shifted_product_integration.pdf",
+    "sha256": "99e559f3ea2068dacf9b3f3cd47597622a8d60ed7e890f189241249af0315488",
+    "pages": 5,
+    "contact_sheets": [
+      "GR03_shifted_product_integration-pages-1-4.png",
+      "GR03_shifted_product_integration-pages-5-5.png"
+    ]
+  },
+  {
+    "pdf": "GR04_discrete_two_kernel_gronwall.pdf",
+    "sha256": "472dc1746cd921b6fcfa8360a34f1b1c3f7fabfbbb40c683ec64c0e0d90a34a6",
+    "pages": 5,
+    "contact_sheets": [
+      "GR04_discrete_two_kernel_gronwall-pages-1-4.png",
+      "GR04_discrete_two_kernel_gronwall-pages-5-5.png"
+    ]
+  },
+  {
+    "pdf": "GR05_main_convergence.pdf",
+    "sha256": "7a00c144edd71f6fd2793a2b7d76f45b857823d7433a0518460b30120780d3da",
+    "pages": 6,
+    "contact_sheets": [
+      "GR05_main_convergence-pages-1-4.png",
+      "GR05_main_convergence-pages-5-6.png"
+    ]
+  },
+  {
+    "pdf": "GR06_graded_convergence.pdf",
+    "sha256": "d42c2cb64dac3637d84f9df2b020857aa0cf9febffac15b2f49aff2c5c67bbe8",
+    "pages": 5,
+    "contact_sheets": [
+      "GR06_graded_convergence-pages-1-4.png",
+      "GR06_graded_convergence-pages-5-5.png"
+    ]
+  }
+]

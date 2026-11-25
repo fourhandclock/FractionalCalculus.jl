@@ -1,0 +1,29 @@
+--- unit01/runtests.jl
++++ unit02/runtests.jl
+@@ -246,7 +246,9 @@
+ @testset "Actual production controls and independent norm quadrature" begin
+     M=7; N=8; space=spatial_operators(M); p=manufactured(.75,.5,:singular)
+     u0=project_initial(space,p.initial,p.initial_gradient)
+-    init=point->abs(point[1])==1 ? 0. : u0[argmin(abs.(space.nodes.-point[1]))]
++    V,_=GR07.legendre_table(space.rule.nodes,M)
++    coefficients=V\vcat(0.,u0,0.)
++    init=point->dot(GR07.legendre_table([point[1]],M)[1][1,:],coefficients)
+     problem=(;dimensions=1,alpha=.75,beta=.5,lambda=.4,kernel=(t,s)->1.,initial=init,
+         coefficient=(point,t)->p.coefficient(point[1],t),forcing=(point,t)->p.forcing(point[1],t))
+     for (variant,scheme) in ((:L1_printed,:L1),(:L12_printed,:L12))
+@@ -264,3 +266,15 @@
+     @test abs(e80.h1_max-e120.h1_max)<2e-12
+     @test abs(e80.l2_max-e120.l2_max)<2e-12
+ end
++
++@testset "Final-panel quadrature refinement and exact shifted cancellation" begin
++    x256,w256=GR07.gauss_rule(256)
++    for r in (.01,.1,.5,.75,.99), j in 0:2
++        H=.55
++        f=x->x^j
++        q256=H^r/gamma(1+r)*sum(w256.*f.(H.*(1 .- ((x256.+1)./2).^(1/r))))/2
++        q512=H^r/gamma(1+r)*sum(WF.*f.(H.*(1 .- ((XF.+1)./2).^(1/r))))/2
++        @test isapprox(q256,q512;atol=2e-12,rtol=5e-10)
++    end
++    @test local_moments(.25,.1,.55,.55)[4]==0.0
++end

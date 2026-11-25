@@ -1,0 +1,11 @@
+18 configurations; 180 random vector trajectories
+max scaled direct-integration/weight discrepancy: 5.416e-16
+max complementary identity discrepancy: 1.776e-15
+max linear/quadratic derivative error: 1.110e-15
+max complementary tail ratio: 0.497870
+min sampled energy gap: 2.545559e-01
+Cubic derivative convergence (max error over shifted levels):
+alpha=0.25: errors=1.210290e-05, 1.946737e-06, 3.078143e-07, 4.805914e-08; last rate=2.679178; target=2.75
+alpha=0.50: errors=3.961507e-05, 7.227559e-06, 1.305627e-06, 2.342932e-07; last rate=2.478355; target=2.50
+alpha=0.75: errors=1.023502e-04, 2.169833e-05, 4.584085e-06, 9.664970e-07; last rate=2.245797; target=2.25
+All assertions passed.

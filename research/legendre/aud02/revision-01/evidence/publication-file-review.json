@@ -1,0 +1,31 @@
+{
+  "files_reviewed": 1998,
+  "potential_credentials": [],
+  "files_over_5MiB": [
+    [
+      "YS_SS_PD_NM_25_Calcolo.pdf",
+      6446084
+    ]
+  ],
+  "exclusions": "Runtime caches, revision-01 local primary review copies; no production or metric-graph delta",
+  "extension_counts": {
+    "": 8,
+    ".lean": 14,
+    ".md": 43,
+    ".tex": 20,
+    ".py": 57,
+    ".txt": 874,
+    ".pdf": 31,
+    ".toml": 5,
+    ".json": 430,
+    ".log": 406,
+    ".csv": 44,
+    ".diff": 1,
+    ".aux": 6,
+    ".out": 6,
+    ".jl": 22,
+    ".patch": 5,
+    ".png": 8,
+    ".svg": 18
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "verdict": "ACCEPT WITH LIMITATIONS",
+  "baseline_assertions": 669,
+  "experimental_original_assertions": 7941,
+  "new_boundary_assertions": 21,
+  "experimental_assertions": 7962,
+  "scientific_cases": 156,
+  "comparison": {
+    "passed": true,
+    "rows": 156,
+    "atol": 5e-11,
+    "rtol": 2e-06,
+    "maximum_absolute_differences": {
+      "l2_max": 1.9277981988530257e-14,
+      "h1_max": 3.437441303821842e-14,
+      "h1_final": 3.437441303821842e-14
+    },
+    "failures": [],
+    "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+  },
+  "maximum_revised_scaled_residual": 4.1747833680964675e-13,
+  "new_theorems_introduced": false,
+  "formal_named_certificates": 54,
+  "performance_remeasured": false,
+  "revised_manuscript_pdfs": 6,
+  "manuscript_compilation": "Six successful offline builds; 30 pages visually inspected; final-manuscript-validation.json",
+  "checkpoint_fully_validated": true,
+  "old_performance_admission_applies_to_revision": false,
+  "moment_failures_closed": "Two complete tuples repaired; tiny-product M0 repaired and unrepresentable full tuple explicitly rejected",
+  "novelty": "unresolved",
+  "CQ_exact_primary_locator": "unverified after authorized recovery attempt"
+}

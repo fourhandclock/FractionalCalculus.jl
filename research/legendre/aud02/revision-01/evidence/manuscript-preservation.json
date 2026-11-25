@@ -1,0 +1,57 @@
+[
+  {
+    "manuscript": "GR01_two_kernel_gronwall.tex",
+    "theorem_environments": [
+      "proposition",
+      "proposition"
+    ],
+    "historical_tables_unchanged": true
+  },
+  {
+    "manuscript": "GR02_alikhanov_kernels.tex",
+    "theorem_environments": [
+      "proposition",
+      "proposition",
+      "proposition"
+    ],
+    "historical_tables_unchanged": true
+  },
+  {
+    "manuscript": "GR03_shifted_product_integration.tex",
+    "theorem_environments": [
+      "proposition",
+      "proposition",
+      "proposition",
+      "proposition"
+    ],
+    "historical_tables_unchanged": true
+  },
+  {
+    "manuscript": "GR04_discrete_two_kernel_gronwall.tex",
+    "theorem_environments": [
+      "proposition",
+      "theorem",
+      "proposition",
+      "theorem"
+    ],
+    "historical_tables_unchanged": true
+  },
+  {
+    "manuscript": "GR05_main_convergence.tex",
+    "theorem_environments": [
+      "theorem",
+      "theorem",
+      "proposition",
+      "theorem"
+    ],
+    "historical_tables_unchanged": true
+  },
+  {
+    "manuscript": "GR06_graded_convergence.tex",
+    "theorem_environments": [
+      "theorem",
+      "theorem"
+    ],
+    "historical_tables_unchanged": true
+  }
+]

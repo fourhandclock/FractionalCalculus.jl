@@ -1,0 +1,18 @@
+Test Summary:                         | Pass  Total  Time
+GR-07 parameter and convention guards |   22     22  0.2s
+Test Summary:                            | Pass  Total  Time
+Independent high-precision local moments |   97     97  0.3s
+Test Summary:                                                     | Pass  Total  Time
+Direct interpolation-integral rows, including nonuniform stencils |  192    192  0.2s
+Test Summary:                                             | Pass  Total  Time
+Independent uniform closed forms and polynomial exactness |  556    556  0.5s
+Test Summary:                                                | Pass  Total  Time
+Signs, complementary kernels, tail bounds and shifted energy | 7018   7018  1.9s
+Test Summary:                                                   | Pass  Total  Time
+GLL energy, Ritz initialization and independent equation checks |   32     32  7.5s
+Test Summary:                                              | Pass  Total  Time
+Actual production controls and independent norm quadrature |    8      8  1.7s
+Test Summary:                                                    | Pass  Total  Time
+Final-panel quadrature refinement and exact shifted cancellation |   16     16  0.1s
+Test Summary:                                 | Pass  Total  Time
+AUD-02 revision 01 exact boundary regressions |   21     21  1.6s

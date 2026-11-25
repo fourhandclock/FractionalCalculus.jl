@@ -1,0 +1,5 @@
+{
+  "script_sha256": "909966789c94963ec9809a8bd44f54762e5ef0a292eda20bb0877a8e0efdafd6",
+  "source": "creator.py.source.txt",
+  "scope": "Exact trusted admission-controller source used for the initial timing admission; later replay support is separately preserved."
+}

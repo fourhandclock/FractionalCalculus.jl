@@ -1,0 +1,29 @@
+{
+  "oracle": "80-digit generic Lagrange and endpoint-transformed mpmath quadrature",
+  "coefficient_comparisons": 156,
+  "maximum_scaled_weight_error": 4.311681156648209e-15,
+  "boundary_probes": [
+    {
+      "case": "tiny_product_M0_only",
+      "m0": "1.1283791670955125e-200",
+      "exact_m0": "1.128379167095512553698468e-200",
+      "relative_error": 4.758902810656462e-17,
+      "meets_5e-12_relative": true
+    },
+    {
+      "case": "subnormal_step",
+      "m0": "1.8600676194405033e-162",
+      "exact_m0": "1.860067619440503319985637e-162",
+      "relative_error": 1.0744575719750588e-17,
+      "meets_5e-12_relative": true
+    },
+    {
+      "case": "near_zero_order",
+      "m0": "1.0",
+      "exact_m0": "1.0",
+      "relative_error": 0.0,
+      "meets_5e-12_relative": true
+    }
+  ],
+  "scope": "boundary discrepancies are recorded, not waived or repaired"
+}

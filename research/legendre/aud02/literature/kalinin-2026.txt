@@ -1,0 +1,1853 @@
+PAGE 1
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 
+https://doi.org/10.1186/s13660-026-03543-3
+RESEARCH OpenAccess
+ResolventandGronwallinequalitiesand
+ﬁxedpointsofevolutionoperators
+AlexanderKalinin1*
+CommunicatedbySongW ang
+*Correspondence:
+kalinin@math.lmu.de
+1DepartmentofMathematics,LMU
+Munich,80333Munich,Germany
+Abstract
+Weintroducenon-negativekernelsandresolventsonpreorderedsetsandderive
+sharpresolventinequalitiesthatentailGronwallinequalitiesforfunctionsofseveral
+variables.Thereby,weproveaﬁxedpointresultforevolutionoperatorsontopological
+spacesthatgeneralisesBanach’sﬁxedpointtheoremandallowsforawiderangeof
+applications.
+Keywords: Singularkernel;Preorderedset;Sharpintegralinequalities;Generalised
+Gronwallinequalities;Premetrisablespace;Fixedpointtheorem
+MathematicsSubjectClassiﬁcation: 26D10;26A42;26A33;47H10;47J26
+1 Iteratedintegralinequalitiesandresultingﬁxedpoints
+The integral inequalityfor functions of one variable introduced in the classical work [12]
+of Gronwall, known nowadays as Gronwall’s inequality, is a proven method to analyse
+the behaviour of solutions to ordinary and stochastic diﬀerential equations. This crucial
+inequality provides the foundation for a variety of existence and uniqueness results as
+wellascomparison,growthandstabilityestimatesthatarefundamentaltotherespective
+analyticalframeworks.
+Standard textbooks on ordinary diﬀerential equations that emphasise this fact include
+[7,C h a p .1 ] ,[13,C h a p .3 ]a n d[2, Chaps. 2 and 4]. Relevant references on stochastic dif-
+ferential equations are, for instance, [19,C h a p .4 ] ,[25, Sect. 5.2], [33,C h a p .9 ]a n d[29,
+Chaps.2and5].Givenitsinherentversatility,Gronwall’sinequalityisfrequentlyemployed
+in this literature. Reﬁned versions can be found in [31, Sect. 1.3], [28, p. 128], [33, p. 543]
+and[29,p.45].
+Initially, Gronwall’s inequality was extended in various directions by Bellman [5],
+Jones [20], Willett [37], Schmaedeke and Sell [34], Herod [18], Helton [16], Wright, Klasi
+and Kennebeck [38], Pachpatte [30] and Groh [11]. For further early articles, see the ref-
+erences therein. Versions of Gronwall’s inequality for fractional kernels that may admit
+singularities were inductively derived by Henry [17, pp. 188–189]. More recently, these
+andothertypesofpotentiallysingularkernelswereinvestigatedin[ 1,9,26,27,36,39,40].
+As shown in Examples1.8, 2.10 and 2.11, all these integral inequalities involving kernels
+arecoveredbytheresolventinequalityonpreorderedsetsinCorollary 1.5.
+©TheAuthor(s)2026. OpenAccess ThisarticleislicensedunderaCreativeCommonsAttribution4.0InternationalLicense,which
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit
+to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The
+imagesorotherthirdpartymaterialinthisarticleareincludedinthearticle’sCreativeCommonslicence,unlessindicatedotherwise
+in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not
+permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright
+holder.Toviewacopyofthislicence,visit http://creativecommons.org/licenses/by/4.0/.
+PAGE 2
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page2of31
+Moreover, this corollarygeneralises the resolvent inequality of Chu and Metcalf [6]f o r
+non-negative functions on compact intervals and continuous kernels, and it entails the
+Gronwall inequalities for functions of several variables in Corollary2.17.T h el a t t e rr e -
+covers the inequalities of Headley [15, Theorem 2] and Rasmussen [32,T h e o r e mB ]f o r
+non-negative functions and linear integral operators. In particular, the scalar version of
+theinequalitydeducedbySnow[ 35]arisesasaspecialcase.Remarkably,alltheseresults
+canbeuniﬁedandestablishedtoaconsiderableextentbymeansofaninductionprinciple
+onanarbitrarynon-emptyset I.
+Lemma 1.1 Let 𝒟 be a non-empty set of[0,∞]-valued functions on I, Ψ: 𝒟 →𝒟 be an
+operator and J⊆Ib en o n - e m p t ys u c ht h a t
+u ≤ ˜uo n J ⇒ Ψ(u) ≤ Ψ(˜u) onJ (1.1)
+forany u, ˜u ∈𝒟.Further,let (un)n∈ℕ0 beasequencein 𝒟 satisfying
+un ≤ Ψ(un–1) onJ foralln ∈ℕ. (1.2)
+Thenthe n-foldcomposition of Ψ withitself ,denotedby Ψ◦n,satisﬁes
+un ≤ Ψ◦n(u0) onJ foranyn ∈ℕ.
+Moreover,equalityholdsiftheinequalitiesin (1.1)and (1.2)are equalities.
+Remark1.2 Assumethat u: I → [0,∞]satisﬁesu(t) ≤ lim supn→∞ un(t)forall t ∈J.Then
+theprincipleentailsthat
+u ≤ lim sup
+n→∞
+Ψ◦n(u0) onJ,
+andequalityholdswhenever u=un onJ forevery n ∈ℕandtheinequalitysymbolsin( 1.1)
+and(1.2)arereplacedby equalitysigns.
+In what follows, letI be endowed with aσ-algebra ℐ and a preorder≤,d e ﬁ n e da sa
+reﬂexiveandtransitiverelation,suchthatthetriangularset {(t,s) ∈I ×I |s ≤t}liesinthe
+product σ-algebraℐ ⊗ℐ.Thenthenon-emptysets
+I(t):= {s ∈I |s ≤t} and [r,t]:= {s ∈I |r ≤s ≤t}
+belong toℐ for allr,t ∈ I with r ≤ t, and, as we now show, Lemma1.1 applies to any
+nonlinearintegraloperatorwithrespecttoa σ-ﬁnitemeasure μon (I,ℐ).
+Example1.3 Let𝒟betheconvexconeofall [0,∞]-valuedmeasurablefunctionson I.For
+v ∈𝒟, p ≥1a n daf u n c t i o nF: I ×I ×𝒟 → [0,∞],l e tΨ: 𝒟 → [0,∞]I be the nonlinear
+operatordeﬁnedby
+Ψ(u)(t):=v(t)+
+(︃∫︂
+I(t)
+F(t,s,u)p μ(ds)
+)︃1p
+,
+PAGE 3
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page3of31
+assumingthat F(·,·,u)isproductmeasurableforeach u ∈𝒟.ByFubini’ stheorem, Ψ maps
+𝒟 into itself. Furthermore,ifJ ⊆I isa non-emptysetoffullmeasuresuch that
+F(t,s,u) ≤F(t,s, ˜u)
+for alls,t ∈ J and u, ˜u ∈ 𝒟 with s ≤ t and u ≤ ˜u on J, then the required monotonicity
+condition(1.1)inLemma 1.1issatisﬁed.
+I nt h i sw o r k ,w ef o c u so nt h ec a s ew h e r ek is anon-negative kernelon I, deﬁned here
+as a[0,∞]-valued measurable function on the triangular set, such that the functionF in
+Example1.3isoftheform
+F(t,s,u)=k(t,s)u(s)
+for alls,t ∈I with s ≤t and u ∈𝒟. By virtue of Fubini’s theorem, we recursively deﬁne a
+sequence (Rk,μ,n)n∈ℕ of non-negative kernels onI, representing the iterated kernels ofk
+relative toμ,via
+Rk,μ,1(t,s):=k(t,s) and R k,μ,n+1(t,s):=
+∫︂
+[s,t]
+k(t,˜s)Rk,μ,n(˜s,s)μ(d˜s). (1.3)
+Then the non-negative kernel Rk,μ := ∑︁∞n=1 Rk,μ,n is called theresolvent of k with respect
+to μ. This name is justiﬁed by the fact that, for everys ∈I, the resolvent yields a solution
+tothegeneralisedlinearVolterraintegralequation
+Rk,μ(t,s)=k(t,s)+
+∫︂
+[s,t]
+k(t,˜s)Rk,μ(˜s,s)μ(d˜s) (1.4)
+for allt ∈ I with s ≤ t.I np a r t i c u l a r ,i fI is a non-degenerate interval inℝ, ℐ is its Borel
+σ-algebra and≤ is the standard order, then we recover the classical concepts for kernels
+andresolventsintheliteratureonVolterraintegralequations,suchas[ 10,Cha p.9].
+Alternatively, if≤ is the trivial preorder, that is,s ≤t holds for alls,t ∈I,t h e nI ×I is
+thetriangularset, [s,t]=I and(1.4)turnsintoalinearFredholmintegralequation,where
+(I,ℐ)ismerelyameasurablespace.
+In this general setting, we inductively derive a resolvent sequence inequality in theLp-
+normwithrespectto μforp ≥1byapplyingMinkowski’sinequalityandFubini’stheorem.
+In particular, equality is attainable forp=1, reﬂecting the sharpness of the inequality in
+this case.
+Proposition1.4 LetJ ⊆I havefullmeasure, (un)n∈ℕ0 beasequenceof [0,∞]-valuedmea-
+surablefunctionson I and v: I → [0,∞]be measurable such that
+un(t) ≤v(t)+
+(︃∫︂
+I(t)
+k(t,s)pun–1(s)p μ(ds)
+)︃1p
+(1.5)
+PAGE 4
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page4of31
+for all n∈ℕand t∈J.Then
+un(t) ≤v(t)+
+n–1∑︂
+i=1
+(︃∫︂
+I(t)
+Rkp,μ,i(t,s)v(s)p μ(ds)
+)︃1p
++
+(︃∫︂
+I(t)
+Rkp,μ,n(t,s)u0(s)p μ(ds)
+)︃1p
+(1.6)
+for any n∈ℕ and t∈J. Moreover, equality holds if the estimates(1.5) hold as equalities,
+provided that p=1 or v=0.
+Under the assumptions of the proposition, if the initial functionu0 of the sequence
+(un)n∈ℕ0 satisﬁesthecondition
+lim
+n→∞
+∫︂
+I(t)
+Rkp,μ,n(t,s)u0(s)p μ(ds)=0 (1.7)
+for eacht ∈J, for which Lemma2.5gives a suﬃcient criterion, then we may immediately
+conclude that
+lim sup
+n→∞
+un(t) ≤v(t)+
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rkp,μ,n(t,s)v(s)p μ(ds)
+)︃1p
+forall t ∈J.Inparticular ,forp=1,thisseriesbecomes
+∫︁
+I(t)Rk,μ(t,s)v(s)μ(ds)bymonotone
+convergence.Hence,weobtainaresolventinequalityinthe Lp-norm.
+Corollary1.5 AssumethatJ ⊆I hasfullmeasureandu ,u0,v: I → [0,∞]aremeasurable
+functionssuchthat
+u0(t) ≤u(t), u(t) ≤v(t)+
+(︃∫︂
+I(t)
+k(t,s)pu0(s)p μ(ds)
+)︃1p
+(1.8)
+andcondition (1.7)issatisﬁedforall t ∈J.Then
+u(t) ≤v(t)+
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rkp,μ,n(t,s)v(s)p μ(ds)
+)︃1p
+(1.9)
+foreach t ∈J,and equality holds if p=1 andtheestimates (1.8)holdasidentities .
+Remark 1.6 By combining Proposition1.4 and Corollary1.5 with Minkowski’s integral
+inequality, sharp moment inequalities for non-negative stochastic processes are derived
+in[22,Proposition3.15andCorollary3.17].Theseprovideafoundationforaprobabilistic
+analysisofstochasticVolterraequations.
+If the hypotheses of Corollary1.5 hold, then the estimate (1.9)i m p l i e st h a tu(t) ≤
+v(t)+ ess sups∈I(t) v(s)Ik,μ,p(t)forall t ∈J,wherethemeasura blefunctionI k,μ,p: I → [0,∞]
+isgivenby
+Ik,μ,p(t):=
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rkp,μ,n(t,s)μ(ds)
+)︃1p
+. (1.10)
+PAGE 5
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page5of31
+In particular, ifv and Ik,μ,p are essentially bounded onI(t) for allt ∈J,t h e nu satisﬁes the
+same property. Similarly, ifv and Ik,μ,p are bounded onI(t) for eacht ∈ I,t h e ns oi su,
+providedthat J =I.
+Furthermore, Corollary 1.5 yields the Lp-Gronwall inequalities in Corollaries 2.16
+and 2.17. Kernels that may fail to satisfy the monotonicity condition (2.3)r e q u i r e df o r
+theseinequalitiescanbehandleddirectly.
+Example 1.7 (Singular kernels on intervals) LetI be a non-degenerate interval inℝ that
+isboundedbelow, ℐ beitsBorel σ-algebraand ≤be the standard order. Suppose that
+sup
+t∈I(T)
+∫︂
+I(t)
+k(t,s)p μ(ds)< ∞ and lim
+δ↓0
+sup
+r,t∈I(T):
+0≤t–r≤δ
+∫︂
+[r,t]
+k(t,s)p μ(ds)=0 (1.11)
+foreach T ∈I.ByHölder’sinequality,thesecondconditionholdswhenever μ([s,t]) ≤t–s
+for alls,t ∈I with s ≤t and supt∈I(T)
+∫︁
+I(t)k(t,s)p+ε μ(ds)< ∞for someε>0.
+Thentheassertionsin[ 22,Proposition4.1andRemark4.2]ensurethatI k,μ,p isbounded
+on I(t) for allt ∈I. Moreover, if the suprema in (1.11) are replaced by essential suprema,
+then Ik,μ,p isessentiallyboundedon I(t)for allt ∈I.
+For instance, letμ be the Lebesgue measure onI and assume thatk is of convolution
+type,thatis,thereexistsameasurablefunction f : ℝ+ → [0,∞]suchthat
+k(t,s)=f (t–s) for alls,t ∈I withs ≤t.
+Then theconditions(1.11) aresatisﬁedforeach T ∈I iffp islocallyintegrable.
+Example1.8(Fractional Lp-resolventinequality) Let I =I1 ×···× Im forsome m ∈ℕand
+non-degenerate intervalsI1,..., Im ⊆ ℝ that are bounded below. Moreover, letℐ be the
+Borel σ-algebraof I,t hepartialor derbegivenby
+s ≤t ⇔ s1 ≤t1,..., sm ≤tm for alls,t ∈I
+and μ be the Lebesgue measure onI.W ea s s u m et h a tk0: I →ℝ+ is measurable and in-
+creasing, that is,k0(s) ≤k0(t) for alls,t ∈I with s ≤t. In addition, letα,β ∈ℝm+ be such
+that βi +1– 1p < αi for eachi ∈{1,..., m}and
+k(t,s)=k0(t)(t1 –s1)α1–1(s1 –t1,0)–β1 ··· (tm –sm)αm–1(sm –tm,0)–βm
+for alls,t ∈ I satisfying s1 < t1,..., sm < tm,w h e r et1,0 := infI1,..., tm,0 := infIm.B a s e do n
+Example2.11andProposition 2.12,thefollowingthreeassertionshold:
+(1) Due to Remark2.6andthelimiting behaviour( 2.12) ofthegamma function Γ,t he
+requiredcondition (1.7)in Corollary1.5is redundantif
+∫︂
+I(t)
+u0(s)p(s1 –t1,0)–β1p ··· (sm –tm,0)–βmp ds< ∞ for allt ∈J. (1.12)
+Forinstance,if t1,0 ∈I1,..., tm,0 ∈Im,t hen(1.12) holdswhenever β =0 andup0 is
+locallyintegrable, or β ∈ [0, 1p [m andu0 is locallyessentiallybounded.
+PAGE 6
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page6of31
+(2) Thenumber αp,i := (αi –1 )p+1 satisﬁes βip< αp,i for everyi ∈{1,..., m}.M or eover ,
+the estimate (1.9), the relation (2.21)andthebound( 2.22)i m p l yt ha t
+u(t) ≤v(t)
++cα,β,p
+∞∑︂
+n=1
+k0(t)n
+(︃∫︂
+I(t)
+v(s)p
+m∏︂
+i=1
+Γ(αp,i)n(ti –si)(αp,i–βip)n+βip–1
+Γ((αp,i – βip)n+ βip)(si –ti,0)βip ds
+)︃1p
+for allt ∈J, wheretheconstant cα,β,p >0 solelydependson α, β andpandsatisﬁes
+cα,0,p =1. Further, equalityholdsifp=1,k0 =1, β =0 and(1.8)a r eeq u a l i t i es.
+(3) Underthecondition that β ∈ [0, 1p [m,weset ˆcα,β,p :=cα,β,p ∏︁mi=1 Γ(1– βip)1p .T hen
+theestimate in (2)cannotexceedtheexpression
+v(t)+ ˆcα,β,p ess sup
+s∈I(t)
+v(s)
+∞∑︂
+n=1
+k0(t)n
+m∏︂
+i=1
+(︁
+Γ(αp,i)(ti –ti,0)αp,i–βip)︁np
+Γ((αp,i – βip)n+1 )
+1
+p
+for allt ∈I.M or eover ,t hi sseri es,whi c hagr eeswi t hIk,μ,p(t)fork0 =1 and β =0,
+converges,sinceitis boundedby theproduct
+m∏︂
+i=1
+(︁
+Eαp,i–βip,1,p
+(︁
+k0(t)
+1
+m Γ(αp,i)
+1
+p (ti –ti,0)
+αp,i
+p –βi )︁–1 )︁,
+where,foreach i ∈{1,..., m},Eαp,i–βip,1,p denot est heen tir efunctionin tr oduc edin
+itsgeneral form in (2.20).
+In particular, form=p=1, Corollary 1.5 yields the inequalities in [17, p. 188] and [39,
+Theorem 1], and it provides a sharper estimate than that in [36, Theorem 3.2] under
+weakerassumptions.
+As a consequence of Corollary1.5, on a non-empty setX, we provide suﬃcient condi-
+tions for an operatorΨ: X →X t oa d m i ta tm o s to n eﬁ x e dp o i n tb ye m p l o y i n gd i s t a n c e
+functionsthatmaytakethevalueinﬁnity, aswellasmoregeneralclassesoffunctions.
+Namely, apremetric on X is a [0,∞]-valued function onX × X that satisﬁes all the
+properties of a metric except that it is not necessarily ﬁnite. Such a premetric induces
+atopologyinthesamemannerasametric,therebyextendingtheconceptofametrisable
+spacetothatofa premetrisable space.
+A pseudopremetric is deﬁned in the same sense by considering a pseudometric instead
+of a metric. Thus, we shall ﬁrst assume that(dt)t∈I is a family of[0,∞]-valued functions
+onX ×X such that for anyx, ˜x ∈X,t her e la tion
+x= ˜x ⇔ dt(x, ˜x)=0 forall t ∈I (1.13)
+holdsandthefunction
+I → [0,∞], t ↦→dt(x, ˜x)ismeasurable. (1.14)
+In this setting,I is solely endowed with theσ-algebra ℐ and the preorder≤,w h i c hw e
+interpret as evolution, possibly in time, such that{(t,s) ∈ I × I | s ≤ t}∈ ℐ ⊗ ℐ.L e tu s
+considerthefollowingregularityconditionon Ψ fortheuniquenessofﬁxedpoints:
+PAGE 7
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page7of31
+(C.1) Thereexistafunction Λ: I ×X ×X → [0,∞],a σ-ﬁnite measureμon (I,ℐ),a
+constantp ≥1anda non-negativekernel λonI suchthat Λ(·,x, ˜x)is measurable,
+dt
+(︁
+Ψ(x),Ψ(˜x))︁ ≤ (︃∫︂
+I(t)
+λ(t,s)pΛ(s,x, ˜x)p μ(ds)
+)︃1p
+and Λ(t,x, ˜x) ≤dt(x, ˜x)for allt ∈I andx, ˜x ∈X.
+We observe that if(dt)t∈I isafamilyofpseudopremetrics thatis increasingin thesense
+thatds ≤dt for anys,t ∈I withs ≤t,t hen(C.1) entailstheLipschitz condition
+dt
+(︁
+Ψ(x),Ψ(˜x))︁ ≤ λ0(t)dt(x, ˜x)
+for allt ∈I and x, ˜x ∈X with the Lipschitz coeﬃcientλ0(t):= (︁∫︁I(t)λ(t,s)p μ(ds))︁1p when-
+ever λ(t,·)p isintegrable.
+Lemma1.9 Let (C.1) holdandsupposethat
+lim
+n→∞
+∫︂
+I(t)
+Rλp,μ,n(t,s)Λ(s,x, ˜x)p μ(ds)=0 (1.15)
+for all t∈Ia n dx, ˜x ∈ Ψ(X).Then Ψ admitsatmostoneﬁxedpoint .
+Let us continue with the following regularity condition on(dt)t∈I for the construction
+ofﬁxedpointsof Ψ aslimitsofPicarditerations:
+(C.2) Thefunction dt is apseudopremetric for eacht ∈I.
+Under (C.2),w em a ye q u i pX with the topology of convergence with respect todt for
+eacht ∈I.T ha tis,asequenc e(xn)n∈ℕ inX converges to somex ∈X ifandonlyif
+lim
+n→∞
+dt(xn,x)=0 forall t ∈I. (1.16)
+By virtue of the relation (1.13), this constitutes the unique topology that is ﬁner than the
+oneinducedby dt forany t ∈I suchthatasequencein X convergeswheneveritconverges
+relative todt for allt ∈I.M or eover ,X becomesasequentialspace.
+Hence,weshallcall (dt)t∈I completeifanysequencein X thatisCauchyrelativeto dt for
+every t ∈I converges. For instance, this property holds ifX admits a complete premetric
+d such that every sequence inX being Cauchy relative todt for eacht ∈I is also Cauchy
+withrespectto d.
+We are now in a position to infer a ﬁxed point result for evolution operators, including
+anerrorestimatefortheassociatedPicarditeration,fromProposition 1.4.
+Theorem 1.10 Suppose that(C.1) and (C.2) hold and(dt)t∈I is complete. Further, let Ψ
+besequentiallycontinuous and x0 ∈Xb es u c ht h a t
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rλp,μ,n(t,s)Λ(s,x0,Ψ(x0))p μ(ds)
+)︃1p
+< ∞ (1.17)
+PAGE 8
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page8of31
+for every t∈ I. Then the Picard sequence(xn)n∈ℕ in X recursively given by xn := Ψ(xn–1)
+convergestoaﬁxedpoint ˆxo fΨ,anditsatisﬁes
+dt(xn, ˆx) ≤
+∞∑︂
+i=n
+(︃∫︂
+I(t)
+Rλp,μ,i(t,s)Λ(s,x0,Ψ(x0))p μ(ds)
+)︃1p
+(1.18)
+for all n∈ℕ and t∈I. Moreover, if (1.15) holds for all t∈Ia n dx, ˜x ∈ Ψ(X), then ˆxi st h e
+unique ﬁxedpointof Ψ.
+Example 1.11 Let I = {t} and dt =d for onet ∈I and a metricd inducing the topology of
+X,andlet Ψ beLipschitz continuouswithLipschitz constant λ0.T hen(C.1) holdsfor
+p= μ({t})=1, λ= λ0 and Λ=d,
+andwerecoverthegeometricseries R λ,μ = ∑︁∞n=1 λn0,whichisﬁniteifandonlyif λ0 <1.In
+this case, (1.15)and( 1.17)arealwaysvalidforany x, ˜x,x0 ∈X.T h us,if
+d iscompleteand λ0 <1,
+then Theorem1.10 reduces to the Banach Fixed Point Theorem that originates from [3],
+ensuringauniqueﬁxedpointof Ψ with the error bound (1.18),whichbecomes
+d(xn, ˆx) ≤d(︁x0,Ψ(x0))︁ λn0
+1– λ0
+for alln ∈ℕ.
+The remainder of this work is organised as follows. Section2 is devoted to a detailed
+analysisofthethreemaincontributions:theresolventinequalitiesinProposition 1.4and
+Corollary 1.5 as well as the ﬁxed point result in Theorem1.10.T ot h i se n d ,S e c t i o n2.1
+discusses various properties of kernels and their resolvent sequences, considering three
+types of kernels that can be treated systematically.
+Section2.2investigatestheresolventsequencesofsumsofkernels,withaparticularfo-
+cus on transformed fractional kernels that may admit singularities. Section2.3 explores
+kernelsonpreorderedCartesianproductsandderivestheGronwallinequalitiesforfunc-
+tionsofseveralvariablesinCorollaries 2.16and2.17.Finally ,Section2.4presentsrelevant
+applicationsofTheorem 1.10,whileSection 3containstheproofsofalltheresults.
+2 Analysisofthemainandconsequentialresults
+Byconvention,if I isanon-degenerateintervalin ℝwithinﬁmum t0 andsupremum t1 and
+≤isthestandardorder,foreachmonotonefunction f : I →ℝ,weset f (t0):= limt↓t0 f (t)if
+t0 /∈I,and f (t1):= limt↑t1 f (t)ift1 /∈I.
+2.1 Propertiesandtypesofkernelsandresolventsequences
+We summarise basic facts on kernels and their resolvent sequences, provide a suﬃcient
+criterion for the limit (1.7) to hold and consider three classes of kernels to which the re-
+solventinequalitiesinProposition 1.4andCorollary 1.5directlyapply.
+PAGE 9
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page9of31
+First, for an underlyingσ-ﬁnite measureμ on (I,ℐ) and a non-negative kernelk on I,
+therecursivedeﬁnition( 1.3)oftheresolventsequence (Rk,μ,n)n∈ℕ immediatelyentailsthat
+Rk,μ,m+n(t,s)=
+∫︂
+[s,t]
+Rk,μ,m(t,˜s)Rk,μ,n(˜s,s)μ(d˜s)
+for allm,n ∈ ℕ and s,t ∈ I with s ≤t, as can be inductively checked. Hence, by viewing
+Rk,μ as the pointwise supremum of the sequence(∑︁ni=1 Rk,μ,i)n∈ℕ of the partial sums, we
+deducefrommonotoneconvergencethat
+Rk,μ(t,s)=Rk,μ,1(t,s)+ ··· +Rk,μ,m(t,s)+
+∫︂
+[s,t]
+Rk,μ,m(t,˜s)Rk,μ(˜s,s)μ(d˜s).
+Inparticular,thisveriﬁesthatthegeneralisedlinearVolterraintegralequation( 1.4)isin-
+deedsolvedbyR k,μ(·,s)for eachs ∈I.
+Wenoticethat Rk,μ,n and Rk,μ,where n ∈ℕ,dependsuperadditivelyandmonotonically
+onk.Thatis,foranothernon-negative kernel l onI,weha ve
+Rk+l,μ,n ≥Rk,μ,n +Rl,μ,n and R k+l,μ ≥Rk,μ +Rl,μ,
+while k ≤l implies that Rk,μ,n ≤Rl,μ,n and Rk,μ ≤Rl,μ.I fk is of the formk(t,s)=k0(t) for
+all s,t ∈ I with s ≤ t and some measurable functionk0: I → [0,∞] that is increasing or
+decreasing,then
+Rkl,μ,n(t,s) ≤ max{k0(s),k0(t)}nRl,μ,n(t,s) (2.1)
+for anys,t ∈ I with s ≤ t, where equality holds ifk0 is constant. Similarly, if there is a
+measurable monotone functionl0: I → [0,∞] such thatl(t,s) = l0(s) for alls,t ∈ I with
+s ≤t,t hen
+Rkl,μ,n(t,s) ≤Rk,μ,n(t,s)m a x{l0(s),l0(t)}n (2.2)
+forany s,t ∈Iwiths ≤t,whichbecomesanequalityif l0 isconstant.Moreover,weobserve
+thatthemonotonicitycondition,
+k(˜s,s) ≤k(t,s) for alls,˜s,t ∈I withs ≤ ˜s ≤t, (2.3)
+which we could impose on the kernelk, carries over to Rk,μ,n and Rk,μ.T h i sa m o u n t st o
+having Rk,μ,n(˜s,s) ≤Rk,μ,n(t,s)and Rk,μ(˜s,s) ≤Rk,μ(t,s)for any suchs,˜s,t ∈I.
+Next,for p ≥1andanymeasurablefunction u0: I → [0,∞],thecondition( 1.7)required
+inCorollary 1.5holdswhenever
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rkp,μ,n(t,s)u0(s)p μ(ds)
+)︃1p
+< ∞ (2.4)
+for all t ∈ I. Evidently, this stronger condition is satisﬁed wheneveru0 is essentially
+boundedon I(t)andtheseries Ik,μ,p(t)in(1.10)isﬁnit ef oreveryt ∈I.
+In particular, the resolvent inequality applies to the following tractable class of kernels,
+whichleadstotheGronwallinequalitiesderived inSection 2.3.
+PAGE 10
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page10of31
+Deﬁnition 2.1 Let 𝒦pμ(I) denote the set of all non-negative kernelsk on I for which the
+monotonicitycondition( 2.3)holdsandtheseries I k,μ,p(t)in(1.10)isﬁnit ef oreac ht ∈I.
+Basedontheseconcepts,weinvestigatetheresolventsequences,theresolventsandthe
+functionsintroducedin( 1.10)forthreetypesofkernels.
+Example 2.2 (Regular kernels on intervals) LetI be a non-degenerate interval inℝ, ℐ be
+its Borelσ-algebra, ≤ be the standard order andμ({t})=0f o ra l lt ∈I. Then for a non-
+negative kernelk onI satisfying (2.3)and
+∫︂ t
+s
+k(t,˜s)p μ(d˜s)< ∞ for anys,t ∈I withs ≤t,
+itfollowsinductively,byusingthefundamentaltheoremofcalculusforRiemann–Stieltjes
+integrals and the associativity of the Lebesgue–Stieltjes integral, that
+Rkp,μ,n(t,s) ≤ k(t,s)p
+(n–1 )!
+(︃∫︂ t
+s
+k(t,˜s)p μ(d˜s)
+)︃n–1
+(2.5)
+for alln ∈ℕands,t ∈I with s ≤t.Thederivation ofthisestimatereliesonthecontinuity
+of the integral function[s,t] →ℝ+, s′ ↦→ ∫︁s′s k(t,˜s)p μ(d˜s), which is of bounded variation.
+Hence, we obtain
+Rkp,μ(t,s) ≤k(t,s)pe
+∫︁t
+s k(t,˜s)p μ(d˜s) (2.6)
+for anys,t ∈I with s ≤t.Anotherapplicationofthefundamentaltheoremofcalculusfor
+Riemann–Stieltjes integralsincombinationwithmonotoneconvergenceyields
+Ik,μ,p(t) ≤
+∞∑︂
+n=1
+(︃ 1
+n!
+)︃1p (︃∫︂
+I(t)
+k(t,s)p μ(ds)
+)︃np
+(2.7)
+for eacht ∈ I, where the bounding series is ﬁnite, provided that
+∫︁
+I(t)k(t,s)p μ(ds) < ∞.
+In this case, it equals E1,1,p
+(︁(︁∫︁
+I(t)k(t,s)p μ(ds))︁1p )︁,w i t hE1,1,p denoting the entire function
+deﬁnedgenerallyin( 2.20).
+For instance, ifk0: I → ℝ+ is increasing andk1: I → [0,∞] is measurable and locally
+p-integrable,then k maytaketheform
+k(t,s)=k0(t)k1(s) for anys,t ∈I withs ≤t,
+wheretheinequalities( 2.5)–(2.7)becomeidentitieswhenever k0 =1.Consequently ,𝒦pμ(I)
+consistsofallnon-negativekernels k onI satisfying(2.3)and
+∫︁
+I(t)k(t,s)p μ(ds)< ∞forany
+t ∈I.
+Example2.3(Thetrivialpreorderandkernelsofonevariable) Let s ≤tholdforany s,t ∈I.
+Then anon-negative kernelk onI satisﬁes (2.3)ifandonlyif
+k(t,s)=k0(s) for alls,t ∈I,
+PAGE 11
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page11of31
+with k0: I → [0,∞] being some measurable function. In this case, Rkp,μ,n and Rkp,μ are
+likewise independent oftheﬁrstvariable t ∈I,andweha ve
+Rkp,μ,n(·,s)=k0(s)p
+(︃∫︂
+I
+k0(t)p μ(dt)
+)︃n–1
+for alln ∈ℕ and s ∈I, which entails that Rkp,μ(·,s)=k0(s)p ∑︁∞n=0(∫︁Ik0(t)p μ(dt))n.T h e r e -
+fore,for sucha kernelk,thefunction Ik,μ,p isconstantandsatisﬁes
+Ik,μ,p =
+∞∑︂
+n=1
+(︃∫︂
+I
+k0(t)p μ(dt)
+)︃np
+,
+wheretheratiotestshowsthat k ∈𝒦pμ(I)ifandonlyif ∫︁Ik0(t)p μ(dt)<1.
+Example 2.4(Kernelsofsubmultiplicativetype) Let k beanon-negativekernelon I such
+thatk(t,˜s)k(˜s,s) ≤k(t,s)forany s,˜s,t ∈I withs ≤ ˜s ≤t.Thenforeverynon-negativekernel
+l onI,weha ve
+R(kl)p,μ,n ≤kpRlp,μ,n and R (kl)p,μ ≤kpRlp,μ
+forall n ∈ℕ,whichimpliesI kl,μ,p(t) ≤ ∑︁∞n=1 (︁∫︁I(t)k(t,s)pRlp,μ,n(t,s)μ(ds))︁1p forall t ∈I.Fur-
+ther,if k isofmultiplicativetype,thatis,equalityholdsinthesubmultiplicativecondition,
+thenalltheseinequalitiesbecomeidentities.
+In particular, letI be a non-degenerate interval inℝ, ℐ beitsBorel σ-algebra and≤ be
+thestandardorder.Moreover,let μ({t})=0forany t ∈I and μbelocallyﬁnite.Then
+Rkp,μ,n(t,s) ≤ k(t,s)p
+(n–1 )!μ([s,t])n–1 and R kp,μ(t,s) ≤k(t,s)peμ([s,t])
+for alln ∈ℕ and s,t ∈I with s ≤t, according to Example2.2. In addition, for the integral
+function ˆkp: I → [0,∞]deﬁnedby ˆkp(t):= ∫︁I(t)k(t,s)p μ(ds),itfollowsthat
+Ik,μ,p(t) ≤
+∞∑︂
+n=0
+(︃∫︂
+I(t)
+k(t,s)p
+n! μ([s,t])n μ(ds)
+)︃1p
+≤ ˆkp(t)
+1
+p
+∞∑︂
+n=0
+(︃ 1
+n!
+)︃1p
+μ
+(︁
+I(t)
+)︁np
+foreach t ∈I,wherethelastseriesisﬁnitewhenever μ(I(t))< ∞.Asinthegeneralsetting,
+allprecedinginequalities,exceptthelastestimate,becomeequalitiesif k isofmultiplica-
+tivetype.
+Forinstance,thelatterholdsif ν isalocallyﬁnitesignedBorelmeasureon I thatsatisﬁes
+ν({t})=0and k(t,s)= exp(ν([s,t]))for alls,t ∈I with s ≤t.
+Given a non-negative kernelk on I, Hölder’s inequality entails a suﬃcient criterion
+for (1.7)thatisweakerthan( 2.4)whenever t ∈I andu0: I → [0,∞]ismeasurable.
+Lemma2.5 Let (kn)n∈ℕ and (ln)n∈ℕ besequencesofnon-negativekernelson I andlet t ∈I
+besuchthat
+Rkp,μ,n(t,s) ≤kn(t,s)ln(t,s) for μ-a.e.s ∈I(t)
+PAGE 12
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page12of31
+for suﬃciently large n∈ℕ. Further, let pn and qn be conjugate exponents for each n∈ℕ.
+Then
+lim sup
+n→∞
+∫︂
+I(t)
+Rkp,μ,n(t,s)u0(s)p μ(ds) ≤ lim sup
+n→∞
+∥kn(t,·)∥pn,t∥ln(t,·)up0∥qn,t (2.8)
+foreverymeasurablefunction u 0: I → [0,∞],where
+∥l∥q,t :=
+(︃∫︂
+I(t)
+l(s)q μ(ds)
+)︃1q
+and ∥l∥∞,t := ess sup
+s∈I(t)
+l(s)
+for each q≥ 1 and any measurable function l: I(t) → [0,∞]. In particular, if the bound
+in(2.8)vanishes,then(1.7)issatisﬁed .
+Remark2.6 Forapositivekernel lonI,wemaytake kn =Rkp,μ,nl–p andln =lp forall n ∈ℕ.
+Then (1.7)holdsundereachofthefollowingconditions:
+(1) ess sups∈I(t) l(t,s)u0(s)< ∞and limn→∞
+∫︁
+I(t)Rkp,μ,n(t,s)l(t,s)–p μ(ds)=0.T hel a t t eri s
+redundantif l=1 andtheseries Ik,μ,p(t)in (1.10)i sﬁ ni t e.
+(2)
+∫︁
+I(t)l(t,s)pu0(s)p μ(ds)< ∞and limn→∞ ess sups∈I(t) Rkp,μ,n(t,s)l(t,s)–p =0.
+2.2 Sumsofkernelsandtransformedfractionalkernels
+We describe the resolvent sequences of sums of kernels by a recursive scheme and con-
+sider, in particular, sums of transformed fractional kernels. As a special case, powers of
+fractionalkernelsarestudied.
+First, letμ be an arbitraryσ-ﬁnite measure on(I,ℐ) and letk beanon-negativekernel
+onI,writ t enint hef orm
+k =k1 + ··· +kN (2.9)
+for someN ∈ ℕ and non-negative kernelsk1,..., kN on I. Then the resolvent sequence
+(Rk,μ,n)n∈ℕ ofk canberepresentedasfollows.
+Lemma2.7 For each n∈ℕ,letthefamily (Rk,μ,n,j)j∈{1,...,N}n of non-negative kernelson I be
+recursivelygivenby Rk,μ,1,j(t,s):=kj(t,s)forevery j ∈{1,..., N}and
+Rk,μ,n+1,j(t,s):=
+∫︂
+[s,t]
+kjn+1 (t,˜s)Rk,μ,n,(j1,...,jn)(˜s,s)μ(d˜s) (2.10)
+forallj ∈{1,..., N}n+1.ThenRk,μ,n,(i,...,i) =Rki,μ,n andRk,μ,n = ∑︁j∈{1,...,N}n Rk,μ,n,j foranyn ∈ℕ
+and i∈{1,..., N}.
+Let us now restrict our attention to the case whereI is a non-degenerate interval inℝ
+with inﬁmumt0, ℐ is its Borelσ-algebra, ≤ is the standard order andμ is the Lebesgue
+measureon I.Tosimplifynotation,weshallwrite
+Rk,n,R k,n,j,R k and I k,p (2.11)
+forRk,μ,n,Rk,μ,n,j,Rk,μ andIk,μ,p,respectively,where n ∈ℕandj ∈{1,..., N}n.ByBand Γwe
+denotetherespectivebetaandgammafunctions.WealsorecallthegeneralMittag-Leﬄer
+PAGE 13
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page13of31
+function Eα,β : ℂ → ℂ given by Eα,β (z) := ∑︁∞n=0 Γ(αn + β)–1zn with parametersα,β >0 ,
+whichisdiscussed in[ 14],forinstance.
+AccordingtotheCauchy–HadamardTheorem,theradiusofconvergenceofthepower
+seriesrepresentingE α,β isinﬁnite.Infact,sincethedigammafunction ψ: ]0,∞[→ℝde-
+ﬁnedby ψ(x):= Γ′(x)Γ(x) satisﬁes limx→∞ ψ(x)= ∞,L’Hôpital’sruleyields
+lim
+n→∞
+Γ(αn+ β)–1n = lim
+n→∞
+e–αψ (αn+β) =0, evenif β =0. (2.12)
+The Mittag-Leﬄer function is used in the derivation of Rk and Ik,1 in Example2.10when
+k1,..., kN are transformed fractional kernels. For the representation (2.18)o fRk,n,w h e r e
+n ∈ℕ,weintroducethefamilyoffunctionsbelow.Inthiscontext,weset
+α0 := minj=1,...,N αj and α∞ := maxj=1,...,N αj for allα ∈ℝN+ . (2.13)
+Proposition 2.8 Let α ∈]0,∞[N, β ∈ [0,α0[N and for each n ∈ ℕ, let the family
+(fn,j)j∈{1,...,N}n of [0,∞]-valued measurable functions on]0,∞[×]0,∞[ be recursively given
+by f1,j(x,y):=xαj–1y–βj for every j∈{1,..., N}and
+fn+1,j(x,y):=xαjn+1
+∫︂ 1
+0
+(1– λ)αjn+1–1(λx+y)–βjn+1 fn,(j1,...,jn)(λx,y)dλ (2.14)
+forany j ∈{1,..., N}n+1.Thenthefollowingthreeassertionshold :
+(i) For alln ∈ℕandj ∈{1,..., N}n,the functionfn,j is ]0,∞[-valued,decreasing inthe
+secondvariable andcontinuous,andit satisﬁes
+fn,j(x,y) ≤cn,jxβj1–1+∑︁ni=1 αji–βji y–βj1 (2.15)
+for allx,y>0,wherecn,j := ∏︁n–1i=1 B(αj1 – βj2 + ··· + αji – βji+1,αji+1 ).Moreover,
+equalityholdsin (2.15)whenever βj1 = ··· = βjn =0.
+(ii) For eachn ∈ℕ,the positive constantˆcn := ∏︁n–1i=1 Γ((α0–β∞)i)Γ((α0–β∞)i+β∞) satisﬁes
+cn,j ≤ ˆcnΓ(α0)n
+Γ((α0 – β∞)n+ β∞) for anyj ∈{1,..., N}n, (2.16)
+and equality holds ifN =1.Further,ifxΓ denotesthe global minimum pointofΓ,
+nΓ := min{i ∈ℕ | (α0 – β∞)i ≥xΓ}and ˆc:= maxi=1,...,nΓ ˆci,then
+max
+n∈ℕ
+ˆcn = ˆc.
+(iii) Thefunction f := ∑︁∞n=1 ∑︁j∈{1,...,N}n fn,j ta k esa l li tsv a l u esi n]0,∞[,isdecreasingin
+t h es ec o n dv a ria b l ea n dc o n t i n u o us.Moreover,
+f (x,y) ≤NΓ(α0)ˆc φα0,α∞ (x)xφβ∞,β0 (y)Eα0–β∞,α0 (︁NΓ(α0)φα0–β∞,α∞–β0 (x))︁ (2.17)
+for allx,y>0,where φγ,δ : ]0,∞[→]0,∞[isgivenby φγ,δ(x):=xγ forx ≤1and
+φγ,δ(x):=xδ forx>1 whenever γ,δ>0.Finally,we have equality in(2.17)if
+N =1 and β =0.
+PAGE 14
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page14of31
+Example 2.9 Bearing in mind thatˆcn = ˆc=1forall n ∈ℕ whenever β =0, let us consider
+thefollowingspecialcasesinthesetting ofProposition 2.8:
+(1) ForN =1,weset fn :=fn,j andcn :=cn,j,wher ej ∈{1}n.Thenthederived
+estimates (2.15)a n d(2.17)r educ et o
+fn(x,y) ≤cnx(α–β)n+β–1y–β and f (x,y) ≤ Γ(α)ˆcxα–1y–βEα–β,α(︁Γ(α)xα–β)︁
+for anyn ∈ℕandx,y>0,wher ecn = ˆcnΓ(α)nΓ((α–β)n+β). Moreover, theseinequalities turn
+into identities forβ =0.
+(2) For β =0, equalityholdsin (2.15).Speciﬁcally, fn,j(x,·)=cn,jxαj1+···+αjn–1 for alln ∈ℕ,
+j ∈{1,..., N}n andx>0 with cn,j = Γ(αj1 )···Γ(αjn )Γ(αj1+···+αjn ) .T hi sen tai lst ha t
+∑︂
+j∈{1,...,N}n
+fn,j(x,·)=
+∑︂
+i∈{0,...,n}N:
+i1+···+iN=n
+n!
+i1!··· iN!Γ(α1)i1 ··· Γ(αN )iN x⟨i,α⟩–1Γ(⟨i,α⟩)
+for anyn ∈ℕandx>0,wher e⟨·,·⟩is thestandard innerproducton ℝN.T hi s
+formula relies on the fact that the multinomial coeﬃcient
+n!
+i1!··· iN!
+is thenumberofall j ∈{1,..., N}n suchthat |{h ∈{1,..., n}| jh =m}|=im for each
+m ∈{1,..., N},wher ei ∈{0,..., n}N satisﬁesi1 + ··· +iN =n.
+Based on these preliminaries and the notations in (2.11)a n d(2.13), we consider the
+followingclassof kernels k1,..., kN appearing in (2.9).
+Example 2.10 (Sums of transformed fractional kernels) Letα ∈]0,∞[N, β ∈ [0,α0[N and
+φ: I →ℝ be strictly increasing and locally absolutely continuous. Further, letφ(t0)>– ∞
+and
+kj(t,s)= ˙φ(s)
+(︁
+φ(t)– φ(s)
+)︁αj–1(︁φ(s)– φ(t0))︁–βj
+forany j ∈{1,..., N}ands,t ∈I witht0 <s<t,where ˙φ denotesapositiveweakderivative
+of φ.Forinstance,for I =ℝ+ and γ >0,wemaytakethefunction
+φ(t)=tγ for allt ≥0.
+In the general case, for eachn ∈ ℕ,t h ef a m i l y(fn,j)j∈{1,...,N}n of ]0,∞[-valued continuous
+functionson ]0,∞[×]0,∞[fromProposition 2.8satisﬁes
+Rk,n,i(t,s)= ˙φ(s)fn,i
+(︁
+φ(t)– φ(s),φ(s)– φ(t0)
+)︁
+and
+Rk,n(t,s)= ˙φ(s)
+∑︂
+j∈{1,...,N}n
+fn,j
+(︁
+φ(t)– φ(s),φ(s)– φ(t0)
+)︁
+(2.18)
+PAGE 15
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page15of31
+for alli ∈{1,..., N}n and s,t ∈I with t0 <s<t. This follows inductively from Lemma2.7.
+Thus, for the]0,∞[-valuedcontinuousfunction f := ∑︁∞n=1 ∑︁j∈{1,...,N}n fn,j,weha ve
+Rk(t,s)= ˙φ(s)f
+(︁
+φ(t)– φ(s),φ(s)– φ(t0)
+)︁
+for anys,t ∈I with t0 <s<t. Moreover, by Lemma2.5, the condition (1.7)i ss a t i s ﬁ e df o r
+p=1,everymeasurablefunction u0: I → [0,∞]andany t ∈I,providedthat
+∫︂
+I(t)
+˙φ(s)(φ(s)– φ(t0))–βju0(s)ds< ∞
+for allj ∈{1,..., N}. In fact, the two estimates (2.15)a n d(2.16)i nP r o p o s i t i o n2.8 entail
+that
+Rk,n(t,s) ≤ ˆc(︁NΓ(α0))︁n
+Γ((α0 – β∞)n+ β∞)kn(t,s)l(s) (2.19)
+for anyn ∈ℕ and s,t ∈I with t0 <s<t. Here,l:= maxj=1,...,N ˙φ(φ – φ(t0))–βj is measurable
+andthenon-negative kernel kn onI isdeﬁnedvia
+kn(t,s):= maxj∈{1,...,N}n(φ(t)– φ(s))βj1–1+∑︁ni=1 αji–βji .
+Furthermore,equalityholdsin ( 2.19)w h e n ev e rN =1and β =0. Hence, all requirements
+ofLemma 2.5aremet,andachangeofvariablesandmonotoneconvergenceimply
+Ik,1(t)= (φ(t)– φ(t0))
+∫︂ 1
+0
+f
+(︁
+(1– λ)(φ(t)– φ(t0)),λ(φ(t)– φ(t0))
+)︁
+dλ
+for anyt ∈I with t >t0.T h u s,i fβ∞ <1,thenI k,1(t)< ∞. Indeed, in this case, the Mittag-
+Leﬄerfunctionsatisﬁes
+Ik,1(t) ≤ ˆcΓ(1– β∞)
+(︁
+Eα0–β∞,1
+(︁
+NΓ(α0)φα0–β∞,α∞–β0 (φ(t)– φ(t0))
+)︁
+–1
+)︁
+,
+where equality holds wheneverN =1and β =0.Inviewoft heestima t es( 2.1)a n d(2.2),
+Corollary 1.5 recovers [26, Theorems 1.4 and 1.5], [40, Theorem 3.2], [1,T h e o r e m s8
+and9],[ 9,Theorem3]and[ 27,Theorem1]underweakerconditions.
+Letusturntopowersoffractionalkernels.Thatis,wedirectlyanalyse kp forp ≥1when
+k is a fractional kernel. For this purpose, we introduce the entire function Eα,β,p: ℂ →ℂ
+by
+Eα,β,p(z):=
+∞∑︂
+n=0
+Γ(αn+ β)–1p zn (2.20)
+for α >0a n dβ ≥ 0, which coincides with the Mittag-Leﬄer function Eα,β if β >0a n d
+p = 1. Here, the conventionΓ(0)–1 = limx↓0 Γ(x)–1 = 0 is used. As before, the power se-
+ries representing Eα,β,p has an inﬁnite radius of convergence, by the Cauchy–Hadamard
+Theoremandthelimiting behaviour( 2.12).
+PAGE 16
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page16of31
+Example 2.11 (Fractional kernels) Assume thatI is bounded below. Forα >0and β ≥0
+satisfying β +1– 1p < α,weset αp := (α–1 )p+1andsupposethat
+k(t,s)= (t–s)α–1(s–t0)–β
+forany s,t ∈I witht0 <s<t.ThenProposition 2.8providesasequence (gp,n)n∈ℕ of ]0,∞[-
+valued continuous functions on]0,∞[×]0,∞[ that are decreasing in the second variable
+andsatisfy
+Rkp,n(t,s)=gp,n(t–s,s–t0) (2.21)
+for alln ∈ℕ and s,t ∈I with t0 <s<t.N a m e l y ,b a s e do nt h ei n e q u a l i t yβp< αp,w eh a v e
+gp,1(x,y)=xαp–1y–βp for allx,y>0,andtherecursion
+gp,n+1(x,y)=xαp
+∫︂ 1
+0
+(1– λ)αp–1(λx+y)–βpgp,n(λx,y)dλ
+holds for anyn ∈ℕ and x,y>0.F urther ,weset ˆcp,n := ∏︁n–1i=1 Γ((αp–βp)i)Γ((αp–βp)i+βp) and readily note
+that ˆcp,n =1if β =0.ThenProposition 2.8alsoimpliestheestimate
+gp,n(x,y) ≤ ˆcp,nΓ(αp)n
+Γ((αp – βp)n+ βp)x(αp–βp)n+βp–1y–βp (2.22)
+for allx,y >0 ,w h i c ht u r n si n t oa ne q u a l i t yi fβ =0 .F u r t h e r m o r e ,maxn∈ℕ ˆcp,n = ˆcp with
+np,Γ := min{i ∈ℕ | (αp – βp)i ≥xΓ}and ˆcp := maxi=1,...,np,Γ ˆcp,i.
+Since the kernelkp falls into the setting of Example2.10, Lemma2.5 ensures that the
+condition(1.7)holdsforeachmeasurablefunction u0: I → [0,∞]andany t ∈I suchthat
+∫︂ t
+t0
+(s–t0)–βpu0(s)p ds< ∞. (2.23)
+The suﬃciency of (2.23)isjustiﬁedbytheestimate( 2.22),whichentailsthat
+Rkp,n(t,s) ≤ ˆcpΓ(αp)n
+Γ((αp – βp)n+ βp)(t–s)(αp–βp)n+βp–1(s–t0)–βp
+for alln ∈ℕ and s,t ∈I with t0 <s<t. Finally, a change of variables shows that the series
+in(1.10)isoft hef orm
+Ik,p(t)=
+∞∑︂
+n=1
+(︃∫︂ 1
+0
+gp,n
+(︁
+(1– λ)(t–t0),λ(t–t0)
+)︁
+dλ
+)︃1p
+(t–t0)
+1
+p .
+Thus, the estimate (2.22)i m p l i e st h a tIk,p(t) < ∞ if and only ifβp <1 .I nt h i sc a s e ,t h e
+extensionoftheMittag-Leﬄer functionsatisﬁes
+Ik,p(t) ≤ ˆc
+1
+p
+p Γ(1– βp)
+1
+p
+(︁
+Eαp–βp,1,p
+(︁
+Γ(αp)
+1
+p (t–t0)
+αp
+p –β)︁–1 )︁,
+whichisanidentityif β =0.ByExample 2.9,thisanalysiswith p=1appliestothekernels
+appearingintheinequalitiesin[ 17,pp.188–189],[ 39,Theorem1]and[ 36,Theorem3.2].
+PAGE 17
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page17of31
+2.3 KernelsonCartesianproductsandGronwallinequalities
+By establishing estimates for the resolvent sequences of kernels on preordered Cartesian
+productsviaproductsofkernelsonthepreorderedfactors,wededuceGronwallinequal-
+itiesforfunctionsofseveralvariables.
+To this end, letμ be aσ-ﬁnite measure on(I,ℐ), k be a non-negative kernel onI and
+p ≥1.Thenthemildhypothesisthat I ispreorderedallowsforaproductrepresentation.
+Proposition2.12 Form ∈ℕandanyi ∈{1,..., m},letIi beanon-emptysetendowedwith
+a σ-algebraℐi and a preorder≤i such that
+Δi := {(ti,si) ∈Ii ×Ii |si ≤i ti} belongsto ℐi ⊗ℐi.
+SupposethatI =I1 ×···× Im,ℐ =ℐ1 ⊗···⊗ ℐm,ands ≤tifandonlyifs 1 ≤1 t1,..., sm ≤m tm
+for all s,t ∈I.Then thefollowingassertionshold :
+(i) Thetriangularsetofall (t,s) ∈I ×I with s ≤t lies inℐ ⊗ℐ asthepreimageof
+Δ1 ×···× Δm under a product measurable map onI ×I.Further,
+I(t)=I1(t1) ×···× Im(tm) and [r,t]= [r1,t1] ×···× [rm,tm]
+for allr,t ∈I with r ≤t.
+(ii) If μi isa σ-ﬁnitemeasure on (Ii,ℐi)andki is a non-negative kernelonIi for each
+i ∈{1,..., m}such that
+μ ≤ μ1 ⊗···⊗ μm and k(t,s) ≤k1(t1,s1)··· km(tm,sm) (2.24)
+for anys,t ∈I with s ≤t,then
+Rk,μ,n(t,s) ≤Rk1,μ1,n(t1,s1)··· Rkm,μm,n(tm,sm) (2.25)
+for alln ∈ℕands,t ∈I with s ≤t.Moreover,
+Ik,μ,p(t) ≤
+∞∑︂
+n=1
+m∏︂
+i=1
+(︃∫︂
+Ii(ti)
+Rkpi ,μi,n(ti,si)μi(dsi)
+)︃1p
+≤
+m∏︂
+i=1
+Iki,μi,p(ti) (2.26)
+for everyt ∈I,andifthe twoinequalities in (2.24)are equalities,then(2.25)and the
+ﬁrst inequality in(2.26)become identities.
+LetusfocusontwospeciﬁcsettingsofProposition 2.12thatarebasedonDeﬁnition 2.1
+andExamples 2.2and2.3:
+(C.3) Thereare m ∈ℕ,non-degenerateintervals I1,..., Im ⊆ℝanda measurable space
+(Im+1,ℐm+1)suchthat I =I1 ×···× Im+1,ℐ =ℬ(I1) ⊗···⊗ ℬ(Im) ⊗ℐm+1 and
+s ≤t ⇔ s1 ≤t1,..., sm ≤tm for anys,t ∈I.
+There existσ-ﬁnite Borel measuresμ1,..., μm onI1,..., Im,r especti ve ly ,anda
+σ-ﬁnite measureμm+1 on (Im+1,ℐm+1)suchthat
+μ= μ1 ⊗···⊗ μm+1 and μ1({t1})= ··· = μm({tm})=0
+PAGE 18
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page18of31
+for allt ∈I.M or eover ,t her ear ek1 ∈𝒦pμ1 (I1),..., km ∈𝒦pμm (Im)anda measurable
+p-integrable functionkm+1: Im+1 → [0,∞]suchthat
+k(t,s)=k1(t1,s1)··· km(tm,sm)km+1(sm+1)
+for alls,t ∈I with s ≤t.
+(C.4) Thepreorder ≤onI is trivial, thatis,s ≤t holdsforany s,t ∈I,andt her ei sa
+measurable functionk1: I → [0,∞]satisfying
+k(·,s)=k1(s) for alls ∈I and
+∫︂
+I
+k1(t)p μ(dt)<1.
+Remark 2.13 The setting(C.3) includes the possibility thatIm+1 is a singleton,μm+1 is a
+probabilitymeasureand km+1 =1.Thatis,
+Im+1 = {tm+1}, ℐm+1 = {∅,{tm+1}}, μm+1({tm+1})=1 and km+1(tm+1)=1,
+wheretm+1 ∈Im+1.Insuchacase,wemayidentify I withI1 ×···× Im viathebijectivemap
+I →I1 ×···× Im,s ↦→ (s1,..., sm).
+By convention, we setm:=0 whenever (C.4) holds, which allows us to use the variable
+mineitherscenario.
+Proposition2.14 Suppose that(C.3) or (C.4) issatisﬁed .Then
+Rkp,μ,n(t,s) ≤ k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+(2.27)
+for any n∈ℕ and s,t ∈Iw i t hs≤t, and equality holds if m=0, or if m≥1 and for each
+i ∈{1,..., m}thereexistsameasurablefunction ˜ki: Ii → [0,∞]such that
+ki(ti,si)= ˜ki(si) and
+∫︂
+Ii(ti)
+˜ki(˜si)p μi(d˜si)< ∞ (2.28)
+forall si,ti ∈Ii withs i ≤ti.Moreover,forameasurablefunction u 0: I → [0,∞],thecondi-
+tion(2.4)isvalidifandonlyif
+∫︂
+I(t)
+k(t,s)pu0(s)p μ(ds)< ∞ (2.29)
+forany t ∈I.Inparticular,k ∈𝒦pμ(I),and(2.29)holdsif u0 isessentiallyboundedonI (t).
+For a measurable functionv0: I → [0,∞] and a non-negative kernell on I,w ed e ﬁ n e
+anothermeasurablefunction v: I → [0,∞]by
+v(t):=v0(t)+
+(︃∫︂
+I(t)
+l(t,s)p μ(ds)
+)︃1p
+.
+PAGE 19
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page19of31
+Then,under (C.3) or(C.4),Pr oposition2.14yieldstheestimate
+∫︂
+I(t)
+Rkp,μ,n(t,s)v(s)p μ(ds) ≤
+∫︂
+I(t)
+k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+v(s)p μ(ds) (2.30)
+for alln ∈ℕ and t ∈I, which becomes an equality wheneverm=0 or the special setting
+in(2.28)oc cursf orm ≥1.
+Toboundtheintegralontheright-handside,weimposethefollowingconditionsonthe
+kernell ineachofthetwoscenarios:
+(C.5) Inaddition to(C.3),t her ear el1 ∈𝒦pμ1 (I1),..., lm ∈𝒦pμm (Im)and ameasurable
+p-integrable functionlm+1: Im+1 → [0,∞]suchthat
+l(t,s)=l1(t1,s1)··· lm(tm,sm)lm+1(sm+1)
+for anys,t ∈I withs ≤t.
+(C.6) Thescenario (C.4) is valid,andthereexistsameasurable p-integrable function
+l1: I → [0,∞]suchthat l(·,s)=l1(s)for everys ∈I.
+Wenowbuildupontheestimate( 2.30)asfollows.
+Lemma2.15 Under(C.5) or (C.6),wehave
+(︃∫︂
+I(t)
+k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+v(s)p μ(ds)
+)︃1p
+≤ ess sup
+s∈I(t)
+v0(s) 1
+(n!)
+m
+p
+(︃∫︂
+I(t)
+k(t,˜s)p μ(d˜s)
+)︃np
++ 1
+(n!)
+m
+p
+(︃∫︂
+I(t)
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n
+l(t,s)p μ(ds)
+)︃1p
+forany n ∈ℕand t∈I.Furthermore,equalityholdsinthefollowingcases :
+(i) The functionv0 isconstantand l vanishes.
+(ii) We havev0 =0 and,ifm ≥1,for everyi ∈{1,..., m}there exists a measurable
+function ˜li: Ii → [0,∞]such that
+li(ti,si)= ˜li(si) and
+∫︂
+Ii(ti)
+˜li(˜si)p μi(d˜si)< ∞
+for allsi,ti ∈Ii with si ≤ti.
+Consequently,Proposition 1.4entailstwo Lp-Gronwallsequenceinequalitiesofvarying
+sharpness.
+Corollary 2.16 Let (C.5) or (C.6) hold and let J⊆ I have full measure. If (un)n∈ℕ0 is a
+sequenceof [0,∞]-valuedmeasurablefunctionsonI satisfying (1.5)foralln ∈ℕandt ∈J,
+PAGE 20
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page20of31
+then
+un(t) ≤v(t)+wn(t)+
+n–2∑︂
+i=0
+(︃∫︂
+I(t)
+k(t,s)p
+(i!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃i
+v(s)p μ(ds)
+)︃1p
+≤v0(t)+wn(t)+ ess sup
+s∈I(t)
+v0(s)
+n–1∑︂
+i=1
+1
+(i!)
+m
+p
+(︃∫︂
+I(t)
+k(t,˜s)p μ(d˜s)
+)︃ip
++
+n–1∑︂
+i=0
+1
+(i!)
+m
+p
+(︃∫︂
+I(t)
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃i
+l(t,s)p μ(ds)
+)︃1p
+(2.31)
+forany n ∈ℕand t∈J,wherethemeasurablefunction w n: I → [0,∞]isgivenby
+wn(t):=
+(︃∫︂
+I(t)
+k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+u0(s)p μ(ds)
+)︃1p
+.
+Moreover,theﬁrstinequalityin (2.31)becomesanidentityifp =1,( 1.5)holdswithequality
+and either m=0 orcondition (2.28)holdsfor m ≥1.
+As a result, from either Corollary1.5or Corollary2.16wedirectlydeducetwotypesof
+Lp-Gronwallinequalities.
+Corollary 2.17 Let (C.5) or (C.6) be valid and assume that J⊆I has full measure. If the
+measurablefunctions u,u0: I → [0,∞]satisfy (1.8)and
+∫︂
+I(t)
+k(t,s)pu0(s)p μ(ds)< ∞
+forevery t ∈J,then
+u(t) ≤v(t)+
+∞∑︂
+n=0
+1
+(n!)
+m
+p
+(︃∫︂
+I(t)
+k(t,s)p
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n
+v(s)p μ(ds)
+)︃1p
+≤v0(t)+ ess sup
+s∈I(t)
+v0(s)
+∞∑︂
+n=1
+1
+(n!)
+m
+p
+(︃∫︂
+I(t)
+k(t,˜s)p μ(d˜s)
+)︃np
++
+∞∑︂
+n=0
+1
+(n!)
+m
+p
+(︃∫︂
+I(t)
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n
+l(t,s)p μ(ds)
+)︃1p
+(2.32)
+foreacht ∈J,andthelasttwoseriesareﬁniteforallt ∈I.Further,theﬁrstestimatein (2.32)
+becomes an identity if p=1, both inequalities in(1.8)hold with equality and either m=0
+or (2.28)issatisﬁedfor m ≥1.
+Example 2.18 Form=p=1,weobtainGronwallinequalitiesintimeandspacevariables.
+Namely,theestimatesin( 2.32)r educ et o
+u(t) ≤v(t)+
+∫︂
+I(t)
+k(t,s)e
+∫︁
+[s,t]k(t,˜s)μ(d˜s)v(s)μ(ds)
+≤v0(t)+
+(︃
+e
+∫︁
+I(t)k(t,s)μ(ds) –1
+)︃
+ess sup
+s′∈I(t)
+v0(s′)+
+∫︂
+I(t)
+e
+∫︁
+[s,t]k(t,˜s)μ(d˜s)l(t,s)μ(ds)
+PAGE 21
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page21of31
+for anyt ∈J.I fi n s t e a dm=0, then we recover Gronwall inequalities of Fredholm type in
+theLp-norm,sinc eint hiscase,t heestima t esin(2.32)bec ome
+u(t) ≤v(t)+ 11– ck,p
+(︃∫︂
+I
+k1(s)pv(s)p μ(ds)
+)︃1p
+≤v0(t)+ 11– ck,p
+(︃
+ck,p ess sup
+s′∈I
+v0(s′)+
+(︃∫︂
+I
+l1(s)p μ(ds)
+)︃1p )︃
+for allt ∈J,wheretheconstant ck,p := (︁∫︁Ik1(s)p μ(ds))︁1p satisﬁesck,p <1.
+2.4 Generalapplicationsoftheﬁxedpointresult
+We present two kinds of applications of Theorem1.10 in whichX is a metric space or
+(dt)t∈I is an increasing family of pseudometrics. In this connection, suﬃcient conditions
+fortheuniquenessofﬁxedpointsandthesequentialcontinuityof Ψ areprovided.
+Letusrecallthatinitially (dt)t∈I isafamilyof [0,∞]-valuedfunctionson X ×X satisfy-
+ing(1.13)and( 1.14)forall x, ˜x ∈X.Clearly,theremayexistasinglepremetric donX such
+that
+dt =d for allt ∈I,
+in which case the required completeness of(dt)t∈I in Theorem1.10 is equivalent to that
+of d. In particular, this includes spaces of maps endowed with the topology of uniform
+convergence.
+Example 2.19 (Supremum premetric) Suppose thatE is a premetrisable space andρ is
+a premetric inducing its topology. On the setEI of allE-valued maps onI,w ed e ﬁ n ea
+premetric d∞ by
+d∞(x, ˜x):= sup
+t∈I
+ρ
+(︁
+x(t), ˜x(t))︁.
+Then a sequence inEI converges with respect tod∞ ifandonlyif it convergesuniformly,
+andd∞ iscompleteif ρ is.Further,letuscallamap x: I →E boundedif
+sup
+t∈I
+ρ(x(t),u)< ∞ for someu ∈E.
+Then the set of allE-valued bounded maps onI is closed with respect tod∞.H e n c e ,
+assuming thatX ⊆ EI and d is the restriction ofd∞ to X ×X, the following statements
+hold:
+(1) If ρ is complete,thenX is closedinEI if andonlyif d is complete.
+(2) If ρ is ametric andX consistsof boundedmapsonly,then d is ametric.
+By extending Example2.19,w eo b t a i na ni n cr eas i n gfa m i l y(dt)t∈I ofpseudopremetrics
+andallowforspacesofmapsequippedwiththetopologyoflocaluniformconvergence.
+Example 2.20 Let E beapremetrisablespaceand ρ beapremetricinducingitstopology.
+We endowEI withthetopologyofconvergencewithrespecttothepseudopremetric d∞,t
+PAGE 22
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page22of31
+onEI givenby
+d∞,t(x, ˜x):= sup
+s∈I(t)
+ρ
+(︁
+x(s), ˜x(s))︁
+forall t ∈I.Thatis,asequencein EI convergestoamap x: I →Eifandonlyifitconverges
+uniformlyto xonI(t)foreach t ∈I.Then (d∞,t)t∈I iscompleteassoonas ρ is,andtheset
+{x: I →E |xisboundedon I(t)for allt ∈I}
+is closed. Thus, supposing thatX ⊆EI and dt is the restriction ofd∞,t to X ×X for each
+t ∈I,thefollowingstatements arevalid:
+(1) If ρ is complete,thenX is closedinEI if andonlyif (dt)t∈I is complete.
+(2) If ρ is ametric andeachx ∈X is boundedonI(t)for eacht ∈I,t hendt is a
+pseudometric for eacht ∈I.
+In particular, ifI is a locally compact metrisable space,I(t) is relatively compact for each
+t ∈I andforeverycompactset K inI,weha ve
+K ⊆I(t) for somet ∈I,
+then a sequence(xn)n∈ℕ in X converges to somex ∈X in the sense of (1.16)i fa n do n l yi f
+(xn)n∈ℕ convergeslocallyuniformlyto x.
+Next, we simplify the assumptions of Lemma1.9, thereby guaranteeing unique ﬁxed
+points.
+Lemma2.21 Under(C.1),eachof thefollowingconditionsentailsthesubsequentone :
+(i) Thefamily (dt)t∈I isincreasingand Iλ,μ,p(t)< ∞for allt ∈I.
+(ii) Anyt ∈I andx, ˜x ∈X with dt(x, ˜x)< ∞satisfy
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rλp,μ,n(t,s)Λ(s,x, ˜x)p μ(ds)
+)︃1p
+< ∞. (2.33)
+(iii) For allt ∈I andx, ˜x,x0 ∈X,the limiting identity(1.15)holdswhenever dt(x, ˜x)< ∞,
+while the requirement(1.17)issatisﬁed if dt(x0,Ψ(x0))< ∞.
+Inparticular,if dt < ∞foreach t ∈I andoneoftheseconditionsholds ,thenthereexistsat
+mostoneﬁxedpointof Ψ.
+Given t ∈I and a measurable functiong: I(t) →]0,∞[ satisfying
+∫︁
+I(t)g(s)μ(ds)< ∞,w e
+recall from [4, Theorem 21.8] that a sequence(fn)n∈ℕ of [0,∞]-valued measurable func-
+tionson I(t)isuniformlyintegrableifandonlyif
+lim
+α→∞
+sup
+n∈ℕ
+∫︂
+I(t)
+fn(s)1{fn≥αg}(s)μ(ds)=0.
+Thus,thesequentialcontinuityof Ψ requiredinTheorem 1.10canbeensuredasfollows.
+Lemma 2.22 Let (C.1) and (C.2) be valid. Then each of the following statements implies
+thesubsequentone :
+PAGE 23
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page23of31
+(i) Thefamily (dt)t∈I isincreasingand
+∫︁
+I(t)λ(t,s)p μ(ds)< ∞for allt ∈I.
+(ii) For eacht ∈I and every sequence(xn)n∈ℕ inX that converges tosomex ∈X,there
+exists n0 ∈ℕ0 such that(λ(t,·)pΛ(·,xn+n0,x)p)n∈ℕ isuniformlyintegrable .
+(iii) Theoperator Ψ is sequentially continuous.
+TomotivateapplicationsofTheorem 1.10when (I,ℐ)ismerelyameasurablespaceand
+X isametricspace,werecallExample 2.19andgeneraliseExample 1.11asfollows.
+Example 2.23 Let ≤ be trivial anddt = d for allt ∈ I,w h e r ed is a metric inducing the
+topologyof X.T hen(C.1) followsfromthefollowingregularityconditionon Ψ:
+(1) Thereare Λ: I ×X ×X → [0,∞],a σ-ﬁnite measureμon (I,ℐ),p ≥1anda
+measurable functionλ: I → [0,∞]suchthat Λ(·,x, ˜x)is measurable,
+d
+(︁
+Ψ(x),Ψ(˜x))︁ ≤ (︃∫︂
+I
+λ(t)pΛ(t,x, ˜x)p μ(dt)
+)︃1p
+and Λ(·,x, ˜x) ≤d(x, ˜x)for allx, ˜x ∈X.
+Hence,let condition (1) holdandλ0 := (︁∫︁Iλ(t)p μ(dt))︁1p be ﬁnite. Thenλ0 isaLipschitz
+constant ofΨ and,assuming λ0 <1,thefollowingstatementshold:
+(2) Theconditions( 1.15)and( 1.17)aresatisﬁedforall t ∈I andx, ˜x,x0 ∈X,andt her eis
+atmostoneﬁxedpointof Ψ in viewof Example2.3and Lemma2.21.
+(3) Ifd iscomplete, then,byTheorem 1.10, Ψ hasaunique ﬁxedpoint ˆx,whi c hf oran y
+x0 ∈X isthelimit ofthesequence (xn)n∈ℕ inX recursively given byxn := Ψ(xn–1).
+Moreover, (1.18)bec omes
+d(xn, ˆx) ≤
+(︃∫︂
+I
+λ(t)pΛ(t,x0,Ψ(x0))p μ(dt)
+)︃1p λn–10
+1– λ0
+for eachn ∈ℕ, and this bound cannot exceed the error estimated(x0,Ψ(x0))
+λn0
+1–λ0 in
+Banach’sﬁxedpointtheorem.
+Finally,basedonExample 2.20,letusconsiderapplicationsofTheorem 1.10whendt is
+apseudometricbut Ψ mayfailtobeacontractionrelativeto dt for anyt ∈I.
+Example 2.24 Let I be a non-degenerate interval inℝ, ℐ = ℬ(I) and ≤ be the standard
+order.Then thefollowingregularityconditionon Ψ implies(C.1):
+(1) Thereare Λ: I ×X ×X → [0,∞],a σ-ﬁnite Borel measureμonI,p ≥1anda
+non-negativekernel λonI satisfying( 2.3)suc ht ha tΛ(·,x, ˜x)is measurable,
+dt
+(︁
+Ψ(x),Ψ(˜x)
+)︁
+≤
+(︃∫︂
+I(t)
+λ(t,s)pΛ(s,x, ˜x)p μ(ds)
+)︃1p
+,
+Λ(t,x, ˜x) ≤dt(x, ˜x)and μ({t})=0 for allt ∈I andx, ˜x ∈X.
+Thus, suppose that(dt)t∈I isanincreasingfamilyofpseudometrics,condition(1)holds
+andthemeasurablefunction λ0: I → [0,∞]deﬁnedby
+λ0(t):=
+(︃∫︂
+I(t)
+λ(t,s)p μ(ds)
+)︃1p
+PAGE 24
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page24of31
+is ﬁnite. Thenλ0(t) is a Lipschitz constant ofΨ with respect todt for eacht ∈I,a n dt h e
+followingassertionshold:
+(2) Conditions (1.15)and( 1.17) arevalid forallt ∈I andx, ˜x,x0 ∈X,andt her ei sa t
+mostone ﬁxedpointof Ψ,byExam ple2.2andLemma 2.21.
+(3) If (dt)t∈I is complete,then Ψ hasa unique ﬁxedpoint ˆx,byT heor em1.10.Int hi s
+case, from the error estimate (1.18) forthePicard sequence (xn)n∈ℕ weobtain
+dt(xn, ˆx) ≤
+∞∑︂
+i=n
+(︃∫︂
+I(t)
+λ(t,s)p
+(i–1 )!
+(︃∫︂ t
+s
+λ(t,˜s)p μ(d˜s)
+)︃i–1
+Λ(s,x0,Ψ(x0))p μ(ds)
+)︃1p
+≤dt
+(︁
+x0,Ψ(x0)
+)︁ ∞∑︂
+i=n
+(︃1
+i!
+)︃1p
+λ0(t)i
+for alln ∈ℕandt ∈I.Furthermore,thelasttermconvergestozeroas n →∞,sinc e
+theradius ofconvergence ofthepowerseries representing E1,1,p,given generally
+by (2.20), is inﬁnite.
+Aﬁxedpointmethodofthistypeappliestothederivationofuniquestrongsolutionsto
+SDEs and stochastic Volterra equations, both with regular path-dependent coeﬃcients,
+and to McKean–Vlasov SDEs, as demonstrated in [8,P r o p o s i t i o n5 ] ,[21, Lemmas 1.1
+and2.2],[ 24,Theorem3.24]and[ 23,Theorem3.1].
+3 Proofsofthemainandconsequentialresults
+3.1 Proofsoftheresolventinequalitiesandtheﬁxedpointtheorem
+ProofofLemma 1.1 The asserted estimate follows by induction, since ifun ≤ Ψ◦n(u0) on
+J for somen ∈ℕ,t h e nun+1 ≤ Ψ(un) ≤ Ψ(Ψ◦n(u0))= Ψ◦(n+1)(u0) on J.F u rt h e rm o r e ,i ft h e
+inequalitiesin( 1.1)and( 1.2)holdasidentities,thenthetwoinequalitiesinthepreceding
+implicationbecomeequalitieswhenever un = Ψ◦n(u0)onJ for thisn ∈ℕ. □
+ProofofProposition 1.4 ByLemma 1.1andExample 1.3,itsuﬃcestoconsiderthecaseof
+equalityin( 1.5).Thatis, un = Ψ◦n(u0)onJ forall n ∈ℕ,where 𝒟denotestheconvexcone
+ofall [0,∞]-valuedmeasurablefunctionson I,theoperator Ψ: 𝒟 →𝒟 isgivenby
+Ψ(u)(t):=v(t)+
+(︃∫︂
+I(t)
+k(t,s)pu(s)p μ(ds)
+)︃1p
+and Ψ◦n is then-fold composition ofΨ with itself. We proceed by induction onn ∈ ℕ.
+Since forn=1, the claimed estimate coincides with the imposed equation (1.5), we may
+assumethattheassertionholdsforsome n ∈ℕ.T hen
+un+1(t) ≤v(t)+
+(︃∫︂
+I(t)
+k(t,s)pv(s)p μ(ds)
+)︃1p
++
+n–1∑︂
+i=1
+(︃∫︂
+I(t)
+∫︂
+[s,t]
+k(t,˜s)pRkp,μ,i(˜s,s)μ(d˜s)v(s)p μ(ds)
+)︃1p
++
+(︃∫︂
+I(t)
+∫︂
+[s,t]
+k(t,˜s)pRkp,μ,n(˜s,s)μ(d˜s)u0(s)p μ(ds)
+)︃1p
+(3.1)
+PAGE 25
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page25of31
+for allt ∈ J, by the induction hypothesis, Minkowski’s inequality and Fubini’s theorem.
+Nowthedesired estimatefollowsfromthegeneralrecursivedescriptionin( 1.3).
+Furthermore,for p=1or v=0,wedonotneedtoapplyMinkowski’sinequality,and( 3.1)
+becomes an identity whenever equality holds in the induction hypothesis (1.6)f o re a c h
+t ∈J. □
+Proof ofCorollary 1.5 The assertion follows from Proposition1.4 by choosingun =u for
+alln ∈ℕ,sincetheincreasingsequence
+(︃ n–1∑︂
+i=1
+(︃∫︂
+I(t)
+Rkp,μ,i(t,s)v(s)p μ(ds)
+)︃1p )︃
+n∈ℕ
+convergestoitssupremumforeach t ∈I andthecondition( 1.7)holdsforevery t ∈J. □
+ProofofLemma 1.9 Let x and ˜x be ﬁxed points ofΨ.T h e nu,u0: I → [0,∞] given by
+u(t) := dt(x, ˜x) and u0(t) := Λ(t,x, ˜x) are measurable functions satisfyingu0(t) ≤ u(t) and
+u(t)p ≤ ∫︁I(t)λ(t,s)pu0(s)p μ(ds) for all t ∈ I. Consequently, Corollary1.5 implies u =0 ,
+whichinturnyields x= ˜xbycondition( 1.13). □
+Proof ofTheorem1.10 It suﬃces to prove the existence and convergence assertions, as
+uniqueness is ensured by Lemma1.9.T ot h i se n d ,w ee s t a b l i s ht h a t(xn)n∈ℕ is a Cauchy
+sequence.First,
+dt(xn,xn+1) ≤
+(︃∫︂
+I(t)
+Rλp,μ,n(t,s)Λ(s,x0,Ψ(x0))p μ(ds)
+)︃1p
+forall n ∈ℕandt ∈I,byvirtueofProposition 1.4.Therefore,thetriangleinequalityentails
+dt(xn,xm) ≤
+m–1∑︂
+i=n
+(︃∫︂
+I(t)
+Rλp,μ,i(t,s)Λ(s,x0,Ψ(x0))p μ(ds)
+)︃1p
+(3.2)
+for anym,n ∈ℕ satisfying m>n.T h u s,(xn)n∈ℕ is a Cauchy sequence with respect to the
+pseudopremetricdt,thatis, limn→∞ supm∈ℕ:m≥n dt(xn,xm)=0.Since t ∈Iisarbitrary,there
+exists a uniqueˆx ∈X to which(xn)n∈ℕ converges.
+Asaresult,theerrorestimate( 1.18)followsfrom( 3.2)bypassingtothelimitas m →∞.
+Finally,thesequentialcontinuityof Ψimplies limn→∞ xn+1 = Ψ(ˆx),whichdirectlyconﬁrms
+theidentity ˆx= Ψ(ˆx). □
+ProofofLemma 2.21 Since the second assertion is a direct consequence of Lemma1.9,
+it remains to verify the two claimed implications. We note that (i) implies (ii), since
+from(C.1) weobtain
+∞∑︂
+n=1
+(︃∫︂
+I(t)
+Rλp,μ,n(t,s)Λ(s,x, ˜x)p μ(ds)
+)︃1p
+≤dt(x, ˜x)Iλ,μ,p(t)
+for allt ∈ I and x, ˜x ∈ X. Next, (ii) implies (iii), because the limit (1.15)i sn e c e s s a r yf o r
+condition(2.33)toholdforany t ∈Iandx, ˜x ∈X.Moreover ,(1.17)isaspecialcaseof( 2.33)
+whenx=x0 and ˜x= Ψ(x0)for eachx0 ∈X. □
+PAGE 26
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page26of31
+ProofofLemma 2.22 Toshowthat(i)implies(ii),let t ∈I and (xn)n∈ℕ beasequencein X
+converging to somex ∈X.Thenthereexist n0 ∈ℕ0 andc ≥0s u c ht h a t
+Λ(s,xn+n0,x) ≤dt(xn+n0,x) ≤c
+for alln ∈ℕands ∈I(t).T h us,(λ(t,·)pΛ(·,xn+n0,x)p)n∈ℕ isdominatedbya [0,∞]-valued,
+measurableandintegrablefunction,ensuringthatthesequenceisuniformlyintegrable.
+Tocheckthat(ii)implies(iii),let x ∈X bethelimitofasequence (xn)n∈ℕ inX.By (C.1),
+limn→∞ Λ(s,xn,x)=0forall s ∈I.Hence,thecharacterisationofconvergencein pthmean
+in[4,Theorem21.4andCorollary21.5]yields
+lim
+n→∞
+∫︂
+I(t)
+λ(t,s)pΛ(s,xn,x)p μ(ds)=0
+for eacht ∈I.Thisallowsustoconcludethat limn→∞ Ψ(xn)= Ψ(x). □
+3.2 Proofsoftheresultsonkernelsandresolventsequences
+ProofofLemma 2.5 There isnt ∈ ℕ such that
+∫︁
+I(t)Rkp,μ,n(t,s)u0(s)p μ(ds) is bounded by
+∥kn(t,·)∥pn,t∥ln(t,·)up0∥qn,t foreach n ∈ℕwithn ≥nt,byHölder’sinequality.Thisestimate
+impliestheclaimsofthelemma. □
+ProofofLemma 2.7 We show the two assertions by induction. In the base casen=1,the
+claims follow from the deﬁnition Rk,μ,1,j = kj =R kj,μ,1 for allj ∈{ 1,..., N}.S u p p o s en e x t
+that the two claims hold for somen ∈ℕ.
+Then the recursive deﬁnitions (1.3)a n d(2.10) directly imply that Rk,μ,n+1,(i,...,i)(t,s) =∫︁
+[s,t]ki(t,˜s)Rk,μ,n,(i,...,i)(˜s,s)μ(d˜s)=Rki,μ,n+1(t,s)and
+Rk,μ,n+1(t,s)=
+∑︂
+jn+1∈{1,...,N}
+∑︂
+j∈{1,...,N}n
+∫︂
+[s,t]
+kjn+1 (t,˜s)Rk,μ,n,(j1,...,jn)(˜s,s)μ(d˜s)
+for all s,t ∈ I with s ≤ t. Since the expression on the right-hand side simpliﬁes to∑︁
+j∈{1,...,N}n+1 Rk,μ,n+1,j(t,s),theinduction proofiscomplete. □
+ProofofProposition 2.8 (i)Weverify alltheassertions inductively. Inthebase case n=1,
+therepresentation f1,j(x,y)=xαj–1y–βj forall j ∈{1,..., N}andx,y>0directlyshowsthat f1,j
+is ]0,∞[-valued,decreasinginthesecondvariableandcontinuous.Furthermore,equality
+holdsin( 2.15)forany x,y>0.
+Next, assume that the claims hold for somen ∈ℕ.T h e nf o re a c hj ∈{1,..., N}n+1,t h e
+function gn+1,j: ]0,∞[×]0,∞[×]0,1 [→]0,∞[deﬁnedvia
+gn+1,j(x,y,λ):= (1– λ)αjn+1–1(λx+y)–βjn+1 fn,(j1,...,jn)(λx,y)
+isdecreasinginthesecondvariableandcontinuous.Hence,therecursivedeﬁnition( 2.14)
+and Fubini’s theorem ensure thatfn+1,j is ]0,∞]-valued, decreasing in the second variable
+andmeasurable.Moreover,
+gn+1,j(x,y,λ) ≤cn,(j1,...,jn)(1– λ)αjn+1–1(λx+y)–βjn+1 (λx)βj1–1+∑︁ni=1 αji–βji y–βj1
+PAGE 27
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page27of31
+≤cn,(j1,...,jn)x–1+∑︁ni=1 αji–βji+1 y–βj1 (1– λ)αjn+1–1λ–1+∑︁ni=1 αji–βji+1
+forall x,y>0and λ ∈]0,1 [.Here,theﬁrstandsecondinequalitiesholdwithequalityif βj1 =
+··· = βjn =0a n dβjn+1 = 0, respectively. By dominated convergence,fn+1,j is sequentially
+continuous,andweobtainthat
+fn+1,j(x,y)=xαjn+1
+∫︂ 1
+0
+gn+1,j(x,y,λ)dλ
+≤cn,(j1,...,jn)xαjn+1 y–βj1
+∫︂ 1
+0
+(1– λ)αjn+1–1(λx+y)–βjn+1 (λx)βj1–1+∑︁ni=1 αji–βji dλ
+≤cn,(j1,...,jn)B
+(︃ n∑︂
+i=1
+αji – βji+1,αjn+1
+)︃
+xβj1–1+∑︁n+1i=1 αji–βji y–βj1
+for anyx,y > 0, and equality holds wheneverβj1 = ··· = βjn+1 = 0. By deﬁnition, we have
+cn,(j1,...,jn)B(∑︁ni=1 αji – βji+1,αjn+1 )=cn+1,j,which completestheinductionproof.
+(ii) Clearly,αj1 – βj2 + ··· + αji – βji+1 ≥ (α0 – β∞)i for alli,n ∈ ℕ with i +1 ≤ n and
+j ∈{1,..., N}n.Since B isdecreasinginbothvariables, thisyields
+cn,j ≤
+n–1∏︂
+i=1
+B
+(︁
+(α0 – β∞)i,α0
+)︁
+= ˆcnΓ(α0)n
+Γ((α0 – β∞)n+ β∞)
+forany n ∈ℕ,andequalityholds,providedthat α1 = ··· = αN and β1 = ··· = βN.T hus,the
+ﬁrsttwoassertionsareveriﬁed.
+Regardingthethirdclaim,wenotethat ˆcn = ˆcnΓ
+∏︁n–1
+i=nΓ
+Γ((α0–β∞)i)
+Γ((α0–β∞)i+β∞) ≤ ˆcnΓ foreach n ∈ℕ
+withn>nΓ,since xΓ ≤ (α0–β∞)i ≤ (α0–β∞)i+β∞ forall i ∈ℕwithi ≥nΓ and Γisstrictly
+increasingon [xΓ,∞[.
+(iii) As the pointwise limit of the sequence(∑︁ni=1 ∑︁j∈{1,...,N}i fi,j)n∈ℕ of partial sums,f
+is ]0,∞]-valued, decreasing in the second variable and measurable. Moreover, from the
+estimates(2.15)and( 2.16)weinf ert ha t
+fn,j(x,y) ≤ ˆcnΓ(α0)n
+Γ((α0 – β∞)n+ β∞)
+φβ∞,β0 (x)
+xφβ∞,β0 (y)φα0–β∞,α∞–β0 (x)n
+for alln ∈ℕ, j ∈{1,..., N}n and x,y> 0, where equality holds ifN =1a n dβ =0.H e n c e ,
+theclaimedestimateisvalid,anditbecomesanidentityintheassertedcase.By( 2.12),the
+aforementioned sequence of partial sums converges locally uniformly tof,e n s u r i n gt h e
+continuity off. □
+ProofofProposition 2.12 (i) It suﬃces to show the ﬁrst claim, as the representations of
+I(t) and [r,t] for anyr,t ∈I with r ≤t follow immediately from the deﬁnition of≤.T h i s
+deﬁnition alsoentailsthatthetriangularset Δisoftheform
+Δ=
+{︁
+(t,s) ∈I ×I | (ti,si) ∈ Δi for alli ∈{1,..., m}
+}︁
+=f–1(Δ1 ×···× Δm),
+wherethemap f : I ×I → (I1 ×I1)×···× (Im ×Im)isgivenby f (t,s):= (t1,s1,..., tm,sm).By
+endowing (I1 ×I1)×···× (Im ×Im)withtheproduct σ-algebra (ℐ1 ⊗ℐ1)⊗···⊗ (ℐm ⊗ℐm),
+wereadilycheckthat f isproductmeasurable.
+PAGE 28
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page28of31
+(ii) We prove the estimate (2.25) for alls,t ∈ I with s ≤ t by induction onn ∈ ℕ and
+directly proceed to the induction step, since in the base casen=1,wehaveR k,μ,1 =k and
+Rki,μi,1 =ki for alli ∈{1,..., m}.Thentherecursionin( 1.3)yie lds
+Rk,μ,n+1(t,s)=
+∫︂
+[s,t]
+k(t,˜s)Rk,μ,n(˜s,s)μ(d˜s)
+≤
+∫︂
+[s1,t1]×···×[sm,tm]
+m∏︂
+i=1
+ki(ti,˜si)Rki,μi,n(˜si,si)μ1 ⊗···⊗ μm(d˜s)
+=
+m∏︂
+i=1
+∫︂
+[si,ti]
+ki(ti,˜si)Rki,μi,n(˜si,si)μi(d˜si)=
+m∏︂
+i=1
+Rki,μi,n+1(ti,si),
+(3.3)
+by virtue of the inequalities (2.24) and Fubini’s theorem. In particular, if equality holds
+in(2.24)and( 2.25), then the inequalityin (3.3)becomesanidentity.
+Consequently, givent ∈ I,t h ee s t i m a t e s(2.26) follow from the deﬁnition of Ik,μ,p(t)
+in (1.10) by employing the bound (2.25) for alln ∈ℕ and s ∈I(t). Furthermore, the ﬁrst
+estimatein( 2.26)becomesanidentity wheneverequalityholdsin( 2.24). □
+3.3 ProofsoftheGronwallinequalities
+ProofofProposition 2.14 T h ef a c tt h a t(2.27) becomes an identity form=0 follows from
+Example2.3.Int hecase m ≥1,werecallfromExample 2.2that
+Rkpi ,μi,n(ti,si) ≤ ki(ti,si)p(n–1 )! (︃∫︂ tisi ki(ti,˜si)p μi(d˜si))︃n–1
+forall i ∈{1,..., m},n ∈ℕandsi,ti ∈Ii withsi ≤ti,whereequalityholdsifcondition( 2.28)
+issatisﬁed.Furthermore,Fubini’stheoremyields
+∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)=
+∫︂
+Im+1
+km+1(˜sm+1)p μm+1(d˜sm+1)
+m∏︂
+i=1
+∫︂ ti
+si
+ki(ti,˜si)p μi(d˜si)
+for anys,t ∈ I with s ≤ t. Thus, an application of Proposition2.12 shows the asserted
+estimate(2.27)f oreac hn ∈ℕ.Moreexplicitly,weobtain
+Rkp,μ,n(t,s)=km+1(sm+1)p
+(︃∫︂
+Im+1
+km+1(˜sm+1)p μm+1(d˜sm+1)
+)︃n–1 m∏︂
+i=1
+Rkpi ,μi,n(ti,si)
+≤ k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+.
+For the proof of the second claim, note that (2.29) is a necessary condition for (2.4)t o
+hold for eacht ∈I,a sRkp,μ,1 =kp. Conversely, from the derived estimate (2.27)w ei n f e r
+that
+∫︂
+I(t)
+Rkp,μ,n(t,s)u0(s)p μ(ds) ≤ cm(t)n–1
+((n–1 )!)m
+∫︂
+I(t)
+k(t,s)pu0(s)p μ(ds)
+PAGE 29
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page29of31
+for alln ∈ ℕ and t ∈ I,w h e r ecm(t) := ∫︁I(t)k(t,s)p μ(ds) is ﬁnite. Indeed, we havec0(t) =∫︁
+Ik1(s)p μ(ds),andFubini’stheoremensurestherepresentation
+cm(t)=
+∫︂
+Im+1
+km+1(sm+1)p μm+1(dsm+1)
+m∏︂
+i=1
+∫︂
+Ii(ti)
+ki(ti,si)p μi(dsi)
+whenever m ≥ 1. Hence, if cm(t) or
+∫︁
+I(t)k(t,s)pu0(s)p μ(ds) vanishes, then so does∫︁
+I(t)Rkp,μ,n(t,s)u0(s)p μ(ds) for alln ∈ ℕ.O t h e r w i s e ,t h es e r i e si n(2.4)i sd o m i n a t e db ya
+convergentseries,astheratiotestshows:
+lim
+n→∞
+(︃cm(t)n
+(n!)m
+((n–1 )!)m
+cm(t)n–1
+)︃1p
+= lim
+n→∞
+(︃cm(t)
+nm
+)︃1p
+=
+⎧
+⎨
+⎩
+(︁∫︁
+Ik1(s)p μ(ds))︁1p form=0,
+0f o r m ≥1.
+Finally,since
+∫︁
+I(t)k(t,s)p μ(ds)< ∞for eacht ∈I,theﬁrstpartofthethirdclaimfollows
+fromthesecondassertionfor u0 =1,andthesecondpartisreadilyseen. □
+ProofofLemma 2.15 By virtue of Minkowski’s inequality, we may assume thatv0 =1and
+l=0,or v0 =0.Intheﬁrstcase,theassertedboundbecomestheidentity
+∫︂
+I(t)
+k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1
+μ(ds)= 1(n!)m
+(︃∫︂
+I(t)
+k(t,s)p μ(ds)
+)︃n
+(3.4)
+forall n ∈ℕandt ∈I,whichisclearlysatisﬁedif m=0.F orm ≥1,wederive( 3.4)byusing
+Fubini’stheoremandtheformula
+∫︂
+Ii(ti)
+ki(ti,si)p
+(n–1 )!
+(︃∫︂ ti
+si
+ki(ti,˜si)p μi(d˜si)
+)︃n–1
+μi(dsi)= 1n!(︃∫︂Ii(ti)ki(ti,si)p μi(dsi))︃n
+for each i ∈{ 1,..., m}, which follows from the fundamental theorem of calculus for
+Riemann–Stieltjes integrals and monotone convergence. In the second case whenv0 =0,
+the claimed estimate reducesto
+∫︂
+I(t)
+k(t,s)p
+((n–1 )!)m
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n–1 ∫︂
+I(s)
+l(s,r)p μ(dr)μ(ds)
+≤ 1(n!)m
+∫︂
+I(t)
+(︃∫︂
+[s,t]
+k(t,˜s)p μ(d˜s)
+)︃n
+l(t,s)p μ(ds),
+(3.5)
+which becomes an equality ifm =0 .F o rm ≥ 1, we deduce (3.5) by combining Fubini’s
+theorem with the formula
+∫︂
+Ii(ti)
+ki(ti,si)p
+(n–1 )!
+(︃∫︂ ti
+si
+ki(ti,˜si)p μi(d˜si)
+)︃n–1 ∫︂
+Ii(si)
+li(ti,ri)p μi(dri)μi(dsi)
+= 1n! ∫︂Ii(ti)(︃∫︂ tisi ki(ti,˜si)p μi(d˜si))︃nli(ti,si)p μi(dsi)
+for eachi ∈{ 1,..., m}. This identity is implied by the fundamental theorem of calculus
+for Riemann–Stieltjes integrals, integration by parts and monotone convergence. Hence,
+ifl1,..., lm satisfytheconditionsincase(ii),then( 3.5)holdswit hequality . □
+PAGE 30
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page30of31
+Proof ofCorollary 2.16 Theﬁrstclaimedestimate,whichbecomesanidentityinthestated
+cases, follows immediately from Proposition1.4 by employing the bound (2.30) for any
+n ∈ℕandt ∈J.The secondinequalityisadirectconsequenceofLemma 2.15. □
+Proof ofCorollary 2.17 The condition (2.4), which implies (1.7), holds for eacht ∈ J by
+Proposition2.14.Thus,weobtaintheﬁrstassertedinequality,whichbecomesanidentity
+in the stated cases, by applying Corollary1.5together with the bound (2.30) for alln ∈ℕ
+andt ∈J.ThesecondestimatefollowsdirectlyfromLemma 2.15.
+Alternatively,theclaimedinequalitiescanbededucedfromCorollary 2.16bychoosing
+un =uforall n ∈ℕ,sincethesequence (wn)n∈ℕ of [0,∞]-valuedmeasurablefunctionson
+I appearingthereconvergespointwise to zero.
+Moreover, the last two series in (2.32) converge for eacht ∈ I,s i n c e
+∫︁
+I(t)k(t,s)p μ(ds)
+and
+∫︁
+I(t)l(t,s)p μ(ds)areﬁnite.Infact,if ∫︁I(t)k(t,s)p μ(ds)=0,thentheﬁrstseriesvanishes.
+Otherwise,weapplytheratiotesttoseethattheﬁrstseriesconverges,whichensuresthe
+convergence of the second. □
+Acknowledgements
+Theauthorisgratefultotwoanonymousrefereesfortheirconstructivecomments,whichwerehelpfulinimprovingthe
+qualityofthepaper.
+Authorcontributions
+Theauthorisresponsibleforthecontentofthepaper.
+Fundinginformation
+OpenAccessfundingenabledandorganizedbyProjektDEAL.
+Dataavailability
+Nodatasetsweregeneratedoranalysedduringthecurrentstudy.
+Declarations
+Competinginterests
+Theauthordeclaresnocompetinginterests.
+Received:23May2025 Accepted:14September2026
+References
+1. Almeida,R.:AGronwallinequalityforageneralCaputofractionaloperator.Math.Inequal.Appl. 20(4),1089–1105
+(2017)
+2. Amann,H.:OrdinaryDiﬀerentialEquations.DeGruyterStudiesinMathematics,vol.13.deGruyter,Berlin(1990)An
+introductiontononlinearanalysis.TranslatedfromtheGermanbyGerhardMetzen
+3. Banach,S.:Surlesopérationsdanslesensemblesabstraitsetleurapplicationauxéquationsintégrales.Fundam.
+Math.3,133–181(1922)
+4. Bauer,H.:MeasureandIntegrationTheory.DeGruyterStudiesinMathematics,vol.26.deGruyter,Berlin(2001)
+TranslatedfromtheGermanbyRobertB.Burckel
+5. Bellman,R.:Thestabilityofsolutionsoflineardiﬀerentialequations.DukeMath.J. 10,643–647(1943)
+6. Chu,S.C.,Metcalf,F.T.:OnGronwall’sinequality.Proc.Am.Math.Soc. 18,439–440(1967)
+7. Coddington,E.A.,Levinson,N.:TheoryofOrdinaryDiﬀerentialEquations.McGraw-HillBookCo.,Inc.,NewYork(1955)
+8. Cont,R.,Kalinin,A.:Onthesupportofsolutionstostochasticdiﬀerentialequationswithpath-dependentcoeﬃcients.
+Stoch.Process.Appl. 130(5),2639–2674(2020)
+9. daCostaSousa,J.V.,CapelasdeOliveira,E.:AGronwallinequalityandtheCauchy-typeproblembymeansof ψ-Hilfer
+operator .Diﬀer .Equ.Appl.11(1),87–106(2019)
+10. Gripenberg,G.,Londen,S.-O.,Staﬀans,O.:VolterraIntegralandFunctionalEquations.EncyclopediaofMathematics
+andItsApplications,vol.34.CambridgeUniversityPress,Cambridge(1990)
+11. Groh,J.:AnonlinearVolterra-StieltjesintegralequationandaGronwallinequalityinonedimension.Ill.J.Math. 24(2),
+244–263(1980)
+12. Gronwall,T.H.:Noteonthederivativeswithrespecttoaparameterofthesolutionsofasystemofdiﬀerential
+equations.Ann.Math.(2) 20(4),292–296(1919)
+13. Hartman,P.:OrdinaryDiﬀerentialEquations.ClassicsinAppliedMathematics,vol.38.SIAM,Philadelphia(2002)
+Correctedreprintofthesecond(1982)edition[Birkhäuser,Boston,MA;MR0658490(83e:34002)].Withaforewordby
+Peter Bates
+PAGE 31
+KalininJournalofInequalitiesandApplications        (2026) 2026:107 Page31of31
+14. Haubold,H.J.,Mathai,A.M.,Saxena,R.K.:Mittag-Leﬄerfunctionsandtheirapplications.J.Appl.Math. 51,298628
+(2011)
+15. Headley,V.B.:AmultidimensionalnonlinearGronwallinequality.J.Math.Anal.Appl. 47,250–255(1974)
+16. Helton,B.W.:AproductintegralrepresentationforaGronwallinequality.Proc.Am.Math.Soc. 23,493–500(1969)
+17. Henry,D.:GeometricTheoryofSemilinearParabolicEquations.LectureNotesinMathematics,vol.840.Springer,
+Berlin(1981)
+18. Herod,J.V.:AGronwallinequalityforlinearStieltjesintegrals.Proc.Am.Math.Soc. 23,34–36(1969)
+19. Ikeda,N.,Watanabe,S.:StochasticDiﬀerentialEquationsandDiﬀusionProcesses,2ndedn.North-Holland
+MathematicalLibrary,vol.24.North-Holland,Amsterdam(1989)
+20. Jones,G.S.:Fundamentalinequalitiesfordiscreteanddiscontinuousfunctionalequations.J.Soc.Ind.Appl.Math. 12,
+43–57(1964)
+21. Kalinin,A.:Supportcharacterizationforregularpath-dependentstochasticVolterraintegralequations.Electron.J.
+Probab.26,29(2021)
+22. Kalinin,A.:StochasticVolterraequationswithrandomfunctionalcoeﬃcientsinBanachspaces(2026).arXivpreprint.
+arXiv:2602.09922
+23. Kalinin,A.,Meyer-Brandis,T.,Proske,F.:Stability,uniquenessandexistenceofsolutionstoMcKean–VlasovSDEs:a
+multidimensionalYamada–Watanabeapproach.Stoch.Dyn. 24(5),2450039(2024)
+24. Kalinin,A.,Meyer-Brandis,T.,Proske,F.:Stability,uniquenessandexistenceofsolutionstoMcKean-Vlasovstochastic
+diﬀerentialequationsinarbitrarymoments.J.Theor.Probab. 37(4),2941–2989(2024)
+25. Karatzas,I.,Shreve,S.E.:BrownianMotionandStochasticCalculus,2ndedn.GraduateTextsinMathematics,vol.113.
+Springer,NewYork(1991)
+26. Lin,S.-y.:GeneralizedGronwallinequalitiesandtheirapplicationstofractionaldiﬀerentialequations.J.Inequal.Appl.
+2013(549),9(2013)
+27. Liu,Z.,Xu,X.,Zhou,T.:Finite-timemultistabilityofamultidirectionalassociativememoryneuralnetworkwith
+multiplefractionalordersbasedonageneralizedGronwallinequality.NeuralComput.Appl.,1–23(2024)
+28. Magnus,R.:EssentialOrdinaryDiﬀerentialEquations.Springer,Berlin(2023)
+29. Mao,X.:StochasticDiﬀerentialEquationsandApplications,2ndedn.HorwoodPublishingLimited,Chichester(2008)
+30. Pachpatte,B.G.:OnsomegeneralizationsofBellman’slemma.J.Math.Anal.Appl. 51,141–150(1975)
+31. Pachpatte,B.G.:InequalitiesforDiﬀerentialandIntegralEquations.MathematicsinScienceandEngineering,vol.197.
+AcademicPress,SanDiego(1998)
+32. Rasmussen,D.L.:Gronwall’sinequalityforfunctionsoftwoindependentvariables.J.Math.Anal.Appl. 55(2),407–417
+(1976)
+33. Revuz,D.,Yor,M.:ContinuousMartingalesandBrownianMotion,3rdedn.Grundlehrendermathematischen
+Wissenschaften[FundamentalPrinciplesofMathematicalSciences],vol.293.Springer,Berlin(1999)
+34. Schmaedeke,W.W.,Sell,G.R.:TheGronwallinequalityformodiﬁedStieltjesintegrals.Proc.Am.Math.Soc. 19,
+1217–1222(1968)
+35. Snow,D.R.:Gronwall’sinequalityforsystemsofpartialdiﬀerentialequationsintwoindependentvariables.Proc.Am.
+Math.Soc. 33,46–54(1972)
+36. Webb,J.R.L.:WeaklysingularGronwallinequalitiesandapplicationstofractionaldiﬀerentialequations.J.Math.Anal.
+Appl.471(1–2),692–711(2019)
+37. Willett,D.:AlineargeneralizationofGronwall’sinequality.Proc.Am.Math.Soc. 16,774–778(1965)
+38. Wright,F.M.,Klasi,M.L.,Kennebeck,D.R.:TheGronwallinequalityforweightedintegrals.Proc.Am.Math.Soc. 30,
+504–510(1971)
+39. Ye,H.,Gao,J.,Ding,Y.:AgeneralizedGronwallinequalityanditsapplicationtoafractionaldiﬀerentialequation.J.
+Math.Anal.Appl. 328(2),1075–1081(2007)
+40. Zhang,Z.,Wei,Z.:AgeneralizedGronwallinequalityanditsapplicationtofractionalneutralevolutioninclusions.J.
+Inequal.Appl. 2016,45(2016)
+Publisher’snote
+SpringerNatureremainsneutralwithregardtojurisdictionalclaimsinpublishedmapsandinstitutionalaﬃliations.

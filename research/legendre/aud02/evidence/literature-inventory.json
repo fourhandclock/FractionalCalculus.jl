@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-25T21:23:42.607850+00:00",
+  "authorized_scope": "primary literature search/download only; no dependency acquisition",
+  "download_options": [
+    "--fail",
+    "--location",
+    "--connect-timeout",
+    "15",
+    "--max-time",
+    "60 (45 on later attempts)",
+    "--max-filesize",
+    "8000000"
+  ],
+  "pdfs": [
+    {
+      "file": "literature/alikhanov-1404.5221v3.pdf",
+      "url": "https://arxiv.org/pdf/1404.5221v3",
+      "bytes": 231181,
+      "sha256": "653e814cf28ce5689e549937e4feb5702e8e91518c9c2f6877a76ee028dd3ded",
+      "text_sidecar": "literature/alikhanov-1404.5221v3.txt"
+    },
+    {
+      "file": "literature/liao-mclean-zhang-1803.09873v4.pdf",
+      "url": "https://arxiv.org/pdf/1803.09873v4",
+      "bytes": 375278,
+      "sha256": "2b97d5e12e00518642d120087034ef0f91244765b04b6c4eaf739ec63bc897fe",
+      "text_sidecar": "literature/liao-mclean-zhang-1803.09873v4.txt"
+    },
+    {
+      "file": "literature/liao-mclean-zhang-1803.09879.pdf",
+      "url": "https://arxiv.org/pdf/1803.09879",
+      "bytes": 471663,
+      "sha256": "f0290be49fbf7331822580a339fb6ead4e76adf0b290ab313962ce0136bf7ede",
+      "text_sidecar": "literature/liao-mclean-zhang-1803.09879.txt"
+    },
+    {
+      "file": "literature/dixon-mckee-1986.pdf",
+      "url": "https://www.numerical.rl.ac.uk/media/people/jennifer-scott/DixonMcKee1986_ZAMM.pdf",
+      "bytes": 636065,
+      "sha256": "64aa35d633bd1f77c8a3bdd58573a2e5f399aec7f0150f01408571396e0f9771",
+      "text_sidecar": "literature/dixon-mckee-1986.txt"
+    },
+    {
+      "file": "literature/sun-chang-2023.pdf",
+      "url": "https://www.aimspress.com/aimspress-data/nhm/2023/1/PDF/nhm-18-01-008.pdf",
+      "bytes": 862109,
+      "sha256": "6a3ef8db65cb4146148b8d640eb26ff91ba27a046adc19d365e461462085354f",
+      "text_sidecar": "literature/sun-chang-2023.txt"
+    },
+    {
+      "file": "literature/kalinin-2026.pdf",
+      "url": "https://link.springer.com/content/pdf/10.1186/s13660-026-03543-3.pdf",
+      "bytes": 1794530,
+      "sha256": "f4cca69a0c01094e03d4eb7d139c76e9d5042ac118b7dbab046c5dc7c3cf149a",
+      "text_sidecar": "literature/kalinin-2026.txt"
+    },
+    {
+      "file": "literature/kumar-sista-sreenadh-2111.06708v1.pdf",
+      "url": "https://arxiv.org/pdf/2111.06708v1",
+      "bytes": 705201,
+      "sha256": "987bad5c8ed25584de3dc39d2cf72410ae5add32c5313f6151c55cf3806de306",
+      "text_sidecar": "literature/kumar-sista-sreenadh-2111.06708v1.txt"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://arxiv.org/pdf/1803.09873v4",
+      "failure": "curl exit 6 in restricted sandbox; authorized escalation retry succeeded"
+    },
+    {
+      "url": "https://www.ams.org/journals/mcom/1982-38-157/S0025-5718-1982-0637287-3/S0025-5718-1982-0637287-3.pdf",
+      "failure": "curl exit 22, HTTP 403; web open also HTTP 403"
+    },
+    {
+      "url": "https://www.ams.org/mcom/1982-38-157/S0025-5718-1982-0637287-3/S0025-5718-1982-0637287-3.pdf",
+      "failure": "curl exit 22, HTTP 403"
+    },
+    {
+      "url": "https://doi.org/10.1108/EC-07-2024-0643",
+      "failure": "primary landing/full text inaccessible through web tool; not used for technical confirmation"
+    },
+    {
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D4B84BA2D0CFF988F6D72D4B9273A7BA/S0308210500018473a.pdf",
+      "failure": "full text unavailable; publisher abstract retained as citation only"
+    }
+  ],
+  "processing_notes": [
+    "pdftotext unavailable (exit 127); no installation attempted.",
+    "Existing host pypdf used for document navigation, not a numerical dependency. Initial extraction emitted missing-fontTools warnings; quiet extraction retained the PDF authority and no parser dependency was installed.",
+    "Unversioned 1803.09879 download identifies itself as v3 (22 November 2018).",
+    "The Dixon\u2013McKee scan has imperfect OCR; its text sidecar is not an equation authority.",
+    "Publisher abstract/preview comparisons and primary access limitations are documented in LITERATURE.md."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "rows": 156,
+  "atol": 5e-11,
+  "rtol": 2e-06,
+  "maximum_absolute_differences": {
+    "l2_max": 2.581864843448356e-15,
+    "h1_max": 5.535448401733367e-15,
+    "h1_final": 5.535448401733367e-15
+  },
+  "failures": [],
+  "scope": "Continuous norms only; no matching of timings, array layout or roundoff bit patterns."
+}

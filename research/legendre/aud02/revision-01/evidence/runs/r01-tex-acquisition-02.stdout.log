@@ -1,0 +1,17 @@
+note: Running TeX ...
+note: downloading SHA256SUM
+note: downloading lmroman17-regular.otf
+note: downloading lmroman12-regular.otf
+note: downloading cmr12.tfm
+note: downloading cmmi12.tfm
+note: downloading lmroman12-bold.otf
+note: Rerunning TeX because "tex-resource-fixture-02.out" changed ...
+note: Running xdvipdfmx ...
+note: downloading cmsy10.pfb
+note: downloading cmmi8.pfb
+note: downloading cmex10.pfb
+note: downloading cmsy8.pfb
+note: Writing `/var/tmp/tex-resource-fixture-02.out` (186 B)
+note: Writing `/var/tmp/tex-resource-fixture-02.aux` (777 B)
+note: Writing `/var/tmp/tex-resource-fixture-02.pdf` (24.14 KiB)
+note: Writing `/var/tmp/tex-resource-fixture-02.log` (14.52 KiB)

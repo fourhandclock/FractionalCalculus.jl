@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "manuscripts": [
+    {
+      "manuscript": "GR01_two_kernel_gronwall.tex",
+      "source_sha256": "a9d8b7a84de6aee9905c0d603bfc452c074a06ec4190e8a74d98b99a8c3e86c3",
+      "pdf_sha256": "81c0f99077c200ba7cad9f536f672ad976d958807d28f2157c1f2061eebbbc70",
+      "pages": 5,
+      "source_references": 5,
+      "source_citations": 3,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    },
+    {
+      "manuscript": "GR02_alikhanov_kernels.tex",
+      "source_sha256": "4bfa15baba9a4ffef8d996aacd8db13669161875fbabb293cd93be23d17a74d8",
+      "pdf_sha256": "d5dba1a77d5df87da2e00bc91e53b8c6f34a17980a02c7ea2bdc90b9e0b1374b",
+      "pages": 4,
+      "source_references": 0,
+      "source_citations": 1,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    },
+    {
+      "manuscript": "GR03_shifted_product_integration.tex",
+      "source_sha256": "07f942a2d6070bc5f49f320346c6a1ebb7b1d6c543b94265566d61b76596f732",
+      "pdf_sha256": "99e559f3ea2068dacf9b3f3cd47597622a8d60ed7e890f189241249af0315488",
+      "pages": 5,
+      "source_references": 0,
+      "source_citations": 0,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    },
+    {
+      "manuscript": "GR04_discrete_two_kernel_gronwall.tex",
+      "source_sha256": "28931978a57e421876e39d5aa51fff63f3610cf6d94312636ef48eeb8e6779cc",
+      "pdf_sha256": "472dc1746cd921b6fcfa8360a34f1b1c3f7fabfbbb40c683ec64c0e0d90a34a6",
+      "pages": 5,
+      "source_references": 16,
+      "source_citations": 4,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    },
+    {
+      "manuscript": "GR05_main_convergence.tex",
+      "source_sha256": "434483cab8a7ebfbc6f14e7eaeefb18a3d86a8e1780ffdb3bb5302c18f76a5df",
+      "pdf_sha256": "7a00c144edd71f6fd2793a2b7d76f45b857823d7433a0518460b30120780d3da",
+      "pages": 6,
+      "source_references": 17,
+      "source_citations": 1,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    },
+    {
+      "manuscript": "GR06_graded_convergence.tex",
+      "source_sha256": "a422873375fa1edb79d476cb67ddd358be2b788ecc84ebfd87322bf9696ce735",
+      "pdf_sha256": "d42c2cb64dac3637d84f9df2b020857aa0cf9febffac15b2f49aff2c5c67bbe8",
+      "pages": 5,
+      "source_references": 0,
+      "source_citations": 2,
+      "undefined_references": 0,
+      "missing_citations": 0,
+      "tex_warnings": [],
+      "offline": true,
+      "visually_inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visual_findings": "Legible equations, tables, headings and bibliography; no clipping, overlaps or layout defects found",
+      "stderr_qualification": "Existing host Fontconfig configuration warnings only; global configuration preserved"
+    }
+  ],
+  "total_pages": 30,
+  "visual_review": "All 30 pages viewed as contact sheets; renders retained in bounded-run scratch and identified by pdf-render-record.json"
+}

@@ -1,0 +1,69 @@
+"""AUD-02 controller; reuses the approved GR-07 bounded serial policy.
+
+No package acquisition. Every payload sees inputs read-only and only its own
+scratch writable. Per-process limits and sampled RSS are not cgroup isolation.
+"""
+from pathlib import Path
+import hashlib,json,os,subprocess,sys,shutil
+
+REVIEW=Path(__file__).resolve().parents[1]
+ROOT=REVIEW.parents[3]
+ORIGINAL=ROOT.parents[1]/'aud02-2026-11-26/workspace'
+STUDY=ROOT/'studies/legendre/gr07'
+EVIDENCE=REVIEW/'evidence/runs'
+RUNNER=ROOT/'research/legendre/verification/scripts/run_bounded.py'
+ISOLATE=STUDY/'scripts/isolate.py'
+PYTHON=ROOT/'.checkpoint-tools/python-aud01/bin/python'
+JULIA=ROOT/'.checkpoint-tools/julia-1.12.6/bin/julia'
+LEAN=ROOT/'.checkpoint-tools/lean-4.19.0-linux/bin/lean'
+
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+
+def check_preserved():
+    manifest=json.loads((REVIEW/'evidence/input-manifest.json').read_text())
+    for base in [ROOT,ORIGINAL]:
+        allowed={'.gitignore','README.md','studies/legendre/README.md','research/legendre/verification/README.md','research/legendre/verification/lean/lakefile.toml'} if base==ROOT else set()
+        bad=[n for n,item in manifest['files'].items() if n not in allowed and (not (base/n).is_file() or sha(base/n)!=item['sha256'])]
+        assert not bad,('sealed source/evidence drift',str(base),len(bad),bad[:10])
+
+def survivors(identity):
+    result=[]
+    for p in Path('/proc').glob('[0-9]*/ns/pid'):
+        try:
+            if os.readlink(p)==identity:result.append(int(p.parents[1].name))
+        except OSError:pass
+    return result
+
+def run(label,command,*,wall=300,cpu=240,memory=8192,rss=2048,sources=(),extra_env=None,require_success=True,latex_cache=False):
+    check_preserved()
+    scratch=ROOT/'.checkpoint-tools/runs'/label
+    scratch.mkdir(parents=True,exist_ok=False)
+    for p in ['tmp','cache','depot']:(scratch/p).mkdir()
+    if latex_cache:shutil.copytree(ROOT/'.checkpoint-tools/tex-cache/Tectonic',scratch/'cache/Tectonic')
+    wrapper=scratch/'payload.py'
+    wrapper.write_text('import os,json,sys\nfrom pathlib import Path\nPath("/var/tmp/namespace.json").write_text(json.dumps({"pid_namespace":os.readlink("/proc/self/ns/pid")}))\nos.execv(sys.argv[1],sys.argv[1:])\n')
+    env=dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',JULIA_NUM_THREADS='1',
+        JULIA_NUM_PRECOMPILE_TASKS='1',JULIA_PKG_OFFLINE='true',JULIA_PKG_SERVER='',
+        JULIA_LOAD_PATH='@:@stdlib',JULIA_DEPOT_PATH='/var/tmp/depot:'+str(ROOT/'.checkpoint-tools/shared-julia-depot'),
+        PYTHONNOUSERSITE='1',PYTHONDONTWRITEBYTECODE='1')
+    env.pop('PYTHONPATH',None)
+    env.update(extra_env or {})
+    args=['python3','-B',str(RUNNER),'--label',label,'--timeout',str(wall),'--cpu-seconds',str(cpu),
+        '--memory-mib',str(memory),'--resident-mib',str(rss),'--evidence',str(EVIDENCE)]
+    for p in [ISOLATE,Path(__file__),wrapper,*sources]:args+=['--source',str(Path(p).resolve())]
+    args+=['--',sys.executable,'-B',str(ISOLATE),str(scratch),'/usr/bin/python3','-B','/var/tmp/payload.py',*map(str,command)]
+    subprocess.run(args,env=env,timeout=wall+30,check=False)
+    record=json.loads((EVIDENCE/(label+'.json')).read_text())
+    ident=scratch/'namespace.json'
+    remaining=survivors(json.loads(ident.read_text())['pid_namespace']) if ident.exists() else []
+    cleanup={'namespace_started':ident.exists(),'surviving_namespace_pids':remaining,
+        'namespace_cleanup_verified':ident.exists() and not remaining,
+        'scope':'PID namespace cleanup; per-process limits and sampled descendant RSS, no aggregate cgroup isolation.'}
+    (EVIDENCE/(label+'.namespace.json')).write_text(json.dumps(cleanup,indent=2)+'\n')
+    check_preserved()
+    assert cleanup['namespace_cleanup_verified'],cleanup
+    if require_success:assert record['returncode']==0,('failed attempt retained',label,record['returncode'])
+    return scratch,record
+
+def julia(script,*args):
+    return [JULIA,'--startup-file=no','--heap-size-hint=512M','--gcthreads=1','--project='+str(ROOT),script,*args]
